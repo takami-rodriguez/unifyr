@@ -1,0 +1,35 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[features]
+production = []
+staging = []
+
+[dependencies]
+fastly = "0.11"
+ring = "0.17"
+time = { version = "0.3", features = [ "formatting", "macros" ] }
+percent-encoding = "2.3"
+hex = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+lol_html = "2.0"
+
+[build-dependencies]
+walkdir = "2"
+html5ever = "0.29"
+markup5ever_rcdom = "0.5.0-unofficial"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["rt", "time", "macros"] }
+
+[[bin]]
+name = "main"
+path = "src/main.rs"
