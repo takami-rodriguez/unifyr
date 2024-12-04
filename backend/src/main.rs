@@ -86,6 +86,10 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
             })
             .with_after_send(|resp| {
                 filter_headers(resp);
+
+                #[cfg(not(feature = "production"))]
+                resp.set_header("x-robots-tag", "noindex");
+
                 Ok(())
             })
             .send(BACKEND)?;
