@@ -126,7 +126,7 @@
               "--legacy-peer-deps"
             ];
             installPhase = ''
-              cp -r dist $out
+              cp -r out $out
             '';
           };
       in
