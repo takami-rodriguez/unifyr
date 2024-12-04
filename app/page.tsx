@@ -1,4 +1,9 @@
+import { PageConfig } from "next";
 import Image from "next/image";
+
+export const config: PageConfig = {
+  unstable_runtimeJS: false,
+};
 
 export default function Home() {
   return (
