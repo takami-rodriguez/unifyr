@@ -117,7 +117,7 @@
           pkgs.buildNpmPackage {
             name = "web";
             src = pkgs.lib.cleanSource ./.;
-            nodejs = pkgs.nodePackages_latest.nodejs;
+            nodejs = pkgs.nodePackages.nodejs;
             npmConfigHook = pkgs.importNpmLock.npmConfigHook;
             npmDeps = pkgs.importNpmLock {
               npmRoot = ./.;
@@ -149,8 +149,8 @@
           checks = self.checks.${system};
 
           packages = with pkgs; [
-            nodePackages_latest.nodejs
-            nodePackages_latest.vscode-langservers-extracted
+            nodePackages.nodejs
+            nodePackages.vscode-langservers-extracted
             typescript-language-server
             tailwindcss-language-server
           ];
