@@ -115,6 +115,7 @@
         mkFrontend =
           name: env:
           pkgs.buildNpmPackage {
+            inherit env;
             name = "web";
             src = pkgs.lib.cleanSource ./.;
             nodejs = pkgs.nodePackages.nodejs;
