@@ -141,20 +141,41 @@
           backend = mkBackend name env;
         }) deployments;
 
-        devShells.default = craneLib.devShell {
-          env = deployments.staging // {
-            # rust-analyzer complains if it can't find a compile-time env var
-            FRONTEND = "/dev/null";
+        apps = pkgs.lib.mapAttrs (
+          name: env:
+          let
+            aws = pkgs.lib.getExe pkgs.awscli2;
+            fastly = pkgs.lib.getExe pkgs.fastly;
+
+            frontend = self.legacyPackages.${system}.${name}.frontend;
+            backend = self.legacyPackages.${system}.${name}.backend;
+            script = pkgs.writeShellScriptBin "deploy-${name}" ''
+              ${aws} s3 sync ${frontend} s3://${env.AWS_BUCKET} --delete
+              ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
+            '';
+          in
+          {
+            type = "app";
+            program = pkgs.lib.getExe script;
+          }
+        ) deployments;
+
+        devShells = {
+          default = craneLib.devShell {
+            env = deployments.staging // {
+              # rust-analyzer complains if it can't find a compile-time env var
+              FRONTEND = "/dev/null";
+            };
+
+            checks = self.checks.${system};
+
+            packages = with pkgs; [
+              nodePackages.nodejs
+              nodePackages.vscode-langservers-extracted
+              typescript-language-server
+              tailwindcss-language-server
+            ];
           };
-
-          checks = self.checks.${system};
-
-          packages = with pkgs; [
-            nodePackages.nodejs
-            nodePackages.vscode-langservers-extracted
-            typescript-language-server
-            tailwindcss-language-server
-          ];
         };
       }
     );

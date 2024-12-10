@@ -62,13 +62,14 @@ pub(super) fn authorize(req: &mut Request, cfg: &S3Config) {
     let x_amz_content_256 = EMPTY_HASH;
     let amz_date = time::OffsetDateTime::now_utc().format(FORMAT).unwrap();
 
-    let path = format!("/{}{}", AWS_BUCKET, req.get_path());
+    // let path = format!("/{}{}", AWS_BUCKET, req.get_path());
+    let path = req.get_path();
     let path_decoded = percent_encoding::percent_decode_str(&path).decode_utf8_lossy();
     let canonical_url = percent_encoding::utf8_percent_encode(&path_decoded, ENCODE).to_string();
 
     let canonical_headers = format!(
         "host:{}\nx-amz-content-sha256:{}\nx-amz-date:{}\n",
-        AWS_HOST, x_amz_content_256, service
+        AWS_HOST, x_amz_content_256, amz_date
     );
 
     let signed_headers = "host;x-amz-content-sha256;x-amz-date";
