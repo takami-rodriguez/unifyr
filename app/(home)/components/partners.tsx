@@ -19,7 +19,6 @@ const Partners = () => {
       </div>
       <div
         className=" lg:py-12 py-8 mt-1  "
-        // style={{ background: " var(--grey, #5D5DC5)", mixBlendMode: "lighten" }}
       >
         <Carousel orientation={"horizontal"} opts={{ loop: true }}>
           <CarouselContent>

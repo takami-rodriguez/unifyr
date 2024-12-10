@@ -2,6 +2,8 @@ import { fetchAllArticles, fetchResourcesPageData } from "@/queries/resources";
 import React, { Suspense } from "react";
 import FeaturedArticle from "./components/featuredArticle";
 import ListArticles from "./components/listArticles";
+
+// TODO - add back SEO data once content agreed
 // import Banner from "@/components/banner";
 // import { ResolvingMetadata, Metadata } from "next";
 // import { PageProps } from "@/types/page";
