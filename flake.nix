@@ -152,6 +152,7 @@
             script = pkgs.writeShellScriptBin "deploy-${name}" ''
               ${aws} s3 sync ${frontend} s3://${env.AWS_BUCKET} --delete
               ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
+              ${fastly} purge -s ${env.SERVICE_ID} --all
             '';
           in
           {
