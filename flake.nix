@@ -37,7 +37,7 @@
 
           staging = rec {
             URL = "https://staging.unifyr.com";
-            SERVICE_ID = "";
+            SERVICE_ID = "hbzrZiVNwT7VqFzAWyc1h4";
             AWS_BUCKET = "unifyr-usa-staging-bucket";
             AWS_REGION = "us-east-1";
             AWS_HOST = "${AWS_BUCKET}.s3.${AWS_REGION}.amazonaws.com";
