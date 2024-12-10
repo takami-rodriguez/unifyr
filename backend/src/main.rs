@@ -77,6 +77,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
 
         let path = req.get_path();
         let mut bereq = req.clone_without_body();
+        bereq.remove_query();
         f(&mut bereq, path);
 
         let response = bereq
