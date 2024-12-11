@@ -1,0 +1,15 @@
+image: nixos/nix:latest
+
+variables:
+  NIX_CONFIG: "experimental-features = nix-command flakes"
+
+deploy:
+  script:
+    - nix run .#$APP_NAME
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+      variables:
+        APP_NAME: "production"
+    - if: $CI_COMMIT_BRANCH == "staging"
+      variables:
+        APP_NAME: "staging"
