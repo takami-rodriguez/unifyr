@@ -77,20 +77,19 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
 
         let path = req.get_path();
         let mut bereq = req.clone_without_body();
-        bereq.remove_query();
+
+        normalize_request(&mut bereq);
+
         f(&mut bereq, path);
 
         let response = bereq
             .with_before_send(|req| {
                 s3::authorize(req, &CONFIG);
+                req.set_auto_decompress_gzip(true);
                 Ok(())
             })
             .with_after_send(|resp| {
-                filter_headers(resp);
-
-                #[cfg(not(feature = "production"))]
-                resp.set_header("x-robots-tag", "noindex");
-
+                finalize_headers(resp);
                 Ok(())
             })
             .send(BACKEND)?;
@@ -124,7 +123,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
     }
 }
 
-fn filter_headers(resp: &mut CandidateResponse) {
+fn finalize_headers(resp: &mut CandidateResponse) {
     const ALLOWED_HEADERS: &[HeaderName] = &[
         header::AGE,
         header::CACHE_CONTROL,
@@ -148,9 +147,47 @@ fn filter_headers(resp: &mut CandidateResponse) {
 
     resp.set_header("x-compress-hint", "on");
 
+    #[cfg(not(feature = "production"))]
+    resp.set_header("x-robots-tag", "noindex");
+
     if let Some(mime) = resp.get_content_type() {
         if mime.essence_str() == "text/html" {
             resp.set_header(header::ALT_SVC, "h3=\":443\"; ma=2592000; persist=1");
         }
     }
+}
+
+fn normalize_request(req: &mut Request) {
+    #[inline]
+    fn norm_accept<'a>(input: &str, accept: &[&'a str], def: &'a str) -> &'a str {
+        accept
+            .iter()
+            .find(|&val| input.contains(val))
+            .unwrap_or(&def)
+    }
+
+    let enc_accept = vec!["br", "gzip"];
+    let enc_def = "identity";
+    let enc_norm = norm_accept(
+        req.get_header_str(header::ACCEPT_ENCODING).unwrap_or(""),
+        &enc_accept,
+        enc_def,
+    );
+
+    let charset_accept = vec!["iso-8859-5", "iso-8859-2", "utf-8"];
+    let charset_def = "utf-8";
+    let charset_norm = norm_accept(
+        req.get_header_str(header::ACCEPT_CHARSET).unwrap_or(""),
+        &charset_accept,
+        charset_def,
+    );
+
+    req.remove_query();
+
+    req.remove_header(header::ACCEPT_LANGUAGE);
+    req.remove_header(header::COOKIE);
+    req.remove_header(header::USER_AGENT);
+    req.remove_header(header::REFERER);
+    req.set_header(header::ACCEPT_ENCODING, enc_norm);
+    req.set_header(header::ACCEPT_CHARSET, charset_norm);
 }
