@@ -3,6 +3,13 @@ image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/nixos/nix:latest
 variables:
   NIX_CONFIG: "experimental-features = nix-command flakes"
 
+cache:
+  key: nix-store-${CI_COMMIT_REF_SLUG}
+  paths:
+    - /nix/store
+    - /nix/var/nix/db
+  policy: pull-push
+
 deploy:
   script:
     - nix run .#$APP_NAME
