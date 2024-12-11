@@ -4,8 +4,7 @@ mod forms;
 mod s3;
 
 use fastly::{
-    http::{header, CandidateResponse, HeaderName, Method, StatusCode},
-    Request, Response,
+    http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode}, mime, Request, Response
 };
 use s3::S3Config;
 use std::{error::Error, sync::LazyLock};
@@ -69,10 +68,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         return Ok(Response::redirect(req.get_url()));
     }
 
-    fn call_backend(
-        req: &Request,
-        f: fn(&mut Request, path: &str),
-    ) -> Result<Response, Box<dyn Error>> {
+    fn call_backend(req: &Request, f: fn(&mut Request, path: &str)) -> Result<Response, SendError> {
         static CONFIG: LazyLock<S3Config> = LazyLock::new(|| S3Config::load());
 
         let path = req.get_path();
@@ -89,7 +85,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
                 Ok(())
             })
             .with_after_send(|resp| {
-                finalize_headers(resp);
+                finalize_headers(resp, path);
                 Ok(())
             })
             .send(BACKEND)?;
@@ -123,7 +119,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
     }
 }
 
-fn finalize_headers(resp: &mut CandidateResponse) {
+fn finalize_headers(resp: &mut CandidateResponse, path: &str) {
     const ALLOWED_HEADERS: &[HeaderName] = &[
         header::AGE,
         header::CACHE_CONTROL,
@@ -153,6 +149,15 @@ fn finalize_headers(resp: &mut CandidateResponse) {
     if let Some(mime) = resp.get_content_type() {
         if mime.essence_str() == "text/html" {
             resp.set_header(header::ALT_SVC, "h3=\":443\"; ma=2592000; persist=1");
+
+            // For HTML, do not cache on the client
+            resp.set_header(header::CACHE_CONTROL, "no-store, must-revalidate");
+        } else if mime.type_() == mime::IMAGE && !path.starts_with("/_next/") {
+            // For images without hashes, cache temporarily
+            resp.set_header(header::CACHE_CONTROL, "public, max-age=86400");
+        } else {
+            // For all other content, cache for a long time
+            resp.set_header(header::CACHE_CONTROL, "public, max-age=31536000, immutable");
         }
     }
 }
@@ -174,7 +179,7 @@ fn normalize_request(req: &mut Request) {
         enc_def,
     );
 
-    let charset_accept = vec!["iso-8859-5", "iso-8859-2", "utf-8"];
+    let charset_accept = vec!["utf-8", "iso-8859-2", "iso-8859-5"];
     let charset_def = "utf-8";
     let charset_norm = norm_accept(
         req.get_header_str(header::ACCEPT_CHARSET).unwrap_or(""),
