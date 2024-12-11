@@ -4,7 +4,8 @@ mod forms;
 mod s3;
 
 use fastly::{
-    http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode}, mime, Request, Response
+    http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode},
+    mime, Request, Response,
 };
 use s3::S3Config;
 use std::{error::Error, sync::LazyLock};
@@ -78,14 +79,17 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
 
         f(&mut bereq, path);
 
+        // Response handler needs to know this for caching behavior
+        let is_hashed = path.starts_with("/_next/");
+
         let response = bereq
             .with_before_send(|req| {
                 s3::authorize(req, &CONFIG);
                 req.set_auto_decompress_gzip(true);
                 Ok(())
             })
-            .with_after_send(|resp| {
-                finalize_headers(resp, path);
+            .with_after_send(move |resp| {
+                finalize_headers(resp, is_hashed);
                 Ok(())
             })
             .send(BACKEND)?;
@@ -119,7 +123,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
     }
 }
 
-fn finalize_headers(resp: &mut CandidateResponse, path: &str) {
+fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
     const ALLOWED_HEADERS: &[HeaderName] = &[
         header::AGE,
         header::CACHE_CONTROL,
@@ -152,7 +156,7 @@ fn finalize_headers(resp: &mut CandidateResponse, path: &str) {
 
             // For HTML, do not cache on the client
             resp.set_header(header::CACHE_CONTROL, "no-store, must-revalidate");
-        } else if mime.type_() == mime::IMAGE && !path.starts_with("/_next/") {
+        } else if mime.type_() == mime::IMAGE && !is_hashed {
             // For images without hashes, cache temporarily
             resp.set_header(header::CACHE_CONTROL, "public, max-age=86400");
         } else {
