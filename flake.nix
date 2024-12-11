@@ -117,7 +117,15 @@
           pkgs.buildNpmPackage {
             inherit env;
             name = "web";
-            src = pkgs.lib.cleanSource ./.;
+            src = pkgs.lib.cleanSourceWith {
+              src = ./.;
+              filter =
+                path: type:
+                let
+                  baseName = baseNameOf (toString path);
+                in
+                !(baseName == "out" || baseName == ".next") && (pkgs.lib.cleanSourceFilter path type);
+            };
             nodejs = pkgs.nodePackages.nodejs;
             npmConfigHook = pkgs.importNpmLock.npmConfigHook;
             npmDeps = pkgs.importNpmLock {
