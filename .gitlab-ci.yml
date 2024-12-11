@@ -4,7 +4,7 @@ variables:
   NIX_CONFIG: "experimental-features = nix-command flakes"
 
 cache:
-  key: nix-store
+  key: nix-store-${CI_COMMIT_REF_SLUG}
   paths:
     - /nix/store
     - /nix/var/nix/db
