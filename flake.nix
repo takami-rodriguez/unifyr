@@ -36,7 +36,7 @@
           };
 
           staging = rec {
-            URL = "https://staging.unifyr.com";
+            URL = "https://next.staging.unifyr.com";
             SERVICE_ID = "hbzrZiVNwT7VqFzAWyc1h4";
             AWS_BUCKET = "unifyr-usa-staging-bucket";
             AWS_REGION = "us-east-1";
