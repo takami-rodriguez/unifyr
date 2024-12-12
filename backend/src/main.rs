@@ -8,25 +8,19 @@ use fastly::{
     mime, Request, Response,
 };
 use s3::S3Config;
-use std::{error::Error, sync::LazyLock};
+use std::{error::Error, sync::LazyLock, time::Duration};
 
 const BACKEND: &str = "s3";
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let mut req = fastly::Request::from_client();
+    let req = fastly::Request::from_client();
 
     match *req.get_method() {
         Method::GET => {
-            req.set_ttl(31536000); // 1 year
-            req.set_stale_while_revalidate(86400); // 1 day
-
             let response = retrieve(req)?;
             response.send_to_client();
         }
         Method::HEAD => {
-            req.set_ttl(31536000); // 1 year
-            req.set_stale_while_revalidate(86400); // 1 day
-
             let response = retrieve(req)?;
             response.clone_without_body().send_to_client();
         }
@@ -73,14 +67,13 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         static CONFIG: LazyLock<S3Config> = LazyLock::new(|| S3Config::load());
 
         let path = req.get_path();
+        // Response handler needs to know this for caching behavior
+        let is_hashed = path.starts_with("/_next/");
+
         let mut bereq = req.clone_without_body();
 
         normalize_request(&mut bereq);
-
         f(&mut bereq, path);
-
-        // Response handler needs to know this for caching behavior
-        let is_hashed = path.starts_with("/_next/");
 
         let response = bereq
             .with_before_send(|req| {
@@ -90,6 +83,11 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
             })
             .with_after_send(move |resp| {
                 finalize_headers(resp, is_hashed);
+
+                resp.set_surrogate_keys(["all"]);
+                resp.set_ttl(Duration::from_secs(31_536_000)); // surrogate; 1 year
+                resp.set_stale_while_revalidate(Duration::from_secs(86_400)); // 1 day
+
                 Ok(())
             })
             .send(BACKEND)?;
