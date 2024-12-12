@@ -12,13 +12,16 @@ export default {
         heading: ["var(--font-heading)"],
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
       },
+      lineHeight: {
+        '14': '4rem',
+      },
       colors: {
         primary: "#5555FF",
         secondary: "#1F4498",
         accent: "#FCAF3B",
         black: "#123032",
         pink: "#D70E86",
-        navy: "#253A8A",
+        navy: "#703B96",
         grey: {
           "100": "#FAFAFF",
           "300": "#E0E0FF",

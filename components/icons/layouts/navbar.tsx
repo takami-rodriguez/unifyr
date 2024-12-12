@@ -1,5 +1,5 @@
 import Logo from "./logo";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { NavLink, navLinks } from "@/data/navLinks";
 import Link from "next/link";
 
@@ -14,7 +14,7 @@ export default function Navbar() {
           {navLinks.map((l) => (
             <li
               key={l.label + "navlink"}
-              className="font-normal text-lg group relative"
+              className="font-semibold text-lg group relativ leading-6 text-grey-900"
             >
               <Link href={l.href} className="py-2 block">
                 {l.label}
@@ -23,7 +23,9 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <Button variant={"primary"}>Primary action</Button>
+        <Button variant={"primary"}>
+          <div className="w-[124px]">Book a call</div>
+        </Button>
       </div>
     </nav>
   );

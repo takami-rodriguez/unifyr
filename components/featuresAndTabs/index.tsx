@@ -1,7 +1,9 @@
 import { Diamond, RefreshCw, Target } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "../ui/aspect-ratio";
+import Link from "next/link";
+import Arrow from "../icons/arrow";
 export default function FeaturesAndTabs() {
   return (
     <div className="px-5">
@@ -25,14 +27,13 @@ export default function FeaturesAndTabs() {
         </div>
         <div className="container mx-auto px-24 py-12">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
-            <div className="space-y-6 max-w-md pt-8">
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl font-heading">
-                Lorem ipsum
-              </h1>
+            <div className="space-y-6 max-w-lg pt-8">
+              <h4 className="text-4xl font-bold sm:text-5xl leading-14 ">
+                The industry-leading PRM & TCMA platform
+              </h4>
               <p className="text-gray-900/80 font-light text-xl">
-                Praesent placerat ipsum nec mi maximus, vel cursus mauris
-                cursus. Vivamus cursus ante eget orci egestas malesuada. Praese
-                placerat ipsum nec mi maximus, vel cursui mauris cursus.
+                ZiftONE is the most advanced PRM solution with key integrations
+                into the platforms you already use. 
               </p>
             </div>
             <div className="flex items-center justify-center rounded-2xl border-2 border-white">
@@ -49,33 +50,43 @@ export default function FeaturesAndTabs() {
           <div className="mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
             <div className="space-y-4">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
-                <Target/>
+                <Target />
               </div>
-              <h2 className="text-xl font-semibold">Feature one</h2>
+              <h2 className="text-xl font-semibold">Partner portal</h2>
               <p className="text-gray-600">
-                Praesent placerat ipsum nec mi maximus, vel cursus mauris
-                cursus. Vivamus cursus ante eget orci egestas malesuada.
+                Build an experience for your partners that encourages commitment
+                and mutual growth.
               </p>
+              <Link href="#">
+                Learn more <Arrow />
+              </Link>
             </div>
             <div className="space-y-4">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
                 <RefreshCw className="h-6 w-6 text-indigo-600" />
               </div>
-              <h2 className="text-xl font-semibold">Feature two</h2>
+              <h2 className="text-xl font-semibold">Integrations</h2>
               <p className="text-gray-600">
-                Praesent placerat ipsum nec mi maximus, vel cursus mauris
-                cursus. Vivamus cursus ante eget orci egestas malesuada.
+                Connect seamlessly with your existing tools to ensure channel
+                operations remain perfectly synchronized.
               </p>
+              <Link href="#">
+                Learn more <Arrow />
+              </Link>
             </div>
             <div className="space-y-4">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
                 <Diamond className="h-6 w-6 text-indigo-600" />
               </div>
-              <h2 className="text-xl font-semibold">Feature three</h2>
+              <h2 className="text-xl font-semibold">Analytics</h2>
               <p className="text-gray-600">
-                Praesent placerat ipsum nec mi maximus, vel cursus mauris
-                cursus. Vivamus cursus ante eget orci egestas malesuada.
+                Transform data into actionable intelligence through
+                visualizations that highlight partner performance both
+                individually and holistically.
               </p>
+              <Link href="#"> 
+                Learn more <Arrow />
+              </Link>
             </div>
           </div>
         </div>

@@ -39,40 +39,37 @@ const FeaturesAccordionSection = ({ blok }: FeaturesAccordionSectionProps) => {
   );
 
   return (
-    <div className="max-w-7xl mx-auto space-y-10">
-      <div className="mt-20 space-y-10 flex flex-col items-center">
-        <h3 className=" text-5xl font-bold text-center">
-          {blok.mainTitle}
-        </h3>
-        <div className="flex justify-center w-full max-w-xl mx-auto text-center ">
-          <span className={cn("px-4 py-1  text-xl font-sans font-light text-grey-900")}>
+    <div className="max-w-7xl mx-auto space-y-14">
+      <div className="mt-20 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
+        <h3 className=" text-5xl font-bold text-center">{blok.mainTitle}</h3>
+        <div className=" max-w-xl mx-auto text-center ">
+          <span className={cn("text-xl font-sans font-light text-grey-900")}>
             {blok.para}
           </span>
         </div>
-        <Button variant="secondary">Primary Action</Button>
+        <div className="pt-6">
+          <Button variant="secondary">Discover ZiftONE</Button>
+        </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-7  ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
         <div
           className={cn(
-            "hidden lg:block col-span-1 lg:col-span-4 relative h-full w-full ",
+            "hidden lg:block col-span-1  relative h-full w-full ",
             {
               "lg:order-last": !blok.leftImage,
             }
           )}
         >
-          <AspectRatio ratio={16 / 9} className="relative">
+          <AspectRatio ratio={5 / 4} className="relative rounded-2xl overflow-hidden">
             <Image
               src={selected!.image.url}
               alt={selected!.image.alt || ""}
               fill
-              className={cn("object-contain object-center", {
-                "pl-8": !blok.leftImage,
-                "pr-8": blok.leftImage,
-              })}
+              className={cn("object-cover object-center rounded-2xl")}
             />
           </AspectRatio>
         </div>
-        <div className="col-span-1 lg:col-span-3 flex flex-col justify-center h-full lg:py-30 ">
+        <div className="col-span-1 flex flex-col justify-center h-full lg:py-30 ">
           <Accordion
             type="single"
             defaultValue={selectedId}
@@ -82,7 +79,8 @@ const FeaturesAccordionSection = ({ blok }: FeaturesAccordionSectionProps) => {
               <AccordionItem
                 key={feature._uid}
                 className={cn("", {
-                  ["border-l-[3px] border-secondary"]: selectedId === feature._uid,
+                  ["border-l-[3px] border-secondary"]:
+                    selectedId === feature._uid,
                   "border-l border-grey": selectedId !== feature._uid,
                 })}
                 value={feature._uid}

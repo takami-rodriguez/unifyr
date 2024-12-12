@@ -5,25 +5,19 @@ export default function CaseStudy() {
   return (
     <div className=" mx-auto  py-12 max-w-7xl space-y-20">
       {/* Testimonial Section */}
-      <section className="text-center space-y-6">
-        <blockquote className="text-4xl font-heading max-w-2xl mx-auto">
-          {"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+      <section className="text-center space-y-8">
+        <blockquote className="text-4xl font-heading max-w-3xl mx-auto">
+          {"“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"}
         </blockquote>
-        <div className="flex flex-col items-center gap-2">
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-purple-100">
+        <div className="flex flex-col items-center gap-3">
             <Image
-              src="/images/author2.jpeg"
-              alt="Profile"
-              width={48}
-              height={48}
-              className="object-cover object-center rounded-full"
+              src="/images/partners/Panasonic.svg"
+              alt="Panasonic"
+              width={251}
+              height={40}
             />
-          </div>
-          <div className="text-sm">
-            <p className="font-medium">Jennifer Briggs</p>
-            <p className="text-muted-foreground">
-              Chief Revenue Officer, Oracle
-            </p>
+          <div className="text-lg">
+            <p className="">Chief Revenue Officer, Panasonic Connect</p>
           </div>
         </div>
       </section>

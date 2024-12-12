@@ -10,15 +10,14 @@ const Hero = () => {
         <span className="text-pink">Growth</span> happens in <br />
         good company.
       </h1>
-      <p className=" text-lg max-w-xl mx-auto mt-8 text-center font-extralight leading-8">
-        Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus.
-        Vivamus cursus ante eget orci egestas malesuada.
+      <p className=" text-lg max-w-2xl mx-auto mt-8 text-center font-extralight leading-8">
+        Unifyr provides everything you need to build <span className="font-medium">profitable </span> channel
+        partnerships. <br/> Our platform merges a vibrant network of partners and
+        agencies with <br/> industry-leading PRM and TCMA capabilities.
       </p>
       <div className="flex items-center justify-center space-x-[10px] mt-8">
-        <Button variant={"primary"}>Primary action</Button>
-        <Button variant="outline" >
-          Secondary action
-        </Button>
+        <Button variant={"primary"}><div className="w-[124px]">Book a call</div></Button>
+        <Button variant="outline">Discover ZiftONE</Button>
       </div>
       <div className="max-w-7xl my-12 mx-auto px-32">
         <AspectRatio className="relative" ratio={16 / 9}>
@@ -33,7 +32,7 @@ const Hero = () => {
 
       <div className="flex justify-center items-end space-x-6">
         <Image src="/images/google.png" alt="hero" width={211} height={40} />
-        <div className="text-3xl">3,000+ G2 Reviews</div>
+        <div className="text-3xl font-medium">450+ G2 Reviews</div>
       </div>
     </div>
   );
