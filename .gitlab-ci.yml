@@ -2,10 +2,22 @@ image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/nixos/nix:latest
 
 variables:
   NIX_CONFIG: "experimental-features = nix-command flakes"
+  CACHE_DIR: "$CI_PROJECT_DIR/.nix_cache"
 
 deploy:
+  before_script: |
+    if [ -d "$CACHE_DIR" ]; then
+      nix copy --all --no-check-sigs --from $CACHE_DIR
+      rm -r $CACHE_DIR
+    fi
   script:
     - nix run .#$APP_NAME
+  after_script:
+    - |
+      nix copy --no-check-sigs --to local?root=$CACHE_DIR \
+        .#staging.frontend.npmDeps \
+        .#staging.backend.cargoArtifacts \
+        .#staging.backend.cargoVendorDir
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       variables:
@@ -13,3 +25,8 @@ deploy:
     - if: $CI_COMMIT_BRANCH == "staging"
       variables:
         APP_NAME: "staging"
+  cache:
+    key: $CI_COMMIT_BRANCH
+    paths:
+      - .nix_cache
+    policy: pull-push

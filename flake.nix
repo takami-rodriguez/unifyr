@@ -44,21 +44,21 @@
           };
         };
 
-        craneLib = (crane.mkLib pkgs).overrideToolchain (
-          p:
-          p.rust-bin.selectLatestNightlyWith (
-            tc:
-            tc.default.override {
-              extensions = [
-                "rust-analyzer"
-                "rust-src"
-              ];
-              targets = [
-                "wasm32-wasip1"
-              ];
-            }
-          )
+        target = "wasm32-wasip1";
+
+        mkToolchain = p: p.rust-bin.selectLatestNightlyWith (t:
+          t.default.override {
+            targets = [ target ];
+          }
         );
+        mkDevToolchain = p: p.rust-bin.selectLatestNightlyWith (t:
+          t.default.override {
+            extensions = [ "rust-src" "rust-analyzer" ];
+            targets = [ target ];
+          }
+        );
+        craneLib = (crane.mkLib pkgs).overrideToolchain mkToolchain;
+        devCraneLib = (crane.mkLib pkgs).overrideToolchain mkDevToolchain;
 
         stdenv = with pkgs; (overrideCC pkgs.stdenv (wrapClangMulti llvmPackages_19.clang));
 
@@ -160,7 +160,7 @@
             script = pkgs.writeShellScriptBin "deploy-${name}" ''
               ${aws} s3 sync ${frontend} s3://${env.AWS_BUCKET} --delete
               ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
-              ${fastly} purge -s ${env.SERVICE_ID} --soft --key all
+              ${fastly} purge -s ${env.SERVICE_ID} --all
             '';
           in
           {
@@ -170,7 +170,7 @@
         ) deployments;
 
         devShells = {
-          default = craneLib.devShell {
+          default = devCraneLib.devShell {
             env = deployments.staging // {
               # rust-analyzer complains if it can't find a compile-time env var
               FRONTEND = "/dev/null";
