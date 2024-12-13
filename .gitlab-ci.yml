@@ -15,9 +15,9 @@ deploy:
   after_script:
     - |
       nix copy --no-check-sigs --to local?root=$CACHE_DIR \
-        .#staging.frontend.npmDeps \
-        .#staging.backend.cargoArtifacts \
-        .#staging.backend.cargoVendorDir
+        .#$APP_NAME.frontend.npmDeps \
+        .#$APP_NAME.backend.cargoArtifacts \
+        .#$APP_NAME.backend.cargoVendorDir
   rules:
     - if: $CI_COMMIT_BRANCH == "master"
       variables:
