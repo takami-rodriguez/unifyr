@@ -1,6 +1,7 @@
 image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/nixos/nix:latest
 
 variables:
+  DOCKER_DRIVER: overlay2
   NIX_CONFIG: "experimental-features = nix-command flakes"
   CACHE_DIR: "$CI_PROJECT_DIR/.nix_cache"
 
