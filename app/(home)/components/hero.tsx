@@ -7,16 +7,30 @@ const Hero = () => {
   return (
     <div>
       <h1 className="text-7xl font-heading text-center pt-20 leading-[5rem]">
-        <span className="text-pink">Growth</span> happens in <br />
+        <span
+          style={{
+            background:
+              "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Growth
+        </span>{" "}
+        happens in <br />
         good company.
       </h1>
-      <p className=" text-lg max-w-2xl mx-auto mt-8 text-center font-extralight leading-8">
-        Unifyr provides everything you need to build <span className="font-medium">profitable </span> channel
-        partnerships. <br/> Our platform merges a vibrant network of partners and
-        agencies with <br/> industry-leading PRM and TCMA capabilities.
+      <p className=" text-xl max-w-3xl mx-auto mt-8 text-center font-extralight leading-8 text-grey-900/80">
+        Unifyr provides everything you need to build{" "}
+        <span className="font-medium">profitable </span> channel partnerships.{" "}
+        <br /> Our platform merges a vibrant network of partners and agencies
+        with <br /> industry-leading PRM and TCMA capabilities.
       </p>
       <div className="flex items-center justify-center space-x-[10px] mt-8">
-        <Button variant={"primary"}><div className="w-[124px]">Book a call</div></Button>
+        <Button variant={"primary"}>
+          <div className="w-[124px]">Book a call</div>
+        </Button>
         <Button variant="outline">Discover ZiftONE</Button>
       </div>
       <div className="max-w-7xl my-12 mx-auto px-32">

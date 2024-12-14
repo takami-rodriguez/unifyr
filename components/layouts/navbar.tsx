@@ -1,5 +1,5 @@
 import Logo from "./logo";
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 import { NavLink, navLinks } from "@/data/navLinks";
 import Link from "next/link";
 

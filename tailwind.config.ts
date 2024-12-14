@@ -16,7 +16,8 @@ export default {
         '14': '4rem',
       },
       colors: {
-        primary: "#5555FF",
+        brandGradient: "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
+        primary: "#5D5DC5",
         secondary: "#1F4498",
         accent: "#FCAF3B",
         black: "#123032",
