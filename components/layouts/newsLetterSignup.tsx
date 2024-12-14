@@ -33,7 +33,7 @@ export default function NewsletterSignup() {
           variant={"secondary"}
           size={"md"}
           noBorder
-          className="rounded-l-none bg-[#4f46e5] hover:bg-[#4338ca] text-white px-8"
+          className="rounded-l-none "
         >
           Subscribe
         </Button>

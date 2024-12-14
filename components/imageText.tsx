@@ -25,7 +25,7 @@ const ImageText = ({
   button,
 }: ImageTextProps) => {
   return (
-    <div className="grid grid-cols-2 py-44 gap-8 items-center max-w-7xl mx-auto">
+    <div className="grid grid-cols-2 py-24 gap-8 items-center max-w-7xl mx-auto">
       <div className="col-span-1 space-y-10 flex flex-col items-start">
         <Badge variant="primary">
           <div
