@@ -46,17 +46,26 @@
 
         target = "wasm32-wasip1";
 
-        mkToolchain = p: p.rust-bin.selectLatestNightlyWith (t:
-          t.default.override {
-            targets = [ target ];
-          }
-        );
-        mkDevToolchain = p: p.rust-bin.selectLatestNightlyWith (t:
-          t.default.override {
-            extensions = [ "rust-src" "rust-analyzer" ];
-            targets = [ target ];
-          }
-        );
+        mkToolchain =
+          p:
+          p.rust-bin.selectLatestNightlyWith (
+            t:
+            t.default.override {
+              targets = [ target ];
+            }
+          );
+        mkDevToolchain =
+          p:
+          p.rust-bin.selectLatestNightlyWith (
+            t:
+            t.default.override {
+              extensions = [
+                "rust-src"
+                "rust-analyzer"
+              ];
+              targets = [ target ];
+            }
+          );
         craneLib = (crane.mkLib pkgs).overrideToolchain mkToolchain;
         devCraneLib = (crane.mkLib pkgs).overrideToolchain mkDevToolchain;
 
@@ -124,7 +133,7 @@
                 let
                   baseName = baseNameOf (toString path);
                 in
-                !(baseName == "out" || baseName == ".next") && (pkgs.lib.cleanSourceFilter path type);
+                !(builtins.elem baseName [ "out" ".next" "backend" ]) && (pkgs.lib.cleanSourceFilter path type);
             };
             nodejs = pkgs.nodePackages.nodejs;
             npmConfigHook = pkgs.importNpmLock.npmConfigHook;
