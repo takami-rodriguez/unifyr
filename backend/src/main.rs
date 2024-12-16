@@ -4,7 +4,7 @@ mod forms;
 mod s3;
 
 use fastly::{
-    http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode},
+    http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode, Url},
     mime, Request, Response,
 };
 use s3::S3Config;
@@ -95,6 +95,9 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         Ok(response)
     }
 
+    // Store query in case of redirect
+    let query: Vec<(String, String)> = req.get_query()?;
+
     let resp = call_backend(&req, |r, p| {
         if p.ends_with('/') {
             r.set_path(&format!("{}index.html", p));
@@ -103,7 +106,8 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
 
     if resp.get_status().is_success() {
         if let Some(value) = resp.get_header_str("x-amz-website-redirect-location") {
-            return Ok(Response::redirect(value));
+            let url = Url::parse_with_params(value, query)?;
+            return Ok(Response::redirect(url));
         } else {
             return Ok(resp);
         }
@@ -112,7 +116,8 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         let resp = call_backend(&req, |r, p| r.set_path(&format!("{}/index.html", p)))?;
         if resp.get_status().is_success() {
             // It was actually HTML... normalize to a trailing slash
-            return Ok(Response::redirect(format!("{}/", req.get_path())));
+            let url = Url::parse_with_params(&format!("{}/", req.get_path()), query)?;
+            return Ok(Response::redirect(url));
         } else {
             // Return 404
             return Ok(call_backend(&req, |r, _| r.set_path("/404.html"))?
