@@ -88,7 +88,7 @@ const dummyArticlesData: ArticleTemplateProps[] = [
 ];
 
 export const fetchAllArticles = async () => {
-  return dummyArticlesData;
+  return dummyArticlesData.slice(0, 3);
 };
 
 

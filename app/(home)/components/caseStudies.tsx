@@ -47,7 +47,7 @@ export default function CaseStudy() {
           </div>
         </div>
         <div className="space-y-8 col-span-2">
-          <h3 className="text-2xl font-medium">Case Studies // Resources</h3>
+          <h3 className="text-2xl font-medium">Resources</h3>
           <div className="space-y-5">
             {[1, 2, 3].map((item) => (
               <div key={item} className="flex gap-10 items-start w-full">

@@ -2,23 +2,13 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import Image from "next/image";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { gradientText } from "@/data/styleHelpers";
 
 const Hero = () => {
   return (
     <div>
       <h1 className="text-7xl font-heading text-center pt-20 leading-[5rem]">
-        <span
-          style={{
-            background:
-              "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Growth
-        </span>{" "}
-        happens in <br />
+        <span style={gradientText}>Growth</span> happens in <br />
         good company.
       </h1>
       <p className=" text-xl max-w-3xl mx-auto mt-8 text-center font-extralight leading-8 text-grey-900/80">

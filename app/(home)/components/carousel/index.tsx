@@ -19,8 +19,8 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTabButton } from "./useTabButton";
-import { EmblaCarouselType } from "embla-carousel";
 import { usePrevNextButtons } from "./usePrevNextButtons";
+import { bgGradient, gradientText } from "@/data/styleHelpers";
 
 interface SlideContent {
   title: string;
@@ -38,28 +38,25 @@ const slides: SlideContent[] = [
     cta: "Discover Unify+",
   },
   {
-    title: "Streamline your supplier operations",
-    titleHighlight: "streamline",
+    title: "Channel program management that sets a new standard",
+    titleHighlight: "innovative",
     description:
-      "Our platform offers advanced tools to optimize your supplier management processes, reducing complexity and increasing efficiency across your entire supply chain.",
-    cta: "Learn More",
+      "ZiftONE's innovative PRM and TCMA platform reveals the full story behind channel activity, turning data into actionable intelligence. With our carefully curated network of partners and agencies, you'll find perfect allies to amplify your channel success.",
+    cta: "Discover ZiftONE",
   },
   {
-    title: "AI-powered insights for better decisions",
-    titleHighlight: "AI-powered",
+    title: "Where channel expertise meets new opportunity",
+    titleHighlight: "mastery",
     description:
-      "Leverage cutting-edge artificial intelligence to gain deep insights into your supplier relationships, helping you make data-driven decisions that drive business growth.",
-    cta: "Explore AI Features",
+      "Your mastery of channel partnerships deserves a platform of equal caliber. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
+    cta: "Discover Unifyr Pro",
   },
 ];
 
 export default function HomeCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
-  const { selectedIndex, scrollSnaps, onTabsButtonClick } = useTabButton(
-    emblaApi,
-    () => {}
-  );
+  const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
   console.log(selectedIndex);
   const {
     prevBtnDisabled,
@@ -90,10 +87,7 @@ export default function HomeCarousel() {
     <div className="px-5 mt-10">
       <div
         className=" rounded-[3rem] overflow-hidden py-8"
-        style={{
-          background:
-            "radial-gradient(461.91% 160.49% at 17.47% -33.36%, rgba(215, 14, 134, 0.04) 0%, rgba(36, 56, 139, 0.05) 99.68%)",
-        }}
+        style={bgGradient}
       >
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>
@@ -103,7 +97,7 @@ export default function HomeCarousel() {
                 key={tab.id}
                 onClick={() => onTabsButtonClick(index)}
               >
-                <span className="flex items-center gap-2">
+                <span className="flex items-center space-x-2 ">
                   {tab.icon}
                   {tab.title}
                 </span>
@@ -115,45 +109,36 @@ export default function HomeCarousel() {
           opts={{
             loop: true,
           }}
-          className="relative my-8 h-full"
-          emblaRef={emblaRef}
-          emblaApi={emblaApi}
+          className="relative my-8 h-full px-14"
+          carouselRef={emblaRef}
+          api={emblaApi}
         >
           <CarouselContent className="flex ml-[calc(2rem * -2)] items-center">
             {slides.map((slide, index) => (
               <CarouselItem
                 key={index}
-                
                 style={{
                   transform: "translate3d(0, 0, 0)",
                   flex: "0 0 80%",
                 }}
-                
               >
-                <Card  className={cn("border-0 bg-transparent shadow-none bg-white",{
-                  "max-h-[80%]": selectedIndex !== index,
-                })}>
-                  <CardContent className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 p-6", {
-                    "opacity-0": selectedIndex !== index,
-                    "opacity-100": selectedIndex === index,
-                  })}>
+                <Card
+                  className={cn(
+                    "border-0 bg-transparent shadow-none bg-white",
+                  )}
+                >
+                  <CardContent
+                    className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 p-6", {
+                        "max-h-[80%]": selectedIndex !== index,
+                    })}
+                  >
                     <div className="flex flex-col items-start justify-center gap-6">
-                      <h2 className="text-5xl font-heading leading-tight">
+                      <h2 className="text-5xl font-heading leading-[56px]">
                         The{" "}
-                        <span
-                          style={{
-                            background:
-                              "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
-                            backgroundClip: "text",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
-                        >
-                          {slide.titleHighlight}
-                        </span>{" "}
+                        <span style={gradientText}>{slide.titleHighlight}</span>{" "}
                         {slide.title.split(" ").slice(1).join(" ")}
                       </h2>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-grey-900/80 leading-relaxed text-lg">
                         {slide.description}
                       </p>
                       <Button variant={"outline"}>{slide.cta}</Button>
@@ -175,7 +160,7 @@ export default function HomeCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="absolute -bottom-10 left-14 w-[90%] mx-auto flex justify-between px-8">
+          <div className="absolute -bottom-10 left-20 w-[90%] mx-auto flex justify-between px-8">
             <CarouselPrevious
               className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
               onClick={onPrevButtonClick}

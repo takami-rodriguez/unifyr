@@ -5,6 +5,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Link from "next/link";
+import { gradientText } from "@/data/styleHelpers";
 
 type ImageTextProps = {
   imageLeft?: boolean;
@@ -25,18 +26,26 @@ const ImageText = ({
   button,
 }: ImageTextProps) => {
   return (
-    <div className="grid grid-cols-2 py-24 gap-8 items-center max-w-7xl mx-auto">
-      <div className="col-span-1 space-y-10 flex flex-col items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-2 py-24 gap-8 items-center max-w-7xl mx-auto">
+       <div
+        className={cn("col-span-1", {
+          "lg:order-last": !imageLeft,
+        })}
+      >
+        <AspectRatio ratio={16 / 9} className="relative ">
+          <Image
+            src="/images/image.png"
+            alt="hero"
+            className="object-cover object-center rounded-xl"
+            fill
+          />
+        </AspectRatio>
+      </div>
+      <div className="col-span-1 space-y-10 flex flex-col items-start ">
         <Badge variant="primary">
           <div
           className="uppercase"
-            style={{
-              background:
-                "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
+           style={gradientText}
           >
             {badge}
           </div>
@@ -49,20 +58,7 @@ const ImageText = ({
           </Link>
         )}
       </div>
-      <div
-        className={cn("col-span-1", {
-          "order-first": imageLeft,
-        })}
-      >
-        <AspectRatio ratio={16 / 9} className="relative">
-          <Image
-            src="/images/image.png"
-            alt="hero"
-            className="object-cover object-center rounded-xl"
-            fill
-          />
-        </AspectRatio>
-      </div>
+     
     </div>
   );
 };

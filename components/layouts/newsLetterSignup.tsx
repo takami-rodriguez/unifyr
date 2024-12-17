@@ -15,7 +15,7 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="w-full   ">
+    <div className="w-full">
       <h2 className="text-2xl font-bold mb-4 text-[#1a1a1a]">
         Sign up to our newsletter
       </h2>

@@ -4,15 +4,16 @@ import Image from "next/image";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Link from "next/link";
 import Arrow from "../icons/arrow";
+import { bgGradient } from "@/data/styleHelpers";
+
+
+//  TODO - update content based on tab
 export default function FeaturesAndTabs() {
   return (
     <div className="px-5 ">
       <div
         className="rounded-[3rem] overflow-hidden"
-        style={{
-          background:
-            "radial-gradient(461.91% 160.49% at 17.47% -33.36%, rgba(215, 14, 134, 0.04) 0%, rgba(36, 56, 139, 0.05) 99.68%)",
-        }}
+        style={bgGradient}
       >
         <div className="container mx-auto px-24 py-6 ">
           <div className="flex items-center ">

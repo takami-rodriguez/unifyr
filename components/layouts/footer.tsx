@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./logo";
 import { NavLink } from "@/data/navLinks";
-import NewsletterSignup from "./newsLetterSignup";
+import G2Leaders from "../g2Leaders";
 
 const Footer = () => {
   return (
@@ -65,7 +65,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-span-2">
-         <NewsletterSignup />
+       <G2Leaders/>
         </div>
       </div>
     </footer>
