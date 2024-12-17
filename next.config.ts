@@ -13,11 +13,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  webpack: (config, _context) => {
-    config.optimization.moduleIds = "deterministic";
-    config.optimization.chunkIds = "deterministic";
-    return config;
-  },
   experimental: {
     turbo: {
       // ...

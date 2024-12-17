@@ -133,7 +133,12 @@
                 let
                   baseName = baseNameOf (toString path);
                 in
-                !(builtins.elem baseName [ "out" ".next" "backend" ]) && (pkgs.lib.cleanSourceFilter path type);
+                !(builtins.elem baseName [
+                  ".next"
+                  "out"
+                  "backend"
+                ])
+                && (pkgs.lib.cleanSourceFilter path type);
             };
             nodejs = pkgs.nodePackages.nodejs;
             npmConfigHook = pkgs.importNpmLock.npmConfigHook;
@@ -161,13 +166,13 @@
         apps = pkgs.lib.mapAttrs (
           name: env:
           let
-            aws = pkgs.lib.getExe pkgs.awscli2;
+            rclone = pkgs.lib.getExe pkgs.rclone;
             fastly = pkgs.lib.getExe pkgs.fastly;
 
             frontend = self.legacyPackages.${system}.${name}.frontend;
             backend = self.legacyPackages.${system}.${name}.backend;
             script = pkgs.writeShellScriptBin "deploy-${name}" ''
-              ${aws} s3 sync ${frontend} s3://${env.AWS_BUCKET} --delete
+              ${rclone} --progress sync ${frontend} :s3,provider=AWS,env_auth=true:${env.AWS_BUCKET}
               ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
               ${fastly} purge -s ${env.SERVICE_ID} --all
             '';
