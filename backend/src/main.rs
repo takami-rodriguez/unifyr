@@ -63,7 +63,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         return Ok(Response::redirect(req.get_url()));
     }
 
-    fn call_backend(req: &Request, f: fn(&mut Request, path: &str)) -> Result<Response, SendError> {
+    fn call_backend(req: &Request, f: fn(&mut Request)) -> Result<Response, SendError> {
         static CONFIG: LazyLock<S3Config> = LazyLock::new(|| S3Config::load());
 
         let path = req.get_path();
@@ -73,7 +73,7 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         let mut bereq = req.clone_without_body();
 
         normalize_request(&mut bereq);
-        f(&mut bereq, path);
+        f(&mut bereq);
 
         let response = bereq
             .with_before_send(|req| {
@@ -95,33 +95,44 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         Ok(response)
     }
 
-    // Store query in case of redirect
-    let query: Vec<(String, String)> = req.get_query()?;
-
-    let resp = call_backend(&req, |r, p| {
-        if p.ends_with('/') {
-            r.set_path(&format!("{}index.html", p));
+    let resp = call_backend(&req, |r| {
+        let path = r.get_path();
+        if path.ends_with('/') {
+            r.set_path(&format!("{}index.html", path));
         }
     })?;
 
     if resp.get_status().is_success() {
-        if let Some(value) = resp.get_header_str("x-amz-website-redirect-location") {
-            let url = Url::parse_with_params(value, query)?;
-            return Ok(Response::redirect(url));
-        } else {
-            return Ok(resp);
-        }
+        return match resp.get_header_str("x-amz-website-redirect-location") {
+            Some(value) if value.starts_with('/') => {
+                req.set_path(value);
+                Ok(Response::redirect(req.get_url()))
+            }
+            Some(value) => {
+                let query = req.get_query_str();
+                let mut url = Url::parse(value)?;
+                url.set_query(query);
+                Ok(Response::redirect(url))
+            }
+            None => Ok(resp),
+        };
     } else {
         // It may actually be HTML; try looking for the corresponding index.html file
-        let resp = call_backend(&req, |r, p| r.set_path(&format!("{}/index.html", p)))?;
+        let resp = call_backend(&req, |r| {
+            let path = r.get_path();
+            r.set_path(&format!("{}/index.html", path));
+        })?;
+
         if resp.get_status().is_success() {
             // It was actually HTML... normalize to a trailing slash
-            let url = Url::parse_with_params(&format!("{}/", req.get_path()), query)?;
-            return Ok(Response::redirect(url));
+            let path = req.get_path();
+            req.set_path(&format!("{}/", path));
+            return Ok(Response::redirect(req.get_url()));
         } else {
             // Return 404
-            return Ok(call_backend(&req, |r, _| r.set_path("/404.html"))?
-                .with_status(StatusCode::NOT_FOUND));
+            return Ok(
+                call_backend(&req, |r| r.set_path("/404.html"))?.with_status(StatusCode::NOT_FOUND)
+            );
         }
     }
 }
