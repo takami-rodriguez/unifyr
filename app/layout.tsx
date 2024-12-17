@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
-        className={`${epicene.variable} ${sohne.variable} font-sans bg-grey-100`}
+        className={`${epicene.variable} ${sohne.variable} font-sans bg-grey-100 px-5`}
       >
         <Navbar />
         {children}

@@ -119,7 +119,7 @@ export default function HomeCarousel() {
                 key={index}
                 style={{
                   transform: "translate3d(0, 0, 0)",
-                  flex: "0 0 80%",
+                  flex: "0 0 90%",
                 }}
               >
                 <Card
@@ -160,7 +160,7 @@ export default function HomeCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="absolute -bottom-10 left-20 w-[90%] mx-auto flex justify-between px-8">
+          <div className="absolute -bottom-10 left-14 w-[90%] mx-auto flex justify-between px-16">
             <CarouselPrevious
               className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
               onClick={onPrevButtonClick}

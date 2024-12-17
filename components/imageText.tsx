@@ -26,8 +26,16 @@ const ImageText = ({
   button,
 }: ImageTextProps) => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 py-24 gap-8 items-center max-w-7xl mx-auto">
-       <div
+    <div
+      className={cn(
+        "grid grid-cols-1 lg:grid-cols-2 py-24 gap-8 items-center max-w-7xl mx-auto  bg-radial-elipse bg-contain bg-no-repeat bg-opacity-5",
+        {
+          "bg-right": imageLeft,
+          "bg-left": !imageLeft,
+        }
+      )}
+    >
+      <div
         className={cn("col-span-1", {
           "lg:order-last": !imageLeft,
         })}
@@ -41,12 +49,9 @@ const ImageText = ({
           />
         </AspectRatio>
       </div>
-      <div className="col-span-1 space-y-10 flex flex-col items-start ">
+      <div className="col-span-1 space-y-10 flex flex-col items-start">
         <Badge variant="primary">
-          <div
-          className="uppercase"
-           style={gradientText}
-          >
+          <div className="uppercase" style={gradientText}>
             {badge}
           </div>
         </Badge>
@@ -58,7 +63,6 @@ const ImageText = ({
           </Link>
         )}
       </div>
-     
     </div>
   );
 };
