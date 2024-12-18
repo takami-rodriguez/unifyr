@@ -21,6 +21,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { useTabButton } from "./useTabButton";
 import { usePrevNextButtons } from "./usePrevNextButtons";
 import { bgGradient, gradientText } from "@/data/styleHelpers";
+import { renderToString } from "react-dom/server";
 
 interface SlideContent {
   title: string;
@@ -46,7 +47,7 @@ const slides: SlideContent[] = [
   },
   {
     title: "Where channel expertise meets new opportunity",
-    titleHighlight: "mastery",
+    titleHighlight: "expertise",
     description:
       "Your mastery of channel partnerships deserves a platform of equal caliber. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
     cta: "Discover Unifyr Pro",
@@ -56,14 +57,14 @@ const slides: SlideContent[] = [
 export default function HomeCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
-  const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
+  const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => { });
   console.log(selectedIndex);
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
-  } = usePrevNextButtons(emblaApi, () => {});
+  } = usePrevNextButtons(emblaApi, () => { });
 
   const tabs = [
     {
@@ -129,15 +130,18 @@ export default function HomeCarousel() {
                 >
                   <CardContent
                     className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 p-6", {
-                        "max-h-[80%]": selectedIndex !== index,
+                      "max-h-[80%]": selectedIndex !== index,
                     })}
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
-                      <h2 className="text-5xl font-heading leading-[56px]">
-                        The{" "}
-                        <span style={gradientText}>{slide.titleHighlight}</span>{" "}
-                        {slide.title.split(" ").slice(1).join(" ")}
-                      </h2>
+                      <h2 className="text-5xl font-heading leading-[56px]"
+                        dangerouslySetInnerHTML={{
+                          __html: slide.title.replace(
+                            new RegExp(`\\b${slide.titleHighlight}\\b`, 'i'),
+                            match => renderToString(<span style={gradientText}>{match}</span>)
+                          )
+                        }}
+                      />
                       <p className="text-grey-900/80 leading-relaxed text-lg">
                         {slide.description}
                       </p>
