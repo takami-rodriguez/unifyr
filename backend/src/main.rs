@@ -165,7 +165,9 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
     resp.set_header("x-robots-tag", "noindex");
 
     if let Some(mime) = resp.get_content_type() {
-        if mime.essence_str() == "text/html" {
+        if mime.type_() == mime::TEXT
+            && (mime.subtype() == mime::HTML || mime.subtype() == mime::PLAIN)
+        {
             resp.set_header(header::ALT_SVC, "h3=\":443\"; ma=2592000; persist=1");
 
             // For HTML, do not cache on the client
