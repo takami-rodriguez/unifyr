@@ -1,4 +1,4 @@
-import { FeaturesAccordionSectionProps } from "@/components/featuresAccordionSection";
+import { AccordionSectionProps } from "@/components/featuresAccordionSection/accordionSection";
 import { ImageType } from "@/types/images";
 
 export const partnerImages: ImageType[] = [
@@ -56,8 +56,11 @@ export const homeSections = [
   },
 ];
 
-export const accordionSections: FeaturesAccordionSectionProps = {
-  blok: {
+export const accordionSections: {
+  supplier: AccordionSectionProps;
+  partner: AccordionSectionProps;
+} = {
+  supplier: {
     mainTitle: "Channel partner orchestration with networking built in",
     colour: "blue500",
     para: "Traditional partner relationship management leaves the hard parts up to you. Unifyr provides end-to-end support.",
@@ -90,6 +93,47 @@ export const accordionSections: FeaturesAccordionSectionProps = {
         title: "Faster partnership growth with Unifyr+",
         content:
           "The ZiftONE platform not only provides all the tools necessary to construct an integrated partner ecosystem—it also provides access to relevant partners and agencies expert in channel partnerships. This combination of tooling and key resources makes ZiftONE the most comprehensive PRM & TCMA platform available to partner and channel managers.",
+        image: {
+          url: "/images/image.png",
+          alt: "",
+          id: "3",
+        },
+      },
+    ],
+  },
+  partner: {
+    mainTitle: "Lorem Ipsum Dolor Amet",
+    colour: "yellow500",
+    para: "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+    _uid: "asfasr123123",
+    content: [
+      {
+        _uid: "asdasd",
+        title: "Lorem ipsum dolor",
+        content:
+          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
+        image: {
+          url: "/images/image.png",
+          alt: "",
+          id: "1",
+        },
+      },
+      {
+        _uid: "asdasd123",
+        title: "Lorem ipsum dolor",
+        content:
+          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
+        image: {
+          url: "/images/image.png",
+          alt: "",
+          id: "2",
+        },
+      },
+      {
+        _uid: "asdasd456",
+        title: "Lorem ipsum dolor",
+        content:
+          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
         image: {
           url: "/images/image.png",
           alt: "",

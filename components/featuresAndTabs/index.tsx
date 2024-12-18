@@ -6,15 +6,35 @@ import Link from "next/link";
 import Arrow from "../icons/arrow";
 import { bgGradient } from "@/data/styleHelpers";
 
+const features = [
+  {
+    icon: <Target className="h-[42px] w-[42px] text-grey-400" />,
+    title: "Partner portal",
+    description:
+      "Build an experience for your partners that encourages commitment and mutual growth.",
+    link: "#",
+  },
+  {
+    icon: <Diamond className="h-[42px] w-[42px] text-grey-400" />,
+    title: "Integrations",
+    description:
+      "Connect seamlessly with your existing tools to ensure channel operations remain perfectly synchronized.",
+    link: "#",
+  },
+  {
+    icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
+    title: "Analytics",
+    description:
+      "Transform data into actionable intelligence through visualizations that highlight partner performance both individually and holistically.",
+    link: "#",
+  },
+];
 
 //  TODO - update content based on tab
 export default function FeaturesAndTabs() {
   return (
     <div className="px-5 ">
-      <div
-        className="rounded-[3rem] overflow-hidden"
-        style={bgGradient}
-      >
+      <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
         <div className="container mx-auto px-24 py-6 ">
           <div className="flex items-center ">
             <Tabs defaultValue="zift">
@@ -49,46 +69,19 @@ export default function FeaturesAndTabs() {
             </div>
           </div>
           <div className="mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
-            <div className="space-y-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
-                <Target />
+            {features.map((feature, index) => (
+              <div key={index} className="space-y-4">
+                {feature.icon}
+                <h2 className="text-[22px] ">{feature.title}</h2>
+                <p className="text-gray-900/80 w-[290px]">
+                  {feature.description}
+                </p>
+
+                <Link href={feature.link} className="flex font-semibold py-2">
+                  Learn more <Arrow />
+                </Link>
               </div>
-              <h2 className="text-xl font-semibold">Partner portal</h2>
-              <p className="text-gray-600">
-                Build an experience for your partners that encourages commitment
-                and mutual growth.
-              </p>
-              <Link href="#">
-                Learn more <Arrow />
-              </Link>
-            </div>
-            <div className="space-y-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
-                <RefreshCw className="h-6 w-6 text-indigo-600" />
-              </div>
-              <h2 className="text-xl font-semibold">Integrations</h2>
-              <p className="text-gray-600">
-                Connect seamlessly with your existing tools to ensure channel
-                operations remain perfectly synchronized.
-              </p>
-              <Link href="#">
-                Learn more <Arrow />
-              </Link>
-            </div>
-            <div className="space-y-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-indigo-100">
-                <Diamond className="h-6 w-6 text-indigo-600" />
-              </div>
-              <h2 className="text-xl font-semibold">Analytics</h2>
-              <p className="text-gray-600">
-                Transform data into actionable intelligence through
-                visualizations that highlight partner performance both
-                individually and holistically.
-              </p>
-              <Link href="#"> 
-                Learn more <Arrow />
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>
