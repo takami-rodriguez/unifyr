@@ -14,7 +14,7 @@ export default function Navbar() {
           {navLinks.map((l) => (
             <li
               key={l.label + "navlink"}
-              className="font-semibold text-lg group relativ leading-6 text-grey-900"
+              className=" text-lg group relative leading-6 text-grey-900"
             >
               <Link href={l.href} className="py-2 block">
                 {l.label}
@@ -24,7 +24,7 @@ export default function Navbar() {
           ))}
         </ul>
         <Button variant={"primary"}>
-          <div className="w-[124px]">Book a call</div>
+          <div >Book a call</div>
         </Button>
       </div>
     </nav>

@@ -11,24 +11,24 @@ export enum NavLink {
 }
 
 export const navLinks = [
-  // {
-  //   label: "Plaform",
-  //   href: NavLink.Platform,
-  // },
-  // {
-  //   label: "Product",
-  //   href: NavLink.Product,
-  // },
-  // {
-  //   label: "Solutions",
-  //   href: NavLink.Solutions,
-  // },
+  {
+    label: "Plaform",
+    href: NavLink.Platform,
+  },
+  {
+    label: "Product",
+    href: NavLink.Product,
+  },
+  {
+    label: "Solutions",
+    href: NavLink.Solutions,
+  },
   {
     label: "Resources",
     href: NavLink.Resources,
   },
-  // {
-  //   label: "Company",
-  //   href: NavLink.Company,
-  // },
+  {
+    label: "Company",
+    href: NavLink.Company,
+  },
 ];
