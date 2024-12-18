@@ -22,14 +22,14 @@ deploy:
         .#$APP_NAME.backend.cargoArtifacts \
         .#$APP_NAME.backend.cargoVendorDir
   rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       variables:
         APP_NAME: "production"
-    - if: $CI_COMMIT_BRANCH == "staging"
+    - if: $CI_COMMIT_REF_NAME == "staging"
       variables:
         APP_NAME: "staging"
   cache:
-    key: $CI_COMMIT_BRANCH
+    key: $CI_COMMIT_REF_NAME
     paths:
       - .nix_cache
     policy: pull-push
