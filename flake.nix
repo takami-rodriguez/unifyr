@@ -175,7 +175,7 @@
             frontend = self.legacyPackages.${system}.${name}.frontend;
             backend = self.legacyPackages.${system}.${name}.backend;
             script = pkgs.writeShellScriptBin "deploy-${name}" ''
-              ${rclone} --progress sync ${frontend} :s3,provider=AWS,env_auth=true:${env.AWS_BUCKET}
+              ${rclone} --progress sync --checksum ${frontend} :s3,provider=AWS,env_auth=true:${env.AWS_BUCKET}
               ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
               ${fastly} purge -s ${env.SERVICE_ID} --all
             '';
