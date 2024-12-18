@@ -124,7 +124,10 @@
         mkFrontend =
           name: env:
           pkgs.buildNpmPackage {
-            inherit env;
+            env = env // {
+              NEXT_TELEMETRY_DISABLED = 1;
+            };
+
             name = "web";
             src = pkgs.lib.cleanSourceWith {
               src = ./.;
