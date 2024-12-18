@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: "export",
   trailingSlash: true,
+  assetPrefix: process.env.URL!,
   images: {
     unoptimized: true,
   },
