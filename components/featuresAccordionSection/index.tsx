@@ -3,7 +3,6 @@ import React from "react";
 import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
 import PartnersIcon from "../icons/partners";
 import SupplierIcon from "../icons/supplier";
-import { TabsContent } from "@radix-ui/react-tabs";
 import AccordionSection from "./accordionSection";
 import { accordionSections } from "@/app/(home)/data";
 
@@ -31,7 +30,7 @@ const FeaturesAccordionSection = () => {
     <div className="">
       <Tabs className="flex justify-center" value={selectedId}>
         <TabsList>
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <TabsTrigger
               value={tab.id}
               key={tab.id}

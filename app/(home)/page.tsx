@@ -1,7 +1,7 @@
 import ImageText from "@/components/imageText";
 import Hero from "./components/hero";
 import Partners from "./components/partners";
-import { accordionSections, homeSections } from "./data";
+import { homeSections } from "./data";
 import FeaturesAccordionSection from "@/components/featuresAccordionSection";
 import FeaturesAndTabs from "@/components/featuresAndTabs";
 import CaseStudy from "./components/caseStudies";
