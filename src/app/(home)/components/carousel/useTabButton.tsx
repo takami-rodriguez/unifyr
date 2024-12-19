@@ -17,7 +17,6 @@ export const useTabButton = (
   
     const onTabsButtonClick = useCallback(
       (index: number) => {
-        console.log(emblaApi, index)
         if (!emblaApi) return
         emblaApi.scrollTo(index)
         if (onButtonClick) onButtonClick(emblaApi)

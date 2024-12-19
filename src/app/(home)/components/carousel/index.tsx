@@ -58,7 +58,6 @@ export default function HomeCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
   const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => { });
-  console.log(selectedIndex);
   const {
     prevBtnDisabled,
     nextBtnDisabled,
