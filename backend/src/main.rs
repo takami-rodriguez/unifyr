@@ -122,17 +122,6 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
         })?;
 
         if resp.get_status().is_success() {
-            // FIXME: Temporary hack for NextJS App Router forgetting a trailing slash
-            if req
-                .get_header_str(header::REFERER)
-                .and_then(|r| Url::parse(r).ok())
-                .as_ref()
-                .and_then(|url| url.domain())
-                .is_some_and(|domain| domain == "unifyr.com")
-            {
-                return Ok(resp);
-            }
-
             // It was actually HTML... normalize to a trailing slash
             let path = req.get_path();
             req.set_path(&format!("{}/", path));
