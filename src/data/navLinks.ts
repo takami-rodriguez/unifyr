@@ -1,13 +1,13 @@
 export enum NavLink {
   Home = "/",
-  About = "/about",
-  Product = "/products",
-  Leadership = "/leadership",
-  Careers = "/careers",
-  Platform = "/platform",
-  Solutions = "/solutions",
-  Resources = "/resources",
-  Company = "/company",
+  About = "/about/",
+  Product = "/products/",
+  Leadership = "/leadership/",
+  Careers = "/careers/",
+  Platform = "/platform/",
+  Solutions = "/solutions/",
+  Resources = "/resources/",
+  Company = "/company/",
 }
 
 export const navLinks = [

@@ -14,7 +14,7 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
-    <Link href={`/resources/${slugify(article.title)}`}>
+    <Link href={`/resources/${slugify(article.title)}/`}>
       <div className="rounded-2xl shadow-xl space-y-6 my-4 h-full max-h-full bg-white overflow-hidden">
         {article.featuredImage?.url && (!index  || index <=2) && (
           <div className="relative w-full">
