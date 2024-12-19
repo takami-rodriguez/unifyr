@@ -28,7 +28,7 @@ export type AccordionSectionProps = {
   _uid: string;
 };
 
-const AccordionSection = ({ blok }: {blok:AccordionSectionProps}) => {
+const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
   const [selectedId, setSelectedId] = React.useState<string>(
     blok.content[0]!._uid
   );
@@ -80,7 +80,9 @@ const AccordionSection = ({ blok }: {blok:AccordionSectionProps}) => {
                 key={feature._uid}
                 className={cn("", {
                   ["border-l-[3px] border-secondary"]:
-                    selectedId === feature._uid,
+                    selectedId === feature._uid && blok.colour === "blue500",
+                  ["border-l-[3px] border-accent"]:
+                    selectedId === feature._uid && blok.colour === "yellow500",
                   "border-l border-grey": selectedId !== feature._uid,
                 })}
                 value={feature._uid}
