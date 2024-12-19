@@ -157,17 +157,10 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
         resp.remove_header(header);
     }
 
-    resp.set_header("x-compress-hint", "on");
-
-    #[cfg(not(feature = "production"))]
-    resp.set_header("x-robots-tag", "noindex");
-
     if let Some(mime) = resp.get_content_type() {
         if mime.type_() == mime::TEXT
             && (mime.subtype() == mime::HTML || mime.subtype() == mime::PLAIN)
         {
-            resp.set_header(header::ALT_SVC, "h3=\":443\"; ma=2592000; persist=1");
-
             // For HTML, do not cache on the client
             resp.set_header(header::CACHE_CONTROL, "no-store, must-revalidate");
         } else if mime.type_() == mime::IMAGE && !is_hashed {
@@ -178,6 +171,20 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
             resp.set_header(header::CACHE_CONTROL, "public, max-age=31536000, immutable");
         }
     }
+
+    // Set noindex on non-production deployments
+    #[cfg(not(feature = "production"))]
+    resp.set_header("x-robots-tag", "noindex");
+
+    // Set Fastly compression hint
+    resp.set_header("x-compress-hint", "on");
+
+    // alt-svc + security (non-csp)
+    resp.set_header(header::ALT_SVC, r#"h3=":443"; ma=2592000; persist=1"#);
+    resp.set_header(header::STRICT_TRANSPORT_SECURITY, "max-age=63072000; includeSubDomains; preload");
+    resp.set_header(header::X_FRAME_OPTIONS, "DENY");
+    resp.set_header(header::X_CONTENT_TYPE_OPTIONS, "nosniff");
+    resp.set_header(header::REFERRER_POLICY, "strict-origin");
 }
 
 fn normalize_request(req: &mut Request) {
