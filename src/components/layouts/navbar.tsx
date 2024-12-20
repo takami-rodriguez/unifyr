@@ -6,10 +6,10 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between py-2.5 max-w-7xl mx-auto">
-      <Link href={`${NavLink.Home}`} className="h-[60px]">
+      <Link href={`${NavLink.Home}`} className="h-[32px]">
         <Logo />
       </Link>
-      <div className="flex items-center space-x-16">
+      <div className="flex items-center space-x-11">
         <ul className="flex items-center space-x-8">
           {navLinks.map((l) => (
             <li

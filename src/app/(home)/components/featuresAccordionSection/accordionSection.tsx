@@ -9,10 +9,8 @@ import { cn } from "@/lib/utils";
 import React, { useMemo } from "react";
 import Image from "next/image";
 import { ImageType } from "@/types/images";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-
-
 
 export type AccordionSectionProps = {
   para: string;

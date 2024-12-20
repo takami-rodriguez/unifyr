@@ -1,9 +1,9 @@
 import { Diamond, RefreshCw, Target } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import { AspectRatio } from "../ui/aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
-import Arrow from "../icons/arrow";
+import Arrow from "@/components/icons/arrow";
 import { bgGradient } from "@/data/styleHelpers";
 
 const features = [
@@ -33,7 +33,7 @@ const features = [
 //  TODO - update content based on tab
 export default function FeaturesAndTabs() {
   return (
-    <div className="px-5 ">
+    <div className="px-5 max-w-[1400px] mx-auto">
       <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
         <div className="container mx-auto px-24 py-6 ">
           <div className="flex items-center ">

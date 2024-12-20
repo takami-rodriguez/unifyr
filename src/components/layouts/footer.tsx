@@ -2,17 +2,17 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./logo";
 import { NavLink } from "@/data/navLinks";
-import G2Leaders from "../g2Leaders";
+import G2Leaders from "@/app/(home)/components/g2Leaders";
 
 const Footer = () => {
   return (
     <footer className="py-16">
       <div className="grid grid-cols-6 max-w-7xl mx-auto ">
         <div className="col-span-1 ">
-          <Link href={NavLink.Home} >
-          <div className="h-[40px] w-[121px]">
-            <Logo />
-          </div>
+          <Link href={NavLink.Home}>
+            <div className="h-[40px] w-[121px]">
+              <Logo />
+            </div>
           </Link>
         </div>
         <div className="col-span-1">
@@ -47,7 +47,6 @@ const Footer = () => {
             <li>
               <Link href={NavLink.Product}>Product</Link>
             </li>
-            
           </ul>
         </div>
         <div className="col-span-1">
@@ -65,7 +64,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-span-2">
-       <G2Leaders/>
+          <G2Leaders />
         </div>
       </div>
     </footer>

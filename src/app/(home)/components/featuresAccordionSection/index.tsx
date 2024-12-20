@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
-import PartnersIcon from "../icons/partners";
-import SupplierIcon from "../icons/supplier";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PartnersIcon from "@/components/icons/partners";
+import SupplierIcon from "@/components/icons/supplier";
 import AccordionSection from "./accordionSection";
 import { accordionSections } from "@/app/(home)/data";
 

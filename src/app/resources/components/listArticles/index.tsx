@@ -17,7 +17,7 @@ const ListArticles = ({ articles }: ListArticlesProps) => {
   );
 
   return (
-    <div className="bg-grey ">
+    <div className=" ">
       <Categories
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}

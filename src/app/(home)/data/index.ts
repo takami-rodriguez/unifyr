@@ -1,4 +1,4 @@
-import { AccordionSectionProps } from "@/components/featuresAccordionSection/accordionSection";
+import { AccordionSectionProps } from "@/app/(home)/components/featuresAccordionSection/accordionSection";
 import { ImageType } from "@/types/images";
 
 export const partnerImages: ImageType[] = [

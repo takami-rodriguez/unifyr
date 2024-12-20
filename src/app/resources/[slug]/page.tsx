@@ -1,5 +1,5 @@
 import Image from "next/image";
-import LatestArticles from "@/components/articles/latestArticles";
+import LatestArticles from "@/app/resources/components/latestArticles";
 import React from "react";
 import clsx from "clsx";
 import { fetchAllArticles, fetchArticleBySlug } from "@/queries/resources";

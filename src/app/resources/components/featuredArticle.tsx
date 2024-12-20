@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArticleTemplateProps } from "@/types/article";
 import { slugify } from "@/lib/utils";
 import { NavLink } from "@/data/navLinks";
-import TitleSection from "@/components/articles/titleSection";
+import TitleSection from "@/app/resources/components/titleSection";
 
 type FeaturedArticleProps = {
   article: ArticleTemplateProps;

@@ -1,5 +1,5 @@
 import React from "react";
-import ArticleCard from "@/components/articles/articleCard";
+import ArticleCard from "@/app/resources/components/articleCard";
 import { ArticleTemplateProps } from "@/types/article";
 
 type RemainingArticlesProps = {

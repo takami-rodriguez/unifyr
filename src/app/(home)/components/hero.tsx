@@ -17,7 +17,7 @@ const Hero = () => {
         <br /> Our platform merges a vibrant network of partners and agencies
         with <br /> industry-leading PRM and TCMA capabilities.
       </p>
-      <div className="flex items-center justify-center space-x-[10px] mt-8">
+      <div className="flex items-center justify-center space-x-[10px] mt-8 py-1">
         <Button variant={"primary"}>
           <div className="w-[124px]">Book a call</div>
         </Button>
