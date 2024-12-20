@@ -51,7 +51,7 @@ pub(crate) fn rewrite(resp: &mut Response) {
         &body,
         RewriteStrSettings {
             element_content_handlers: vec![
-                element!("script", |el| { Ok(el.set_attribute("nonce", &nonce)?) }),
+                element!("script:not([src])", |el| { Ok(el.set_attribute("nonce", &nonce)?) }),
                 element!("style", |el| { Ok(el.set_attribute("nonce", &nonce)?) }),
             ],
             ..Default::default()
