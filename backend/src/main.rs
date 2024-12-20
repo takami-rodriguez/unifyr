@@ -1,5 +1,9 @@
+#![feature(maybe_uninit_uninit_array)]
+
 mod forms;
+mod rewriter;
 mod s3;
+mod utils;
 
 use fastly::{
     http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode, Url},
@@ -15,15 +19,22 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     match *req.get_method() {
         Method::GET => {
-            let response = retrieve(req)?;
-            response.send_to_client();
+            let mut resp = retrieve(req)?;
+            if utils::is_html(&resp) {
+                rewriter::rewrite(&mut resp);
+            }
+            resp.send_to_client();
         }
         Method::HEAD => {
-            let response = retrieve(req)?;
-            response.clone_without_body().send_to_client();
+            let mut resp = retrieve(req)?;
+            if utils::is_html(&resp) {
+                rewriter::rewrite(&mut resp);
+            }
+            resp.clone_without_body().send_to_client();
         }
         _ => {
-            let response = Response::from_status(StatusCode::METHOD_NOT_ALLOWED);
+            let response = Response::from_status(StatusCode::METHOD_NOT_ALLOWED)
+                .with_header(header::ALLOW, "GET, HEAD");
             response.send_to_client();
         }
     }
@@ -82,7 +93,6 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
             .with_after_send(move |resp| {
                 finalize_headers(resp, is_hashed);
 
-                resp.set_surrogate_keys(["all"]);
                 resp.set_ttl(Duration::from_secs(31_536_000)); // surrogate; 1 year
                 resp.set_stale_while_revalidate(Duration::from_secs(86_400)); // 1 day
 
@@ -135,6 +145,16 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
     }
 }
 
+// fn required_transform(resp: Response) -> Response {
+//     if let Some(mime) = resp.get_content_type()
+//         && mime.type_() == mime::TEXT
+//         && mime.subtype() == mime::HTML
+//     {
+//     } else {
+//         resp
+//     }
+// }
+
 fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
     const ALLOWED_HEADERS: &[HeaderName] = &[
         header::AGE,
@@ -181,10 +201,14 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
 
     // alt-svc + security (non-csp)
     resp.set_header(header::ALT_SVC, r#"h3=":443"; ma=2592000; persist=1"#);
-    resp.set_header(header::STRICT_TRANSPORT_SECURITY, "max-age=63072000; includeSubDomains; preload");
-    resp.set_header(header::X_FRAME_OPTIONS, "DENY");
-    resp.set_header(header::X_CONTENT_TYPE_OPTIONS, "nosniff");
+    resp.set_header(header::CONTENT_SECURITY_POLICY, "default-src 'none'"); // default
     resp.set_header(header::REFERRER_POLICY, "strict-origin");
+    resp.set_header(header::X_CONTENT_TYPE_OPTIONS, "nosniff");
+    resp.set_header(header::X_FRAME_OPTIONS, "DENY");
+    resp.set_header(
+        header::STRICT_TRANSPORT_SECURITY,
+        "max-age=63072000; includeSubDomains; preload",
+    );
 }
 
 fn normalize_request(req: &mut Request) {
