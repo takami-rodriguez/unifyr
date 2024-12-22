@@ -66,7 +66,7 @@ fn make_csp(nonce: &str) -> String {
     format!(
         "default-src 'none'; \
         script-src 'self' 'nonce-{nonce}'; \
-        style-src-elem 'self' 'nonce-{nonce}'; \
+        style-src 'self' 'nonce-{nonce}'; \
         style-src-attr 'unsafe-inline'; \
         connect-src 'self'; \
         img-src 'self'; \

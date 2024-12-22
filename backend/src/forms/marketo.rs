@@ -1,4 +1,4 @@
-use crate::forms::form::CREDENTIALS;
+use crate::forms::creds::CREDENTIALS;
 use fastly::Request;
 use serde_json::{json, Value};
 use std::error::Error;
