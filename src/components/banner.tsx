@@ -14,7 +14,7 @@ const Banner = async () => {
             Scalable and profitable channel partnerships start with{" "}
             <span style={gradientText}>Unifyr</span>
           </h2>
-          <Button variant="outline" size="lg" className="max-w-xl">
+          <Button variant="outline"  className="max-w-xl">
             Book a call
           </Button>
         </div>

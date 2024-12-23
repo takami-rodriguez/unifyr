@@ -51,11 +51,11 @@ const ImageText = ({
         </div>
         <div className="col-span-1  lg:col-span-6 space-y-10 flex flex-col items-start">
           <Badge variant="primary">
-            <div className="uppercase" style={gradientText}>
+            <div className="uppercase tracking-[0.7px]" style={gradientText}>
               {badge}
             </div>
           </Badge>
-          <h3 className="text-4xl font-heading">{title}</h3>
+          <h3 className="text-5xl font-heading">{title}</h3>
           <p className="text-xl font-light text-grey-900/80">{content}</p>
           {button && (
             <Link href={button.href}>

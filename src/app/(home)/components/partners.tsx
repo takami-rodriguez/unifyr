@@ -8,7 +8,7 @@ const Partners = () => {
     <div className="bg-grey pt-14 relative z-10 lg:py-30">
       <div className="w-full  px-5 sm:px-0">
         <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-2xl font-medium">
+          <h3 className="text-[2rem] font-medium">
             {"Trusted by the world’s largest companies"}
           </h3>
         </div>

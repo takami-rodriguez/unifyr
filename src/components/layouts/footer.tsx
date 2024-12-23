@@ -16,49 +16,49 @@ const Footer = () => {
           </Link>
         </div>
         <div className="col-span-1">
-          <h4 className="text-lg font-bold">Company</h4>
+          <h4 className="text-lg font-bold pb-2">Company</h4>
           <ul className="space-y-2">
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.About}>About</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Leadership}>Leadership</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Careers}>Careers</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Resources}>Blog</Link>
             </li>
           </ul>
         </div>
         <div className="col-span-1">
-          <h4 className="text-lg font-bold">Product</h4>
+          <h4 className="text-lg font-bold pb-2">Product</h4>
           <ul className="space-y-2">
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Product}>Product</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Product}>Product</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Product}>Product</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Product}>Product</Link>
             </li>
           </ul>
         </div>
         <div className="col-span-1">
-          <h4 className="text-lg font-bold">Solutions</h4>
+          <h4 className="text-lg font-bold pb-2">Solutions</h4>
           <ul className="space-y-2">
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Solutions}>Solutions</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Solutions}>Solutions</Link>
             </li>
-            <li>
+            <li className="text-lg">
               <Link href={NavLink.Solutions}>Solutions</Link>
             </li>
           </ul>

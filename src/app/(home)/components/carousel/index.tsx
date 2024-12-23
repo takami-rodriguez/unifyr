@@ -57,13 +57,13 @@ const slides: SlideContent[] = [
 export default function HomeCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
-  const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => { });
+  const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
   const {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
     onNextButtonClick,
-  } = usePrevNextButtons(emblaApi, () => { });
+  } = usePrevNextButtons(emblaApi, () => {});
 
   const tabs = [
     {
@@ -85,10 +85,7 @@ export default function HomeCarousel() {
 
   return (
     <div className="mt-10 mx-auto max-w-[1400px]">
-      <div
-        className=" rounded-[3rem] overflow-hidden py-8"
-        style={bgGradient}
-      >
+      <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>
             {tabs.map((tab, index) => (
@@ -98,7 +95,7 @@ export default function HomeCarousel() {
                 onClick={() => onTabsButtonClick(index)}
               >
                 <span className="flex items-center space-x-2 ">
-                  {tab.icon}
+                  <span className="hidden md:block">{tab.icon}</span>
                   {tab.title}
                 </span>
               </TabsTrigger>
@@ -123,9 +120,7 @@ export default function HomeCarousel() {
                 }}
               >
                 <Card
-                  className={cn(
-                    "border-0 bg-transparent shadow-none bg-white",
-                  )}
+                  className={cn("border-0 bg-transparent shadow-none bg-white")}
                 >
                   <CardContent
                     className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 p-6", {
@@ -133,15 +128,19 @@ export default function HomeCarousel() {
                     })}
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
-                      <h2 className="text-5xl font-heading leading-[56px]"
+                      <h2
+                        className="text-5xl font-heading leading-[56px]"
                         dangerouslySetInnerHTML={{
                           __html: slide.title.replace(
-                            new RegExp(`\\b${slide.titleHighlight}\\b`, 'i'),
-                            match => renderToString(<span style={gradientText}>{match}</span>)
-                          )
+                            new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),
+                            (match) =>
+                              renderToString(
+                                <span style={gradientText}>{match}</span>
+                              )
+                          ),
                         }}
                       />
-                      <p className="text-grey-900/80 leading-relaxed text-lg">
+                      <p className="text-grey-900/80 leading-relaxed text-xl">
                         {slide.description}
                       </p>
                       <Button variant={"outline"}>{slide.cta}</Button>
