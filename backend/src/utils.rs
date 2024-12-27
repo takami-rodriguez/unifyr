@@ -39,5 +39,5 @@ impl<R: SecureRandom> NonceGenerator<R> {
 
 pub fn is_html(resp: &Response) -> bool {
     resp.get_content_type()
-        .is_some_and(|mime| mime.type_() == mime::TEXT && mime.subtype() == mime::HTML)
+        .is_some_and(|mime| mime.subtype() == mime::HTML)
 }

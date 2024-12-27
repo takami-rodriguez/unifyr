@@ -145,16 +145,6 @@ fn retrieve(mut req: Request) -> Result<Response, Box<dyn Error>> {
     }
 }
 
-// fn required_transform(resp: Response) -> Response {
-//     if let Some(mime) = resp.get_content_type()
-//         && mime.type_() == mime::TEXT
-//         && mime.subtype() == mime::HTML
-//     {
-//     } else {
-//         resp
-//     }
-// }
-
 fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
     const ALLOWED_HEADERS: &[HeaderName] = &[
         header::AGE,
@@ -178,9 +168,7 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
     }
 
     if let Some(mime) = resp.get_content_type() {
-        if mime.type_() == mime::TEXT
-            && (mime.subtype() == mime::HTML || mime.subtype() == mime::PLAIN)
-        {
+        if mime.subtype() == mime::HTML || mime.subtype() == mime::PLAIN {
             // For HTML, do not cache on the client
             resp.set_header(header::CACHE_CONTROL, "no-store, must-revalidate");
         } else if mime.type_() == mime::IMAGE && !is_hashed {

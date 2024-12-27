@@ -51,8 +51,12 @@ pub(crate) fn rewrite(resp: &mut Response) {
         &body,
         RewriteStrSettings {
             element_content_handlers: vec![
-                element!("script:not([src])", |el| { Ok(el.set_attribute("nonce", &nonce)?) }),
-                element!("style", |el| { Ok(el.set_attribute("nonce", &nonce)?) }),
+                element!("script:not([src])", |el| {
+                    Ok(el.set_attribute("nonce", &nonce)?)
+                }),
+                element!("style", |el| {
+                    Ok(el.set_attribute("nonce", &nonce)?)
+                }),
             ],
             ..Default::default()
         },
@@ -65,7 +69,7 @@ pub(crate) fn rewrite(resp: &mut Response) {
 fn make_csp(nonce: &str) -> String {
     format!(
         "default-src 'none'; \
-        script-src 'self' 'nonce-{nonce}'; \
+        script-src 'self' 'nonce-{nonce}' 'strict-dynamic'; \
         style-src 'self' 'nonce-{nonce}'; \
         style-src-attr 'unsafe-inline'; \
         connect-src 'self'; \
@@ -74,7 +78,6 @@ fn make_csp(nonce: &str) -> String {
         base-uri 'none'; \
         form-action 'self'; \
         frame-ancestors 'none'; \
-        upgrade-insecure-requests;",
-        nonce = nonce
+        upgrade-insecure-requests;"
     )
 }
