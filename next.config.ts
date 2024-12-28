@@ -13,7 +13,6 @@ export default (phase: string) => {
       unoptimized: true,
     },
     experimental: {
-      webpackMemoryOptimizations: true,
       turbo: {
         // ...
       },
