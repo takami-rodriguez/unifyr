@@ -23,7 +23,7 @@ const Hero = () => {
         </Button>
         <Button variant="outline">Discover ZiftONE</Button>
       </div>
-      <div className="max-w-7xl my-12 mx-auto px-32">
+      <div className="max-w-5xl my-12 mx-auto px-32">
         <AspectRatio className="relative" ratio={16 / 9}>
           <Image
             src="/images/image.png"

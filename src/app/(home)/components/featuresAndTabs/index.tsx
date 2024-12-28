@@ -33,7 +33,7 @@ const features = [
 //  TODO - update content based on tab
 export default function FeaturesAndTabs() {
   return (
-    <div className="px-5 max-w-[1400px] mx-auto">
+    <div className="px-5 max-w-[1200px] mx-auto">
       <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
         <div className="container mx-auto px-24 py-6 ">
           <div className="flex items-center ">

@@ -84,7 +84,7 @@ export default function HomeCarousel() {
   ];
 
   return (
-    <div className="mt-10 mx-auto max-w-[1400px]">
+    <div className="mt-10 mx-auto max-w-[1200px]">
       <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>

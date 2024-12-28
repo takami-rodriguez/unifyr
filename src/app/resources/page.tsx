@@ -22,7 +22,7 @@ const ResourcesPage = async () => {
   const allArticles = await fetchAllArticles();
   if (!pageData) return null;
   return (
-    <div className="overflow-x-hidden mb-1 max-w-7xl mx-auto space-y-12 pt-12">
+    <div className="overflow-x-hidden mb-1 max-w-5xl mx-auto space-y-12 pt-12">
       {pageData && <FeaturedArticle article={pageData?.featuredArticle} />}
       <Suspense fallback={<div>Loading...</div>}>
         {allArticles && <ListArticles articles={allArticles} />}

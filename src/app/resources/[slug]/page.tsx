@@ -36,7 +36,7 @@ const ArticlePage = async ({ params }: PageProps) => {
   if (!article) return null;
   const content = article.content;
   return (
-    <div className="overflow-x-hidden mb-1 pt-12 max-w-7xl mx-auto">
+    <div className="overflow-x-hidden mb-1 pt-12 max-w-5xl mx-auto">
       <h1 className="text-4xl ">{article.title}</h1>
       <div className=" pt-20 ">
         <div

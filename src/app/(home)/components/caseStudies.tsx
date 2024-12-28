@@ -3,7 +3,7 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 export default function CaseStudy() {
   return (
-    <div className=" mx-auto  py-12 max-w-7xl space-y-20">
+    <div className=" mx-auto  py-12 max-w-5xl space-y-20">
       {/* Testimonial Section */}
       <section className="text-center space-y-8">
         <blockquote className="text-4xl font-heading max-w-3xl mx-auto">

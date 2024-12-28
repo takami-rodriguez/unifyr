@@ -11,7 +11,7 @@ const LatestArticles = ({ articles }: LatestArticlesProps) => {
       <div className="mb-8 md:mb-10 ">
         {/* <SubHeading title="The latest updates and articles" /> */}
       </div>
-      <div className="max-w-7xl mx-auto overflow-visible relative">
+      <div className="max-w-5xl mx-auto overflow-visible relative">
         <div className="grid grid-cols-3 gap-6">
           {articles?.map((t) => (
             <ArticleCard article={t} key={t._uid}/>

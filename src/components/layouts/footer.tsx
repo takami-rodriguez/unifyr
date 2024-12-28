@@ -7,7 +7,7 @@ import G2Leaders from "@/app/(home)/components/g2Leaders";
 const Footer = () => {
   return (
     <footer className="py-16">
-      <div className="grid grid-cols-6 max-w-7xl mx-auto ">
+      <div className="grid grid-cols-6 max-w-5xl mx-auto ">
         <div className="col-span-1 ">
           <Link href={NavLink.Home}>
             <div className="h-[40px] w-[121px]">

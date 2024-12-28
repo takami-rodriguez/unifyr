@@ -27,7 +27,7 @@ const ImageText = ({
   button,
 }: ImageTextProps) => {
   return (
-    <div className=" py-24 max-w-7xl mx-auto relative z-10">
+    <div className=" py-24 max-w-5xl mx-auto relative z-10">
       <div className={cn("absolute -top-20  z-50 h-[120%] w-1/2",{
         "left-0": !imageLeft,
         "right-0": imageLeft,
