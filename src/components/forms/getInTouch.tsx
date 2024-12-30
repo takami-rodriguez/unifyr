@@ -9,13 +9,17 @@ import {
   SelectValue,
 } from "./components/select";
 
-
-
-// type GetInTouchProps = {};
-
 const GetInTouch = () => {
   return (
-    <div className="bg-white rounded-md p-2  space-y-6">
+    <div>
+      <form id="contact-form">
+      <div
+          className="bg-white rounded-2xl py-10 px-14 space-y-6"
+          style={{
+            boxShadow:
+              "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)",
+          }}
+        >
       <div className="grid grid-cols-2 gap-6">
         <InputField
           type="text"
@@ -56,8 +60,10 @@ const GetInTouch = () => {
         </Select>
       </div>
       <div className="flex justify-end">
-        <Button variant={"secondary"} type="submit">Submit message</Button>
+        <Button variant={"primary"} type="submit">Submit message</Button>
       </div>
+      </div>
+      </form>
     </div>
   );
 };

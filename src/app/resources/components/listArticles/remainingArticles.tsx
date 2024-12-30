@@ -14,7 +14,7 @@ const RemainingArticles = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 pt-5   ">
         {articles?.map((article, i) => {
           return (
-            <div key={article.title + i}>
+            <div key={article.frontmatter.title + i}>
               <ArticleCard article={article} index={i}  />
             </div>
           );

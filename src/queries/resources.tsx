@@ -1,106 +1,41 @@
-import { ArticleTemplateProps, AuthorDetails } from "@/types/article";
+import { ArticleTemplateProps } from "@/types/article";
+import fs from "fs";
+import matter from "gray-matter";
+import { sortFrontMatter } from "./_helpers";
 
-const dummyAuthor: AuthorDetails =  {
-  _uid: "4-author",
-  name: "Brian Carbone",
-  image: {
-    url: "/images/author1.png",
-    alt: "Author",
-    id: "1-author-image",
-  },
-};
-
-const dummyArticlesData: ArticleTemplateProps[] = [
-  {
-    title: "Lorem ipsum dolor sit amet",
-    tags: ["PRM", "SALES", "MARKETING"],
-    publishedDate: "2023-12-11",
-     featuredImage: {
-        url: "/images/image.png",
-        alt: "Author",
-        id: "1-author-image",
-      },
-    author: dummyAuthor,
-    content:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    excerpt:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    _uid: "1",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    tags: ["PRM", "SALES", "MARKETING"],
-    publishedDate: "2023-12-11",
-     featuredImage: {
-        url: "/images/image.png",
-        alt: "Author",
-        id: "1-author-image",
-      },
-    author: dummyAuthor,
-    content:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    excerpt:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    _uid: "2",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    tags: ["PRM", "SALES", "MARKETING"],
-    publishedDate: "2023-12-11",
-     featuredImage: {
-        url: "/images/image.png",
-        alt: "Author",
-        id: "1-author-image",
-      },
-    author: dummyAuthor,
-    content:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    excerpt:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    _uid: "3",
-  },
-  {
-    title: "Lorem ipsum dolor sit amet",
-    tags: ["PRM", "SALES", "MARKETING"],
-    publishedDate: "2023-12-11",
-     featuredImage: {
-        url: "/images/image.png",
-        alt: "Author",
-        id: "1-author-image",
-      },
-    author: dummyAuthor,
-    content:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    excerpt:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    _uid: "4",
-  },
-  {
-    title: "Article 2",
-    tags: ["tag1", "tag2"],
-    publishedDate: "2021-08-01",
-    content: "Article 2 content",
-    excerpt:
-      "Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.",
-    _uid: "5",
-    author: dummyAuthor,
-  },
-];
-
-export const fetchAllArticles = async () => {
-  return dummyArticlesData.slice(0, 3);
+export const fetchAllArticles = async (): Promise<ArticleTemplateProps[]> => {
+  const slugData = await getAllBlogSlugs();
+  const allArticlePromises = slugData.map((fileName) => fetchArticleBySlug(fileName.slug))
+  return Promise.all(allArticlePromises);
 };
 
 
-// TODO - Implement the appropriate query function
-export const fetchArticleBySlug = async (slug: string) => {
-  console.log(slug , "JUST GETTING FIRST DUMMY ARTICLE")
-  return dummyArticlesData[0]
-}
-
-export const fetchResourcesPageData = async () => {
+export const fetchArticleBySlug = async (
+  slug: string
+): Promise<ArticleTemplateProps> => {
+  const fileName = fs.readFileSync(`./src/data/blogs/${slug}.mdx`, "utf-8");
+  const { data: fData, content } = matter(fileName);
   return {
-    featuredArticle: dummyArticlesData[0],
+    frontmatter: sortFrontMatter(fData),
+    content,
+  };
+};
+
+export const fetchResourcesPageData = async (): Promise<{
+  featuredArticle: ArticleTemplateProps;
+  banner: {
+    title: "Resources";
+    button: {
+      link: "/#";
+      title: "Secondary action";
+    };
+  };
+}> => {
+  const featuredArticle = await fetchArticleBySlug(
+    "the-channel-marketing-investment-challenge"
+  );
+  return {
+    featuredArticle,
     banner: {
       title: "Resources",
       button: {
@@ -109,4 +44,12 @@ export const fetchResourcesPageData = async () => {
       },
     },
   };
+};
+
+export const getAllBlogSlugs = async () => {
+  const files = fs.readdirSync("./src/data/blogs");
+  const paths = files.map((fileName) => ({
+    slug: fileName.replace(".mdx", ""),
+  }));
+  return paths;
 };
