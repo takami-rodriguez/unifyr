@@ -19,7 +19,6 @@ export const sortSEOFromFrontmatter = (seo: {
 };
 
 export const sortFrontMatter = (frontmatter: { [key: string]: any }) => {
-  console.log({frontmatter})
   return {
     title: frontmatter.title || "",
     excerpt: frontmatter.excerpt || "",

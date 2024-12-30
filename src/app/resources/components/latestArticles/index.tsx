@@ -14,7 +14,7 @@ const LatestArticles = ({ articles }: LatestArticlesProps) => {
       <div className="max-w-5xl mx-auto overflow-visible relative">
         <div className="grid grid-cols-3 gap-6">
           {articles?.map((t) => (
-            <ArticleCard article={t} key={t._uid}/>
+            <ArticleCard article={t} key={t.frontmatter._uid}/>
           ))}
         </div>
       </div>

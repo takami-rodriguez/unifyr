@@ -13,7 +13,7 @@ export const fetchAllArticles = async (): Promise<ArticleTemplateProps[]> => {
 export const fetchArticleBySlug = async (
   slug: string
 ): Promise<ArticleTemplateProps> => {
-  const fileName = fs.readFileSync(`./src/data/blogs/${slug}.mdx`, "utf-8");
+  const fileName = fs.readFileSync(`./src/data/blogs/${slug}.md`, "utf-8");
   const { data: fData, content } = matter(fileName);
   return {
     frontmatter: sortFrontMatter(fData),
@@ -49,7 +49,7 @@ export const fetchResourcesPageData = async (): Promise<{
 export const getAllBlogSlugs = async () => {
   const files = fs.readdirSync("./src/data/blogs");
   const paths = files.map((fileName) => ({
-    slug: fileName.replace(".mdx", ""),
+    slug: fileName.replace(".md", ""),
   }));
   return paths;
 };

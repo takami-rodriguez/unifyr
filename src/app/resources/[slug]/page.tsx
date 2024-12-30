@@ -7,7 +7,6 @@ import {
   fetchArticleBySlug,
   getAllBlogSlugs,
 } from "@/queries/resources";
-import fs from "fs";
 import { PageProps } from "@/types/page";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
