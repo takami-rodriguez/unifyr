@@ -1,5 +1,5 @@
 ---
-title: The channel marketing investment challenge
+title: "Unifyr+ & Unifyr Pro: Beta program announcement"
 excerpt: Building and maintaining a successful partner marketing program demands an extraordinary investment of time, money, and human capital
 publishedDate: '2025-01-01T11:00:00.000Z'
 category: Marketing
@@ -9,6 +9,7 @@ slug: the-channel-marketing-investment-challenge
 author: brian
 ---
 
+## The channel marketing investment challenge
 
 Building and maintaining a successful partner marketing program demands an extraordinary investment of time, money, and human capital. Companies entering the channel face an uphill battle: the average time to profitability exceeds eighteen months, with some programs requiring up to three years before showing positive returns. This extended timeline stems from the nature of supplier-partner relationships, where each connection requires onboarding, training, and ongoing support. The technology stack alone presents a significant hurdle—most businesses cobble together multiple solutions for partner relationship management (PRM), through-channel marketing automation (TCMA), learning management systems (LMS), and various communication tools. *These disconnected systems create friction*, not only in daily operations but in the overall partner experience. Consider the stark reality, according to Forrester Research, "*over 75% of channel programs fail due to launch delays of over 15 months*." Furthermore, in even the most mature channel partner programs, "*80% of partners are nontransacting.*" These sobering statistics reflect not just the complexity of channel marketing, but the critical need for a more efficient, unified approach to partner engagement and management.
 
