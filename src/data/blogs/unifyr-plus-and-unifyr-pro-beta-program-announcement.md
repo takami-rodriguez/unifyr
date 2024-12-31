@@ -5,7 +5,7 @@ publishedDate: '2025-01-01T11:00:00.000Z'
 category: Marketing
 draft: false
 featuredImage: "/images/image.png"
-slug: the-channel-marketing-investment-challenge
+slug: unifyr-plus-and-unifyr-pro-beta-program-announcement
 author: brian
 ---
 

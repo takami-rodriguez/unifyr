@@ -2,13 +2,15 @@ import { ArticleTemplateProps } from "@/types/article";
 import fs from "fs";
 import matter from "gray-matter";
 import { sortFrontMatter } from "./_helpers";
+import { FEATURED_ARTICLE_SLUG } from "@/data/config";
 
 export const fetchAllArticles = async (): Promise<ArticleTemplateProps[]> => {
   const slugData = await getAllBlogSlugs();
-  const allArticlePromises = slugData.map((fileName) => fetchArticleBySlug(fileName.slug))
+  const allArticlePromises = slugData.map((fileName) =>
+    fetchArticleBySlug(fileName.slug)
+  );
   return Promise.all(allArticlePromises);
 };
-
 
 export const fetchArticleBySlug = async (
   slug: string
@@ -31,9 +33,7 @@ export const fetchResourcesPageData = async (): Promise<{
     };
   };
 }> => {
-  const featuredArticle = await fetchArticleBySlug(
-    "the-channel-marketing-investment-challenge"
-  );
+  const featuredArticle = await fetchArticleBySlug(FEATURED_ARTICLE_SLUG);
   return {
     featuredArticle,
     banner: {
