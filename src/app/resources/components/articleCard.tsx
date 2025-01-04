@@ -4,7 +4,6 @@ import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import TitleSection from "./titleSection";
 import { ArticleTemplateProps } from "@/types/article";
-import { slugify } from "@/lib/utils";
 import clsx from "clsx";
 
 type ArticleCardProps = {
@@ -14,7 +13,7 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
-    <Link href={`/resources/${slugify(article.frontmatter.title)}/`}>
+    <Link href={`/resources/${article.frontmatter.slug}/`}>
       <div className="rounded-2xl space-y-6 my-4 h-full max-h-full bg-white overflow-hidden"
       style={{boxShadow: "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)"}}
       >

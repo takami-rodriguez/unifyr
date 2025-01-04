@@ -14,7 +14,7 @@ type FeaturedArticleProps = {
 const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
   return (
     <Link
-      href={`${NavLink.Resources}${slugify(article.frontmatter.title)}/`}
+      href={`${NavLink.Resources}/${article.frontmatter.slug}/`}
       className=""
     >
       <div className="max-w-5xl mx-auto">

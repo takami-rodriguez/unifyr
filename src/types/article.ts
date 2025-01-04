@@ -27,6 +27,7 @@ export interface ArticleTemplateProps {
     publishedDate: string;
     author: AuthorDetails;
     seo?: SEOData;
+    slug: string;
     _uid: string;
   };
 }
