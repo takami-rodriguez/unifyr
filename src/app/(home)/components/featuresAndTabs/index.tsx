@@ -1,3 +1,4 @@
+"use client";
 import { Diamond, RefreshCw, Target } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
@@ -5,33 +6,26 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
 import Arrow from "@/components/icons/arrow";
 import { bgGradient } from "@/data/styleHelpers";
+import { useState } from "react";
+import { tabsData, TabValue } from "./data";
 
-const features = [
+const tabs = [
   {
-    icon: <Target className="h-[42px] w-[42px] text-grey-400" />,
-    title: "Partner portal",
-    description:
-      "Build an experience for your partners that encourages commitment and mutual growth.",
-    link: "#",
+    title: "ZiftONE",
+    value: TabValue.zift,
   },
   {
-    icon: <Diamond className="h-[42px] w-[42px] text-grey-400" />,
-    title: "Integrations",
-    description:
-      "Connect seamlessly with your existing tools to ensure channel operations remain perfectly synchronized.",
-    link: "#",
+    title: "Unifyr+",
+    value: TabValue.unifyrPlus,
   },
   {
-    icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
-    title: "Analytics",
-    description:
-      "Transform data into actionable intelligence through visualizations that highlight partner performance both individually and holistically.",
-    link: "#",
+    title: "Unifyr Pro",
+    value:TabValue.unifyrPro,
   },
 ];
 
-//  TODO - update content based on tab
 export default function FeaturesAndTabs() {
+  const [selectedTab, setSelectedTab] = useState(tabs[0].value);
   return (
     <div className="px-5 max-w-[1200px] mx-auto">
       <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
@@ -39,9 +33,15 @@ export default function FeaturesAndTabs() {
           <div className="flex items-center ">
             <Tabs defaultValue="zift">
               <TabsList>
-                <TabsTrigger value="zift">ZiftONE</TabsTrigger>
-                <TabsTrigger value="unifyr-plus">Unifyr+</TabsTrigger>
-                <TabsTrigger value="unifyr-pro">Unifyr Pro</TabsTrigger>
+                {tabs.map((tab, index) => (
+                  <TabsTrigger
+                    onClick={() => setSelectedTab(tab.value)}
+                    key={tab.value + index}
+                    value={tab.value}
+                  >
+                    {tab.title}
+                  </TabsTrigger>
+                ))}
               </TabsList>
             </Tabs>
           </div>
@@ -50,11 +50,10 @@ export default function FeaturesAndTabs() {
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
             <div className="space-y-6 max-w-lg pt-8">
               <h4 className="text-4xl font-bold sm:text-5xl leading-14 ">
-                The industry-leading PRM & TCMA platform
+                {tabsData[selectedTab].title}
               </h4>
               <p className="text-gray-900/80 font-light text-xl">
-                ZiftONE is the most advanced PRM solution with key integrations
-                into the platforms you already use. 
+              {tabsData[selectedTab].description}
               </p>
             </div>
             <div className="flex items-center justify-center rounded-2xl border-2 border-white">
@@ -69,7 +68,7 @@ export default function FeaturesAndTabs() {
             </div>
           </div>
           <div className="mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
-            {features.map((feature, index) => (
+            {tabsData[selectedTab].features.map((feature, index) => (
               <div key={index} className="space-y-4">
                 {feature.icon}
                 <h2 className="text-[22px] ">{feature.title}</h2>
