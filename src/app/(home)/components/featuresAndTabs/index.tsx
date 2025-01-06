@@ -1,5 +1,4 @@
 "use client";
-import { Diamond, RefreshCw, Target } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";

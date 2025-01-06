@@ -3,7 +3,6 @@ import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
 import { ArticleTemplateProps } from "@/types/article";
-import { slugify } from "@/lib/utils";
 import { NavLink } from "@/data/navLinks";
 import TitleSection from "@/app/resources/components/titleSection";
 
