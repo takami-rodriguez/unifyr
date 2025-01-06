@@ -21,6 +21,7 @@ export const sortSEOFromFrontmatter = (seo: {
 export const sortFrontMatter = (frontmatter: { [key: string]: any }) => {
   return {
     title: frontmatter.title || "",
+    slug: frontmatter.slug || "",
     excerpt: frontmatter.excerpt || "",
     featuredImage: frontmatter.featuredImage || "/images/image.png",
     tags: frontmatter.tags || [],
