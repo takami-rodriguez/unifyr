@@ -7,7 +7,7 @@ import HeroVideo from "./heroVideo";
 const Hero = () => {
   return (
     <div>
-      <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading md:text-center pt-20 leading-[3.5rem] md:leading-[5rem]">
+      <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading font-extrabold md:text-center pt-20 leading-[3.5rem] md:leading-[5rem]">
         <span style={gradientText}>Growth</span> happens in
         good company.
       </h1>

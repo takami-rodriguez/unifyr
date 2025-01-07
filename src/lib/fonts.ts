@@ -3,6 +3,16 @@ import localFont from "next/font/local";
 export const epicene = localFont({
   src: [
     {
+      path: './fonts/Test-Epicene-Display/test-epicene-display-regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/Test-Epicene-Display/test-epicene-display-medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
       path: './fonts/Test-Epicene-Display/test-epicene-display-bold-italic.woff2',
       weight: '800',
       style: 'italic',
@@ -12,6 +22,7 @@ export const epicene = localFont({
       weight: '800',
       style: 'normal',
     },
+    
     {
       path: './fonts/Test-Epicene-Display/test-epicene-display-black-italic.woff2',
       weight: '900',

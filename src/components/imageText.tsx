@@ -55,7 +55,7 @@ const ImageText = ({
               {badge}
             </div>
           </Badge>
-          <h3 className="text-5xl font-heading">{title}</h3>
+          <h3 className="text-5xl font-heading font-bold">{title}</h3>
           <p className="text-xl font-light text-grey-900/80">{content}</p>
           {button && (
             <Link href={button.href}>

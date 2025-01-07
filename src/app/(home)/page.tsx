@@ -17,14 +17,13 @@ export default function Home() {
       {homeSections.map((section) => (
         <ImageText key={section.title} {...section} />
       ))}
-      <FeaturesAccordionSection  />
+      <FeaturesAccordionSection />
       <div className="py-20">
         <FeaturesAndTabs />
       </div>
       <CaseStudy />
       <div className="py-12 ">
-
-      <Banner/>
+        <Banner />
       </div>
     </div>
   );

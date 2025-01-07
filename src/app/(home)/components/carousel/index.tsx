@@ -129,7 +129,7 @@ export default function HomeCarousel() {
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
                       <h2
-                        className="text-4xl md:text-5xl font-heading md:leading-[56px]"
+                        className="text-4xl font-bold md:text-5xl font-heading md:leading-[56px]"
                         dangerouslySetInnerHTML={{
                           __html: slide.title.replace(
                             new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),

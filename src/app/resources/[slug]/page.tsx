@@ -39,12 +39,12 @@ const ArticlePage = async ({ params }: PageProps) => {
   if (!content) return null;
   return (
     <>
-      <div className="overflow-x-hidden mb-1 pt-12 max-w-2xl mx-auto">
-        <h1 className="text-4xl ">{frontmatter.title}</h1>
+      <div className=" mb-1 pt-12 max-w-2xl mx-auto">
+        <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">{frontmatter.title}</h1>
         <div className=" pt-20 ">
           <ReactMarkdown
             className={clsx(
-              "w-full prose-h2:text-4xl text-grey-800 prose-p:text-xl prose-p:leading-[3.125rem]  space-y-8"
+              "w-full font-heading prose-h2:text-4xl prose-h2:font-bold prose-h3:text-4xl prose-h3:font-bold text-grey-800  prose-p:text-[1.375rem] prose-p:leading-[3.125rem] space-y-8 prose-h2:text-[1.875rem] leading-[2.5rem]"
             )}
             remarkPlugins={[remarkGfm]}
           >

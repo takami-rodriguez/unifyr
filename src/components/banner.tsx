@@ -10,7 +10,7 @@ const Banner = async () => {
         style={bgGradient}
       >
         <div className="flex flex-col items-center space-y-10">
-          <h2 className="text-6xl font-heading max-w-5xl mx-auto">
+          <h2 className="text-6xl font-bold font-heading max-w-5xl mx-auto">
             Scalable and profitable channel partnerships start with{" "}
             <span style={gradientText}>Unifyr</span>
           </h2>
