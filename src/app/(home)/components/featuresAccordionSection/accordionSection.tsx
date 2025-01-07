@@ -15,6 +15,10 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 export type AccordionSectionProps = {
   para: string;
   mainTitle: string;
+  button: {
+    label: string;
+    link: string;
+  }
   content: {
     title: string;
     content: string;
@@ -46,7 +50,7 @@ const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
           </span>
         </div>
         <div className="pt-6">
-          <Button variant="secondary">Discover ZiftONE</Button>
+          <Button variant={blok.colour ==="yellow500" ? "yellow" :"secondary"}>{blok.button.label}</Button>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">

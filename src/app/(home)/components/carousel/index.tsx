@@ -106,7 +106,7 @@ export default function HomeCarousel() {
           opts={{
             loop: true,
           }}
-          className="relative my-8 h-full px-14"
+          className="relative my-8 h-full px-1 md:px-14"
           carouselRef={emblaRef}
           api={emblaApi}
         >
@@ -123,13 +123,13 @@ export default function HomeCarousel() {
                   className={cn("border-0 bg-transparent shadow-none bg-white")}
                 >
                   <CardContent
-                    className={cn("grid grid-cols-1 md:grid-cols-2 gap-8 p-6", {
+                    className={cn("grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 p-6", {
                       "max-h-[80%]": selectedIndex !== index,
                     })}
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
                       <h2
-                        className="text-5xl font-heading leading-[56px]"
+                        className="text-4xl md:text-5xl font-heading md:leading-[56px]"
                         dangerouslySetInnerHTML={{
                           __html: slide.title.replace(
                             new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),
@@ -140,7 +140,7 @@ export default function HomeCarousel() {
                           ),
                         }}
                       />
-                      <p className="text-grey-900/80 leading-relaxed text-xl">
+                      <p className="text-grey-900/80 leading-relaxed md:text-xl">
                         {slide.description}
                       </p>
                       <Button variant={"outline"}>{slide.cta}</Button>
@@ -162,7 +162,7 @@ export default function HomeCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="absolute -bottom-10 left-14 w-[90%] mx-auto flex justify-between px-16">
+          <div className="absolute -bottom-10 left-5 md:left-14 w-[90%] mx-auto flex justify-between px-16">
             <CarouselPrevious
               className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
               onClick={onPrevButtonClick}

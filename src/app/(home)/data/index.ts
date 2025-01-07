@@ -65,6 +65,10 @@ export const accordionSections: {
     colour: "blue500",
     para: "Traditional partner relationship management leaves the hard parts up to you. Unifyr provides end-to-end support.",
     _uid: "asfasr123123",
+    button: {
+      label: "Discover ZiftONE",
+      link: "/",
+    },
     content: [
       {
         _uid: "asdasd",
@@ -102,6 +106,10 @@ export const accordionSections: {
     ],
   },
   partner: {
+    button: {
+      label: "Discover ZiftONE",
+      link: "/",
+    },
     mainTitle: "Lorem Ipsum Dolor Amet",
     colour: "yellow500",
     para: "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",

@@ -12,6 +12,7 @@ const buttonVariants = cva(
       variant: {
         primary: "bg-gradient-to-br from-pink to-[#703B96] text-white border-grey-[#1f4498]/30 ",
         secondary: "bg-secondary text-white border-grey-[#1f4498]/30",
+        yellow: "bg-accent text-white border-grey-[#1f4498]/30",
         outline:
           " border-grey-900 bg-white hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
         ghost:

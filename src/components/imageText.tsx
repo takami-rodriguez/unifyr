@@ -27,8 +27,8 @@ const ImageText = ({
   button,
 }: ImageTextProps) => {
   return (
-    <div className=" py-24 max-w-5xl mx-auto relative z-10">
-      <div className={cn("absolute -top-20  z-50 h-[120%] w-1/2",{
+    <div className=" py-2.5 md:py-24 max-w-5xl mx-auto relative z-10">
+      <div className={cn("absolute -top-20  h-[120%] w-1/2 z-0",{
         "left-0": !imageLeft,
         "right-0": imageLeft,
       })}>
@@ -37,7 +37,7 @@ const ImageText = ({
       <div className="grid grid-cols-1 lg:grid-cols-11 relative z-20 gap-8 lg:gap-[52px] items-center ">
         <div
           className={cn("col-span-1 lg:col-span-5", {
-            "lg:order-last": !imageLeft,
+            "order-last": !imageLeft,
           })}
         >
           <AspectRatio ratio={16 / 9} className="relative ">
