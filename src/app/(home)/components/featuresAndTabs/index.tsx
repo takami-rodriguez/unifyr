@@ -58,12 +58,12 @@ export default function FeaturesAndTabs() {
               {selectedData.description}
               </p>
             </div>
-            <div className="flex items-center justify-center rounded-2xl border-2 border-white">
+            <div className="flex items-center justify-center ">
               <AspectRatio className="relative" ratio={16 / 9}>
                 <Image
                   src="/images/image.png"
                   alt="hero"
-                  className="object-cover object-center rounded-xl"
+                  className="object-cover object-center rounded-2xl border-2 border-white"
                   fill
                 />
               </AspectRatio>
