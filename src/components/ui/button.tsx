@@ -4,13 +4,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
+import { primary } from "@/lib/colors";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl border-[2px]  ring-offset-white transition-colors  [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-300",
   {
     variants: {
       variant: {
-        primary: "bg-gradient-to-br from-pink to-[#703B96] text-white border-grey-[#1f4498]/30 ",
+        primary: "text-white border-grey-[#1f4498]/30 ",
         secondary: "bg-secondary text-white border-grey-[#1f4498]/30",
         yellow: "bg-accent text-white border-grey-[#1f4498]/30",
         outline:
@@ -50,6 +51,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           {...props}
           // style={{boxShadow: "0px 0px 1px 0px #000"}}
+          style={variant === "primary" ? {background:"linear-gradient(140deg, #d70e86 0%, #703b96 100%)"} : {}}
         />
       </div>
     );
