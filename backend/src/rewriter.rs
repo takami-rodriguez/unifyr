@@ -66,14 +66,17 @@ pub(crate) fn rewrite(resp: &mut Response) {
     resp.set_body_text_html(&modified);
 }
 
+// frame-src rather than child-src
 fn make_csp(nonce: &str) -> String {
     format!(
         "default-src 'none'; \
-        script-src 'self' 'nonce-{nonce}'; \
+        script-src 'self' 'nonce-{nonce}' https://*.wistia.com https://*.wistia.net; \
         style-src 'self' 'nonce-{nonce}'; \
         style-src-attr 'unsafe-inline'; \
-        connect-src 'self'; \
-        img-src 'self'; \
+        connect-src 'self' https://*.wistia.com https://*.wistia.net; \
+        img-src 'self' data: https://*.wistia.com https://*.wistia.net; \
+        media-src blob: https://*.wistia.com https://*.wistia.net; \
+        frame-src https://fast.wistia.com https://fast.wistia.net; \
         font-src 'self'; \
         base-uri 'none'; \
         form-action 'self'; \
