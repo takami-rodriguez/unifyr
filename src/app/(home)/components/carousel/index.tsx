@@ -32,24 +32,24 @@ interface SlideContent {
 
 const slides: SlideContent[] = [
   {
-    title: "The first platform for unified supplier management",
-    titleHighlight: "first",
+    title: "Partner management that makes no compromise",
+    titleHighlight: "compromise",
     description:
-      "We've fundamentally reimagined how partners engage with their supplier ecosystem. Through one interface, you're able to orchestrate all of your supplier relationships with the assistance of a personalized AI advisor that understands each one on a deep level.",
-    cta: "Discover Unify+",
-  },
-  {
-    title: "Channel program management that sets a new standard",
-    titleHighlight: "innovative",
-    description:
-      "ZiftONE's innovative PRM and TCMA platform reveals the full story behind channel activity, turning data into actionable intelligence. With our carefully curated network of partners and agencies, you'll find perfect allies to amplify your channel success.",
+      "ZiftONE's innovative PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. Empowered with Unifyr+, partners will always have the latest content and updates.",
     cta: "Discover ZiftONE",
   },
   {
-    title: "Where channel expertise meets new opportunity",
-    titleHighlight: "expertise",
+    title: "The first platform for unified supplier management",
+    titleHighlight: "first",
     description:
-      "Your mastery of channel partnerships deserves a platform of equal caliber. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
+      "We've fundamentally redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of supplier relationships with the assistance of a personalized AI advisor that understands each one on a deep level.",
+    cta: "Discover Unifyr+",
+  },
+  {
+    title: "Where channel expertise meets new opportunity",
+    titleHighlight: "opportunity",
+    description:
+      "Your mastery of channel partnerships deserves an audience of suppliers. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
     cta: "Discover Unifyr Pro",
   },
 ];
