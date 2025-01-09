@@ -1,13 +1,18 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 const GAHandler = () => {
   const GTM_ID = process.env.GTM_ID!;
-  //  get the cookie value
-  const consent = document.cookie
+  const [consent, setConsent] = React.useState<string | undefined>();
+// 
+  useEffect(() => {
+    const cookieConsent = document.cookie
     .split("; ")
     .find((row) => row.startsWith("unifyr-accept-cookie="))
     ?.split("=")[1];
+    setConsent(cookieConsent);
+  },[])
+ 
   return (
     <>
       {consent === "true" && (
