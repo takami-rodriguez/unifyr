@@ -64,7 +64,7 @@ export const accordionSections: {
     mainTitle: "Channel partner orchestration with networking built in",
     colour: "blue500",
     para: "Traditional partner relationship management leaves the hard parts up to you. Unifyr provides end-to-end support.",
-    _uid: "asfasr123123",
+    _uid: "EB6076EB-8FEF-46DF-9B06-FA9F720806AC",
     button: {
       label: "Discover ZiftONE",
       link: "/",

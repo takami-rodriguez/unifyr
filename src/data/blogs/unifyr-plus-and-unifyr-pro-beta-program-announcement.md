@@ -7,6 +7,7 @@ draft: false
 featuredImage: "/images/image.png"
 slug: unifyr-plus-and-unifyr-pro-beta-program-announcement
 author: brian
+_uid: 756911ED-42B0-47AB-A82D-E04DEECD55E9
 ---
 
 ## The channel marketing investment challenge
