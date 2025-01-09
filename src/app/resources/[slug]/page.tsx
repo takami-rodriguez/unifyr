@@ -40,11 +40,13 @@ const ArticlePage = async ({ params }: PageProps) => {
   return (
     <>
       <div className=" mb-1 pt-12 max-w-2xl mx-auto">
-        <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">{frontmatter.title}</h1>
+        <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">
+          {frontmatter.title}
+        </h1>
         <div className=" pt-20 ">
           <ReactMarkdown
             className={clsx(
-              "w-full font-heading prose-h2:text-4xl prose-h2:font-bold prose-h3:text-4xl prose-h3:font-bold text-grey-800  prose-p:text-[1.375rem] prose-p:leading-[3.125rem] space-y-8 prose-h2:text-[1.875rem] leading-[2.5rem]"
+              "w-full font-resources prose-h2:text-4xl prose-h2:pt-8 prose-h3:pt-8 prose-h2:font-bold prose-h3:text-4xl prose-h3:font-bold text-grey-800 prose-p:text-[1.375rem] prose-p:leading-[2.5rem] space-y-6 prose-h2:text-[1.875rem] leading-[2.5rem]"
             )}
             remarkPlugins={[remarkGfm]}
           >
@@ -81,7 +83,6 @@ const ArticlePage = async ({ params }: PageProps) => {
             </>
           )}
         </div>
-        <h3 className="text-4xl text-center -mb-20">Related Articles</h3>
       </div>
       <Banner />
       {articles && <LatestArticles articles={articles} />}

@@ -6,6 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        resources: ["var(--font-resources)"],
         heading: ["var(--font-heading)"],
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
       },
@@ -17,7 +18,6 @@ export default {
         "5xl": "70rem",
       },
       colors: {
-        
         primary: "#5D5DC5",
         secondary: "#1F4498",
         accent: "#FCAF3B",

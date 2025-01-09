@@ -7,10 +7,9 @@ type LatestArticlesProps = {
 
 const LatestArticles = ({ articles }: LatestArticlesProps) => {
   return (
-    <div className=" py-5 md:py-20 ">
-      <div className="mb-8 md:mb-10 ">
-        {/* <SubHeading title="The latest updates and articles" /> */}
-      </div>
+    <div className=" pt-12  ">
+            <h3 className="text-[2rem] leading-[2.5rem] text-center font-medium pb-5">Related Posts</h3>
+      
       <div className="max-w-5xl mx-auto overflow-visible relative">
         <div className="grid grid-cols-3 gap-6">
           {articles?.map((t) => (

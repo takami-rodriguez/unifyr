@@ -4,7 +4,7 @@ import { bgGradient, gradientText } from "@/data/styleHelpers";
 
 const Banner = async () => {
   return (
-    <section className="px-5 max-w-[1300px] mx-auto">
+    <section className="px-5 max-w-[1400px] mx-auto">
       <div
         className="text-center space-y-6 py-10 sm:py-20 rounded-2xl"
         style={bgGradient}

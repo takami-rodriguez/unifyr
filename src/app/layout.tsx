@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layouts/navbar";
 import Footer from "@/components/layouts/footer";
-import { epicene, sohne } from "@/lib/fonts";
+import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
 import GAHandler from "@/lib/gaHandler";
 
@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
-        className={`${epicene.variable} ${sohne.variable} font-sans bg-grey-100 px-4 md:px-5`}
+        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans bg-grey-100 px-4 md:px-5`}
       >
         <Navbar />
         {children}

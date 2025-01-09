@@ -29,12 +29,14 @@ interface SlideContent {
   titleHighlight: string;
   description: string;
   cta: string;
+  image: string;
 }
 
 const slides: SlideContent[] = [
   {
     title: "Partner management that makes no compromise",
     titleHighlight: "compromise",
+    image: "/images/home/partner-carousel.png",
     description:
       "ZiftONE's innovative PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. Empowered with Unifyr+, partners will always have the latest content and updates.",
     cta: "Discover ZiftONE",
@@ -42,6 +44,7 @@ const slides: SlideContent[] = [
   {
     title: "The first platform for unified supplier management",
     titleHighlight: "first",
+    image: "/images/home/partner-carousel.png",
     description:
       "We've fundamentally redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of supplier relationships with the assistance of a personalized AI advisor that understands each one on a deep level.",
     cta: "Discover Unifyr+",
@@ -49,6 +52,7 @@ const slides: SlideContent[] = [
   {
     title: "Where channel expertise meets new opportunity",
     titleHighlight: "opportunity",
+    image: "/images/home/partner-carousel.png",
     description:
       "Your mastery of channel partnerships deserves an audience of suppliers. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
     cta: "Discover Unifyr Pro",
@@ -86,7 +90,7 @@ export default function HomeCarousel() {
   ];
 
   return (
-    <div className="mt-10 mx-auto max-w-[1300px]">
+    <div className="mt-10 mx-auto max-w-[1400px]">
       <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>
@@ -152,7 +156,7 @@ export default function HomeCarousel() {
                       className="relative rounded-2xl overflow-hidden"
                     >
                       <Image
-                        src={"/images/image.png"}
+                        src={slide.image}
                         alt={""}
                         fill
                         className={cn("object-cover object-center rounded-2xl")}

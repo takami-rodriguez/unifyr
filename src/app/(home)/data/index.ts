@@ -18,11 +18,6 @@ export const partnerImages: ImageType[] = [
     alt: "LG",
   },
   {
-    id: "4",
-    url: "/images/partners/Siemens.svg",
-    alt: "Siemens",
-  },
-  {
     id: "5",
     url: "/images/partners/Dell.svg",
     alt: "Dell",
@@ -38,6 +33,7 @@ export const homeSections = [
   {
     badge: "Plan",
     title: "Build channel partnerships worth investing in",
+    image: "/images/home/image1.png",
     content:
       "Shape your supplier-partner relationships into enduring strategic alliances. Through a robust partner program, you establish the foundation for sustained channel success and measurable value.",
   },
@@ -45,12 +41,14 @@ export const homeSections = [
     badge: "Grow",
     imageLeft: true,
     title: "Accelerate growth through mutual commitment",
+    image: "/images/home/image2.png",
     content:
       "Growth happens naturally when partners and suppliers invest fully in each other's success. Unifyr strengthens this commitment by making co-selling effortless, turning strong relationships into recurring results.",
   },
   {
     badge: "Unite",
     title: "Unite channel relationships under one strategic vision",
+    image: "/images/home/image3.png",
     content:
       "Strategically align your channel ecosystem. Unifyr makes it easy to coordinate partnerships for both suppliers and partners, turning relationships into a unified force for growth.",
   },
@@ -77,7 +75,7 @@ export const accordionSections: {
         content:
           "ZiftONE reveals the patterns that drive channel success. Reporting & analytics turn granular partner activities into holistic views that clearly show channel performance. This depth of visibility enables you to make decisions based on genuine partner behavior.",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "1",
         },
@@ -88,7 +86,7 @@ export const accordionSections: {
         content:
           "We've carefully considered how suppliers share resources with their partners. In the ZiftONE content management system, turn on the partner AI advisor to have it analyze and catalog content for intelligent distribution that ensures your content reaches partners at the moments when it matters most, saving you time and promoting partner performance.",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "2",
         },
@@ -99,7 +97,7 @@ export const accordionSections: {
         content:
           "The ZiftONE platform not only provides all the tools necessary to construct an integrated partner ecosystem—it also provides access to relevant partners and agencies expert in channel partnerships. This combination of tooling and key resources makes ZiftONE the most comprehensive PRM & TCMA platform available to partner and channel managers.",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "3",
         },
@@ -122,7 +120,7 @@ export const accordionSections: {
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "1",
         },
@@ -133,7 +131,7 @@ export const accordionSections: {
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "2",
         },
@@ -144,7 +142,7 @@ export const accordionSections: {
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
         image: {
-          url: "/images/image.png",
+          url: "/images/home/accordion.png",
           alt: "",
           id: "3",
         },

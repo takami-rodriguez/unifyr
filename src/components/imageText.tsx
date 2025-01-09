@@ -10,6 +10,7 @@ import BGRadialSVG from "./bgRadiant";
 
 type ImageTextProps = {
   imageLeft?: boolean;
+  image: string;
   badge: string;
   title: string;
   content: string;
@@ -25,6 +26,7 @@ const ImageText = ({
   title,
   content,
   button,
+  image
 }: ImageTextProps) => {
   return (
     <div className=" py-2.5 md:py-24 max-w-5xl mx-auto relative z-10">
@@ -55,9 +57,9 @@ const ImageText = ({
             "lg:order-first": imageLeft,
           })}
         >
-          <AspectRatio ratio={16 / 9} className="relative ">
+          <AspectRatio ratio={540 / 360} className="relative ">
             <Image
-              src="/images/image.png"
+              src={image}
               alt="hero"
               className="object-cover object-center rounded-xl"
               fill
