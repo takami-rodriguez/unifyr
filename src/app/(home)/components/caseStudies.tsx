@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
-
 export default function CaseStudy() {
   return (
     <div className=" mx-auto  py-12 max-w-5xl space-y-20">
@@ -23,7 +21,7 @@ export default function CaseStudy() {
       </section>
 
       {/* Case Study Section */}
-      <section className="grid md:grid-cols-5 gap-24 items-center">
+      {/* <section className="grid md:grid-cols-5 gap-24 items-center">
         <div className="overflow-hidden col-span-3">
           <div className="relative aspect-[3/2] ">
             <Image
@@ -67,7 +65,7 @@ export default function CaseStudy() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

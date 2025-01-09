@@ -1,3 +1,4 @@
+import { boxShadow } from "@/data/styleHelpers";
 import { Button } from "../ui/button";
 import InputField from "./components/inputField";
 import { Label } from "./components/label";
@@ -15,10 +16,7 @@ const GetInTouch = () => {
       <form id="contact-form">
       <div
           className="bg-white rounded-2xl py-10 px-14 space-y-6"
-          style={{
-            boxShadow:
-              "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)",
-          }}
+          style={boxShadow}
         >
       <div className="grid grid-cols-2 gap-6">
         <InputField

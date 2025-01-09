@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { gradientText } from "@/data/styleHelpers";
 import HeroVideo from "./heroVideo";
@@ -25,8 +25,10 @@ const Hero = () => {
         </Button>
         <Button variant="outline" fullWidth={tablet || mobile}>Discover ZiftONE</Button>
       </div>
+      {/* TODO - add image placeholder */}
+      <Suspense fallback={<div>Loading...</div>} >
       <HeroVideo />
-
+      </Suspense>
       <div className="flex justify-center items-end space-x-6">
         <Image src="/images/google.png" alt="hero" width={211} height={40} />
         <div className="text-3xl font-medium">450+ G2 Reviews</div>

@@ -7,7 +7,7 @@ type LatestArticlesProps = {
 
 const LatestArticles = ({ articles }: LatestArticlesProps) => {
   return (
-    <div className=" pt-12  ">
+    <div className=" py-12  ">
             <h3 className="text-[2rem] leading-[2.5rem] text-center font-medium pb-5">Related Posts</h3>
       
       <div className="max-w-5xl mx-auto overflow-visible relative">

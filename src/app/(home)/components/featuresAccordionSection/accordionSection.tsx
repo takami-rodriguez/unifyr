@@ -101,7 +101,7 @@ const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="flex flex-col lg:flex-none">
-                      <div className="text-base sm:text-lg pb-8 text-grey-[#3F486B] font-extralight">
+                      <div className="text-base sm:text-lg text-grey-[#3F486B] font-extralight">
                         {feature.content}
                       </div>
                       <div className="lg:hidden relative min-h-[294px]  sm:min-h-[450px] lg:min-h-[700px] h-full w-full">
