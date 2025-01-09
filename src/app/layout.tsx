@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/layouts/navbar";
 import Footer from "@/components/layouts/footer";
 import { epicene, sohne } from "@/lib/fonts";
+import CookiePopUpBox from "@/lib/cookiePopup";
+import GAHandler from "@/lib/gaHandler";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,6 +26,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        {/* <GAHandler /> */}
+        <CookiePopUpBox />
       </body>
     </html>
   );

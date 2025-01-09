@@ -1,6 +1,7 @@
 export enum NavLink {
   Home = "/",
   About = "/about/",
+  Privacy = "/privacy/",
   Product = "/products/",
   Leadership = "/leadership/",
   Careers = "/careers/",

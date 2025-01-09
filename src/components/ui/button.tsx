@@ -10,7 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "text-white border-grey-[#1f4498]/30 ",
+        primary: "bg-gradient text-white border-grey-[#1f4498]/30",
         secondary: "bg-secondary text-white border-grey-[#1f4498]/30",
         yellow: "bg-accent text-white border-grey-[#1f4498]/30",
         outline:
@@ -50,7 +50,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ref={ref}
           {...props}
           // style={{boxShadow: "0px 0px 1px 0px #000"}}
-          style={variant === "primary" ? {background:"linear-gradient(140deg, #d70e86 0%, #703b96 100%)"} : {}}
         />
       </div>
     );

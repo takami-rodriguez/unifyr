@@ -12,14 +12,14 @@ const tabs: {
   icon: React.ReactNode;
 }[] = [
   {
-    id: "partner",
-    title: "Partner",
-    icon: <PartnersIcon />,
-  },
-  {
     id: "supplier",
     title: "Supplier",
     icon: <SupplierIcon />,
+  },
+  {
+    id: "partner",
+    title: "Partner",
+    icon: <PartnersIcon />,
   },
 ];
 const FeaturesAccordionSection = () => {

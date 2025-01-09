@@ -51,7 +51,7 @@ export default function CaseStudy() {
           <div className="space-y-5">
             {[1, 2, 3].map((item) => (
               <div key={item} className="flex gap-10 items-start w-full">
-                <div className="  w-96">
+                <div className="w-full  sm:w-96">
                   <AspectRatio ratio={16 / 9} className="relative">
                     <Image alt="placeholder" fill src="/images/image.png" className="rounded-xl"/>
                   </AspectRatio>

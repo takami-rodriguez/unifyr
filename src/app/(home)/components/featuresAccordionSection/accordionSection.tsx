@@ -85,7 +85,7 @@ const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
                     selectedId === feature._uid && blok.colour === "blue500",
                   ["border-l-[3px] border-accent"]:
                     selectedId === feature._uid && blok.colour === "yellow500",
-                  "border-l border-grey": selectedId !== feature._uid,
+                  "border-l-[3px] border-grey": selectedId !== feature._uid,
                 })}
                 value={feature._uid}
               >

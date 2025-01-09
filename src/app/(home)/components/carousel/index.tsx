@@ -67,14 +67,14 @@ export default function HomeCarousel() {
 
   const tabs = [
     {
-      id: "partner",
-      title: "Partner",
-      icon: <PartnersIcon />,
-    },
-    {
       id: "supplier",
       title: "Supplier",
       icon: <SupplierIcon />,
+    },
+    {
+      id: "partner",
+      title: "Partner",
+      icon: <PartnersIcon />,
     },
     {
       id: "agency",
@@ -84,7 +84,7 @@ export default function HomeCarousel() {
   ];
 
   return (
-    <div className="mt-10 mx-auto max-w-[1200px]">
+    <div className="mt-10 mx-auto max-w-[1300px]">
       <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>

@@ -17,6 +17,7 @@ export default {
         "5xl": "70rem",
       },
       colors: {
+        
         primary: "#5D5DC5",
         secondary: "#1F4498",
         accent: "#FCAF3B",
@@ -58,6 +59,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
+        gradient: "linear-gradient(140deg, #d70e86 0%, #703b96 100%)",
         "radial-gradient":
           "radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%)",
         "radial-elipse": "url('/images/bgRadiant.png')",
