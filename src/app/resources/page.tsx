@@ -3,8 +3,6 @@ import React, { Suspense } from "react";
 import FeaturedArticle from "./components/featuredArticle";
 import ListArticles from "./components/listArticles";
 import Banner from "@/components/banner";
-import G2Leaders from "../(home)/components/g2Leaders";
-import GetInTouch from "@/components/forms/getInTouch";
 
 // TODO - add back SEO data once content agreed
 // import Banner from "@/components/banner";
