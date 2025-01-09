@@ -43,7 +43,7 @@ const ArticlePage = async ({ params }: PageProps) => {
         <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">
           {frontmatter.title}
         </h1>
-        <div className=" pt-20 ">
+        <div className=" pt-5 ">
           <ReactMarkdown
             className={clsx(
               "w-full font-resources prose-h2:text-4xl prose-h2:pt-8 prose-h3:pt-8 prose-h2:font-bold prose-h3:text-4xl prose-h3:font-bold text-grey-800 prose-p:text-[1.25rem] prose-p:leading-[2.5rem] space-y-6 prose-h2:text-[1.875rem] leading-[2.5rem]"

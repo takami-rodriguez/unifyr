@@ -62,7 +62,7 @@ const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
             }
           )}
         >
-          <AspectRatio ratio={5 / 4} className="relative rounded-2xl overflow-hidden">
+          <AspectRatio ratio={540 / 475} className="relative rounded-2xl overflow-hidden">
             <Image
               src={selected!.image.url}
               alt={selected!.image.alt || ""}

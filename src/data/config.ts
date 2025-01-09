@@ -1,1 +1,0 @@
-export const FEATURED_ARTICLE_SLUG = "unifyr-plus-and-unifyr-pro-beta-program-announcement";
