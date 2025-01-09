@@ -29,7 +29,7 @@ const ResourcesPage = async () => {
       article.frontmatter.title !== pageData.featuredArticle.frontmatter.title
   );
   return (
-    <div className="overflow-x-hidden mb-1  space-y-12 pt-12">
+    <div className="overflow-x-hidden mb-1  space-y-12 py-12">
       {pageData && <FeaturedArticle article={pageData?.featuredArticle} />}
       <Suspense fallback={<div>Loading...</div>}>
         {filteredArticles.length < 0 && (
@@ -37,7 +37,7 @@ const ResourcesPage = async () => {
         )}
       </Suspense>
       <Banner />
-      <div className="max-w-5xl mx-auto py-12">
+      {/* <div className="max-w-5xl mx-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
           <div className="space-y-8">
             <h3 className="font-heading font-extrabold text-5xl">
@@ -53,7 +53,7 @@ const ResourcesPage = async () => {
             <GetInTouch />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

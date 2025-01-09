@@ -10,6 +10,7 @@ export enum NavLink {
   Solutions = "/solutions/",
   Resources = "/resources/",
   Company = "/company/",
+  BookACall = "/book-a-call/",
 }
 
 export const navLinks = [

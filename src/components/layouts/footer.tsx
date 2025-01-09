@@ -6,8 +6,8 @@ import { socialLinks } from "@/data/config";
 
 const Footer = () => {
   return (
-    <footer className="py-16">
-      <div className="flex justify-between max-w-5xl mx-auto ">
+    <footer className="py-16 bg-white">
+      <div className="flex flex-col md:flex-row flex-wrap justify-between max-w-5xl mx-auto ">
         <div className="col-span-1 ">
           <Link href={NavLink.Home}>
             <div className="h-[40px] w-[121px]">

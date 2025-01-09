@@ -30,6 +30,7 @@ const Hero = () => {
       <HeroVideo />
       </Suspense>
       <div className="flex justify-center items-end space-x-6">
+        {/* TODO - SVG please */}
         <Image src="/images/google.png" alt="hero" width={211} height={40} />
         <div className="text-3xl font-medium">450+ G2 Reviews</div>
       </div>
