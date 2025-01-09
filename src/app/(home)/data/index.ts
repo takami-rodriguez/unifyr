@@ -72,7 +72,7 @@ export const accordionSections: {
     // TODO: Pick up here
     content: [
       {
-        _uid: "asdasd",
+        _uid: "60C5B75B-A3D1-4BA2-80A8-2DF23EC3748D",
         title: "Meaningful intelligence for channel growth",
         content:
           "ZiftONE reveals the patterns that drive channel success. Reporting & analytics turn granular partner activities into holistic views that clearly show channel performance. This depth of visibility enables you to make decisions based on genuine partner behavior.",
@@ -83,7 +83,7 @@ export const accordionSections: {
         },
       },
       {
-        _uid: "asdasd123",
+        _uid: "A393E2EF-98E3-40EA-9070-C499E5CB6FB3",
         title: "Content workflows that bring partners along",
         content:
           "We've carefully considered how suppliers share resources with their partners. In the ZiftONE content management system, turn on the partner AI advisor to have it analyze and catalog content for intelligent distribution that ensures your content reaches partners at the moments when it matters most, saving you time and promoting partner performance.",
@@ -94,7 +94,7 @@ export const accordionSections: {
         },
       },
       {
-        _uid: "asdasd456",
+        _uid: "54BD5751-721B-4A7E-8FE2-B0AA2523CEFA",
         title: "Faster partnership growth with Unifyr+",
         content:
           "The ZiftONE platform not only provides all the tools necessary to construct an integrated partner ecosystem—it also provides access to relevant partners and agencies expert in channel partnerships. This combination of tooling and key resources makes ZiftONE the most comprehensive PRM & TCMA platform available to partner and channel managers.",
@@ -114,10 +114,10 @@ export const accordionSections: {
     mainTitle: "Lorem Ipsum Dolor Amet",
     colour: "yellow500",
     para: "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
-    _uid: "asfasr123123",
+    _uid: "BEDBA856-1BB8-402F-8F38-4DCAA41DC272",
     content: [
       {
-        _uid: "asdasd",
+        _uid: "3614AAC5-3498-4676-9651-0363648F02EE",
         title: "Lorem ipsum dolor",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
@@ -128,7 +128,7 @@ export const accordionSections: {
         },
       },
       {
-        _uid: "asdasd123",
+        _uid: "CF96F7F5-B911-4291-AD20-6E72E18152F8",
         title: "Lorem ipsum dolor",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
@@ -139,7 +139,7 @@ export const accordionSections: {
         },
       },
       {
-        _uid: "asdasd456",
+        _uid: "3670C5E2-9EC5-4CB3-822E-E0914914E353",
         title: "Lorem ipsum dolor",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
