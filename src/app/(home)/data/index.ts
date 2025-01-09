@@ -46,13 +46,13 @@ export const homeSections = [
     imageLeft: true,
     title: "Accelerate growth through mutual commitment",
     content:
-      "When partners and suppliers invest fully in each other's success, growth happens naturally. Unifyr reinforces this commitment by making resource sharing and co-selling effortless, turning strong relationships into results.",
+      "Growth happens naturally when partners and suppliers invest fully in each other's success. Unifyr strengthens this commitment by making co-selling effortless, turning strong relationships into recurring results.",
   },
   {
     badge: "Unite",
     title: "Unite channel relationships under one strategic vision",
     content:
-      "Achieve channel ecosystem harmony through strategic alignment. Unifyr makes it easy to coordinate many partnerships, turning individual relationships into a unified force for growth.",
+      "Strategically align your channel ecosystem. Unifyr makes it easy to coordinate partnerships for both suppliers and partners, turning relationships into a unified force for growth.",
   },
 ];
 
@@ -61,18 +61,19 @@ export const accordionSections: {
   partner: AccordionSectionProps;
 } = {
   supplier: {
-    mainTitle: "Channel partner orchestration with networking built in",
+    mainTitle: "Allow your channel partnerships to flourish without the hassle",
     colour: "blue500",
-    para: "Traditional partner relationship management leaves the hard parts up to you. Unifyr provides end-to-end support.",
+    para: "Traditional partner relationship management leaves . Unifyr provides end-to-end support.",
     _uid: "EB6076EB-8FEF-46DF-9B06-FA9F720806AC",
     button: {
       label: "Discover ZiftONE",
       link: "/",
     },
+    // TODO: Pick up here
     content: [
       {
         _uid: "asdasd",
-        title: "Meaningful Intelligence  for channel growth",
+        title: "Meaningful intelligence for channel growth",
         content:
           "ZiftONE reveals the patterns that drive channel success. Reporting & analytics turn granular partner activities into holistic views that clearly show channel performance. This depth of visibility enables you to make decisions based on genuine partner behavior.",
         image: {

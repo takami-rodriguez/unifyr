@@ -15,10 +15,9 @@ const Hero = () => {
         good company.
       </h1>
       <p className=" md:text-xl max-w-2xl mx-auto mt-8 md:text-center font-extralight md:leading-8 text-grey-900/80">
-        Unifyr provides everything you need to build{" "}
-        <span className="font-medium">profitable </span> channel partnerships.{" "}
-         Our platform merges a vibrant network of partners and agencies
-        with  industry-leading PRM and TCMA capabilities.
+        <strong>ZiftONE</strong> is the industry-leading solution for relationship partner management (PRM), through-channel
+        marketing automation (TCMA), and learning management (LMS)—deeply
+        integrated with the tools you already use.
       </p>
       <div className="flex flex-col md:flex-row w-full items-center justify-center md:space-x-[10px] mt-8 py-1">
         <Button variant={"primary"} fullWidth={tablet || mobile}>
