@@ -26,7 +26,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        {/* <GAHandler /> */}
+        <GAHandler />
         <CookiePopUpBox />
       </body>
     </html>

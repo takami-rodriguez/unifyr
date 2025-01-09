@@ -22,6 +22,7 @@ import { useTabButton } from "./useTabButton";
 import { usePrevNextButtons } from "./usePrevNextButtons";
 import { bgGradient, gradientText } from "@/data/styleHelpers";
 import { renderToString } from "react-dom/server";
+import useWindowSize from "@/lib/hooks/useWindowSize";
 
 interface SlideContent {
   title: string;
@@ -55,6 +56,7 @@ const slides: SlideContent[] = [
 ];
 
 export default function HomeCarousel() {
+  const {tablet, mobile} = useWindowSize();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
   const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
@@ -123,7 +125,7 @@ export default function HomeCarousel() {
                   className={cn("border-0 bg-transparent shadow-none bg-white")}
                 >
                   <CardContent
-                    className={cn("grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 p-6", {
+                    className={cn("grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 p-6", {
                       "max-h-[80%]": selectedIndex !== index,
                     })}
                   >
@@ -143,7 +145,7 @@ export default function HomeCarousel() {
                       <p className="text-grey-900/80 leading-relaxed md:text-xl">
                         {slide.description}
                       </p>
-                      <Button variant={"outline"}>{slide.cta}</Button>
+                      <Button variant={"outline"} fullWidth={tablet || mobile}>{slide.cta}</Button>
                     </div>
                     <AspectRatio
                       ratio={5 / 4}

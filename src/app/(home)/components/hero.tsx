@@ -1,10 +1,13 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Image from "next/image";
 import { gradientText } from "@/data/styleHelpers";
 import HeroVideo from "./heroVideo";
+import useWindowSize from "@/lib/hooks/useWindowSize";
 
 const Hero = () => {
+  const {tablet, mobile} = useWindowSize();
   return (
     <div>
       <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading font-extrabold md:text-center pt-20 leading-[3.5rem] md:leading-[5rem]">
@@ -17,11 +20,11 @@ const Hero = () => {
          Our platform merges a vibrant network of partners and agencies
         with  industry-leading PRM and TCMA capabilities.
       </p>
-      <div className="flex flex-col md:flex-row w-full items-center justify-center space-x-[10px] mt-8 py-1">
-        <Button variant={"primary"}>
-          <div className=" w-full md:w-[124px]">Book a call</div>
+      <div className="flex flex-col md:flex-row w-full items-center justify-center md:space-x-[10px] mt-8 py-1">
+        <Button variant={"primary"} fullWidth={tablet || mobile}>
+          <div className="w-full md:w-[124px]">Book a call</div>
         </Button>
-        <Button variant="outline">Discover ZiftONE</Button>
+        <Button variant="outline" fullWidth={tablet || mobile}>Discover ZiftONE</Button>
       </div>
       <HeroVideo />
 

@@ -16,8 +16,8 @@ const useWindowSize = () => {
       width: window.innerWidth,
       height: window.innerHeight,
       mobile: window.innerWidth < 640,
-      tablet: window.innerWidth < 1024 && window.innerWidth >= 640,
-      desktop: window.innerWidth > 1024,
+      tablet: window.innerWidth < 768 && window.innerWidth >= 640,
+      desktop: window.innerWidth > 768,
     });
   };
 

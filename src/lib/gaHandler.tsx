@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const GAHandler = async () => {
+const GAHandler = () => {
   const GTM_ID = process.env.GTM_ID!;
   //  get the cookie value
   const consent = document.cookie

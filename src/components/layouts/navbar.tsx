@@ -23,9 +23,9 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <Button variant={"primary"}>
-          <div>Book a call</div>
-        </Button>
+        <div className="hidden sm:block">
+          <Button variant={"primary"}>Book a call</Button>
+        </div>
       </div>
     </nav>
   );

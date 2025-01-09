@@ -48,7 +48,7 @@ export default function FeaturesAndTabs() {
             </Tabs>
           </div>
         </div>
-        <div className=" mx-auto px-10 py-12">
+        <div className=" mx-auto p-10">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
             <div className="space-y-6 max-w-lg pt-8">
               <h4 className="text-4xl font-bold sm:text-5xl leading-14 ">
