@@ -6,6 +6,11 @@ export const gradientText =  {
     WebkitTextFillColor: "transparent",
   }
 
+  export const boxShadow = {
+    boxShadow:
+      "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)",
+  }
+
   export const bgGradient = {
     background:
       "radial-gradient(461.91% 160.49% at 17.47% -33.36%, rgba(215, 14, 134, 0.04) 0%, rgba(36, 56, 139, 0.05) 99.68%)",

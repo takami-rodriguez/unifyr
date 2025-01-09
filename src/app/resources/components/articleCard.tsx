@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import TitleSection from "./titleSection";
 import { ArticleTemplateProps } from "@/types/article";
 import clsx from "clsx";
+import { NavLink } from "@/data/navLinks";
+import { boxShadow } from "@/data/styleHelpers";
 
 type ArticleCardProps = {
   article: ArticleTemplateProps;
@@ -13,11 +13,12 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
-    <Link href={`/resources/${article.frontmatter.slug}/`}>
-      <div className="rounded-2xl space-y-6 my-4 h-full max-h-full bg-white overflow-hidden"
-      style={{boxShadow: "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)"}}
+    <Link href={`${NavLink.Resources}${article.frontmatter.slug}/`}>
+      <div
+        className="rounded-2xl space-y-6 py-4 h-full max-h-full bg-white overflow-hidden"
+        style={boxShadow}
       >
-        {article.frontmatter.featuredImage && (!index  || index <=2) && (
+        {/* {article.frontmatter.featuredImage && (!index  || index <=2) && (
           <div className="relative w-full">
             <AspectRatio ratio={4 / 3} className="relative">
               <Image
@@ -28,8 +29,8 @@ const ArticleCard = ({ article, index }: ArticleCardProps) => {
               />
             </AspectRatio>
           </div>
-        )}
-        <div className={clsx("px-6",{"pt-6":index && index >=3})}>
+        )} */}
+        <div className={clsx("px-6", { "pt-6": index && index >= 3 })}>
           <TitleSection article={article} />
         </div>
       </div>

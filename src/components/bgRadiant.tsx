@@ -10,7 +10,7 @@ const BGRadialSVG = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g opacity="0.2">
+      <g opacity="0.3">
         <g filter="url(#filter0_f_19912_4920)">
           <circle
             cx="682.311"

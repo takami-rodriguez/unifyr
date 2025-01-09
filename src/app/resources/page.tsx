@@ -40,7 +40,7 @@ const ResourcesPage = async () => {
       <div className="max-w-5xl mx-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
           <div className="space-y-8">
-            <h3 className="font-heading text-5xl">
+            <h3 className="font-heading font-extrabold text-5xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </h3>
             <p>
