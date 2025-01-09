@@ -1,5 +1,5 @@
 "use client";
-import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 import clsx from "clsx";
 import Link from "next/link";
 import { NavLink } from "@/data/navLinks";
