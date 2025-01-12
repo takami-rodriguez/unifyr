@@ -11,6 +11,11 @@ const CookiePopUpBox = (): JSX.Element => {
       disableStyles={true}
       hideOnAccept
       hideOnDecline
+      onAccept={() => {
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new Event('updateGTMConsent'));
+        }
+      }}
       location="bottom"
       buttonText="Accept"
       declineButtonText="Decline"

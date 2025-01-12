@@ -11,7 +11,6 @@ const LatestArticles = ({ articles }: LatestArticlesProps) => {
       <h3 className="text-[2rem] leading-[2.5rem] text-center font-medium pb-5">
         Related Posts
       </h3>
-
       <div className="max-w-5xl mx-auto overflow-visible relative">
         <div className="flex flex-col md:flex-row flex-wrap justify-center gap-6">
           {articles?.map((t) => (
