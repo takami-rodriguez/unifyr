@@ -2,7 +2,7 @@ import type { JSX as Jsx } from "react/jsx-runtime";
 
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer?: Record<string, unknown>[];
   }
   namespace JSX {
     type ElementClass = Jsx.ElementClass;

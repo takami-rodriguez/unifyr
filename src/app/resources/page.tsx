@@ -28,12 +28,22 @@ const ResourcesPage = async () => {
   );
   return (
     <div className="overflow-x-hidden mb-1  space-y-12 py-12">
-      {pageData && <FeaturedArticle article={pageData?.featuredArticle} />}
-      <Suspense fallback={<div>Loading...</div>}>
+      <div className="grid grid-col-1 lg:grid-cols-2 max-w-5xl gap-8 mx-auto">
+        {
+          allArticles.map((article) => {
+            return (
+              <div className="col-span-1" key={article.frontmatter._uid}>
+                <FeaturedArticle article={article} />
+              </div>
+            )
+        })}
+
+      </div>
+      {/* <Suspense fallback={<div>Loading...</div>}>
         {filteredArticles.length < 0 && (
           <ListArticles articles={filteredArticles} />
         )}
-      </Suspense>
+      </Suspense> */}
       <Banner />
       {/* <div className="max-w-5xl mx-auto py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
