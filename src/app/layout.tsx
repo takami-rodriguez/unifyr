@@ -5,6 +5,7 @@ import Footer from "@/components/layouts/footer";
 import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
 import GAHandler from "@/lib/gaHandler";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +27,10 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Suspense>
+
         <GAHandler />
+        </Suspense>
         <CookiePopUpBox />
       </body>
     </html>

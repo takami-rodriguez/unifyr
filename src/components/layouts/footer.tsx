@@ -7,50 +7,18 @@ import { socialLinks } from "@/data/config";
 const Footer = () => {
   return (
     <footer className="py-16 bg-white">
-      <div className="flex flex-col md:flex-row flex-wrap justify-between max-w-5xl mx-auto ">
-        <div className="col-span-1 ">
+      <div className="flex flex-col sm:flex-row flex-wrap justify-between max-w-5xl mx-auto border-b border-gray-200 pb-4  space-y-8 sm:space-y-0">
+        <div className="col-span-1 flex flex-col justify-between h-full min-h-32">
           <Link href={NavLink.Home}>
             <div className="h-[40px] w-[121px]">
               <Logo />
             </div>
           </Link>
-        </div>
-        <div className="col-span-1">
-          <h4 className="text-lg font-bold pb-2">Company</h4>
-          <p>
-            10 Times Square Building <br />
-            1441 Broadway
-            <br />
-            New York, <br />
-            NY 10018
-          </p>
-        </div>
-        <div className="col-span-1">
-          <h4 className="text-lg font-bold pb-2">Product</h4>
-          <ul className="space-y-2">
-            <li className="text-lg">
-              <Link href={NavLink.Privacy}>Privacy Policy</Link>
-            </li>
-            <li className="text-lg">
-              <Link href={NavLink.Terms}>Terms of Use</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-span-1">
-          <h4 className="text-lg font-bold pb-2">Contact</h4>
-          <ul className="space-y-2">
-            <li className="text-lg">
-              <Link href="mailto:contact@unifyr.com">contact@unifyr.com</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="cols-span-1">
           <div className="flex space-x-3">
             {socialLinks.map((l) => (
               <Link
                 key={l.name}
                 href={l.url}
-                className="text-lg"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -58,6 +26,43 @@ const Footer = () => {
               </Link>
             ))}
           </div>
+        </div>
+        <div className="flex sm:space-x-16 flex-col sm:flex-row space-y-8 sm:space-y-0">
+          <div className="col-span-1">
+            <h4 className="text-lg font-bold pb-2">Company</h4>
+            <p>
+              10 Times Square Building <br />
+              1441 Broadway
+              <br />
+              New York, <br />
+              NY 10018
+            </p>
+          </div>
+          <div className="col-span-1">
+            <h4 className="text-lg font-bold pb-2">Contact</h4>
+            <ul className="space-y-2">
+              <li className="text-lg">
+                <Link href="mailto:contact@unifyr.com">contact@unifyr.com</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-5xl mx-auto w-full justify-between flex pt-2 flex-col sm:flex-row  space-y-4 sm:space-y-0">
+        <div className="sm:order-last">
+          <ul className="flex space-x-6">
+            <li className="min-w-28 sm:text-right">
+              <Link href={NavLink.Privacy}>Privacy Policy</Link>
+            </li>
+            <li className="min-w-28 sm:text-right">
+              <Link href={NavLink.Terms}>Terms of Use</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="w-full">
+          <p className="  text-gray-600">
+            © {new Date().getFullYear()} Unifyr. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
