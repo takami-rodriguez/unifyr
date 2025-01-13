@@ -11,6 +11,7 @@ use fastly::{
     http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode, Url},
     mime, Request, Response,
 };
+use forms::marketo::MarketoError;
 use regex::Regex;
 use s3::S3Config;
 use serde::Serialize;
@@ -44,38 +45,56 @@ fn main() -> Result<(), Box<dyn Error>> {
 
             let re = Regex::new(r"^/forms/(\d+)$").unwrap();
 
-            let opt = re
+            let formdata: forms::FormDataMap = if let Ok(formdata) = req.take_body_form() {
+                formdata
+            } else {
+                let response = Response::from_status(StatusCode::NOT_FOUND);
+                response.send_to_client();
+                return Ok(());
+            };
+
+            let id_opt = re
                 .captures(req.get_path())
                 .and_then(|c| c.get(1))
-                .map(|m| m.as_str())
+                .map(|m| m.as_str());
+
+            let form = id_opt
                 .and_then(|id| FORMS.get(id))
                 .map(|raw| crate::forms::Form::from_elements(raw.as_ref()));
 
-            let response = if let Some(form) = opt {
-                let formdata: forms::FormData = if let Ok(formdata) = req.take_body_form() {
-                    formdata
-                } else {
-                    let response = Response::from_status(StatusCode::BAD_REQUEST);
-                    response.send_to_client();
-                    return Ok(());
-                };
-
+            let response = if let Some(form) = form {
                 match futures::executor::block_on(form.validate(&formdata)) {
-                    Ok(_) => Response::from_status(StatusCode::OK),
                     Err(errs) => {
-                        #[derive(Serialize)]
-                        struct FormError<'a> {
-                            name: &'a str,
-                            message: &'a str,
-                        }
-
                         let body: Vec<_> = errs
                             .into_iter()
-                            .map(|(name, message)| FormError { name, message })
+                            .map(|(name, message)| forms::FormError {
+                                name: Some(name),
+                                message,
+                            })
                             .collect();
 
                         Response::from_body(serde_json::to_string(&body)?)
                             .with_status(StatusCode::BAD_REQUEST)
+                    }
+                    Ok(_) => {
+                        let id: i32 = id_opt.unwrap().parse().unwrap();
+                        let mkto_resp = forms::marketo::submit(&req, id, &formdata);
+                        match mkto_resp {
+                            Err(err) => {
+                                let message = if let Some(e) = err.downcast_ref::<MarketoError>() {
+                                    &e.to_string()
+                                } else {
+                                    "Internal error. Contact hello@unifyr.com for assistance."
+                                };
+                                let body = forms::FormError {
+                                    name: None,
+                                    message,
+                                };
+                                Response::from_body(serde_json::to_string(&body)?)
+                                    .with_status(StatusCode::BAD_REQUEST)
+                            }
+                            Ok(_) => Response::from_status(StatusCode::OK),
+                        }
                     }
                 }
             } else {

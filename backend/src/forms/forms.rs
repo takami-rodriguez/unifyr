@@ -1,8 +1,16 @@
 use common::{Attr, FormElement};
 use futures::future::join_all;
+use serde::Serialize;
 use std::{collections::HashMap, future::Future, pin::Pin};
 
 // type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
+
+#[derive(Serialize)]
+pub struct FormError<'a> {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<&'a str>,
+    pub message: &'a str,
+}
 
 mod validations {
     use super::Validation;
@@ -20,6 +28,7 @@ mod validations {
 }
 
 pub type FormData = Vec<(String, String)>;
+pub type FormDataMap = HashMap<String, String>;
 
 type ValidationResult = Result<(), &'static str>;
 type Pending = Pin<Box<dyn Future<Output = ValidationResult>>>;
@@ -39,7 +48,7 @@ impl Form {
 
         for FormElement { name, attrs } in elements.iter() {
             let mut validations: Vec<Validation> = vec![];
-            
+
             let mut attr_based_validations: Vec<Validation> = attrs
                 .iter()
                 .map(
@@ -63,22 +72,12 @@ impl Form {
         Self { fields }
     }
 
-    pub async fn validate(&self, formdata: &FormData) -> Result<(), FormErrors> {
-        let map: HashMap<&str, &str> =
-            formdata.iter().fold(HashMap::new(), |mut map, (k, v)| {
-                map.insert(k, v);
-                map
-            });
-
-        if formdata.len() != map.len() {
-            return Ok(());
-        }
-
+    pub async fn validate(&self, map: &FormDataMap) -> Result<(), FormErrors> {
         let intermediate: Vec<Applied> = self
             .fields
             .iter()
             .flat_map(|&(name, ref validators)| {
-                let value = map.get(name).map(|&s| s);
+                let value = map.get(name).map(|s| s.as_str());
                 validators.iter().map(move |f| (name, f(value)))
             })
             .collect();
