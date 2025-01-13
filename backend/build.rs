@@ -58,7 +58,7 @@ fn collect_forms(forms: &mut Forms, mut bytes: &[u8]) {
                 let mut elements: Vec<FormElement> = vec![];
 
                 let attrs = attrs.borrow();
-                let id = get_attr(&attrs, "action")
+                let id = get_attr(&attrs, "id")
                     .and_then(get_form_id)
                     .expect("form id is required")
                     .to_owned()
@@ -120,9 +120,9 @@ fn get_attr<'a>(attrs: &'a Vec<Attribute>, name: &str) -> Option<&'a str> {
         .map(|attr| attr.value.as_ref())
 }
 
-fn get_form_id<'a>(action: &'a str) -> Option<&'a str> {
-    static RE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"^/forms/(\d+)$").unwrap());
-    RE.captures(action)
+fn get_form_id<'a>(id: &'a str) -> Option<&'a str> {
+    static RE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"^(\d+)$").unwrap());
+    RE.captures(id)
         .and_then(|c| c.get(1))
         .map(|m| m.as_str())
 }
