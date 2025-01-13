@@ -32,6 +32,7 @@ const ContactForm = () => {
             label="Email address"
             name="email"
             placeholder="alex.bloggs@email.com"
+            required
           />
           <div className="space-y-1">
             <Label>Message</Label>

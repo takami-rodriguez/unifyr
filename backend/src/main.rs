@@ -41,7 +41,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         Method::POST => {
             static FORMS: LazyLock<Forms> =
                 LazyLock::new(|| bincode::deserialize(SERIALIZED_FORMS).unwrap());
-            let formdata: crate::forms::FormData = req.take_body_json()?;
+
             let re = Regex::new(r"^/forms/(\d+)$").unwrap();
 
             let opt = re
@@ -52,6 +52,14 @@ fn main() -> Result<(), Box<dyn Error>> {
                 .map(|raw| crate::forms::Form::from_elements(raw.as_ref()));
 
             let response = if let Some(form) = opt {
+                let formdata: forms::FormData = if let Ok(formdata) = req.take_body_form() {
+                    formdata
+                } else {
+                    let response = Response::from_status(StatusCode::BAD_REQUEST);
+                    response.send_to_client();
+                    return Ok(());
+                };
+
                 match futures::executor::block_on(form.validate(&formdata)) {
                     Ok(_) => Response::from_status(StatusCode::OK),
                     Err(errs) => {
