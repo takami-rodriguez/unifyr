@@ -1,10 +1,6 @@
 use common::{Attr, FormElement};
 use futures::future::join_all;
-use std::{
-    collections::{HashMap, HashSet},
-    future::Future,
-    pin::Pin,
-};
+use std::{collections::HashMap, future::Future, pin::Pin};
 
 // type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
 
@@ -43,7 +39,7 @@ impl Form {
 
         for FormElement { name, attrs } in elements.iter() {
             let mut validations: Vec<Validation> = vec![];
-
+            
             let mut attr_based_validations: Vec<Validation> = attrs
                 .iter()
                 .map(
@@ -68,26 +64,22 @@ impl Form {
     }
 
     pub async fn validate(&self, formdata: &FormData) -> Result<(), FormErrors> {
-        let field_names: HashSet<_> = self.fields.iter().map(|&(k, _)| k).collect();
+        let map: HashMap<&str, &str> =
+            formdata.iter().fold(HashMap::new(), |mut map, (k, v)| {
+                map.insert(k, v);
+                map
+            });
 
-        let (map, err) = formdata.iter().fold(
-            (HashMap::with_capacity(formdata.len()), false),
-            |(mut map, err), (k, v)| {
-                let duplicate = map.insert(k.as_str(), v.as_str()).is_some();
-                (map, err || duplicate || !field_names.contains(k.as_str()))
-            },
-        );
-
-        if err {
+        if formdata.len() != map.len() {
             return Ok(());
         }
 
         let intermediate: Vec<Applied> = self
             .fields
             .iter()
-            .flat_map(move |&(name, ref validators)| {
-                let value = map.get(name).map(|&v| v);
-                validators.into_iter().map(move |f| (name, f(value)))
+            .flat_map(|&(name, ref validators)| {
+                let value = map.get(name).map(|&s| s);
+                validators.iter().map(move |f| (name, f(value)))
             })
             .collect();
 

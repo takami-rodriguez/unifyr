@@ -12,13 +12,12 @@ interface InputFieldProps
 
 const InputField = ({
   label,
-  name,
-  placeholder,
+  ...inputProps
 }: InputFieldProps) => {
   return (
     <div className="space-y-1">
       <Label>{label}</Label>
-      <Input name={name} placeholder={placeholder} />
+      <Input {...inputProps} />
     </div>
   );
 };
