@@ -50,7 +50,7 @@ const GetInTouch = () => {
           />
           <div className="space-y-1">
             <Label>Who are you?</Label>
-            <Select>
+            <Select name="entity_type">
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Please select" />
               </SelectTrigger>

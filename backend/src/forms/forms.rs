@@ -1,31 +1,73 @@
+use common::{Attr, FormElement};
 use futures::future::join_all;
-use lol_html::{element, html_content::ContentType, ElementContentHandlers, Selector};
 use std::{
-    borrow::Cow,
     collections::{HashMap, HashSet},
     future::Future,
     pin::Pin,
 };
 
-type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
+// type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
 
-type FormData = Vec<(String, String)>;
-type ValidationResult<'h> = Result<(), ElementHandlerArray<'h>>;
-type Validation<'h> =
-    fn(&'static str, Option<&'h str>) -> Pin<Box<dyn Future<Output = ValidationResult<'h>>>>;
-type Field<'h> = (&'static str, Validation<'h>);
+mod validations {
+    use super::Validation;
 
-struct Form<'h> {
-    id: &'static str,
-    fields: Vec<Field<'h>>,
+    pub const NO_OP: Validation = |_| Box::pin(std::future::ready(Ok(())));
+
+    pub const REQUIRED: Validation = |value: Option<&str>| {
+        let result = if value.is_some_and(|s| !s.is_empty()) {
+            Ok(())
+        } else {
+            Err("This field is required")
+        };
+        Box::pin(std::future::ready(result))
+    };
 }
 
-impl<'h> Form<'h> {
-    pub fn new(id: &'static str, fields: Vec<Field<'h>>) -> Self {
-        Self { id, fields }
+pub type FormData = Vec<(String, String)>;
+
+type ValidationResult = Result<(), &'static str>;
+type Pending = Pin<Box<dyn Future<Output = ValidationResult>>>;
+type Validation = fn(Option<&str>) -> Pending;
+type Field = (&'static str, Vec<Validation>);
+type Applied = (&'static str, Pending);
+
+type FormErrors = HashMap<&'static str, &'static str>;
+
+pub struct Form {
+    fields: Vec<Field>,
+}
+
+impl Form {
+    pub fn from_elements(elements: &'static Vec<FormElement>) -> Self {
+        let mut fields: Vec<Field> = vec![];
+
+        for FormElement { name, attrs } in elements.iter() {
+            let mut validations: Vec<Validation> = vec![];
+
+            let mut attr_based_validations: Vec<Validation> = attrs
+                .iter()
+                .map(
+                    |Attr { name, value }| match (name.as_ref(), value.as_ref()) {
+                        ("required", _) => validations::REQUIRED,
+                        _ => validations::NO_OP,
+                    },
+                )
+                .collect();
+
+            let name_based_validation: Validation = match name.as_ref() {
+                _ => validations::NO_OP,
+            };
+
+            validations.append(&mut attr_based_validations);
+            validations.push(name_based_validation);
+
+            fields.push((name, validations));
+        }
+
+        Self { fields }
     }
 
-    pub async fn validate(&self, formdata: &'h FormData) -> Result<(), ElementHandlerArray<'h>> {
+    pub async fn validate(&self, formdata: &FormData) -> Result<(), FormErrors> {
         let field_names: HashSet<_> = self.fields.iter().map(|&(k, _)| k).collect();
 
         let (map, err) = formdata.iter().fold(
@@ -37,92 +79,33 @@ impl<'h> Form<'h> {
         );
 
         if err {
-            let tx = vec![element!(
-                format!(r#"form[data-form-id="{}"] > .message"#, self.id),
-                |el| {
-                    el.set_inner_content("Internal error", ContentType::Text);
-                    Ok(())
-                }
-            )];
-            return Err(tx);
+            return Ok(());
         }
 
-        let validations: Vec<_> = self
+        let intermediate: Vec<Applied> = self
             .fields
             .iter()
-            .map(|&(name, validator)| validator(self.id, map.get(name).map(|&v| v)))
+            .flat_map(move |&(name, ref validators)| {
+                let value = map.get(name).map(|&v| v);
+                validators.into_iter().map(move |f| (name, f(value)))
+            })
             .collect();
 
-        let results = join_all(validations).await;
-
-        let mut errors: Vec<_> = results
+        let (names, pending): (Vec<&'static str>, Vec<Pending>) = intermediate.into_iter().unzip();
+        let results = join_all(pending).await;
+        let errors = names
             .into_iter()
-            .filter_map(|r| r.err())
-            .flat_map(|e| e)
-            .collect();
+            .zip(results)
+            .filter(|(_, result)| result.is_err())
+            .rfold(HashMap::new(), |mut map, (name, result)| {
+                let _ = map.try_insert(name, result.err().unwrap());
+                map
+            });
 
         if errors.is_empty() {
             Ok(())
         } else {
-            let mut restored = self.restore(&formdata);
-            errors.append(&mut restored);
             Err(errors)
         }
     }
-
-    fn restore(&self, formdata: &'h FormData) -> ElementHandlerArray<'h> {
-        let mut handlers = vec![];
-
-        for (name, value) in formdata.iter() {
-            handlers.push(element!(
-                format!(r#"form[data-form-id="{}"] [name="{}"]"#, self.id, name),
-                move |el| {
-                    if el.tag_name() == "input" {
-                        match el.get_attribute("type") {
-                            Some(typ) if typ == "checkbox" || typ == "radio" => {
-                                if *value == el.get_attribute("value").unwrap_or("on".into()) {
-                                    el.set_attribute("checked", "").unwrap();
-                                } else {
-                                    el.remove_attribute("checked");
-                                }
-                            }
-                            _ => {
-                                el.set_attribute("value", value.as_str()).unwrap();
-                            }
-                        }
-                    } else if el.tag_name() == "textarea" {
-                        el.set_inner_content(value.as_str(), ContentType::Text);
-                    }
-                    Ok(())
-                }
-            ));
-        }
-
-        handlers
-    }
-}
-
-macro_rules! validation {
-    ($field:expr, $check:expr, $message:expr) => {
-        |form_id: &str, value: Option<&str>| {
-            let check = $check;
-            Box::pin(async move {
-                if !(check(value).await) {
-                    let x = vec![element!(
-                        format!(
-                            r#"form[data-form-id="{}"] input[name="{}"] .message"#,
-                            form_id, $field
-                        ),
-                        |el| {
-                            el.set_inner_content($message, ContentType::Text);
-                            Ok(())
-                        }
-                    )];
-                    Err(x)
-                } else {
-                    Ok(())
-                }
-            })
-        }
-    };
 }

@@ -1,3 +1,4 @@
+#![feature(map_try_insert)]
 #![feature(maybe_uninit_uninit_array)]
 
 mod forms;
@@ -5,17 +6,22 @@ mod rewriter;
 mod s3;
 mod utils;
 
+use common::Forms;
 use fastly::{
     http::{header, request::SendError, CandidateResponse, HeaderName, Method, StatusCode, Url},
     mime, Request, Response,
 };
+use regex::Regex;
 use s3::S3Config;
+use serde::Serialize;
 use std::{error::Error, sync::LazyLock, time::Duration};
 
 const BACKEND: &str = "s3";
 
+const SERIALIZED_FORMS: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/forms.bin"));
+
 fn main() -> Result<(), Box<dyn Error>> {
-    let req = fastly::Request::from_client();
+    let mut req = fastly::Request::from_client();
 
     match *req.get_method() {
         Method::GET => {
@@ -31,6 +37,44 @@ fn main() -> Result<(), Box<dyn Error>> {
                 rewriter::rewrite(&mut resp);
             }
             resp.clone_without_body().send_to_client();
+        }
+        Method::POST => {
+            static FORMS: LazyLock<Forms> =
+                LazyLock::new(|| bincode::deserialize(SERIALIZED_FORMS).unwrap());
+            let formdata: crate::forms::FormData = req.take_body_json()?;
+            let re = Regex::new(r"^/forms/(\d+)$").unwrap();
+
+            let opt = re
+                .captures(req.get_path())
+                .and_then(|c| c.get(1))
+                .map(|m| m.as_str())
+                .and_then(|id| FORMS.get(id))
+                .map(|raw| crate::forms::Form::from_elements(raw.as_ref()));
+
+            let response = if let Some(form) = opt {
+                match futures::executor::block_on(form.validate(&formdata)) {
+                    Ok(_) => Response::from_status(StatusCode::OK),
+                    Err(errs) => {
+                        #[derive(Serialize)]
+                        struct FormError<'a> {
+                            name: &'a str,
+                            message: &'a str,
+                        }
+
+                        let body: Vec<_> = errs
+                            .into_iter()
+                            .map(|(name, message)| FormError { name, message })
+                            .collect();
+
+                        Response::from_body(serde_json::to_string(&body)?)
+                            .with_status(StatusCode::BAD_REQUEST)
+                    }
+                }
+            } else {
+                Response::from_status(StatusCode::NOT_FOUND)
+            };
+
+            response.send_to_client();
         }
         _ => {
             let response = Response::from_status(StatusCode::METHOD_NOT_ALLOWED)

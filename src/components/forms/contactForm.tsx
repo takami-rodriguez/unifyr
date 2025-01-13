@@ -11,7 +11,7 @@ const ContactForm = () => {
   // };
   return (
     <div>
-      <form id="contact-form">
+      <form id="contact-form" action="/forms/1859">
         <div
           className="bg-white rounded-2xl py-10 px-14 space-y-6"
           style={boxShadow}

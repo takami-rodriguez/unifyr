@@ -1,3 +1,5 @@
 mod creds;
-mod forms;
-pub(crate) mod marketo;
+pub(crate) mod forms;
+pub mod marketo;
+
+pub use forms::*;
