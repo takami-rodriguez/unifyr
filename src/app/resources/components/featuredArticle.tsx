@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Link from "next/link";
 import { ArticleTemplateProps } from "@/types/article";
 import { NavLink } from "@/data/navLinks";
