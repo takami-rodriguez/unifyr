@@ -140,6 +140,7 @@ mod marketo_form {
             #[serde(rename(serialize = "pageURL"))]
             pub page_url: &'a str,
             pub query_string: &'a str,
+            #[serde(skip_serializing_if = "Option::is_none")]
             pub lead_client_ip_address: Option<String>,
             pub user_agent_string: &'a str,
         }
