@@ -43,6 +43,36 @@ const ArticlePage = async ({ params }: PageProps) => {
         <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">
           {frontmatter.title}
         </h1>
+        <div className=" flex flex-col lg:flex-row  lg:items-end  py-2 lg:py-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
+          {frontmatter.author && (
+            <>
+              <div
+                className={clsx("flex  space-x-4 sm:items-center ", {
+                  " text-center mx-auto": !frontmatter.author?.image?.url,
+                })}
+              >
+                {frontmatter.author?.image?.url && (
+                  <Image
+                    src={frontmatter.author.image?.url || ""}
+                    alt={frontmatter.author.name}
+                    width={45}
+                    height={45}
+                    className="rounded-sm"
+                  />
+                )}
+                <div
+                  className={clsx("lg:mx-auto lg:text-left  sm:max-w-none", {
+                    "max-w-40": frontmatter.author?.image?.url,
+                  })}
+                >
+                  <h4 className="text-3.5xl font-normal ">
+                    {frontmatter.author?.name}
+                  </h4>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
         <div className=" pt-5 ">
           <ReactMarkdown
             className={clsx(

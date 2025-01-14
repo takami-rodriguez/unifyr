@@ -34,7 +34,7 @@ const FeaturesAccordionSection = () => {
               onClick={() => setSelectedId(tab.id)}
               hasIcon
             >
-              <span className="flex items-center space-x-2 ">
+              <span className="flex items-center md:space-x-2 ">
                 <span className="hidden md:block">
                   {tab.title === "Supplier" ? (
                     <SupplierIcon selected={selectedId === tab.id} />

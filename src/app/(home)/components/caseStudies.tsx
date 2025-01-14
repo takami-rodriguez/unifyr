@@ -5,15 +5,17 @@ export default function CaseStudy() {
       {/* Testimonial Section */}
       <section className="text-center space-y-8">
         <blockquote className="text-3xl md:text-5xl font-bold font-heading max-w-[970px] mx-auto">
-          {"“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"}
+          {
+            "“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"
+          }
         </blockquote>
         <div className="flex flex-col items-center gap-3">
-            <Image
-              src="/images/partners/Panasonic.svg"
-              alt="Panasonic"
-              width={251}
-              height={40}
-            />
+          <Image
+            src="/images/partners/Panasonic.svg"
+            alt="Panasonic"
+            width={251}
+            height={40}
+          />
           <div className="text-lg">
             <p className="">Chief Revenue Officer, Panasonic Connect</p>
           </div>

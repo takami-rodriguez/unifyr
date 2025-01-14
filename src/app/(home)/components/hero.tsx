@@ -19,8 +19,8 @@ const Hero = () => {
       >
         <BGRadialSVG />
       </div>
-      <div className="relative z-10">
-        <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading font-extrabold md:text-center pt-20 leading-[3.5rem] md:leading-[5rem]">
+      <div className="relative z-20">
+        <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading font-extrabold md:text-center pt-6 md:pt-20 leading-[3.5rem] md:leading-[5rem]">
           <span style={gradientText}>Growth</span> happens in good company.
         </h1>
         <p className=" md:text-xl max-w-2xl mx-auto mt-8 md:text-center font-extralight md:leading-8 text-grey-900/80">

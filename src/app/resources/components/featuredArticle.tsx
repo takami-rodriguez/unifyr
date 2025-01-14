@@ -19,7 +19,7 @@ const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
         className="bg-white overflow-hidden rounded-2xl  relative p-5 "
         style={boxShadow}
       >
-        <div className="col-span-1 lg:py-8 lg:pl-10 h-full flex flex-col justify-between ">
+        <div className="col-span-1 lg:p-5 h-full flex flex-col justify-between ">
           <TitleSection article={article} featured />
         </div>
       </div>

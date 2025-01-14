@@ -106,7 +106,7 @@ export default function HomeCarousel() {
                 key={tab.id}
                 onClick={() => onTabsButtonClick(index)}
               >
-                <span className="flex items-center space-x-2 ">
+                <span className="flex items-center md:space-x-2 ">
                   <span className="hidden md:block">
                     {getIcon(tab.id)}
                   </span>
@@ -181,7 +181,7 @@ export default function HomeCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="absolute -bottom-10 left-5 md:left-14 w-[90%] mx-auto flex justify-between px-16">
+          <div className="absolute -bottom-14 left-5 md:left-14 w-[90%] mx-auto flex justify-between px-16">
             <CarouselPrevious
               className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
               onClick={onPrevButtonClick}

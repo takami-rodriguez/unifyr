@@ -26,18 +26,19 @@ const ImageText = ({
   title,
   content,
   button,
-  image
+  image,
 }: ImageTextProps) => {
   return (
-    <div className=" py-2.5 md:py-24 max-w-5xl mx-auto relative z-10">
-      <div className={cn("absolute -top-20  h-[120%] lg:w-1/2 z-0",{
-        "left-0": !imageLeft,
-        "right-0": imageLeft,
-      })}>
+    <div className=" py-10 md:py-24 max-w-5xl mx-auto relative z-10">
+      <div
+        className={cn("absolute top-10 md:-top-20  md:h-[120%] lg:w-1/2 z-0", {
+          "left-0": !imageLeft,
+          "right-0": imageLeft,
+        })}
+      >
         <BGRadialSVG />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-11 relative z-20 gap-8 lg:gap-[52px] items-center ">
-        
         <div className="col-span-1  lg:col-span-6 space-y-6 flex flex-col items-start">
           <Badge variant="primary">
             <div className="uppercase tracking-[0.7px]" style={gradientText}>
