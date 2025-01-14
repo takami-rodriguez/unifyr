@@ -27,8 +27,8 @@ const GetADemo = async () => {
           <ul className="text-grey-900/70 text-lg space-y-4">
             {listItems.map((item, index) => (
               <li key={item + index} className="flex space-x-3 items-center">
-                <div className="bg-gradient p-1 rounded-full text-white h-6 w-6">
-                  <Check size={"sm"} />
+                <div className="bg-gradient p-1 rounded-full text-white h-[20px] min-w-[20px]" >
+                  <Check size={"md"} />
                 </div>
                 <p>{item}</p>
               </li>
