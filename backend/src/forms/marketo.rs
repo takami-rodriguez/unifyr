@@ -36,13 +36,15 @@ fn get_marketo_token() -> Result<String, Box<dyn Error>> {
             ("grant_type", &"client_credentials".to_owned()),
         ],
     )?;
+
     let value: Value = Request::get(url).send(MARKETO_BACKEND)?.take_body_json()?;
+
     let token = value
         .get("access_token")
-        .expect("missing token")
-        .as_str()
-        .unwrap()
+        .and_then(|t| t.as_str())
+        .expect("token is missing")
         .to_owned();
+
     Ok(token)
 }
 
@@ -56,18 +58,18 @@ pub fn submit(
     let mut url = req.get_url().clone();
     url.set_query(None);
 
+    let lead_client_ip_address = if let Some(IpAddr::V4(ip)) = req.get_client_ip_addr() {
+        Some(ip.to_string())
+    } else {
+        None
+    };
+
     let cookie = req.get_header_str(header::COOKIE).and_then(|cookie| {
         Cookie::split_parse(cookie)
             .filter_map(|c| c.ok())
             .find(|c| c.name() == "_mkto_trk")
     });
     let cookie = cookie.as_ref().map(|c| c.value());
-
-    let lead_client_ip_address = if let Some(IpAddr::V4(ip)) = req.get_client_ip_addr() {
-        Some(ip.to_string())
-    } else {
-        None
-    };
 
     let visitor_data = marketo_form::request::VisitorData {
         page_url: url.as_str(),
@@ -88,11 +90,10 @@ pub fn submit(
         program_id: None,
     };
 
-    println!("{}", serde_json::to_string_pretty(&data)?);
-
     let request = Request::post(MARKETO_SUBMIT_FORM)
         .with_header(header::AUTHORIZATION, format!("Bearer {}", token))
         .with_body_json(&data)?;
+
     let mut response = request.send(MARKETO_BACKEND)?;
     let json: marketo_form::response::Data = response.take_body_json()?;
 

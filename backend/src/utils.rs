@@ -5,7 +5,6 @@ use fastly::{
 };
 use ring::rand::SecureRandom;
 use std::mem::MaybeUninit;
-use crate::forms::{FormData, FormDataMap};
 
 pub const NONCE_BYTES: usize = 16;
 pub const BASE64_LEN: usize = ((4 * NONCE_BYTES / 3) + 3) & !0b11;

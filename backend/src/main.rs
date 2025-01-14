@@ -14,7 +14,6 @@ use fastly::{
 use forms::marketo::MarketoError;
 use regex::Regex;
 use s3::S3Config;
-use serde::Serialize;
 use std::{error::Error, sync::LazyLock, time::Duration};
 
 const BACKEND: &str = "s3";
