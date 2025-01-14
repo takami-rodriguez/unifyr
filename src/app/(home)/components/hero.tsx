@@ -15,7 +15,7 @@ const Hero = () => {
   return (
     <div className="relative">
       <div
-        className={cn("absolute -top-24 md:top-0 w-full md:w-1/2 z-0 left-10 md:left-32")}
+        className={cn("absolute -top-24 md:top-0 w-full md:w-1/2 z-0 right-10 md:right-32")}
       >
         <BGRadialSVG />
       </div>

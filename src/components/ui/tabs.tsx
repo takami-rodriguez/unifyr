@@ -8,14 +8,24 @@ import { TabValue } from "@/app/(home)/components/featuresAndTabs/data"
 
 const Tabs = TabsPrimitive.Root
 
+export interface TabsListProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {
+  hasIcon?: boolean;
+}
+
+
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+  TabsListProps
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center rounded-full bg-white p-1 border-[6px] border-[#F5F3FB] ",
+      "inline-flex items-center justify-center rounded-full bg-white  border-[6px] border-[#F5F3FB] ",
+      {
+        "p-1": !props.hasIcon,
+        "px-1 py-0.5": props.hasIcon,
+      },
       className
     )}
     {...props}
