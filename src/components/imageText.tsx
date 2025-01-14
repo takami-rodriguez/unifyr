@@ -30,7 +30,7 @@ const ImageText = ({
 }: ImageTextProps) => {
   return (
     <div className=" py-2.5 md:py-24 max-w-5xl mx-auto relative z-10">
-      <div className={cn("absolute -top-20  h-[120%] w-1/2 z-0",{
+      <div className={cn("absolute -top-20  h-[120%] lg:w-1/2 z-0",{
         "left-0": !imageLeft,
         "right-0": imageLeft,
       })}>

@@ -6,15 +6,15 @@ import Fall from './fall';
 
 const G2Leaders = () => {
     return (
-      <div className='grid grid-cols-4 gap-4'>
-        <div className="col-span-1">
+      <div className='flex space-x-5'>
+        <div className="w-[88px]">
           <Winter />
         </div>
-        <div className="col-span-1">
+        <div className="w-[88px]">
           <Spring />
         </div>
-        <div className="col-span-1"><Summer/></div>
-        <div className="col-span-1"><Fall/></div>
+        <div className="w-[88px]"><Summer/></div>
+        <div className="w-[88px]"><Fall/></div>
     </div>
   )
 };

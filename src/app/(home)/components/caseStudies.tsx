@@ -1,10 +1,10 @@
 import Image from "next/image";
 export default function CaseStudy() {
   return (
-    <div className=" mx-auto  py-12 max-w-5xl space-y-20">
+    <div className=" mx-auto py-5 md:py-12 max-w-5xl space-y-20">
       {/* Testimonial Section */}
       <section className="text-center space-y-8">
-        <blockquote className="text-5xl font-bold font-heading max-w-[970px] mx-auto">
+        <blockquote className="text-3xl md:text-5xl font-bold font-heading max-w-[970px] mx-auto">
           {"“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"}
         </blockquote>
         <div className="flex flex-col items-center gap-3">

@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="flex sm:space-x-16 flex-col sm:flex-row space-y-8 sm:space-y-0">
           <div className="col-span-1">
             <h4 className="text-lg font-bold pb-2">Company</h4>
-            <p>
+            <p className="text-grey-900/80">
               10 Times Square Building <br />
               1441 Broadway
               <br />
@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="col-span-1">
             <h4 className="text-lg font-bold pb-2">Resources</h4>
             <ul className="space-y-2">
-              <li className="">
+              <li className="text-grey-900/80">
                 <Link href={NavLink.Resources}>Blog</Link>
               </li>
             </ul>
@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
       <div className="max-w-5xl mx-auto w-full justify-between flex pt-4 flex-col sm:flex-row space-y-4 sm:space-y-0">
         <div className="sm:order-last">
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 text-grey-900/80" >
             <li className="min-w-28 sm:text-right">
               <Link href={NavLink.Privacy}>Privacy Policy</Link>
             </li>
@@ -59,8 +59,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full">
-          <p className="  text-gray-600">
+        <div className="w-full ">
+          <p className="  text-grey-900/80">
             © {new Date().getFullYear()} Unifyr. All rights reserved.
           </p>
         </div>

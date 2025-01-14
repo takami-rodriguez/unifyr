@@ -29,7 +29,7 @@ export default function FeaturesAndTabs() {
   const selectedData = useMemo(() => tabsData[selectedTab],[selectedTab])
 
   return (
-    <div className="px-5 max-w-[1400px] mx-auto">
+    <div className="max-w-[1400px] mx-auto">
       <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
         <div className=" mx-auto px-10 lg:px-24 py-6 ">
           <div className="flex items-center justify-center">
@@ -48,7 +48,7 @@ export default function FeaturesAndTabs() {
             </Tabs>
           </div>
         </div>
-        <div className=" mx-auto px-10 lg:px-24  md:py-12">
+        <div className=" mx-auto px-6 lg:px-24  md:py-12">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
             <div className="space-y-6 max-w-lg pt-8">
               <h4 className="text-4xl font-bold sm:text-5xl md:leading-14 ">
