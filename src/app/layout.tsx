@@ -22,14 +22,15 @@ export default function RootLayout({
     <html lang="en">
       <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
-        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans bg-grey-100 px-4 md:px-5`}
+        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans bg-grey-100 `}
       >
-        <Navbar />
-        {children}
+        <div className="px-4 md:px-5">
+          <Navbar />
+          {children}
+        </div>
         <Footer />
         <Suspense>
-
-        <GAHandler />
+          <GAHandler />
         </Suspense>
         <CookiePopUpBox />
       </body>

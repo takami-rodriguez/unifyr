@@ -3,15 +3,17 @@ import InputField from "./components/inputField";
 import { Textarea } from "./components/textarea";
 import { Button } from "../ui/button";
 import { boxShadow } from "@/data/styleHelpers";
+import { FormEvent } from "react";
 
 const ContactForm = () => {
-  // const handleSubmit = (e: FormData) => {
-  //   console.error("Handle Validation", "contact-form");
-  //   console.log("Form submitted", "contact-form");
-  // };
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.error("Handle Validation", "contact-form");
+    console.log("Form submitted", "contact-form");
+  };
   return (
     <div>
-      <form id="1859">
+      <form id="1859" onSubmit={handleSubmit}>
         <div
           className="bg-white rounded-2xl py-10 px-14 space-y-6"
           style={boxShadow}

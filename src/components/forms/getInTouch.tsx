@@ -1,3 +1,4 @@
+"use client";
 import { boxShadow } from "@/data/styleHelpers";
 import { Button } from "../ui/button";
 import InputField from "./components/inputField";
@@ -9,11 +10,66 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./components/select";
+import { FormEvent, useState } from "react";
 
-const GetInTouch = () => {
+const GetInTouch = ({ id }: { id: string }) => {
+
+  const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState(null);
+
+  const sendData = async (e: FormEvent<HTMLFormElement>) => {
+    const form = e.target as HTMLFormElement;
+    const first_name = (
+      form.elements.namedItem("first_name") as HTMLInputElement
+    ).value;
+    const last_name = (form.elements.namedItem("last_name") as HTMLInputElement)
+      .value;
+    const company = (form.elements.namedItem("company") as HTMLInputElement)
+      .value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("email", email);
+    urlencoded.append("first_name", first_name);
+    urlencoded.append("last_name", last_name);
+    urlencoded.append("company", company);
+
+    const requestOptions: RequestInit = {
+      method: "POST",
+      headers: myHeaders,
+      body: urlencoded,
+      mode: "no-cors" as RequestMode,
+      redirect: "follow" as RequestRedirect,
+    };
+
+    return await fetch(
+      `https://next.staging.unifyr.com/forms/${id}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => result)
+      .catch((error) => console.error(error));
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("submitting form");
+    sendData(e)
+      .then((d) => {
+        console.log("form submitted");
+        setSuccess(true);
+      })
+      .catch((error) => {
+        setErrors(error);
+        console.error("sendData Error", error)});
+  };
   return (
     <div>
-      <form id="1859" method={"POST"}>
+      <form id={id} onSubmit={handleSubmit}>
         <div
           className="bg-white rounded-2xl py-10 px-14 space-y-6"
           style={boxShadow}
@@ -62,8 +118,8 @@ const GetInTouch = () => {
             </Select>
           </div>
           <div className="flex justify-end">
-            <Button variant={"primary"} type="submit">
-              Submit message
+            <Button variant={"primary"} type="submit" disabled={success}>
+              {success ? "Success" : "Submit message"}
             </Button>
           </div>
         </div>
