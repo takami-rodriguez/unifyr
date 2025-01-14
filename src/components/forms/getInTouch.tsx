@@ -15,7 +15,7 @@ import { FormEvent, useState } from "react";
 const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
-
+console.log({errors})
   const sendData = async (e: FormEvent<HTMLFormElement>) => {
     const form = e.target as HTMLFormElement;
     const first_name = (
@@ -59,7 +59,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     console.log("submitting form");
     sendData(e)
       .then((d) => {
-        console.log("form submitted");
+        console.log("form submitted",d);
         setSuccess(true);
       })
       .catch((error) => {

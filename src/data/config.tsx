@@ -1,6 +1,4 @@
-import FacebookIcon from "@/components/icons/facebook";
 import LinkenInIcon from "@/components/icons/linkedInIcon";
-import TwitterXIcon from "@/components/icons/twitterX";
 
 export const FEATURED_ARTICLE_SLUG =
   "unifyr-plus-and-unifyr-pro-beta-program-announcement";

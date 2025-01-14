@@ -5,7 +5,6 @@ import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
 import { TabValue } from "@/app/(home)/components/featuresAndTabs/data"
-import { VariantProps } from "class-variance-authority"
 
 const Tabs = TabsPrimitive.Root
 
