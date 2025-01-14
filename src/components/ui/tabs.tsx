@@ -4,6 +4,8 @@ import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
+import { TabValue } from "@/app/(home)/components/featuresAndTabs/data"
+import { VariantProps } from "class-variance-authority"
 
 const Tabs = TabsPrimitive.Root
 
@@ -22,14 +24,29 @@ const TabsList = React.forwardRef<
 ))
 TabsList.displayName = TabsPrimitive.List.displayName
 
+
+
+export interface TriggerProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
+  hasIcon?: boolean;
+}
+
+
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+  TriggerProps
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center text-lg whitespace-nowrap rounded-full px-10 py-1.5  font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-grey-400/40 data-[state=active]:text-grey-900  ",
+      "inline-flex items-center justify-center text-lg whitespace-nowrap rounded-full px-5 sm:px-10 font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=inactive]:text-opacity-70",
+      {
+        "data-[state=active]:bg-blue-300/40 ": props.value === "supplier" || props.value === TabValue.zift,
+        "data-[state=active]:bg-grey-400/40 ": props.value === "agency" || props.value === TabValue.unifyrPlus,
+        "data-[state=active]:bg-green-300/70 ": props.value === "partner" || props.value === TabValue.unifyrPro,
+        "py-1.5": props.hasIcon,
+        "py-2": !props.hasIcon,
+      },
       className
     )}
     {...props}

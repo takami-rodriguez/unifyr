@@ -24,7 +24,9 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="hidden sm:block">
-          <Button variant={"primary"}>Book a call</Button>
+          <Link href={NavLink.BookACall}>
+            <Button variant={"primary"}>Book a call</Button>
+          </Link>
         </div>
       </div>
     </nav>

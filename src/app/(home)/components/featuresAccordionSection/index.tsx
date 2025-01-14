@@ -9,17 +9,14 @@ import { accordionSections } from "@/app/(home)/data";
 const tabs: {
   id: "supplier" | "partner";
   title: string;
-  icon: React.ReactNode;
 }[] = [
   {
     id: "supplier",
     title: "Supplier",
-    icon: <SupplierIcon />,
   },
   {
     id: "partner",
     title: "Partner",
-    icon: <PartnersIcon />,
   },
 ];
 const FeaturesAccordionSection = () => {
@@ -35,13 +32,17 @@ const FeaturesAccordionSection = () => {
               value={tab.id}
               key={tab.id}
               onClick={() => setSelectedId(tab.id)}
-              // className={cn({
-              //   "bg-yellow-400": selectedId === tab.id,
-              // })}
+              hasIcon
             >
               <span className="flex items-center space-x-2 ">
-                {tab.icon}
-                {tab.title}
+                <span className="hidden md:block">
+                  {tab.title === "Supplier" ? (
+                    <SupplierIcon selected={selectedId === tab.id} />
+                  ) : (
+                    <PartnersIcon selected={selectedId === tab.id} />
+                  )}
+                </span>
+                <span>{tab.title}</span>
               </span>
             </TabsTrigger>
           ))}

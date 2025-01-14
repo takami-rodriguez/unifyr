@@ -6,6 +6,7 @@ import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
 import GAHandler from "@/lib/gaHandler";
 import { Suspense } from "react";
+import ClientLayout from "@/components/layouts/clientLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,12 +23,15 @@ export default function RootLayout({
     <html lang="en">
       <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
-        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans bg-grey-100 `}
+        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans `}
       >
+        <ClientLayout>
+
         <div className="px-4 md:px-5">
           <Navbar />
           {children}
         </div>
+        </ClientLayout>
         <Footer />
         <Suspense>
           <GAHandler />

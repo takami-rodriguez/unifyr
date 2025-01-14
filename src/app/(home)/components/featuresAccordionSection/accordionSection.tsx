@@ -11,6 +11,8 @@ import Image from "next/image";
 import { ImageType } from "@/types/images";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import Link from "next/link";
+import { NavLink } from "@/data/navLinks";
 
 export type AccordionSectionProps = {
   para: string;
@@ -18,7 +20,7 @@ export type AccordionSectionProps = {
   button: {
     label: string;
     link: string;
-  }
+  };
   content: {
     title: string;
     content: string;
@@ -30,7 +32,7 @@ export type AccordionSectionProps = {
   _uid: string;
 };
 
-const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
+const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
   const [selectedId, setSelectedId] = React.useState<string>(
     blok.content[0]!._uid
   );
@@ -50,19 +52,25 @@ const AccordionSection = ({ blok, }: {blok:AccordionSectionProps}) => {
           </span>
         </div>
         <div className="pt-6">
-          <Button variant={blok.colour ==="yellow500" ? "yellow" :"secondary"}>{blok.button.label}</Button>
+          <Link href={NavLink.BookACall}>
+            <Button
+              variant={blok.colour === "yellow500" ? "yellow" : "secondary"}
+            >
+              {blok.button.label}
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
         <div
-          className={cn(
-            "hidden lg:block col-span-1  relative h-full w-full ",
-            {
-              "lg:order-last": !blok.leftImage,
-            }
-          )}
+          className={cn("hidden lg:block col-span-1  relative h-full w-full ", {
+            "lg:order-last": !blok.leftImage,
+          })}
         >
-          <AspectRatio ratio={540 / 475} className="relative rounded-2xl overflow-hidden">
+          <AspectRatio
+            ratio={540 / 475}
+            className="relative rounded-2xl overflow-hidden"
+          >
             <Image
               src={selected!.image.url}
               alt={selected!.image.alt || ""}

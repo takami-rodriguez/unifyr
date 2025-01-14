@@ -13,7 +13,6 @@ import {
 import { FormEvent, useState } from "react";
 
 const GetInTouch = ({ id }: { id: string }) => {
-
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
 
@@ -65,13 +64,14 @@ const GetInTouch = ({ id }: { id: string }) => {
       })
       .catch((error) => {
         setErrors(error);
-        console.error("sendData Error", error)});
+        console.error("sendData Error", error);
+      });
   };
   return (
-    <div>
+    <div className="w-full">
       <form id={id} onSubmit={handleSubmit}>
         <div
-          className="bg-white rounded-2xl py-10 px-14 space-y-6"
+          className="bg-white/60 rounded-2xl py-10 px-14 space-y-6"
           style={boxShadow}
         >
           <div className="grid grid-cols-2 gap-6">
@@ -119,7 +119,7 @@ const GetInTouch = ({ id }: { id: string }) => {
           </div>
           <div className="flex justify-end">
             <Button variant={"primary"} type="submit" disabled={success}>
-              {success ? "Success" : "Submit message"}
+              {success ? "Success" : "Submit"}
             </Button>
           </div>
         </div>

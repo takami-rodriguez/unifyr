@@ -60,7 +60,7 @@ const slides: SlideContent[] = [
 ];
 
 export default function HomeCarousel() {
-  const {tablet, mobile} = useWindowSize();
+  const { tablet, mobile } = useWindowSize();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
   const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
@@ -75,24 +75,29 @@ export default function HomeCarousel() {
     {
       id: "supplier",
       title: "Supplier",
-      icon: <SupplierIcon />,
     },
     {
       id: "partner",
       title: "Partner",
-      icon: <PartnersIcon />,
     },
     {
       id: "agency",
       title: "Agency",
-      icon: <AgencyIcon />,
     },
   ];
-
+  const getIcon = ( tabId:string) => {
+    switch (tabId) {
+      case "supplier":
+        return <SupplierIcon selected={tabs[selectedIndex].id === tabId}/>;
+      case "partner":
+        return <PartnersIcon selected={tabs[selectedIndex].id === tabId}/>;
+      case "agency":
+        return <AgencyIcon selected={tabs[selectedIndex].id === tabId}/>;
+    }
+  }
   return (
     <div className="mt-10 mx-auto max-w-[1400px]">
       <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
-        {/* TODO -  */}
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList>
             {tabs.map((tab, index) => (
@@ -102,8 +107,10 @@ export default function HomeCarousel() {
                 onClick={() => onTabsButtonClick(index)}
               >
                 <span className="flex items-center space-x-2 ">
-                  <span className="hidden md:block">{tab.icon}</span>
-                  {tab.title}
+                  <span className="hidden md:block">
+                    {getIcon(tab.id)}
+                  </span>
+                  <div>{tab.title}</div>
                 </span>
               </TabsTrigger>
             ))}
@@ -130,9 +137,12 @@ export default function HomeCarousel() {
                   className={cn("border-0 bg-transparent shadow-none bg-white")}
                 >
                   <CardContent
-                    className={cn("grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 p-6", {
-                      "max-h-[80%]": selectedIndex !== index,
-                    })}
+                    className={cn(
+                      "grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 p-6",
+                      {
+                        "max-h-[80%]": selectedIndex !== index,
+                      }
+                    )}
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
                       <h2
@@ -150,7 +160,9 @@ export default function HomeCarousel() {
                       <p className="text-grey-900/80 leading-relaxed md:text-xl">
                         {slide.description}
                       </p>
-                      <Button variant={"outline"} fullWidth={tablet || mobile}>{slide.cta}</Button>
+                      <Button variant={"outline"} fullWidth={tablet || mobile}>
+                        {slide.cta}
+                      </Button>
                     </div>
                     <AspectRatio
                       ratio={5 / 4}

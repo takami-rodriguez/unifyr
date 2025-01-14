@@ -13,7 +13,7 @@ type FeaturesProps = {
 
 const Features = ({ features }: FeaturesProps) => {
   return (
-    <div className="mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
+    <div className="mt-10 md:mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
       {features.map((feature, index) => (
         <div key={index} className="space-y-4">
            {feature.icon}

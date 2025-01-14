@@ -24,6 +24,14 @@ export default {
         black: "#123032",
         pink: "#D70E86",
         navy: "#703B96",
+        blue: {
+          300: "#ACC6FF66",
+        },
+        green: {
+          300: "#dcf6d4",
+          500:"52AF87",
+          700:"#327A74"
+        },
         grey: {
           "100": "#FAFAFF",
           "300": "#E0E0FF",
