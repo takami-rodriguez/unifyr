@@ -1,19 +1,23 @@
+"use client";
 import Logo from "./logo";
 import { Button } from "@/components/ui/button";
 import { NavLink, navLinks } from "@/data/navLinks";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
   return (
     <nav className="flex items-center justify-between py-2.5 max-w-5xl mx-auto">
       <Link href={`${NavLink.Home}`} className="h-[32px]">
         <Logo />
       </Link>
-      <div className="flex items-center space-x-11">
+
+      {!pathname.includes(NavLink.BookACall) && <div className="flex items-center space-x-11">
         <ul className="flex items-center space-x-8">
           {navLinks.map((l) => (
             <li
-              key={l.label + "navlink"}
+              key={l.label + "navLink"}
               className=" text-lg group relative leading-6 text-grey-900"
             >
               <Link href={l.href} className="py-2 block">
@@ -28,7 +32,7 @@ export default function Navbar() {
             <Button variant={"primary"}>Book a call</Button>
           </Link>
         </div>
-      </div>
+      </div>}
     </nav>
   );
 }
