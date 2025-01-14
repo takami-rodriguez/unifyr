@@ -47,8 +47,8 @@ const Hero = () => {
         </Suspense>
         <div className="flex md:flex-row flex-col justify-center items-center md:items-end space-y-4 md:space-y-0 md:space-x-6">
           {/* TODO - SVG please */}
-          <div className="text-3xl font-semibold md:order-last">450+ G2 Reviews</div>
           <Image src="/images/google.png" alt="hero" width={211} height={40} />
+          <div className="text-3xl font-semibold order-first md:order-last">450+ G2 Reviews</div>
         </div>
       </div>
     </div>

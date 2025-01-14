@@ -16,7 +16,7 @@ const Features = ({ features }: FeaturesProps) => {
     <div className="mt-10 md:mt-24 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
       {features.map((feature, index) => (
         <div key={index} className="space-y-4">
-           {feature.icon}
+          {feature.icon}
           <h2 className="text-[22px] ">{feature.title}</h2>
           <p className="text-gray-900/80 w-[290px]">{feature.description}</p>
 
