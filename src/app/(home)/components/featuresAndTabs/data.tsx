@@ -8,7 +8,7 @@ export enum TabValue {
 
 export const tabsData = {
   [TabValue.zift]: {
-    title: "The industry-leading PRM & TCMA platform",
+    title: "Scalable PRM for the smartest companies",
     description:
       "ZiftONE is the most advanced PRM solution with key integrations into the platforms you already use.",
     features: [
@@ -17,77 +17,77 @@ export const tabsData = {
         icon: <Target className="h-[42px] w-[42px] text-grey-400" />,
         title: "Partner portal",
         description:
-          "Build an experience for your partners that encourages commitment and mutual growth.",
+          "Build an experience for your partners that educates and encourages commitment. Connects natively to Unifyr+.",
       },
       {
         link:"#",
         icon: <Diamond className="h-[42px] w-[42px] text-grey-400" />,
-        title: "Integrations",
+        title: "Workflows",
         description:
-          "Connect seamlessly with your existing tools to ensure channel operations remain perfectly synchronized.",
+          "Build automation workflows that reflect how your business operates. Reduce manual effort from your channel managers.",
       },
       {
         link:"#",
         icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
-        title: "Analytics",
+        title: "Reporting & Analytics",
         description:
-          "Transform data into actionable intelligence through visualizations that highlight partner performance both individually and holistically.",
+          "Turn data into actionable intelligence through visualizations that highlight partner performance at all levels.",
       },
     ],
   },
   [TabValue.unifyrPlus]: {
-    title: "The first curated, partner-driven network",
+    title: "Central command center for efficient partners",
     description:
-      "Unifyr+ is the first central command center for partners designed to maximize partner workflow efficiency.",
+      "Unifyr+ is the first unified interface for partners that work with many suppliers.",
     features: [
       {
         link:"#",
         icon: <Target className="h-[42px] w-[42px] text-grey-400" />,
-        title: "Supplier dashboard",
+        title: "Update feed",
         description:
-          "Manage all supplier relationships from an intuitive dashboard.",
+          "Unifyr+ provides an always-active stream of crucial highlights from all suppliers to keep you informed.",
       },
       {
         link:"#",
         icon: <Diamond className="h-[42px] w-[42px] text-grey-400" />,
         title: "AI advisor",
         description:
-          "Find content when you need it for any supplier by consulting the AI advisor knowledgeable on all of your relationships.",
+          "Surface key content from any supplier when you need it by consulting our privacy-centric AI advisor.",
       },
       {
         link:"#",
         icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
         title: "Analytics",
         description:
-          "Efficiently register new deals and keep track of your existing customer relationships to keep your connections healthy.",
+          "Track and improve your business performance and efficiency over time with insights that deepen as you do business.",
       },
     ],
   },
   [TabValue.unifyrPro]: {
-    title: "",
+    title: "The fastest way to find new business",
     description:
-      "",
+      "Unifyr Pro is a marketplace for agencies to discover suppliers and partners in need of channel expertise.",
     features: [
       {
         link:"#",
         icon: <Target className="h-[42px] w-[42px] text-grey-400" />,
-        title: "",
+        title: "Manage offerings",
         description:
-          "",
+          "Share your offerings with a network of suppliers and partners then transact within the platform.",
       },
       {
         link:"#",
         icon: <Diamond className="h-[42px] w-[42px] text-grey-400" />,
-        title: "",
+        title: "Build your reputation",
         description:
-          "",
+          "Grow your customer base and earn positive reviews from helping companies create channel program success.",
       },
       {
         link:"#",
         icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
-        title: "",
+        title: "Track your business",
         description:
-          "",
+          "Keep tabs on your active business relationships, earned revenue, and new opportunities all in one place.",
       },
     ],
   },

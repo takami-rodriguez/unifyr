@@ -38,7 +38,7 @@ const slides: SlideContent[] = [
     titleHighlight: "compromise",
     image: "/images/home/partner-carousel.png",
     description:
-      "ZiftONE's innovative PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. Empowered with Unifyr+, partners will always have the latest content and updates.",
+      "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
     cta: "Discover ZiftONE",
   },
   {
@@ -46,7 +46,7 @@ const slides: SlideContent[] = [
     titleHighlight: "first",
     image: "/images/home/partner-carousel.png",
     description:
-      "We've fundamentally redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of supplier relationships with the assistance of a personalized AI advisor that understands each one on a deep level.",
+      "We've redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of their supplier relationships with the assistance of a personalized AI advisor that understands each supplier on a deeper level.",
     cta: "Discover Unifyr+",
   },
   {
@@ -54,7 +54,7 @@ const slides: SlideContent[] = [
     titleHighlight: "opportunity",
     image: "/images/home/partner-carousel.png",
     description:
-      "Your mastery of channel partnerships deserves an audience of suppliers. Through Unifyr Pro, you'll join a network of forward-thinking suppliers eager to benefit from your experience in building exceptional partner programs that prove value and scale.",
+      "Find new business helping partners and suppliers grow. Through Unifyr Pro, you join a network of forward-thinking partners and suppliers eager to benefit from your experience in building exceptional partner programs that prove value.",
     cta: "Discover Unifyr Pro",
   },
 ];
@@ -89,10 +89,10 @@ export default function HomeCarousel() {
     switch (tabId) {
       case "supplier":
         return <SupplierIcon selected={tabs[selectedIndex].id === tabId}/>;
-      case "partner":
-        return <PartnersIcon selected={tabs[selectedIndex].id === tabId}/>;
       case "agency":
         return <AgencyIcon selected={tabs[selectedIndex].id === tabId}/>;
+      case "partner":
+        return <PartnersIcon selected={tabs[selectedIndex].id === tabId}/>;
     }
   }
   return (
