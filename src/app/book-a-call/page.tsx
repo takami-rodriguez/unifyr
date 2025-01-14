@@ -12,7 +12,7 @@ const listItems = [
 
 const GetADemo = async () => {
   return (
-    <div className="max-w-5xl mx-auto py-12">
+    <div className="max-w-5xl mx-auto pt-12 pb-32 md:pb-20">
       <div className="grid grid-cols-1 lg:grid-cols-7 items-center gap-16 w-full">
         <div className="space-y-10 lg:col-span-4">
           <h3 className="font-heading text-[4.375rem] leading-[5rem] font-bold ">
