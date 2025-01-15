@@ -1,33 +1,18 @@
 use super::FormDataMap;
-use crate::forms::creds::CREDENTIALS;
+use crate::{error::EdgeError, forms::creds::CREDENTIALS};
 use cookie::Cookie;
 use fastly::{
     http::{header, Url},
     Request,
 };
 use serde_json::Value;
-use std::{error::Error, fmt::Display, net::IpAddr};
+use std::net::IpAddr;
 
 const MARKETO_BACKEND: &str = "marketo";
 const MARKETO_IDENTITY: &str = "https://907-KOI-624.mktorest.com/identity/oauth/token";
 const MARKETO_SUBMIT_FORM: &str = "https://907-KOI-624.mktorest.com/rest/v1/leads/submitForm.json";
 
-#[derive(Debug)]
-pub enum MarketoError {
-    Internal(String),
-}
-
-impl Error for MarketoError {}
-
-impl Display for MarketoError {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            MarketoError::Internal(m) => write!(f, "Form error: {}", m),
-        }
-    }
-}
-
-fn get_marketo_token() -> Result<String, Box<dyn Error>> {
+fn get_marketo_token() -> Result<String, EdgeError> {
     let url = Url::parse_with_params(
         MARKETO_IDENTITY,
         &[
@@ -52,7 +37,7 @@ pub fn submit(
     req: &Request,
     form_id: i32,
     lead_form_fields: &FormDataMap,
-) -> Result<(), Box<dyn Error>> {
+) -> Result<(), EdgeError> {
     let token = get_marketo_token()?;
 
     let mut url = req.get_url().clone();
@@ -100,14 +85,12 @@ pub fn submit(
     if json.success {
         Ok(())
     } else {
-        let final_error: &str = json
+        let errors = json
             .errors
-            .as_ref()
-            .and_then(|errors| errors.last())
-            .map(|error| error.message.as_ref())
+            .map(|vec| vec.into_iter().map(|err| err.message).collect())
             .unwrap_or_default();
 
-        Err(Box::new(MarketoError::Internal(final_error.to_owned())))
+        Err(EdgeError::MarketoError(errors))
     }
 }
 

@@ -1,3 +1,4 @@
+use crate::error::EdgeError;
 use common::{Attr, FormElement};
 use futures::future::join_all;
 use serde::Serialize;
@@ -9,108 +10,58 @@ const TURNSTILE_KEY: &str = "cf-turnstile-response";
 
 // type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
 
-#[derive(Serialize)]
-pub struct FormError<'a> {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub name: Option<&'a str>,
-    pub message: &'a str,
-}
-
-mod validations {
-    use super::{Validation, TURNSTILE_BACKEND, TURNSTILE_SITEVERIFY};
-    use crate::forms::creds::CREDENTIALS;
-    use fastly::Request;
-    use serde_json::{json, Value};
-    use std::error::Error;
-
-    pub const NO_OP: Validation = |_| Box::pin(std::future::ready(Ok(())));
-
-    pub const REQUIRED: Validation = |value: Option<&str>| {
-        let result = if value.is_some_and(|s| !s.is_empty()) {
-            Ok(())
-        } else {
-            Err("This field is required")
-        };
-        Box::pin(std::future::ready(result))
-    };
-
-    pub const TURNSTILE: Validation = |value: Option<&str>| {
-        fn fallible(value: Option<&str>) -> Result<bool, Box<dyn Error>> {
-            let body = json!({
-                "secret": CREDENTIALS.turnstile_secret_key,
-                "response": value,
-            });
-
-            let value: Value = Request::post(TURNSTILE_SITEVERIFY)
-                .with_body_json(&body)?
-                .send(TURNSTILE_BACKEND)?
-                .take_body_json()?;
-
-            let success = value
-                .get("success")
-                .and_then(|b| b.as_bool())
-                .expect("challenge response missing");
-
-            Ok(success)
-        }
-
-        let result = match fallible(value) {
-            Ok(b) if b == true => Ok(()),
-            _ => Err("An error occurred. Please try again."),
-        };
-
-        Box::pin(std::future::ready(result))
-    };
-}
-
 pub type FormData = Vec<(String, String)>;
 pub type FormDataMap = HashMap<String, String>;
 
-type ValidationResult = Result<(), &'static str>;
-type Pending = Pin<Box<dyn Future<Output = ValidationResult>>>;
-type Validation = fn(Option<&str>) -> Pending;
-type Field = (&'static str, Vec<Validation>);
-type Applied = (&'static str, Pending);
+type ValidationResult = Result<(), EdgeError>;
+type Pending<'a> = Pin<Box<dyn Future<Output = ValidationResult> + 'a>>;
+type Validation<'a> = fn(Option<&'a str>) -> Pending<'a>;
+type Field<'a> = (&'static str, Vec<Validation<'a>>);
+type Applied<'a> = (&'static str, Pending<'a>);
 
 type FormErrors = HashMap<&'static str, &'static str>;
 
-pub struct Form {
-    fields: Vec<Field>,
+pub struct Form<'a> {
+    fields: Vec<Field<'a>>,
 }
 
-impl Form {
+#[derive(Serialize)]
+pub struct FormErrorResponse<'a> {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<&'a str>,
+    pub message: String,
+}
+
+impl<'a> Form<'a> {
     pub fn from_elements(elements: &'static Vec<FormElement>) -> Self {
         let mut fields: Vec<Field> = vec![];
 
         for FormElement { name, attrs } in elements.iter() {
             let mut validations: Vec<Validation> = vec![];
 
-            let mut attr_based_validations: Vec<Validation> = attrs
-                .iter()
-                .map(
-                    |Attr { name, value }| match (name.as_ref(), value.as_ref()) {
-                        ("required", _) => validations::REQUIRED,
-                        _ => validations::NO_OP,
-                    },
-                )
-                .collect();
+            for Attr { name, value } in attrs.iter() {
+                let attr_validation = match (name.as_ref(), value.as_ref()) {
+                    ("required", _) => validations::required,
+                    _ => validations::no_op,
+                };
 
-            let name_based_validation: Validation = match name.as_ref() {
-                _ => validations::NO_OP,
+                validations.push(attr_validation);
+            }
+
+            let name_based_validation = match name.as_ref() {
+                _ => validations::no_op,
             };
 
-            validations.append(&mut attr_based_validations);
             validations.push(name_based_validation);
-
             fields.push((name, validations));
         }
 
-        fields.push((TURNSTILE_KEY, vec![validations::TURNSTILE]));
+        fields.push((TURNSTILE_KEY, vec![validations::turnstile]));
 
         Self { fields }
     }
 
-    pub async fn validate(&self, map: &FormDataMap) -> Result<(), FormErrors> {
+    pub async fn validate(&self, map: &'a FormDataMap) -> HashMap<&'a str, EdgeError> {
         let intermediate: Vec<Applied> = self
             .fields
             .iter()
@@ -131,10 +82,46 @@ impl Form {
                 map
             });
 
-        if errors.is_empty() {
-            Ok(())
-        } else {
-            Err(errors)
-        }
+        errors
+    }
+}
+mod validations {
+    use super::{Pending, TURNSTILE_BACKEND, TURNSTILE_SITEVERIFY};
+    use crate::{error::EdgeError, forms::creds::CREDENTIALS};
+    use fastly::Request;
+    use serde_json::{json, Value};
+
+    pub fn no_op<'a>(_: Option<&'a str>) -> Pending<'a> {
+        Box::pin(std::future::ready(Ok(())))
+    }
+
+    pub fn required<'a>(value: Option<&'a str>) -> Pending<'a> {
+        let result = value
+            .is_some_and(|s| !s.is_empty())
+            .then(|| Ok(()))
+            .unwrap_or(Err(EdgeError::ValidationError("This field is required")));
+        Box::pin(std::future::ready(result))
+    }
+
+    pub fn turnstile<'a>(value: Option<&'a str>) -> Pending<'a> {
+        Box::pin(async move {
+            let body = json!({
+                "secret": CREDENTIALS.turnstile_secret_key,
+                "response": value,
+            });
+
+            // TODO: async/await?
+            let value: Value = Request::post(TURNSTILE_SITEVERIFY)
+                .with_body_json(&body)?
+                .send(TURNSTILE_BACKEND)?
+                .take_body_json()?;
+
+            let success = value.get("success").and_then(|b| b.as_bool());
+
+            match success {
+                Some(b) if b == true => Ok(()),
+                _ => Err(EdgeError::TurnstileError),
+            }
+        })
     }
 }
