@@ -14,10 +14,13 @@ import { FormEvent, useState } from "react";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
-  const [errors, setErrors] = useState(null);
-  
-  
-  
+  const [errors, setErrors] = useState({
+    first_name: undefined,
+    last_name: undefined,
+    email: undefined,
+    marketo: undefined,
+  });
+
   const sendData = async (e: FormEvent<HTMLFormElement>) => {
     const form = e.target as HTMLFormElement;
     const first_name = (
@@ -25,7 +28,8 @@ const GetInTouch = ({ id }: { id: string }) => {
     ).value;
     const last_name = (form.elements.namedItem("last_name") as HTMLInputElement)
       .value;
-    const company = (form.elements.namedItem("company") as HTMLInputElement)
+      
+    const entity_type = (form.elements.namedItem("entity_type") as HTMLInputElement)
       .value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
 
@@ -36,8 +40,10 @@ const GetInTouch = ({ id }: { id: string }) => {
     const urlencoded = new URLSearchParams();
     urlencoded.append("email", email);
     urlencoded.append("first_name", first_name);
-    urlencoded.append("last_name", last_name);
-    urlencoded.append("company", company);
+    urlencoded.append("last_name",
+       last_name);
+    
+    urlencoded.append("entity_type", entity_type);
 
     const requestOptions: RequestInit = {
       method: "POST",
@@ -61,7 +67,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     console.log("submitting form");
     sendData(e)
       .then((d) => {
-        console.log("form submitted",d);
+        console.log("form submitted", d);
         setSuccess(true);
       })
       .catch((error) => {
@@ -76,6 +82,19 @@ const GetInTouch = ({ id }: { id: string }) => {
           className="bg-white/60 rounded-2xl py-10 px-14 space-y-6"
           style={boxShadow}
         >
+          <div className="space-y-1">
+            <Label>I am a...</Label>
+            <Select name="entity_type">
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Please select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="supplier">Supplier</SelectItem>
+                <SelectItem value="agency">Agency</SelectItem>
+                <SelectItem value="partner">Partner</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <div className="grid grid-cols-2 gap-6">
             <InputField
               type="text"
@@ -83,6 +102,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               name="first_name"
               placeholder="Alex"
               required
+              error={errors.first_name}
             />
             <InputField
               type="text"
@@ -90,6 +110,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               name="last_name"
               placeholder="Bloggs"
               required
+              error={errors.last_name}
             />
           </div>
           <InputField
@@ -98,28 +119,12 @@ const GetInTouch = ({ id }: { id: string }) => {
             name="email"
             placeholder="alex.bloggs@email.com"
             required
+            error={errors.email}
           />
-          <InputField
-            label="Company"
-            name="company"
-            type="text"
-            placeholder="alex.bloggs@email.com"
-            required
-          />
-          <div className="space-y-1">
-            <Label>Who are you?</Label>
-            <Select name="entity_type">
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Please select" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="agency">Agency</SelectItem>
-                <SelectItem value="partner">Partner</SelectItem>
-                <SelectItem value="partner">Partner</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex justify-end">
+          <div className="flex justify-between">
+            <div>
+              {errors.marketo}
+            </div>
             <Button variant={"primary"} type="submit" disabled={success}>
               {success ? "Success" : "Submit"}
             </Button>
