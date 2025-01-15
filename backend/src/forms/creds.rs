@@ -7,6 +7,7 @@ pub struct Credentials {
     pub marketo_client_id: String,
     pub marketo_client_secret: String,
     pub apollo_match_key: String,
+    pub turnstile_secret_key: String,
 }
 
 impl Credentials {
@@ -17,6 +18,7 @@ impl Credentials {
             marketo_client_id: store.get("marketo_client_id").expect("cfg error"),
             marketo_client_secret: store.get("marketo_client_secret").expect("cfg error"),
             apollo_match_key: store.get("apollo_match_key").expect("cfg error"),
+            turnstile_secret_key: store.get("turnstile_secret_key").expect("cfg error"),
         }
     }
 }

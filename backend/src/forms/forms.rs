@@ -3,6 +3,10 @@ use futures::future::join_all;
 use serde::Serialize;
 use std::{collections::HashMap, future::Future, pin::Pin};
 
+const TURNSTILE_SITEVERIFY: &str = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const TURNSTILE_BACKEND: &str = "turnstile";
+const TURNSTILE_KEY: &str = "cf-turnstile-response";
+
 // type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
 
 #[derive(Serialize)]
@@ -13,7 +17,11 @@ pub struct FormError<'a> {
 }
 
 mod validations {
-    use super::Validation;
+    use super::{Validation, TURNSTILE_BACKEND, TURNSTILE_SITEVERIFY};
+    use crate::forms::creds::CREDENTIALS;
+    use fastly::Request;
+    use serde_json::{json, Value};
+    use std::error::Error;
 
     pub const NO_OP: Validation = |_| Box::pin(std::future::ready(Ok(())));
 
@@ -23,6 +31,34 @@ mod validations {
         } else {
             Err("This field is required")
         };
+        Box::pin(std::future::ready(result))
+    };
+
+    pub const TURNSTILE: Validation = |value: Option<&str>| {
+        fn fallible(value: Option<&str>) -> Result<bool, Box<dyn Error>> {
+            let body = json!({
+                "secret": CREDENTIALS.turnstile_secret_key,
+                "response": value,
+            });
+
+            let value: Value = Request::post(TURNSTILE_SITEVERIFY)
+                .with_body_json(&body)?
+                .send(TURNSTILE_BACKEND)?
+                .take_body_json()?;
+
+            let success = value
+                .get("success")
+                .and_then(|b| b.as_bool())
+                .expect("challenge response missing");
+
+            Ok(success)
+        }
+
+        let result = match fallible(value) {
+            Ok(b) if b == true => Ok(()),
+            _ => Err("An error occurred. Please try again."),
+        };
+
         Box::pin(std::future::ready(result))
     };
 }
@@ -68,6 +104,8 @@ impl Form {
 
             fields.push((name, validations));
         }
+
+        fields.push((TURNSTILE_KEY, vec![validations::TURNSTILE]));
 
         Self { fields }
     }

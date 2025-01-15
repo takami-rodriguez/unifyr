@@ -25,11 +25,8 @@ impl<R: SecureRandom> NonceGenerator<R> {
     }
 
     pub fn generate(&mut self) -> Result<&str, ring::error::Unspecified> {
-        let bytes: &[u8] = unsafe {
-            let slice = &mut *(self.byte_buf.as_mut_ptr() as *mut [u8; NONCE_BYTES]);
-            self.rng.fill(slice)?;
-            slice
-        };
+        let bytes: &mut [u8] = unsafe { self.byte_buf.assume_init_mut() };
+        self.rng.fill(bytes)?;
 
         let out = Out::from_uninit_slice(&mut self.b64_buf);
 
