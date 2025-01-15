@@ -59,9 +59,9 @@ export const accordionSections: {
   partner: AccordionSectionProps;
 } = {
   supplier: {
-    mainTitle: "Allow your channel partnerships to flourish without the hassle",
+    mainTitle: "Let channel partnerships flourish without the hassle",
     colour: "blue500",
-    para: "Traditional partner relationship management leaves . Unifyr provides end-to-end support.",
+    para: "Traditional partner relationship management leaves partners hanging. Unifyr provides end-to-end support.",
     _uid: "EB6076EB-8FEF-46DF-9B06-FA9F720806AC",
     button: {
       label: "Discover ZiftONE",
@@ -71,9 +71,9 @@ export const accordionSections: {
     content: [
       {
         _uid: "60C5B75B-A3D1-4BA2-80A8-2DF23EC3748D",
-        title: "Meaningful intelligence for channel growth",
+        title: "Use channel intelligence to make decisions",
         content:
-          "ZiftONE reveals the patterns that drive channel success. Reporting & analytics turn granular partner activities into holistic views that clearly show channel performance. This depth of visibility enables you to make decisions based on genuine partner behavior.",
+          "ZiftONE reveals the patterns that drive channel success. Detailed reporting turns granular partner activities into holistic views that reveal channel performance. The depth of visibility enables you to make decisions based on partner outcomes.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
@@ -82,9 +82,9 @@ export const accordionSections: {
       },
       {
         _uid: "A393E2EF-98E3-40EA-9070-C499E5CB6FB3",
-        title: "Content workflows that bring partners along",
+        title: "Keep more partners transacting",
         content:
-          "We've carefully considered how suppliers share resources with their partners. In the ZiftONE content management system, turn on the partner AI advisor to have it analyze and catalog content for intelligent distribution that ensures your content reaches partners at the moments when it matters most, saving you time and promoting partner performance.",
+          "We've carefully considered how suppliers share resources with their partners. In the ZiftONE content management system, opt in to funnel critical updates and content to partners through Unifyr+. Turn on the partner AI adviser to have it analyze and index content that ensures it reaches partners at the moments when it matters most, saving you time and promoting partner performance.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
@@ -93,9 +93,9 @@ export const accordionSections: {
       },
       {
         _uid: "54BD5751-721B-4A7E-8FE2-B0AA2523CEFA",
-        title: "Faster partnership growth with Unifyr+",
+        title: "Prepare your program to scale",
         content:
-          "The ZiftONE platform not only provides all the tools necessary to construct an integrated partner ecosystem—it also provides access to relevant partners and agencies expert in channel partnerships. This combination of tooling and key resources makes ZiftONE the most comprehensive PRM & TCMA platform available to partner and channel managers.",
+          "ZiftONE is designed for businesses with partner programs of all sizes and will continue to serve you as your program evolves and your business grows. Our dedicated Labs Team is here to help build the next stage of your digital partner ecosystem when you reach crucial growth milestones.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
@@ -106,19 +106,19 @@ export const accordionSections: {
   },
   partner: {
     button: {
-      label: "Discover ZiftONE",
+      label: "Discover Unifyr+",
       link: "/",
     },
-    mainTitle: "Lorem Ipsum Dolor Amet",
+    mainTitle: "Finally, a PRM solution for partners",
     colour: "yellow500",
-    para: "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+    para: "Unifyr+ is a partner operations and supplier management platform built with partner workflows at the forefront.",
     _uid: "BEDBA856-1BB8-402F-8F38-4DCAA41DC272",
     content: [
       {
         _uid: "3614AAC5-3498-4676-9651-0363648F02EE",
-        title: "Lorem ipsum dolor",
+        title: "Centralize supplier management",
         content:
-          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
+          "Unifyr+ is designed to force-multiply high throughput partners by eliminating the supplier management bottleneck and opening tremendous opportunity to scale. All supplier portals are a click away through the central interface, providing easy access for fast-paced workflows.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
@@ -127,9 +127,9 @@ export const accordionSections: {
       },
       {
         _uid: "CF96F7F5-B911-4291-AD20-6E72E18152F8",
-        title: "Lorem ipsum dolor",
+        title: "Stay fully up-to-date",
         content:
-          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
+          "Suppliers that have chosen to support partners through the Unifyr+ interface will have new content and updates presented in aggregate within the supplier update feed. The feed is a crucial way to prevent new updates from slipping through the cracks.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
@@ -138,9 +138,9 @@ export const accordionSections: {
       },
       {
         _uid: "3670C5E2-9EC5-4CB3-822E-E0914914E353",
-        title: "Lorem ipsum dolor",
+        title: "Surface content with AI",
         content:
-          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. ",
+          "The AI adviser is a partner's companion for plucking the most relevant content at critical moments. Rather than delaying for the assistance of the supplier's channel manager, consult the AI adviser to support you in completing transactions faster.",
         image: {
           url: "/images/home/accordion.png",
           alt: "",
