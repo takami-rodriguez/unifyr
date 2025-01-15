@@ -76,10 +76,14 @@ fn main() -> Result<(), EdgeError> {
                 } else {
                     match forms::marketo::submit(&req, id, &formdata) {
                         Err(err) => {
-                            let body = forms::FormErrorResponse {
+                            let message = format!(
+                                "An error occurred. Please contact hello@unifyr.com. ({})",
+                                err.to_string()
+                            );
+                            let body = vec![forms::FormErrorResponse {
                                 name: None,
-                                message: err.to_string(),
-                            };
+                                message,
+                            }];
                             Response::from_body(serde_json::to_string(&body)?)
                                 .with_status(StatusCode::BAD_REQUEST)
                         }
