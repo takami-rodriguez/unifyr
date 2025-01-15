@@ -4,8 +4,8 @@ const SupplierIcon = ({selected} : {selected:boolean}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="27"
+      width="34"
+      height="34"
       viewBox="0 0 28 27"
       fill="none"
     >
