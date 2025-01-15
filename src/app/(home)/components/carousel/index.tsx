@@ -77,12 +77,12 @@ export default function HomeCarousel() {
       title: "Supplier",
     },
     {
-      id: "partner",
-      title: "Partner",
-    },
-    {
       id: "agency",
       title: "Agency",
+    },
+    {
+      id: "partner",
+      title: "Partner",
     },
   ];
   const getIcon = ( tabId:string) => {
@@ -97,7 +97,7 @@ export default function HomeCarousel() {
   }
   return (
     <div className="mt-10 mx-auto max-w-[1400px]">
-      <div className="rounded-[3rem] overflow-hidden py-8" style={bgGradient}>
+      <div className="rounded-2xl overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList hasIcon>
             {tabs.map((tab, index) => (
@@ -120,7 +120,7 @@ export default function HomeCarousel() {
           opts={{
             loop: true,
           }}
-          className="relative my-8 h-full px-1 md:px-14"
+          className="relative mt-8 mb-12 h-full px-1 md:px-14"
           carouselRef={emblaRef}
           api={emblaApi}
         >

@@ -36,17 +36,12 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
   const [selectedId, setSelectedId] = React.useState<string>(
     blok.content[0]!._uid
   );
-
-  const selected = useMemo(
-    () => blok.content.find((c) => c._uid === selectedId),
-    [selectedId]
-  );
-
+  const selected = blok.content.find((c) => c._uid === selectedId)
   return (
     <div className="max-w-5xl mx-auto space-y-14">
       <div className="mt-20 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-bold text-center">{blok.mainTitle}</h3>
-        <div className=" max-w-xl mx-auto text-center ">
+        <h3 className="text-3xl md:text-5xl font-bold ">{blok.mainTitle}</h3>
+        <div className=" max-w-xl mx-auto  ">
           <span className={cn("text-xl font-sans font-light text-grey-900")}>
             {blok.para}
           </span>
@@ -91,7 +86,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
                 className={cn("", {
                   ["border-l-[3px] border-secondary"]:
                     selectedId === feature._uid && blok.colour === "blue500",
-                  ["border-l-[3px] border-accent"]:
+                  ["border-l-[3px] border-green-700"]:
                     selectedId === feature._uid && blok.colour === "yellow500",
                   "border-l-[3px] border-grey": selectedId !== feature._uid,
                 })}

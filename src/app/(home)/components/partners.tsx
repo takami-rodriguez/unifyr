@@ -13,13 +13,13 @@ const Partners = () => {
           </h3>
         </div>
       </div>
-      <div className="py-8 lg:py-12 mt-1 flex flex-col justify-center md:flex-row w-full items-center space-y-10 md:space-y-0 md:space-x-[3.375rem] mx-auto max-w-[1400px]">
+      <div className="py-8 lg:py-12 mt-1 flex justify-center  flex-wrap w-full items-center  md:space-x-[3.375rem] mx-auto max-w-[1400px] px-10 md:px-0">
         {partnerImages?.map((image) => (
-          <div key={image.url} className=" relative h-10 w-28 md:h-12 md:w-32">
+          <div key={image.url} className=" relative h-12 md:w-32 w-1/2 mb-10 md:mb-0 px-2 md:px-0">
             <Image
               src={image.url}
               alt={image.alt || ""}
-              className=" object-contain object-center"
+              className="object-contain object-center"
               fill
             />
           </div>

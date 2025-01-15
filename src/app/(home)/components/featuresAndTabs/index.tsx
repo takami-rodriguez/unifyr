@@ -14,12 +14,12 @@ const tabs = [
     value: TabValue.zift,
   },
   {
-    title: "Unifyr+",
-    value: TabValue.unifyrPlus,
-  },
-  {
     title: "Unifyr Pro",
     value:TabValue.unifyrPro,
+  },
+  {
+    title: "Unifyr+",
+    value: TabValue.unifyrPlus,
   },
 ];
 

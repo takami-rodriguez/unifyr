@@ -43,7 +43,7 @@ const ArticlePage = async ({ params }: PageProps) => {
         <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">
           {frontmatter.title}
         </h1>
-        <div className=" flex flex-col lg:flex-row  lg:items-end  py-2 lg:py-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
+        <div className=" flex flex-col lg:flex-row  lg:items-end  pt-8 lg:py-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
           {frontmatter.author && (
             <>
               <div

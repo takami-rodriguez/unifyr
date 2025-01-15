@@ -23,6 +23,7 @@ const FeaturesAccordionSection = () => {
   const [selectedId, setSelectedId] = React.useState<"supplier" | "partner">(
     "supplier"
   );
+
   return (
     <div className="">
       <Tabs className="flex justify-center" value={selectedId}>
@@ -48,7 +49,8 @@ const FeaturesAccordionSection = () => {
           ))}
         </TabsList>
       </Tabs>
-      <AccordionSection blok={accordionSections[selectedId]} />
+     {selectedId ==="supplier" && <AccordionSection blok={accordionSections["supplier"]} />}
+     {selectedId ==="partner" &&  <AccordionSection blok={accordionSections["partner"]} />}
     </div>
   );
 };

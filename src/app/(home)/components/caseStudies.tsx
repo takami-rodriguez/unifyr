@@ -1,3 +1,4 @@
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 export default function CaseStudy() {
   return (
@@ -9,13 +10,16 @@ export default function CaseStudy() {
             "“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"
           }
         </blockquote>
-        <div className="flex flex-col items-center gap-3">
-          <Image
-            src="/images/partners/Panasonic.svg"
-            alt="Panasonic"
-            width={251}
-            height={40}
-          />
+        <div className="flex flex-col items-center md:gap-3 ">
+          <div className="mx-auto w-full max-w-[251px] max-h-[40px]">
+
+          <AspectRatio
+            ratio={251 / 40}
+            className="relative mx-6 sm:mx-4 md:mx-0 "
+            >
+            <Image src="/images/partners/Panasonic.svg" alt="Panasonic" fill />
+          </AspectRatio>
+            </div>
           <div className="text-lg">
             <p className="">Chief Revenue Officer, Panasonic Connect</p>
           </div>
