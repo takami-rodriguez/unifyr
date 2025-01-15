@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import React, { useMemo } from "react";
+import React from "react";
 import Image from "next/image";
 import { ImageType } from "@/types/images";
 import { Button } from "@/components/ui/button";
