@@ -45,7 +45,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     //   form.elements.namedItem("cf-turnstile-response") as HTMLInputElement
     // ).value;
     const entity_type = (
-      form.elements.namedItem("entity_type") as HTMLInputElement
+      form.elements.namedItem("entity_type__c") as HTMLInputElement
     ).value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
     console.log(token);
@@ -54,12 +54,12 @@ const GetInTouch = ({ id }: { id: string }) => {
     myHeaders.append("Access-Control-Allow-Origin", "*");
 
     const urlencoded = new URLSearchParams();
-    urlencoded.append("email", email);
+    urlencoded.append("Email", email);
     urlencoded.append("cf-turnstile-response", String(token));
-    urlencoded.append("first_name", first_name);
-    urlencoded.append("last_name", last_name);
+    urlencoded.append("FirstName", first_name);
+    urlencoded.append("LastName", last_name);
 
-    urlencoded.append("entity_type", entity_type);
+    urlencoded.append("entity_type__c", entity_type);
 
     const requestOptions: RequestInit = {
       method: "POST",
@@ -132,7 +132,7 @@ const GetInTouch = ({ id }: { id: string }) => {
             <>
               <div className="space-y-1">
                 <Label>I am a...</Label>
-                <Select name="entity_type">
+                <Select name="entity_type__c">
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Please select" />
                   </SelectTrigger>
