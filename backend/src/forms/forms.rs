@@ -3,9 +3,9 @@ use common::{Attr, FormElement};
 use futures::future::join_all;
 use std::{collections::HashMap, future::Future, pin::Pin};
 
-const TURNSTILE_SITEVERIFY: &str = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const TURNSTILE_BACKEND: &str = "turnstile";
-const TURNSTILE_KEY: &str = "cf-turnstile-response";
+pub const TURNSTILE_SITEVERIFY: &str = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+pub const TURNSTILE_BACKEND: &str = "turnstile";
+pub const TURNSTILE_KEY: &str = "cf-turnstile-response";
 
 // type ElementHandlerArray<'h> = Vec<(Cow<'static, Selector>, ElementContentHandlers<'h>)>;
 

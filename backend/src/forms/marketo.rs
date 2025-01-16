@@ -82,6 +82,8 @@ pub fn submit(
     let mut response = request.send(MARKETO_BACKEND)?;
     let json: marketo_form::response::Data = response.take_body_json()?;
 
+    println!("{:?}", json);
+
     if json.success {
         Ok(())
     } else {
