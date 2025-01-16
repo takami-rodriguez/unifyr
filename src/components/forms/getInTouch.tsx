@@ -16,9 +16,7 @@ import { cn } from "@/lib/utils";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
-  const [token, setToken] = useState<string | null>(null)
-  // const [turnstileStatus, setTurnstileStatus] = useState("required");
-  // const [turnstileError, setTurnstileError] = useState<string | null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     first_name: undefined,
     last_name: undefined,
@@ -26,7 +24,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     marketo: undefined,
   });
 
-  const sendData = async (e: FormEvent<HTMLFormElement>) => {
+  const sendData = async (e: FormEvent<HTMLFormElement>,tokenData:string) => {
     const form = e.target as HTMLFormElement;
     console.log(
       form.elements,
@@ -48,7 +46,7 @@ const GetInTouch = ({ id }: { id: string }) => {
 
     const urlencoded = new URLSearchParams();
     urlencoded.append("Email", email);
-    urlencoded.append("cf-turnstile-response", String(token));
+    urlencoded.append("cf-turnstile-response", String(tokenData));
     urlencoded.append("FirstName", first_name);
     urlencoded.append("LastName", last_name);
     urlencoded.append("entity_type__c", entity_type);
@@ -87,12 +85,14 @@ const GetInTouch = ({ id }: { id: string }) => {
   }, []);
 
   const handleVerify = (token: string) => {
-   setToken(token);
+    console.log("token", token);
+    setToken(token);
   };
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  
+  const handleSubmit = (e: FormEvent<HTMLFormElement>, tokenData:string) => {
     e.preventDefault();
-    console.log("submitting form");
-    sendData(e)
+    console.log("submitting form with Token: ", tokenData );
+    sendData(e,tokenData)
       .then((d) => {
         console.log("form submitted", d);
         setSuccess(true);
@@ -104,7 +104,7 @@ const GetInTouch = ({ id }: { id: string }) => {
   };
   return (
     <div className="w-full">
-      <form id={id} onSubmit={handleSubmit}>
+      <form id={id} onSubmit={(e) => handleSubmit(e,token!)}>
         <div
           className={cn("bg-white/60 rounded-2xl py-10 px-14 space-y-6")}
           style={boxShadow}
@@ -151,13 +151,12 @@ const GetInTouch = ({ id }: { id: string }) => {
             />
             <div className="flex justify-between">
               <div>{errors.marketo}</div>
-              <Button variant={"primary"} type="submit" disabled={success}>
+              <Button  variant={"primary"} type="submit" disabled={success || token === null}>
                 {success ? "Success" : "Submit"}
               </Button>
             </div>
           </>
 
-        
           <Turnstile
             className="hidden"
             siteKey="0x4AAAAAAA5VmWokYJQQgCCK"
