@@ -70,7 +70,7 @@ const GetInTouch = ({ id }: { id: string }) => {
         console.error(error);
 
         const errorsObject = error.reduce(
-          (acc: { [x: string]: any }, curr: { [x: string]: undefined }) => {
+          (acc: { [x: string]: unknown }, curr: { [x: string]: undefined }) => {
             const key = Object.keys(curr)[0];
             acc[key] = curr[key] || undefined;
             return acc;
