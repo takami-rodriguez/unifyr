@@ -26,16 +26,13 @@ export default function RootLayout({
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans `}
       >
         <ClientLayout>
-
-        <div className="px-4 md:px-5">
-          <Navbar />
-          {children}
-        </div>
+          <div className="px-4 md:px-5">
+            <Navbar />
+            {children}
+          </div>
+          <GAHandler />
         </ClientLayout>
         <Footer />
-        <Suspense>
-          <GAHandler />
-        </Suspense>
         <CookiePopUpBox />
       </body>
     </html>

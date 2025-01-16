@@ -10,13 +10,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./components/select";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Turnstile } from "next-turnstile";
 import { cn } from "@/lib/utils";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
   const [token, setToken] = useState<string | null>(null);
+  // const [turnstileStatus, setTurnstileStatus] = useState("required");
+  // const [turnstileError, setTurnstileError] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     first_name: undefined,
     last_name: undefined,
@@ -24,7 +26,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     marketo: undefined,
   });
 
-  const sendData = async (e: FormEvent<HTMLFormElement>,tokenData:string) => {
+  const sendData = async (e: FormEvent<HTMLFormElement>) => {
     const form = e.target as HTMLFormElement;
     console.log(
       form.elements,
@@ -36,6 +38,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     ).value;
     const last_name = (form.elements.namedItem("LastName") as HTMLInputElement)
       .value;
+    console.log({ token });
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
     ).value;
@@ -46,7 +49,7 @@ const GetInTouch = ({ id }: { id: string }) => {
 
     const urlencoded = new URLSearchParams();
     urlencoded.append("Email", email);
-    urlencoded.append("cf-turnstile-response", String(tokenData));
+    urlencoded.append("cf-turnstile-response", String(token));
     urlencoded.append("FirstName", first_name);
     urlencoded.append("LastName", last_name);
     urlencoded.append("entity_type__c", entity_type);
@@ -63,7 +66,11 @@ const GetInTouch = ({ id }: { id: string }) => {
       `https://next.staging.unifyr.com/forms/${id}`,
       requestOptions
     )
-      .then((response) => response.text())
+      .then((response) => {
+        console.log("RESPONSE TEXT",response.text())
+        console.log("RESPONSE", response)
+      
+      })
       .catch((error) => {
         console.error(error);
         setErrors({ ...errors, marketo: error });
@@ -85,14 +92,14 @@ const GetInTouch = ({ id }: { id: string }) => {
   }, []);
 
   const handleVerify = (token: string) => {
-    console.log("token", token);
+    // Handle the verification token
+    console.log("Verification successful:", token);
     setToken(token);
   };
-  
-  const handleSubmit = (e: FormEvent<HTMLFormElement>, tokenData:string) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitting form with Token: ", tokenData );
-    sendData(e,tokenData)
+    console.log("submitting form");
+    sendData(e)
       .then((d) => {
         console.log("form submitted", d);
         setSuccess(true);
@@ -104,11 +111,20 @@ const GetInTouch = ({ id }: { id: string }) => {
   };
   return (
     <div className="w-full">
-      <form id={id} onSubmit={(e) => handleSubmit(e,token!)}>
+      <form id={id} onSubmit={handleSubmit}>
         <div
           className={cn("bg-white/60 rounded-2xl py-10 px-14 space-y-6")}
           style={boxShadow}
         >
+    
+          <Turnstile
+          className="hidden"
+            siteKey="0x4AAAAAAA5VmWokYJQQgCCK"
+            onVerify={handleVerify}
+            theme="light"
+            appearance="interaction-only"
+            sandbox={true}
+          />
           <>
             <div className="space-y-1">
               <Label>I am a...</Label>
@@ -151,19 +167,13 @@ const GetInTouch = ({ id }: { id: string }) => {
             />
             <div className="flex justify-between">
               <div>{errors.marketo}</div>
-              <Button  variant={"primary"} type="submit" disabled={success || token === null}>
+              <Button variant={"primary"} type="submit" disabled={token === null}>
                 {success ? "Success" : "Submit"}
               </Button>
             </div>
           </>
 
-          <Turnstile
-            className="hidden"
-            siteKey="0x4AAAAAAA5VmWokYJQQgCCK"
-            onVerify={handleVerify}
-            theme="light"
-            appearance="interaction-only"
-          />
+         
         </div>
       </form>
     </div>
