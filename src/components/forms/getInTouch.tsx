@@ -147,7 +147,7 @@ const GetInTouch = ({ id }: { id: string }) => {
                 <InputField
                   type="text"
                   label="First Name"
-                  name="first_name"
+                  name="FirstName"
                   placeholder="Alex"
                   required
                   error={errors.first_name}
@@ -155,7 +155,7 @@ const GetInTouch = ({ id }: { id: string }) => {
                 <InputField
                   type="text"
                   label="Last Name"
-                  name="last_name"
+                  name="LastName"
                   placeholder="Bloggs"
                   required
                   error={errors.last_name}
@@ -164,7 +164,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               <InputField
                 label="Email address"
                 type="email"
-                name="email"
+                name="Email"
                 placeholder="alex.bloggs@email.com"
                 required
                 error={errors.email}
