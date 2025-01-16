@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./components/select";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Turnstile } from "next-turnstile";
 import { cn } from "@/lib/utils";
 

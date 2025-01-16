@@ -13,8 +13,8 @@ import Script from "next/script";
 export default function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const GTM_ID = process.env.GTM_ID!;
   useEffect(() => {
+    const GTM_ID = process.env.GTM_ID!;
     if (pathname) {
       pageview(pathname);
     }
