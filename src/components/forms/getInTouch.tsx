@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
+  const [token, setToken] = useState<string | null>(null)
   // const [turnstileStatus, setTurnstileStatus] = useState("required");
   // const [turnstileError, setTurnstileError] = useState<string | null>(null);
   const [errors, setErrors] = useState({
@@ -37,9 +38,6 @@ const GetInTouch = ({ id }: { id: string }) => {
     ).value;
     const last_name = (form.elements.namedItem("LastName") as HTMLInputElement)
       .value;
-    const token = (
-      form.elements.namedItem("cf-turnstile-response") as HTMLInputElement
-    ).value;
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
     ).value;
@@ -89,8 +87,7 @@ const GetInTouch = ({ id }: { id: string }) => {
   }, []);
 
   const handleVerify = (token: string) => {
-    // Handle the verification token
-    console.log("Verification successful:", token);
+   setToken(token);
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
