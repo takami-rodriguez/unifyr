@@ -14,7 +14,6 @@ export default function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
-    const GTM_ID = process.env.GTM_ID!;
     if (pathname) {
       pageview(pathname);
     }
