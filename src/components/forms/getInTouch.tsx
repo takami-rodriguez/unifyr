@@ -15,29 +15,24 @@ import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
 
 const GetInTouch = ({ id }: { id: string }) => {
-    const turnstile = useTurnstile();
+  const turnstile = useTurnstile();
   const [success, setSuccess] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     first_name: undefined,
     last_name: undefined,
     email: undefined,
-    marketo: undefined,
+    message: undefined,
   });
 
   const sendData = async (e: FormEvent<HTMLFormElement>) => {
     const form = e.target as HTMLFormElement;
-    console.log(
-      form.elements,
-      form.elements.namedItem("cf-turnstile-response")
-    );
 
     const first_name = (
       form.elements.namedItem("FirstName") as HTMLInputElement
     ).value;
     const last_name = (form.elements.namedItem("LastName") as HTMLInputElement)
       .value;
-    console.log({ token });
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
     ).value;
@@ -66,47 +61,33 @@ const GetInTouch = ({ id }: { id: string }) => {
       requestOptions
     )
       .then(async (response) => {
-        console.log("RESPONSE TEXT",await response.text())
-      })
-      .catch((error) => {
-        turnstile.reset()
-        console.error(error);
-        setErrors({ ...errors, marketo: error });
-      });
-  };
-
-  console.log({ errors });
-
-  useEffect(() => {
-    // if (window)
-    // window.onloadTurnstileCallback = function () {
-    //   turnstile.render(".cf-turnstile", {
-    //     sitekey: "0x4AAAAAAA5VmWokYJQQgCCK",
-    //     callback: function (token) {
-    //       console.log(`Challenge Success ${token}`);
-    //     },
-    //   });
-    // };
-  }, []);
-
-  const handleVerify = (token: string) => {
-    // Handle the verification token
-    console.log("Verification successful:", token);
-    setToken(token);
-  };
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("submitting form");
-    sendData(e)
-      .then((d) => {
-        console.log("form submitted", d);
+        console.log("RESPONSE TEXT", await response.text());
+        console.log("RESPONSE TEXT");
         setSuccess(true);
       })
       .catch((error) => {
-        setErrors(error);
-        turnstile.reset()
-        console.error("sendData Error", error);
+        turnstile.reset();
+        console.error(error);
+
+        const errorsObject = error.reduce(
+          (acc: { [x: string]: any }, curr: { [x: string]: undefined }) => {
+            const key = Object.keys(curr)[0];
+            acc[key] = curr[key] || undefined;
+            return acc;
+          },
+          {
+            first_name: undefined,
+            last_name: undefined,
+            email: undefined,
+            message: undefined,
+          }
+        );
+        setErrors(errorsObject);
       });
+  };
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    sendData(e);
   };
   return (
     <div className="w-full">
@@ -115,11 +96,10 @@ const GetInTouch = ({ id }: { id: string }) => {
           className={cn("bg-white/60 rounded-2xl py-10 px-14 space-y-6")}
           style={boxShadow}
         >
-    
           <Turnstile
-          className="hidden"
+            className="hidden"
             sitekey="0x4AAAAAAA5VmWokYJQQgCCK"
-            onVerify={handleVerify}
+            onVerify={setToken}
             theme="light"
             appearance="interaction-only"
           />
@@ -164,14 +144,19 @@ const GetInTouch = ({ id }: { id: string }) => {
               error={errors.email}
             />
             <div className="flex justify-between">
-              <div>{errors.marketo}</div>
-              <Button variant={"primary"} type="submit" disabled={token === null}>
-                {success ? "Success" : "Submit"}
+              <div>
+                {errors.message ||
+                  (success && "Success! We'll be in touch soon.")}
+              </div>
+              <Button
+                variant={"primary"}
+                type="submit"
+                disabled={token === null || success}
+              >
+                Submit
               </Button>
             </div>
           </>
-
-         
         </div>
       </form>
     </div>

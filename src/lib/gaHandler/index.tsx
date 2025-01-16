@@ -31,7 +31,7 @@ export default function Analytics() {
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer', "${GTM_ID}");
+        })(window,document,'script','dataLayer', "GTM-M7FXHB83");
       `),
         }}
       />;
@@ -53,7 +53,7 @@ export default function Analytics() {
         security_storage: string;
       }
     ) {
-      window.dataLayer?.push({p0,p1,p2});
+      window.dataLayer?.push({ p0, p1, p2 });
     }
 
     // Check if consent cookie exists
@@ -98,10 +98,6 @@ export default function Analytics() {
       }
     });
   }, [pathname, searchParams]);
-
-  // if (process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") {
-  //   return null;
-  // }
 
   return <></>;
 }

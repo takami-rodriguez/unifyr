@@ -10,7 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-gradient text-white border-grey-[#1f4498]/30",
+        primary: "bg-gradient text-white border-grey-[#1f4498]/30 ",
         secondary: "bg-secondary text-white border-grey-[#1f4498]/30",
         yellow: "bg-green-700 text-white border-accent/30 border-2",
         outline:
@@ -18,6 +18,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-neutral-100 hover:text-neutral-900 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
         link: "text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50",
+        disabled: "bg-grey-300 text-grey-500 border-grey-300",
       },
       size: {
         sm: "h-9 rounded-md px-3",
