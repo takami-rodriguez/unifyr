@@ -29,7 +29,7 @@ export const tabsData = {
       {
         link:"#",
         icon: <RefreshCw className="h-[42px] w-[42px] text-grey-400" />,
-        title: "Reporting & Analytics",
+        title: "Reporting & analytics",
         description:
           "Turn data into actionable intelligence through visualizations that highlight partner performance at all levels.",
       },

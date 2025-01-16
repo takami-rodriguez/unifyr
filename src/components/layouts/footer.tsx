@@ -31,11 +31,10 @@ const Footer = () => {
           <div className="col-span-1">
             <h4 className="text-lg font-bold pb-2">Company</h4>
             <p className="text-grey-900/80">
-              10 Times Square Building <br />
-              1441 Broadway
-              <br />
-              New York, <br />
-              NY 10018
+              6501 Weston Parkway, <br />
+               Suite 200 Cary, <br />
+               NC 27513  <br />
+              10 Times Square Building
             </p>
           </div>
           <div className="col-span-1">
@@ -50,7 +49,7 @@ const Footer = () => {
       </div>
       <div className="max-w-5xl mx-auto w-full justify-between flex pt-4 flex-col sm:flex-row space-y-4 sm:space-y-0">
         <div className="sm:order-last">
-          <ul className="flex space-x-6 text-grey-900/80" >
+          <ul className="flex space-x-6 text-grey-900/80">
             <li className="min-w-28 sm:text-right">
               <Link href={NavLink.Privacy}>Privacy Policy</Link>
             </li>
@@ -60,7 +59,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="w-full ">
-          <p className="  text-grey-900/80">
+          <p className=" text-grey-900/80">
             © {new Date().getFullYear()} Unifyr. All rights reserved.
           </p>
         </div>

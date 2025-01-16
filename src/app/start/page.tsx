@@ -1,5 +1,4 @@
 import React from "react";
-import G2Leaders from "../(home)/components/g2Leaders";
 import GetInTouch from "@/components/forms/getInTouch";
 import { gradientText } from "@/data/styleHelpers";
 import { Check } from "lucide-react";
@@ -34,7 +33,7 @@ const GetADemo = async () => {
               </li>
             ))}
           </ul>
-          <G2Leaders />
+          {/* <G2Leaders /> */}
         </div>
         <div className="lg:col-span-3">
           <GetInTouch id="1859"/>

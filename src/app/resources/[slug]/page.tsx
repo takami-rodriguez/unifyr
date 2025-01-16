@@ -40,7 +40,7 @@ const ArticlePage = async ({ params }: PageProps) => {
   return (
     <>
       <div className=" mb-1 pt-12 max-w-2xl mx-auto">
-        <h1 className="text-[2.5rem] leading-[2.5rem] font-medium">
+        <h1 className="text-[1.75rem] md:text-[3rem] leading-[1.75rem] md:leading-[3rem] font-medium">
           {frontmatter.title}
         </h1>
         <div className=" flex flex-col lg:flex-row  lg:items-end  pt-8 lg:py-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
@@ -76,7 +76,10 @@ const ArticlePage = async ({ params }: PageProps) => {
         <div className=" pt-5 ">
           <ReactMarkdown
             className={clsx(
-              "w-full font-resources prose-h2:text-4xl prose-h2:pt-8 prose-h3:pt-8 prose-h2:font-bold prose-h3:text-4xl prose-h3:font-bold text-grey-800 prose-p:text-[1.25rem] prose-p:leading-[2.5rem] space-y-6 prose-h2:text-[1.875rem] leading-[2.5rem]"
+              "w-full text-grey-800 space-y-6",
+              "prose-h2:pt-8 prose-h2:text-[2.5rem] prose-h2:leading-[2.5rem]",
+              "prose-h3:pt-8 prose-h3:text-[2rem] prose-h3:leading-[2rem] ",
+              "prose-p:font-resources prose-p:text-[1.25rem] prose-p:leading-[2.5rem] ", 
             )}
             remarkPlugins={[remarkGfm]}
           >

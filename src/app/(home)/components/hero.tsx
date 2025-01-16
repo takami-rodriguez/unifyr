@@ -19,7 +19,7 @@ const Hero = () => {
       >
         <BGRadialSVG />
       </div>
-      <div className="relative z-20">
+      <div className="relative z-50">
         <h1 className="text-5xl md:text-7xl max-w-2xl mx-auto font-heading font-extrabold md:text-center pt-6 md:pt-20 leading-[3.5rem] md:leading-[5rem]">
           <span style={gradientText}>Growth</span> happens in good company
         </h1>
@@ -35,9 +35,9 @@ const Hero = () => {
               <div className="w-full md:w-[124px]">Book a call</div>
             </Button>
           </Link>
-          <Link href={NavLink.BookACall} className="w-full md:w-auto">
+          <Link href={NavLink.Resources} className="w-full md:w-auto">
             <Button variant="outline" fullWidth={tablet || mobile}>
-              Discover ZiftONE
+              Resources
             </Button>
           </Link>
         </div>

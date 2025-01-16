@@ -40,9 +40,9 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
   return (
     <div className="max-w-5xl mx-auto space-y-14">
       <div className="mt-20 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-bold ">{blok.mainTitle}</h3>
+        <h3 className="text-3xl md:text-5xl font-semibold md:text-center ">{blok.mainTitle}</h3>
         <div className=" max-w-xl mx-auto  ">
-          <span className={cn("text-xl font-sans font-light text-grey-900")}>
+          <span className={cn("text-xl md:text-center font-sans font-light text-grey-900")}>
             {blok.para}
           </span>
         </div>

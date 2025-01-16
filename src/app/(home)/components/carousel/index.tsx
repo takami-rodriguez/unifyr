@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PartnersIcon from "@/components/icons/partners";
 import SupplierIcon from "@/components/icons/supplier";
@@ -22,7 +21,6 @@ import { useTabButton } from "./useTabButton";
 import { usePrevNextButtons } from "./usePrevNextButtons";
 import { bgGradient, gradientText } from "@/data/styleHelpers";
 import { renderToString } from "react-dom/server";
-import useWindowSize from "@/lib/hooks/useWindowSize";
 
 interface SlideContent {
   title: string;
@@ -60,7 +58,6 @@ const slides: SlideContent[] = [
 ];
 
 export default function HomeCarousel() {
-  const { tablet, mobile } = useWindowSize();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
   const { selectedIndex, onTabsButtonClick } = useTabButton(emblaApi, () => {});
@@ -96,7 +93,7 @@ export default function HomeCarousel() {
     }
   }
   return (
-    <div className="mt-10 mx-auto max-w-[1400px]">
+    <div className="mt-10 mx-auto max-w-[1400px] relative z-50">
       <div className="rounded-2xl overflow-hidden py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList hasIcon>
@@ -160,9 +157,9 @@ export default function HomeCarousel() {
                       <p className="text-grey-900/80 leading-relaxed md:text-xl">
                         {slide.description}
                       </p>
-                      <Button variant={"outline"} fullWidth={tablet || mobile}>
+                      {/* <Button variant={"outline"} fullWidth={tablet || mobile}>
                         {slide.cta}
-                      </Button>
+                      </Button> */}
                     </div>
                     <AspectRatio
                       ratio={5 / 4}
