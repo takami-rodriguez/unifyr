@@ -18,8 +18,6 @@ const GetInTouch = ({ id }: { id: string }) => {
     const turnstile = useTurnstile();
   const [success, setSuccess] = useState(false);
   const [token, setToken] = useState<string | null>(null);
-  // const [turnstileStatus, setTurnstileStatus] = useState("required");
-  // const [turnstileError, setTurnstileError] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     first_name: undefined,
     last_name: undefined,
@@ -67,10 +65,8 @@ const GetInTouch = ({ id }: { id: string }) => {
       `https://next.staging.unifyr.com/forms/${id}`,
       requestOptions
     )
-      .then((response) => {
-        console.log("RESPONSE TEXT",response.text())
-        console.log("RESPONSE", response)
-      
+      .then(async (response) => {
+        console.log("RESPONSE TEXT",await response.text())
       })
       .catch((error) => {
         turnstile.reset()
