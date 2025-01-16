@@ -71,8 +71,7 @@ fn main() -> Result<(), EdgeError> {
 
                 if !validation_result.is_empty() {
                     let output = utils::error_map_to_vec(validation_result);
-                    Response::from_body(serde_json::to_string(&output)?)
-                        .with_status(StatusCode::BAD_REQUEST)
+                    Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&output)?
                 } else {
                     match forms::marketo::submit(&req, id, &formdata) {
                         Err(err) => {
@@ -84,8 +83,7 @@ fn main() -> Result<(), EdgeError> {
                                 name: None,
                                 message,
                             }];
-                            Response::from_body(serde_json::to_string(&body)?)
-                                .with_status(StatusCode::BAD_REQUEST)
+                            Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&body)?
                         }
                         Ok(_) => Response::from_status(StatusCode::OK),
                     }
