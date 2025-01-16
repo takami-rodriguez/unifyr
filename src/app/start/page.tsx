@@ -18,7 +18,7 @@ const GetADemo = async () => {
             Successful partner channel programs <span style={gradientText}>start</span> here
           </h3>
           <p className="text-grey-900/70 text-lg">
-              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn't happen overnight. Businesses rely on <span className="font-bold">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplieri relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
+              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight. Businesses rely on <span className="font-bold">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplieri relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
           </p>
           <ul className="text-grey-900/70 text-lg space-y-4">
             {listItems.map((item, index) => (
