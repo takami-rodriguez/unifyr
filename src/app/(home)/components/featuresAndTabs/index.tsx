@@ -51,7 +51,7 @@ export default function FeaturesAndTabs() {
         <div className=" mx-auto px-6 lg:px-16  md:py-12">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
             <div className="space-y-6 max-w-lg pt-8">
-              <h4 className="text-4xl font-semibold sm:text-5xl md:leading-[1.125rem] ">
+              <h4 className="text-4xl font-semibold sm:text-5xl md:leading-[1.125] ">
                 {selectedData.title}
               </h4>
               <p className="text-gray-900/80 font-light text-xl">

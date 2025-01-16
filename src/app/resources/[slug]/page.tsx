@@ -11,6 +11,7 @@ import { PageProps } from "@/types/page";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import Banner from "@/components/banner";
+import { format } from "date-fns";
 // TODO - add back SEO data once content agreed
 // import { ResolvingMetadata, Metadata } from "next";
 // import { getDynamicPageSEOData } from "@/lib/seoHelper";
@@ -40,10 +41,10 @@ const ArticlePage = async ({ params }: PageProps) => {
   return (
     <>
       <div className=" mb-1 pt-12 max-w-2xl mx-auto">
-        <h1 className="text-[1.75rem] md:text-[3rem] leading-[1.75rem] md:leading-[3rem] font-medium">
+        <h1 className="text-[2.45rem] md:text-[3rem] leading-[2.5rem] md:leading-[3rem] font-medium">
           {frontmatter.title}
         </h1>
-        <div className=" flex flex-col lg:flex-row  lg:items-end  pt-8 lg:py-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
+        <div className=" flex flex-col lg:flex-row  lg:items-end  pt-8 lg:pt-10  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
           {frontmatter.author && (
             <>
               <div
@@ -72,14 +73,19 @@ const ArticlePage = async ({ params }: PageProps) => {
               </div>
             </>
           )}
+
         </div>
+          <div className="text-grey-900/80 uppercase pt-2 lg:pb-6">
+
+        {format(new Date(frontmatter.publishedDate), "MMMM dd")}
+          </div>
         <div className=" pt-5 ">
           <ReactMarkdown
             className={clsx(
               "w-full text-grey-800 space-y-6",
-              "prose-h2:pt-8 prose-h2:text-[2.5rem] prose-h2:leading-[2.5rem]",
-              "prose-h3:pt-8 prose-h3:text-[2rem] prose-h3:leading-[2rem] ",
-              "prose-p:font-resources prose-p:text-[1.25rem] prose-p:leading-[2.5rem] ", 
+              "prose-h2:pt-8  prose-h2:text-[2rem] prose-h2:leading-[2.2rem] md:prose-h2:text-[2.5rem] md:prose-h2:leading-[2.5rem]",
+              "prose-h3:pt-8 prose-h3:text-[1.75rem] prose-h3:leading-[1.75rem] md:prose-h3:text-[2rem] md:prose-h3:leading-[2rem] ",
+              "prose-p:font-resources prose-p:text-[1.125rem] prose-p:leading-[1.75rem] md:prose-p:text-[1.25rem] md:prose-p:leading-[2.5rem] ", 
             )}
             remarkPlugins={[remarkGfm]}
           >

@@ -39,9 +39,9 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
   const selected = blok.content.find((c) => c._uid === selectedId)
   return (
     <div className="max-w-5xl mx-auto space-y-14">
-      <div className="mt-20 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-semibold md:text-center ">{blok.mainTitle}</h3>
-        <div className=" max-w-xl mx-auto  ">
+      <div className="mt-10 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
+        <h3 className="text-3xl md:text-5xl font-semibold md:text-center md:leading-[1.125]">{blok.mainTitle}</h3>
+        <div className=" max-w-xl mx-auto   md:text-center">
           <span className={cn("text-xl md:text-center font-sans font-light text-grey-900")}>
             {blok.para}
           </span>
