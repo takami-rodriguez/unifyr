@@ -16,6 +16,7 @@ use fastly::{
 };
 use regex::Regex;
 use s3::S3Config;
+use serde_json::json;
 use std::{sync::LazyLock, time::Duration};
 
 const BACKEND: &str = "s3";
@@ -67,11 +68,10 @@ fn main() -> Result<(), EdgeError> {
                 });
 
             let response = if let Some((id, form)) = result {
-                let validation_result = futures::executor::block_on(form.validate(&formdata));
+                let err_map = futures::executor::block_on(form.validate(&formdata));
 
-                if !validation_result.is_empty() {
-                    let output = utils::error_map_to_vec(validation_result);
-                    Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&output)?
+                if !err_map.is_empty() {
+                    Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&err_map)?
                 } else {
                     match forms::marketo::submit(&req, id, &formdata) {
                         Err(err) => {
@@ -79,10 +79,9 @@ fn main() -> Result<(), EdgeError> {
                                 "An error occurred. Please contact hello@unifyr.com. ({})",
                                 err.to_string()
                             );
-                            let body = vec![forms::FormErrorResponse {
-                                name: None,
-                                message,
-                            }];
+                            let body = json!({
+                                "message": message
+                            });
                             Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&body)?
                         }
                         Ok(_) => Response::from_status(StatusCode::OK),

@@ -1,7 +1,6 @@
 use crate::error::EdgeError;
 use common::{Attr, FormElement};
 use futures::future::join_all;
-use serde::Serialize;
 use std::{collections::HashMap, future::Future, pin::Pin};
 
 const TURNSTILE_SITEVERIFY: &str = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
@@ -23,13 +22,6 @@ type FormErrors = HashMap<&'static str, &'static str>;
 
 pub struct Form<'a> {
     fields: Vec<Field<'a>>,
-}
-
-#[derive(Serialize)]
-pub struct FormErrorResponse<'a> {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub name: Option<&'a str>,
-    pub message: String,
 }
 
 impl<'a> Form<'a> {

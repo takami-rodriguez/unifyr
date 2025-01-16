@@ -1,11 +1,11 @@
-use crate::{error::EdgeError, forms::FormErrorResponse};
+use crate::error::EdgeError;
 use base64_simd::{Out, STANDARD};
 use fastly::{
     mime::{self},
     Response,
 };
 use ring::rand::SecureRandom;
-use std::{collections::HashMap, mem::MaybeUninit};
+use std::mem::MaybeUninit;
 
 pub const NONCE_BYTES: usize = 16;
 pub const BASE64_LEN: usize = ((4 * NONCE_BYTES / 3) + 3) & !0b11;
@@ -38,13 +38,4 @@ impl<R: SecureRandom> NonceGenerator<R> {
 pub fn is_html(resp: &Response) -> bool {
     resp.get_content_type()
         .is_some_and(|mime| mime.subtype() == mime::HTML)
-}
-
-pub fn error_map_to_vec<'a>(map: HashMap<&'a str, EdgeError>) -> Vec<FormErrorResponse<'a>> {
-    map.into_iter()
-        .map(|(name, error)| FormErrorResponse {
-            name: Some(name),
-            message: error.to_string(),
-        })
-        .collect()
 }
