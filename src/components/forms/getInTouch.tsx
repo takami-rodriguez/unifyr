@@ -123,7 +123,7 @@ const GetInTouch = ({ id }: { id: string }) => {
             onVerify={handleVerify}
             theme="light"
             appearance="interaction-only"
-            sandbox={true}
+            // sandbox={true}
           />
           <>
             <div className="space-y-1">
