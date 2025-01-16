@@ -9,7 +9,7 @@ const Partners = () => {
       <div className="w-full  px-5 sm:px-0">
         <div className="max-w-5xl mx-auto text-center">
           <h3 className="text-[2rem] font-semibold">
-            {"Trusted by the world’s largest companies"}
+            {"Trusted by the world’s brightest companies"}
           </h3>
         </div>
       </div>
