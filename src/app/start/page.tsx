@@ -4,9 +4,9 @@ import { gradientText } from "@/data/styleHelpers";
 import { Check } from "lucide-react";
 
 const listItems = [
-  "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
-  "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
-  "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
+  "For small businesses through to the largest enterprises, ZiftONE is PRM built to scale.",
+  "For partners with any number of suppliers, Unifyr+ reinvents partner channel sales.",
+  "For agencies seeking business with the smartest suppliers, Unifyr Pro is your marketplace.",
 ];
 
 const GetADemo = async () => {
@@ -15,13 +15,10 @@ const GetADemo = async () => {
       <div className="grid grid-cols-1 lg:grid-cols-7 items-center gap-16 w-full">
         <div className="space-y-10 lg:col-span-4">
           <h3 className="font-heading text-[4.375rem] leading-[5rem] font-bold ">
-            <span style={gradientText}>Lorem</span> ipsum dolor sit amet
+            Successful partner channel programs <span style={gradientText}>start</span> here
           </h3>
           <p className="text-grey-900/70 text-lg">
-            Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-            ultricies sed, dolor. Cras elementum ultrices diam et faucibus
-            auctor. Curabitur a nisi eu lacus tempor blandit. Integer convallis
-            vehicula nisi, vel tincidunt nunc viverra nec.
+              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn't happen overnight. Businesses rely on <span className="font-bold">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplieri relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
           </p>
           <ul className="text-grey-900/70 text-lg space-y-4">
             {listItems.map((item, index) => (
