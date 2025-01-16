@@ -21,11 +21,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center rounded-full bg-white  border-[6px] border-[#F5F3FB] ",
-      {
-        "p-1": !props.hasIcon,
-        "px-1 py-0.5": props.hasIcon,
-      },
+      "inline-flex items-center justify-center rounded-full bg-white  border-[6px] border-[#F5F3FB] p-1 ",
       className
     )}
     {...props}
@@ -48,9 +44,9 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center md:text-lg whitespace-nowrap rounded-full px-3 sm:px-10 font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=inactive]:text-opacity-70",
+      "inline-flex items-center justify-center md:text-lg  whitespace-nowrap rounded-full px-3 sm:px-10 font-semibold ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=inactive]:text-opacity-70",
       {
-        "data-[state=active]:bg-blue-300/40": props.value === "supplier" || props.value === TabValue.zift,
+        "data-[state=active]:bg-blue-300/40 ": props.value === "supplier" || props.value === TabValue.zift,
         "data-[state=active]:bg-grey-400/40": props.value === "agency" || props.value === TabValue.unifyrPlus,
         "data-[state=active]:bg-green-300/70": props.value === "partner" || props.value === TabValue.unifyrPro,
         "py-1.5": props.hasIcon,
