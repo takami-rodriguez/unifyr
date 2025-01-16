@@ -11,10 +11,11 @@ import {
   SelectValue,
 } from "./components/select";
 import { FormEvent, useEffect, useState } from "react";
-import { Turnstile } from "next-turnstile";
+import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
 
 const GetInTouch = ({ id }: { id: string }) => {
+    const turnstile = useTurnstile();
   const [success, setSuccess] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   // const [turnstileStatus, setTurnstileStatus] = useState("required");
@@ -72,6 +73,7 @@ const GetInTouch = ({ id }: { id: string }) => {
       
       })
       .catch((error) => {
+        turnstile.reset()
         console.error(error);
         setErrors({ ...errors, marketo: error });
       });
@@ -106,6 +108,7 @@ const GetInTouch = ({ id }: { id: string }) => {
       })
       .catch((error) => {
         setErrors(error);
+        turnstile.reset()
         console.error("sendData Error", error);
       });
   };
@@ -119,11 +122,10 @@ const GetInTouch = ({ id }: { id: string }) => {
     
           <Turnstile
           className="hidden"
-            siteKey="0x4AAAAAAA5VmWokYJQQgCCK"
+            sitekey="0x4AAAAAAA5VmWokYJQQgCCK"
             onVerify={handleVerify}
             theme="light"
             appearance="interaction-only"
-            // sandbox={true}
           />
           <>
             <div className="space-y-1">
