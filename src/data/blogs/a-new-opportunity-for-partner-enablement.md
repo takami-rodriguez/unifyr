@@ -1,6 +1,6 @@
 ---
 title: "A new opportunity for partner enablement"
-excerpt: Unifyr+ is here and presents not only an opportunity for partners to streamline workflows, but for suppliers to enable their partners
+excerpt: Unifyr+ is here and presents not only an opportunity for partners to streamline multi-supplier engagement workflows, but for suppliers to enable their partners.
 publishedDate: '2025-01-16T11:00:00.000Z'
 category: Marketing
 draft: false
@@ -20,7 +20,7 @@ Unifyr+ is the direct result of our eyes and ears laser-focused on the market an
 
 Unifyr+ is a platform _for_ partners, but it—as with all channel growth—requires mutual engagement between partners and suppliers, and it's fueled by supplier data by design. Suppliers stand to onboard, train, and maintain high-throughput partnerships with fewer long-tail partners due to the way Unifyr+ supports partner awareness and efficiency. The total resource cost of training decreases substantially as partners become more self-sufficient through the AI adviser's content discovery and usage guidance capabilities. The platform's analytics will continue provide suppliers with best-in-class full channel depth visibility into how partners interact with their content, which materials drive the most engagement, and which resources lead to successful deals.
 
-# Understanding supplier opt-in controls
+## Understanding supplier opt-in controls
 
 **The ZiftONE-Unifyr+ connection is disabled by default.** Within ZiftONE, suppliers can visit the opt-in page by clicking the Unifyr+ logo at the top right of admin panel. Here, a supplier can choose whether to feed content to their partners in an automated fashion and, with granularity, choose which—if any—content should be exposed to non-partners seeking new supplier relationships in the Unifyr+ platform. The ability to selectively expose potential partners not yet registered to content creates an excellent opportunity for suppliers to grow their partner network in a controlled way.
 

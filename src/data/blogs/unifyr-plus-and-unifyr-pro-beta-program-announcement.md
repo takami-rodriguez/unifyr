@@ -1,6 +1,6 @@
 ---
 title: "Unifyr+ & Unifyr Pro: Beta program announcement"
-excerpt: Building and maintaining a successful partner marketing program demands an extraordinary investment of time, money, and human capital
+excerpt: Building and maintaining a successful partner marketing program demands an extraordinary investment of time, money, and human capital. We’re on a mission to help.
 publishedDate: '2025-01-01T11:00:00.000Z'
 category: Marketing
 draft: false
