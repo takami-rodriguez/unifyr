@@ -32,12 +32,12 @@ interface SlideContent {
 
 const slides: SlideContent[] = [
   {
-    title: "The first platform for unified supplier management",
-    titleHighlight: "first",
+    title: "PRM that makes no compromise",
+    titleHighlight: "PRM",
     image: "/images/home/carousel/supplier.webp",
     description:
-      "We've redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of their supplier relationships with the assistance of a personalized AI advisor that understands each supplier on a deeper level.",
-    cta: "Discover Unifyr+",
+      "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
+    cta: "Discover ZiftONE",
   },
   {
     title: "Where channel expertise meets new opportunity",
@@ -48,12 +48,12 @@ const slides: SlideContent[] = [
     cta: "Discover Unifyr Pro",
   },
   {
-    title: "Partner management that makes no compromise",
-    titleHighlight: "compromise",
+    title: "The first platform for unified supplier management",
+    titleHighlight: "first",
     image: "/images/home/carousel/partner.webp",
     description:
-      "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
-    cta: "Discover ZiftONE",
+      "We've redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of their supplier relationships with the assistance of a personalized AI advisor that understands each supplier on a deeper level.",
+    cta: "Discover Unifyr+",
   },
 ];
 
