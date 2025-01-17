@@ -57,7 +57,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     };
 
     return await fetch(
-      `${process.env.URL}/forms/${id}`,
+      `${process.env.NEXT_PUBLIC_URL}/forms/${id}`,
       requestOptions
     )
       .then(async () => {

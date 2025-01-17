@@ -126,6 +126,7 @@
           pkgs.buildNpmPackage {
             env = env // {
               NEXT_TELEMETRY_DISABLED = 1;
+              NEXT_PUBLIC_URL = env.URL;
             };
 
             name = "web";
