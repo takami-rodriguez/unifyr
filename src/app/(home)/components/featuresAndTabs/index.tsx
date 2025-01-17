@@ -63,7 +63,7 @@ export default function FeaturesAndTabs() {
                 <Image
                   src={selectedData.image}
                   alt="hero"
-                  className="object-cover object-center rounded-2xl border-2 border-white"
+                  className="object-cover object-center rounded-[25px] border-2 border-white"
                   fill
                 />
               </AspectRatio>
