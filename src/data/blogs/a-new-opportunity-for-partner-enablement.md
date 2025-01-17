@@ -26,7 +26,7 @@ Unifyr+ is the direct result of our eyes and ears laser-focused on the market an
 
 ## Creating an advantage for suppliers
 
-Unifyr+ is a platform _for_ partners, but it—as with all channel growth—requires mutual engagement between partners and suppliers, and it's fueled by supplier-provided content by design. Suppliers stand to onboard, train, and maintain high-throughput partnerships with fewer long-tail partners due to the way Unifyr+ supports partner awareness and efficiency. The total resource cost of training decreases substantially as partners become more self-sufficient through the AI adviser's content discovery and usage guidance capabilities. The platform's analytics will continue provide suppliers with best-in-class full channel depth visibility into how partners interact with their content, which materials drive the most engagement, and which resources lead to successful deals.
+Unifyr+ is a platform _for_ partners, but it—as with all channel growth—requires mutual engagement between partners and suppliers, and it's fueled by supplier-provided content by design. Suppliers stand to onboard, train, and maintain high-throughput partnerships with fewer long-tail partners due to the way Unifyr+ supports partner awareness and efficiency. The total resource cost of training decreases substantially as partners become more self-sufficient through the AI adviser's content discovery and usage guidance capabilities. Via ZiftONE, suppliers will benefit from best-in-class depth of visibility into how partners interact with their content, which materials drive the most engagement, and which resources lead to successful deals.
 
 ## Understanding supplier opt-in controls
 
