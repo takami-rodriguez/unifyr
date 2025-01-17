@@ -1,5 +1,3 @@
-import Arrow from "@/components/icons/arrow";
-import Link from "next/link";
 import React from "react";
 import Image from 'next/image';
 
