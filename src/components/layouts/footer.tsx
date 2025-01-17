@@ -31,9 +31,10 @@ const Footer = () => {
           <div className="col-span-1">
             <h4 className="text-lg font-bold pb-2">Company</h4>
             <p className="text-grey-900/80">
-              6501 Weston Parkway, <br />
-               Suite 200 Cary, <br />
-               NC 27513
+              Zift Solutions dba Unifyr<br />
+              964 High House Rd #3330<br />
+              Cary, NC 27513<br />
+              United States
             </p>
           </div>
           <div className="col-span-1">
