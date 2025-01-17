@@ -5,7 +5,6 @@ import Footer from "@/components/layouts/footer";
 import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
 import GAHandler from "@/lib/gaHandler";
-import { Suspense } from "react";
 import ClientLayout from "@/components/layouts/clientLayout";
 
 export const metadata: Metadata = {
