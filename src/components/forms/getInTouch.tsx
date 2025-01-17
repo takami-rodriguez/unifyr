@@ -36,7 +36,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
     ).value;
-    const email = (form.elements.namedItem("Email") as HTMLInputElement).value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
     myHeaders.append("Access-Control-Allow-Origin", "*");
