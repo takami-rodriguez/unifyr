@@ -74,7 +74,8 @@ fn main() -> Result<(), EdgeError> {
                 if !err_map.is_empty() {
                     Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&err_map)?
                 } else {
-                    formdata.remove(forms::TURNSTILE_KEY);
+                    // post-process formdata
+                    forms::post_proc_formdata(&req, &mut formdata);
 
                     match forms::marketo::submit(&req, id, &formdata) {
                         Err(err) => {

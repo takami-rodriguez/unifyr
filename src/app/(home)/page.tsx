@@ -13,24 +13,23 @@ import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
-    title: "",
-    plugin: "",
-    og_image: "",
-    og_title: "",
-    description: "",
-    twitter_image: "",
-    twitter_title: "",
-    og_description: "",
-    twitter_description: "",
+  title: "Unifyr: Partner & Supplier Management Software",
+  plugin: "",
+  og_image: "",
+  og_title: "Unifyr: Partner & Supplier Management Software",
+  description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
+  twitter_image: "",
+  twitter_title: "",
+  og_description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
+  twitter_description: "",
 }
 
 export async function generateMetadata(
-  { params: {  } }: PageProps,
+  { params: { } }: PageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  return getDynamicPageSEOData(metaData,parent);
+  return getDynamicPageSEOData(metaData, parent);
 }
-
 
 export default function Home() {
   return (

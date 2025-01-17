@@ -10,16 +10,16 @@ pub fn enrich(formdata: &mut FormDataMap) -> Result<(), EdgeError> {
     let mut vec = vec![];
 
     let email = formdata
-        .get("Email")
+        .get("email")
         .expect("email should be present at this point");
 
     vec.push(("email", email));
 
-    if let Some(first_name) = formdata.get("FirstName") {
+    if let Some(first_name) = formdata.get("firstName") {
         vec.push(("first_name", first_name));
     }
 
-    if let Some(last_name) = formdata.get("LastName") {
+    if let Some(last_name) = formdata.get("lastName") {
         vec.push(("last_name", last_name));
     }
 
@@ -28,9 +28,9 @@ pub fn enrich(formdata: &mut FormDataMap) -> Result<(), EdgeError> {
     let value: apollo_enrichment::Response = response.take_body_json()?;
 
     // FIXME: get real field names
-    formdata.insert("Title".into(), value.title);
-    formdata.insert("CompanyName".into(), value.organization.name);
-    formdata.insert("Industry".into(), value.organization.industry);
+    formdata.insert("title".into(), value.title);
+    formdata.insert("company".into(), value.organization.name);
+    formdata.insert("Apollo_Primary_Industry__c".into(), value.organization.industry);
 
     Ok(())
 }
