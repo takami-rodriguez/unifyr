@@ -13,10 +13,12 @@ import {
 import { FormEvent, useState } from "react";
 import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
+import LoadingSpinner from "../ui/loadingSpinner";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const turnstile = useTurnstile();
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const [errors, setErrors] = useState({
     first_name: undefined,
@@ -61,10 +63,12 @@ const GetInTouch = ({ id }: { id: string }) => {
       requestOptions
     )
       .then(async () => {
+        setLoading(false);
         setSuccess(true);
       })
       .catch((error) => {
         turnstile.reset();
+        setLoading(false);
 
         const errorsObject = error.reduce(
           (acc: { [x: string]: unknown }, curr: { [x: string]: undefined }) => {
@@ -83,6 +87,7 @@ const GetInTouch = ({ id }: { id: string }) => {
       });
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
     sendData(e);
   };
@@ -90,7 +95,9 @@ const GetInTouch = ({ id }: { id: string }) => {
     <div className="w-full">
       <form id={id} onSubmit={handleSubmit}>
         <div
-          className={cn("bg-white/30 border-[1.5px] border-white rounded-2xl py-10 px-14 space-y-6")}
+          className={cn(
+            "bg-white/30 border-[1.5px] border-white rounded-2xl py-10 px-14 space-y-6"
+          )}
           style={boxShadow}
         >
           <Turnstile
@@ -148,8 +155,9 @@ const GetInTouch = ({ id }: { id: string }) => {
               variant={"primary"}
               type="submit"
               disabled={token === null || success}
+              className="w-[125px] h-[52px]"
             >
-              Submit
+              {loading ? <LoadingSpinner /> : "Submit"}
             </Button>
           </div>
         </div>

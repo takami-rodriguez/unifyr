@@ -163,13 +163,13 @@ export default function HomeCarousel() {
                     </div>
                     <AspectRatio
                       ratio={5 / 4}
-                      className="relative rounded-2xl overflow-hidden"
+                      className="relative  "
                     >
                       <Image
                         src={slide.image}
                         alt={""}
                         fill
-                        className={cn("object-contain object-right rounded-2xl")}
+                        className={cn("object-contain object-center lg:object-right rounded-[25px] ")}
                       />
                     </AspectRatio>
                   </CardContent>

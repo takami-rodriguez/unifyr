@@ -25,7 +25,7 @@ const FeaturesAccordionSection = () => {
   );
 
   return (
-    <div className="">
+    <div className="relative z-[200]">
       <Tabs className="flex justify-center" value={selectedId}>
         <TabsList>
           {tabs.map((tab) => (

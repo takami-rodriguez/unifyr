@@ -94,7 +94,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
               >
                 <div className="ml-4">
                   <AccordionTrigger
-                    className={cn("text-2xl font-bold leading-9", {
+                    className={cn("text-2xl font-bold leading-9 text-left", {
                       "py-8 text-[#9FA2A9]": selectedId !== feature._uid,
                       "py-2 text-black": selectedId === feature._uid,
                     })}
