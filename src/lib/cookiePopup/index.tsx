@@ -23,7 +23,7 @@ const CookiePopUpBox = (): JSX.Element => {
       cookieName="unifyr-accept-cookie"
       //parent class for the entire div, defines the background and postion
       containerClasses={clsx(
-        "fixed z-40 bg-white bottom-0 rounded-lg w-full flex-col lg:flex-row flex px-5 md:px-20 items-center lg:justify-center",
+        "fixed z-40 bg-white bottom-0 rounded-lg w-full flex-col lg:flex-row flex px-5 md:px-20 items-center lg:justify-center z-[9999]",
         " overflow-hidden sm:left-auto"
       )}
       //parent div of the buttons
