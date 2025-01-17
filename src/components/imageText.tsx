@@ -58,7 +58,7 @@ const ImageText = ({
             "lg:order-first": imageLeft,
           })}
         >
-          <AspectRatio ratio={540 / 400} className="relative ">
+          <AspectRatio ratio={5 / 4} className="relative ">
             <Image
               src={image}
               alt="hero"

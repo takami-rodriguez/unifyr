@@ -90,7 +90,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     <div className="w-full">
       <form id={id} onSubmit={handleSubmit}>
         <div
-          className={cn("bg-white/60 rounded-2xl py-10 px-14 space-y-6")}
+          className={cn("bg-white/30 border-[1.5px] border-white rounded-2xl py-10 px-14 space-y-6")}
           style={boxShadow}
         >
           <Turnstile

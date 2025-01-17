@@ -42,7 +42,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
       <div className="mt-10 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
         <h3 className="text-3xl md:text-5xl font-semibold md:text-center md:leading-[1.125]">{blok.mainTitle}</h3>
         <div className=" max-w-xl mx-auto   md:text-center">
-          <span className={cn("text-xl md:text-center font-sans font-light text-grey-900")}>
+          <span className={cn("text-xl md:text-center font-sans font-light text-grey-900/80")}>
             {blok.para}
           </span>
         </div>
@@ -104,7 +104,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="flex flex-col lg:flex-none">
-                      <div className="text-base sm:text-lg text-grey-[#3F486B] font-extralight">
+                      <div className="text-base sm:text-lg text-grey-900/80 font-extralight">
                         {feature.content}
                       </div>
                       <div className="lg:hidden relative min-h-[294px]  sm:min-h-[450px] lg:min-h-[700px] h-full w-full">

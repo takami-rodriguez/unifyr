@@ -41,10 +41,10 @@ const GetADemo = async () => {
           <h3 className="font-heading text-[4.375rem] leading-[5rem] font-bold ">
             Successful partner channel programs <span style={gradientText}>start</span> here
           </h3>
-          <p className="text-grey-900/70 text-lg">
-              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight. Businesses rely on <span className="font-bold">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
+          <p className="text-grey-900/80 text-lg">
+              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight. Businesses rely on <span className="font-bold text-grey-900">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
           </p>
-          <ul className="text-grey-900/70 text-lg space-y-4">
+          <ul className="text-grey-900/80 text-lg space-y-4">
             {listItems.map((item, index) => (
               <li key={item + index} className="flex space-x-3 items-center">
                 <div className="bg-gradient p-1 rounded-full text-white h-[20px] min-w-[20px]" >

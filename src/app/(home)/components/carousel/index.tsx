@@ -169,7 +169,7 @@ export default function HomeCarousel() {
                         src={slide.image}
                         alt={""}
                         fill
-                        className={cn("object-cover object-center rounded-2xl")}
+                        className={cn("object-contain object-right rounded-2xl")}
                       />
                     </AspectRatio>
                   </CardContent>
