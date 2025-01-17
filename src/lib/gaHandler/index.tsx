@@ -1,5 +1,5 @@
 "use client";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 const pageview = (url: string) => {
@@ -12,13 +12,10 @@ import Script from "next/script";
 
 export default function Analytics() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
 
   useEffect(() => {
     // Function to load GTM dynamically
     const loadGTM = () => {
-      console.log(" loadGTM")
       const script = document.createElement("script");
         <Script
           id="gtm-script"
@@ -102,7 +99,7 @@ export default function Analytics() {
         });
       }
     });
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return <></>;
 }
