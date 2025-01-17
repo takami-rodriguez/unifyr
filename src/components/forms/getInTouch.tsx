@@ -29,9 +29,9 @@ const GetInTouch = ({ id }: { id: string }) => {
     const form = e.target as HTMLFormElement;
 
     const first_name = (
-      form.elements.namedItem("FirstName") as HTMLInputElement
+      form.elements.namedItem("firstName") as HTMLInputElement
     ).value;
-    const last_name = (form.elements.namedItem("LastName") as HTMLInputElement)
+    const last_name = (form.elements.namedItem("lastName") as HTMLInputElement)
       .value;
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
@@ -42,10 +42,10 @@ const GetInTouch = ({ id }: { id: string }) => {
     myHeaders.append("Access-Control-Allow-Origin", "*");
 
     const urlencoded = new URLSearchParams();
-    urlencoded.append("Email", email);
+    urlencoded.append("email", email);
     urlencoded.append("cf-turnstile-response", String(token));
-    urlencoded.append("FirstName", first_name);
-    urlencoded.append("LastName", last_name);
+    urlencoded.append("firstName", first_name);
+    urlencoded.append("lastName", last_name);
     urlencoded.append("entity_type__c", entity_type);
 
     const requestOptions: RequestInit = {
@@ -121,7 +121,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               <InputField
                 type="text"
                 label="First Name"
-                name="FirstName"
+                name="firstName"
                 placeholder="Alex"
                 required
                 error={errors.first_name}
@@ -129,7 +129,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               <InputField
                 type="text"
                 label="Last Name"
-                name="LastName"
+                name="lastName"
                 placeholder="Bloggs"
                 required
                 error={errors.last_name}
@@ -138,7 +138,7 @@ const GetInTouch = ({ id }: { id: string }) => {
             <InputField
               label="Email address"
               type="email"
-              name="Email"
+              name="email"
               placeholder="alex.bloggs@email.com"
               required
               error={errors.email}
