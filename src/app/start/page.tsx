@@ -8,9 +8,9 @@ import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 
 const listItems = [
-  "For small businesses through to the largest enterprises, ZiftONE is PRM built to scale.",
-  "For partners with any number of suppliers, Unifyr+ reinvents partner channel sales.",
-  "For agencies seeking business with the smartest suppliers, Unifyr Pro is your marketplace.",
+  "ZiftONE provides suppliers with PRM, TCMA, and LMS built to scale.",
+  "Unifyr+ helps partners manage many suppliers and stay atop them all.",
+  "Unifyr Pro gives agencies a marketplace to find business in the channel.",
 ];
 
 const metaData: SEOData = {
@@ -26,10 +26,10 @@ const metaData: SEOData = {
 }
 
 export async function generateMetadata(
-{ params: {  } }: PageProps,
-parent: ResolvingMetadata
+  { params: { } }: PageProps,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
-return getDynamicPageSEOData(metaData,parent);
+  return getDynamicPageSEOData(metaData, parent);
 }
 
 
@@ -42,7 +42,12 @@ const GetADemo = async () => {
             Successful partner channel programs <span style={gradientText}>start</span> here
           </h3>
           <p className="text-grey-900/80 text-lg">
-              The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight. Businesses rely on <span className="font-bold text-grey-900">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships. Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
+            The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight.
+          </p>
+          <p className="text-grey-900/80 text-lg">
+            Businesses rely on <span className="font-bold text-grey-900">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships.
+          </p>
+          <p className="text-grey-900/80 text-lg">Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
           </p>
           <ul className="text-grey-900/80 text-lg space-y-4">
             {listItems.map((item, index) => (
@@ -57,7 +62,7 @@ const GetADemo = async () => {
           {/* <G2Leaders /> */}
         </div>
         <div className="lg:col-span-3">
-          <GetInTouch id="1859"/>
+          <GetInTouch id="1859" />
         </div>
       </div>
     </div>
