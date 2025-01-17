@@ -33,8 +33,7 @@ const Footer = () => {
             <p className="text-grey-900/80">
               6501 Weston Parkway, <br />
                Suite 200 Cary, <br />
-               NC 27513  <br />
-              10 Times Square Building
+               NC 27513
             </p>
           </div>
           <div className="col-span-1">
