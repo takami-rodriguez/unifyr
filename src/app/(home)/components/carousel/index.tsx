@@ -32,17 +32,9 @@ interface SlideContent {
 
 const slides: SlideContent[] = [
   {
-    title: "Partner management that makes no compromise",
-    titleHighlight: "compromise",
-    image: "/images/home/partner-carousel.png",
-    description:
-      "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
-    cta: "Discover ZiftONE",
-  },
-  {
     title: "The first platform for unified supplier management",
     titleHighlight: "first",
-    image: "/images/home/partner-carousel.png",
+    image: "/images/home/carousel/supplier.webp",
     description:
       "We've redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of their supplier relationships with the assistance of a personalized AI advisor that understands each supplier on a deeper level.",
     cta: "Discover Unifyr+",
@@ -50,10 +42,18 @@ const slides: SlideContent[] = [
   {
     title: "Where channel expertise meets new opportunity",
     titleHighlight: "opportunity",
-    image: "/images/home/partner-carousel.png",
+    image: "/images/home/carousel/agency.webp",
     description:
       "Find new business helping partners and suppliers grow. Through Unifyr Pro, you join a network of forward-thinking partners and suppliers eager to benefit from your experience in building exceptional partner programs that prove value.",
     cta: "Discover Unifyr Pro",
+  },
+  {
+    title: "Partner management that makes no compromise",
+    titleHighlight: "compromise",
+    image: "/images/home/carousel/partner.webp",
+    description:
+      "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
+    cta: "Discover ZiftONE",
   },
 ];
 

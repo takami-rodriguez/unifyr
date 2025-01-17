@@ -61,7 +61,7 @@ export default function FeaturesAndTabs() {
             <div className="flex items-center justify-center ">
               <AspectRatio className="relative" ratio={519 / 365}>
                 <Image
-                  src="/images/home/featureTabs.png"
+                  src={selectedData.image}
                   alt="hero"
                   className="object-cover object-center rounded-2xl border-2 border-white"
                   fill

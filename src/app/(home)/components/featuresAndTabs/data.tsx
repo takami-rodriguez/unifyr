@@ -9,6 +9,7 @@ export const tabsData = {
     title: "Scalable PRM for the smartest companies",
     description:
       "ZiftONE is the most advanced PRM solution with key integrations into the platforms you already use.",
+      image: "/images/home/features/ziftone.webp",
     features: [
       {
         link:"#",
@@ -37,6 +38,7 @@ export const tabsData = {
     title: "The fastest way to find new business",
     description:
       "Unifyr Pro is a marketplace for agencies to discover suppliers and partners in need of channel expertise.",
+      image: "/images/home/features/unifyrpro.webp",
     features: [
       {
         link:"#",
@@ -65,6 +67,7 @@ export const tabsData = {
     title: "Central command center for efficient partners",
     description:
       "Unifyr+ is the first unified interface for partners that work with many suppliers.",
+      image: "/images/home/features/unifyrplus.webp",
     features: [
       {
         link:"#",

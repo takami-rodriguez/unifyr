@@ -70,7 +70,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
               src={selected!.image.url}
               alt={selected!.image.alt || ""}
               fill
-              className={cn("object-cover object-center rounded-2xl")}
+              className={cn("object-contain object-center rounded-2xl")}
             />
           </AspectRatio>
         </div>

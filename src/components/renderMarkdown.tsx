@@ -2,12 +2,14 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 type RenderMarkdownProps = {
   content: string;
 };
 
 const RenderMarkdown = async ({ content }: RenderMarkdownProps) => {
+  const transformedContent = content.replace(/<ins>/g, '<span class="underline">').replace(/<\/ins>/g, '</span>');
 
   return (
     <ReactMarkdown
@@ -21,8 +23,9 @@ const RenderMarkdown = async ({ content }: RenderMarkdownProps) => {
         "prose-p:font-resources prose-p:text-[1.125rem] prose-p:leading-[1.75rem] md:prose-p:text-[1.25rem] md:prose-p:leading-[2.5rem] "
       )}
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
     >
-      {content}
+      {transformedContent}
     </ReactMarkdown>
   );
 };
