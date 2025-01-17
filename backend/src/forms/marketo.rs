@@ -1,12 +1,10 @@
 use super::FormDataMap;
 use crate::{error::EdgeError, forms::creds::CREDENTIALS};
 use cookie::Cookie;
-use fastly::{
-    http::{header, Url},
-    Request,
-};
+use fastly::{http::header, Request};
 use serde_json::Value;
 use std::net::IpAddr;
+use url::Url;
 
 const MARKETO_BACKEND: &str = "marketo";
 const MARKETO_IDENTITY: &str = "https://907-KOI-624.mktorest.com/identity/oauth/token";

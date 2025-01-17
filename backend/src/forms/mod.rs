@@ -1,5 +1,6 @@
+mod apollo;
 mod creds;
 pub(crate) mod forms;
-pub mod marketo;
+pub(crate) mod marketo;
 
 pub use forms::*;

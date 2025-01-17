@@ -8,7 +8,7 @@ pub enum EdgeError {
     #[error("E101")]
     UrlParseError(#[from] url::ParseError),
     #[error("E102")]
-    SerializeError(#[from] serde_json::Error),
+    SerdeJsonError(#[from] serde_json::Error),
     #[error("E103")]
     MarketoError(Vec<String>),
     #[error("E104")]

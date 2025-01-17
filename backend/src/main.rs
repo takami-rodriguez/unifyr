@@ -11,13 +11,14 @@ mod utils;
 use common::Forms;
 use error::EdgeError;
 use fastly::{
-    http::{header, CandidateResponse, HeaderName, Method, StatusCode, Url},
+    http::{header, CandidateResponse, HeaderName, Method, StatusCode},
     mime, Request, Response,
 };
 use regex::Regex;
 use s3::S3Config;
 use serde_json::json;
 use std::{sync::LazyLock, time::Duration};
+use url::Url;
 
 const BACKEND: &str = "s3";
 
@@ -182,6 +183,7 @@ fn retrieve(mut req: Request) -> Result<Response, EdgeError> {
             Some(value) => {
                 let query = req.get_query_str();
                 let mut url = Url::parse(value)?;
+
                 url.set_query(query);
                 Ok(Response::redirect(url))
             }
