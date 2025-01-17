@@ -38,8 +38,8 @@ const ImageText = ({
       >
         <BGRadialSVG />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-11 relative z-20 gap-8 lg:gap-[52px] items-center ">
-        <div className="col-span-1  lg:col-span-6 space-y-6 flex flex-col items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-10 relative z-20 gap-8 lg:gap-[52px] items-center ">
+        <div className="col-span-1  lg:col-span-5 space-y-6 flex flex-col items-start">
           <Badge variant="primary">
             <div className="uppercase tracking-[0.7px]" style={gradientText}>
               {badge}
@@ -54,11 +54,11 @@ const ImageText = ({
           )}
         </div>
         <div
-          className={cn("col-span-1 lg:col-span-5", {
+          className={cn("col-span-1 lg:col-span-5 px-6 sm:px-20 md:px-32 lg:px-0", {
             "lg:order-first": imageLeft,
           })}
         >
-          <AspectRatio ratio={5 / 4} className="relative ">
+          <AspectRatio ratio={4 / 3} className="relative ">
             <Image
               src={image}
               alt="hero"
