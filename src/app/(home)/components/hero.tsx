@@ -49,7 +49,7 @@ const Hero = () => {
         </Suspense>
         <div className="flex md:flex-row flex-col justify-center items-center md:items-end md:space-x-6">
           {/* TODO - SVG please */}
-          <Image src="/images/google.png" alt="hero" width={211} height={40} />
+          <Image src="/images/google.svg" alt="hero" width={211} height={40} />
           <div className="text-3xl font-semibold order-first md:order-last pb-6 md:pb-0">
             450+ G2 Reviews
           </div>
