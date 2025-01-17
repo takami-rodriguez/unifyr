@@ -29,7 +29,7 @@
         deployments = {
           production = rec {
             URL = "https://www.unifyr.com";
-            SERVICE_ID = "";
+            SERVICE_ID = "OU1ljynQGWtEFoJxxrf0y4";
             AWS_BUCKET = "unifyr-usa-production-bucket";
             AWS_REGION = "us-east-1";
             AWS_HOST = "${AWS_BUCKET}.s3.${AWS_REGION}.amazonaws.com";
