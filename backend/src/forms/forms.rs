@@ -81,6 +81,15 @@ impl<'a> Form<'a> {
 
 pub fn post_proc_formdata(req: &Request, formdata: &mut FormDataMap) {
     formdata.remove(TURNSTILE_KEY);
+
+    let utm_values: Vec<_> = ["utm_campaign", "utm_medium", "utm_source"]
+        .iter()
+        .filter_map(|&key| req.get_query_parameter(key).map(|val| (key, val)))
+        .collect();
+
+    for (k, v) in utm_values.into_iter() {
+        formdata.insert(k.to_owned(), v.to_owned());
+    }
 }
 
 mod validations {
