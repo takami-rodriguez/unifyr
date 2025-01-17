@@ -2,20 +2,29 @@ import { fetchAllArticles, fetchResourcesPageData } from "@/queries/resources";
 import React from "react";
 import FeaturedArticle from "./components/featuredArticle";
 import Banner from "@/components/banner";
+import { getDynamicPageSEOData } from '@/lib/seoHelper';
+import { PageProps } from '@/types/page';
+import { SEOData } from '@/types/seo';
+import { Metadata, ResolvingMetadata } from 'next';
 
-// TODO - add back SEO data once content agreed
-// import Banner from "@/components/banner";
-// import { ResolvingMetadata, Metadata } from "next";
-// import { PageProps } from "@/types/page";
-// import { getDynamicSEOData } from "@/lib/seoHelper";
+const metaData: SEOData = {
+  title: "",
+  plugin: "",
+  og_image: "",
+  og_title: "",
+  description: "",
+  twitter_image: "",
+  twitter_title: "",
+  og_description: "",
+  twitter_description: "",
+}
 
-// export async function generateMetadata(
-//   {  }: PageProps,
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-
-//   return getDynamicSEOData("home",  parent);
-// }
+export async function generateMetadata(
+{ params: {  } }: PageProps,
+parent: ResolvingMetadata
+): Promise<Metadata> {
+return getDynamicPageSEOData(metaData,parent);
+}
 
 const ResourcesPage = async () => {
   const pageData = await fetchResourcesPageData();

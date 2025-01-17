@@ -60,14 +60,11 @@ const GetInTouch = ({ id }: { id: string }) => {
       `https://next.staging.unifyr.com/forms/${id}`,
       requestOptions
     )
-      .then(async (response) => {
-        console.log("RESPONSE TEXT", await response.text());
-        console.log("RESPONSE TEXT");
+      .then(async () => {
         setSuccess(true);
       })
       .catch((error) => {
         turnstile.reset();
-        console.error(error);
 
         const errorsObject = error.reduce(
           (acc: { [x: string]: unknown }, curr: { [x: string]: undefined }) => {
@@ -103,60 +100,58 @@ const GetInTouch = ({ id }: { id: string }) => {
             theme="light"
             appearance="interaction-only"
           />
-          <>
-            <div className="space-y-1">
-              <Label>I am a...</Label>
-              <Select name="entity_type__c">
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Please select" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="supplier">Supplier</SelectItem>
-                  <SelectItem value="agency">Agency</SelectItem>
-                  <SelectItem value="partner">Partner</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <InputField
-                type="text"
-                label="First Name"
-                name="firstName"
-                placeholder="Alex"
-                required
-                error={errors.first_name}
-              />
-              <InputField
-                type="text"
-                label="Last Name"
-                name="lastName"
-                placeholder="Bloggs"
-                required
-                error={errors.last_name}
-              />
-            </div>
+          <div className="space-y-1">
+            <Label>I am a...</Label>
+            <Select name="entity_type__c">
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Please select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="supplier">Supplier</SelectItem>
+                <SelectItem value="agency">Agency</SelectItem>
+                <SelectItem value="partner">Partner</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
             <InputField
-              label="Email address"
-              type="email"
-              name="email"
-              placeholder="alex.bloggs@email.com"
+              type="text"
+              label="First Name"
+              name="FirstName"
+              placeholder="Alex"
               required
-              error={errors.email}
+              error={errors.first_name}
             />
-            <div className="flex justify-between">
-              <div>
-                {errors.message ||
-                  (success && "Success! We'll be in touch soon.")}
-              </div>
-              <Button
-                variant={"primary"}
-                type="submit"
-                disabled={token === null || success}
-              >
-                Submit
-              </Button>
+            <InputField
+              type="text"
+              label="Last Name"
+              name="LastName"
+              placeholder="Bloggs"
+              required
+              error={errors.last_name}
+            />
+          </div>
+          <InputField
+            label="Email address"
+            type="email"
+            name="Email"
+            placeholder="alex.bloggs@email.com"
+            required
+            error={errors.email}
+          />
+          <div className="flex justify-between items-end">
+            <div className="text-sm text-green-500">
+              {errors.message ||
+                (success && "Success! We'll be in touch soon.")}
             </div>
-          </>
+            <Button
+              variant={"primary"}
+              type="submit"
+              disabled={token === null || success}
+            >
+              Submit
+            </Button>
+          </div>
         </div>
       </form>
     </div>

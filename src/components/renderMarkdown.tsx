@@ -8,6 +8,7 @@ type RenderMarkdownProps = {
 };
 
 const RenderMarkdown = async ({ content }: RenderMarkdownProps) => {
+
   return (
     <ReactMarkdown
       className={cn(

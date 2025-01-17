@@ -7,6 +7,14 @@ draft: false
 featuredImage: "/images/image.png"
 slug: unifyr-plus-and-unifyr-pro-beta-program-announcement
 author: brian
+plugin: "Unifyr+ & Unifyr Pro: Beta program announcement"
+og_image: "/images/caseStudy.jpeg"
+og_title: "Unifyr+ & Unifyr Pro: Beta program announcement"
+description: "Unifyr+ & Unifyr Pro: Beta program announcement"
+twitter_image: "/images/caseStudy.jpeg"
+twitter_title: "Unifyr+ & Unifyr Pro: Beta program announcement"
+og_description: "Unifyr+ & Unifyr Pro: Beta program announcement"
+twitter_description: "Unifyr+ & Unifyr Pro: Beta program announcement"
 _uid: 756911ED-42B0-47AB-A82D-E04DEECD55E9
 ---
 

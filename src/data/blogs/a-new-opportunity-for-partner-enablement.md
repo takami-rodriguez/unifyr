@@ -7,6 +7,14 @@ draft: false
 featuredImage: "/images/image.png"
 slug: a-new-opportunity-for-partner-enablement
 author: brian
+plugin: "A New Opportunity for Partner Enablement"
+og_image: "/images/caseStudy.jpeg"
+og_title: "A New Opportunity for Partner Enablement"
+description: "A New Opportunity for Partner Enablement"
+twitter_image: "/images/caseStudy.jpeg"
+twitter_title: "A New Opportunity for Partner Enablement"
+og_description: "A New Opportunity for Partner Enablement"
+twitter_description: "A New Opportunity for Partner Enablement"
 _uid: 810311ED-42B0-47AB-A82D-E04DEECD55E9
 ---
 

@@ -7,26 +7,21 @@ import {
   fetchArticleBySlug,
   getAllBlogSlugs,
 } from "@/queries/resources";
-import { PageProps } from "@/types/page";
 import Banner from "@/components/banner";
 import { format } from "date-fns";
 import RenderMarkdown from "@/components/renderMarkdown";
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import { PageProps } from "@/types/page";
+import { Metadata, ResolvingMetadata } from "next";
 
-
-// TODO - add back SEO data once content agreed
-// import { ResolvingMetadata, Metadata } from "next";
-// import { getDynamicPageSEOData } from "@/lib/seoHelper";
-
-// export async function generateMetadata(
-//   { params: { slug, lang } }: PageProps,
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   return getDynamicPageSEOData(
-//     `resources/${Array.isArray(slug) ? slug.join("/") : slug}`,
-//     lang,
-//     parent
-//   );
-// }
+export async function generateMetadata(
+  { params }: PageProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const { slug } = await params;
+  const { frontmatter } = await fetchArticleBySlug(slug as string);
+  return getDynamicPageSEOData(frontmatter.seo!, parent);
+}
 
 export function generateStaticParams() {
   return getAllBlogSlugs();
@@ -74,14 +69,12 @@ const ArticlePage = async ({ params }: PageProps) => {
               </div>
             </>
           )}
-
         </div>
-          <div className="text-grey-900/80 uppercase pt-2 lg:pb-6">
-
-        {format(new Date(frontmatter.publishedDate), "MMMM dd")}
-          </div>
+        <div className="text-grey-900/80 uppercase pt-2 lg:pb-6">
+          {format(new Date(frontmatter.publishedDate), "MMMM dd")}
+        </div>
         <div className=" pt-5 ">
-         <RenderMarkdown content={content} />
+          <RenderMarkdown content={content} />
         </div>
         <div className=" flex flex-col lg:flex-row  lg:items-end  py-10 lg:py-20  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
           {frontmatter.author && (

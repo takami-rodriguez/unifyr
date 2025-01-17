@@ -2,12 +2,36 @@ import React from "react";
 import GetInTouch from "@/components/forms/getInTouch";
 import { gradientText } from "@/data/styleHelpers";
 import { Check } from "lucide-react";
+import { PageProps } from "@/types/page";
+import { Metadata, ResolvingMetadata } from "next";
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import { SEOData } from "@/types/seo";
 
 const listItems = [
   "For small businesses through to the largest enterprises, ZiftONE is PRM built to scale.",
   "For partners with any number of suppliers, Unifyr+ reinvents partner channel sales.",
   "For agencies seeking business with the smartest suppliers, Unifyr Pro is your marketplace.",
 ];
+
+const metaData: SEOData = {
+  title: "",
+  plugin: "",
+  og_image: "",
+  og_title: "",
+  description: "",
+  twitter_image: "",
+  twitter_title: "",
+  og_description: "",
+  twitter_description: "",
+}
+
+export async function generateMetadata(
+{ params: {  } }: PageProps,
+parent: ResolvingMetadata
+): Promise<Metadata> {
+return getDynamicPageSEOData(metaData,parent);
+}
+
 
 const GetADemo = async () => {
   return (
