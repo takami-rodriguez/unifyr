@@ -3,7 +3,7 @@ export const authorData = {
         _uid: "1B388F26-5707-4E39-AAD4-7872D9585708",
         name: "Brian Carbone",
         image: {
-          url: "/images/author1.png",
+          url: "/images/bchs-circ.webp",
           alt: "Author",
           id: "1-author-image",
         },

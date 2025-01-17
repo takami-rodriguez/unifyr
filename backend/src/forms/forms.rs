@@ -1,5 +1,6 @@
 use crate::error::EdgeError;
 use common::{Attr, FormElement};
+use fastly::Request;
 use futures::future::join_all;
 use std::{collections::HashMap, future::Future, pin::Pin};
 
