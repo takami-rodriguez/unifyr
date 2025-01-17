@@ -29,9 +29,9 @@ const GetInTouch = ({ id }: { id: string }) => {
     const form = e.target as HTMLFormElement;
 
     const first_name = (
-      form.elements.namedItem("firstName") as HTMLInputElement
+      form.elements.namedItem("FirstName") as HTMLInputElement
     ).value;
-    const last_name = (form.elements.namedItem("lastName") as HTMLInputElement)
+    const last_name = (form.elements.namedItem("LastName") as HTMLInputElement)
       .value;
     const entity_type = (
       form.elements.namedItem("entity_type__c") as HTMLInputElement
@@ -42,10 +42,10 @@ const GetInTouch = ({ id }: { id: string }) => {
     myHeaders.append("Access-Control-Allow-Origin", "*");
 
     const urlencoded = new URLSearchParams();
-    urlencoded.append("email", email);
+    urlencoded.append("Email", email);
     urlencoded.append("cf-turnstile-response", String(token));
-    urlencoded.append("firstName", first_name);
-    urlencoded.append("lastName", last_name);
+    urlencoded.append("FirstName", first_name);
+    urlencoded.append("LastName", last_name);
     urlencoded.append("entity_type__c", entity_type);
 
     const requestOptions: RequestInit = {
@@ -57,7 +57,7 @@ const GetInTouch = ({ id }: { id: string }) => {
     };
 
     return await fetch(
-      `https://next.staging.unifyr.com/forms/${id}`,
+      `${process.env.URL}/${id}`,
       requestOptions
     )
       .then(async () => {
