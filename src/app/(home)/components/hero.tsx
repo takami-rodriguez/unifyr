@@ -15,7 +15,9 @@ const Hero = () => {
   return (
     <div className="relative">
       <div
-        className={cn("absolute -top-24 md:top-0 w-full md:w-1/2 z-0 right-10 md:right-32")}
+        className={cn(
+          "absolute -top-24 md:top-0 w-full md:w-1/2 z-0 right-10 md:right-32"
+        )}
       >
         <BGRadialSVG />
       </div>
@@ -24,10 +26,10 @@ const Hero = () => {
           <span style={gradientText}>Growth</span> happens in good company
         </h1>
         <p className=" md:text-xl max-w-2xl mx-auto mt-8 md:text-center font-extralight md:leading-8 text-grey-900/80">
-          ZiftONE is the industry-leading solution for
-          relationship partner management (PRM), through-channel marketing
-          automation (TCMA), and partner learning management—deeply integrated
-          with the tools you already use.
+          ZiftONE is the industry-leading solution for relationship partner
+          management (PRM), through-channel marketing automation (TCMA), and
+          partner learning management—deeply integrated with the tools you
+          already use.
         </p>
         <div className="flex flex-col md:flex-row w-full items-center justify-center md:space-x-[10px] mt-8 py-1">
           <Link href={NavLink.BookACall} className="w-full md:w-auto">
@@ -37,7 +39,7 @@ const Hero = () => {
           </Link>
           <Link href={NavLink.Resources} className="w-full md:w-auto">
             <Button variant="outline" fullWidth={tablet || mobile}>
-              Resources
+              <div className="w-full md:w-[124px]">Resources</div>
             </Button>
           </Link>
         </div>
@@ -48,7 +50,9 @@ const Hero = () => {
         <div className="flex md:flex-row flex-col justify-center items-center md:items-end md:space-x-6">
           {/* TODO - SVG please */}
           <Image src="/images/google.png" alt="hero" width={211} height={40} />
-          <div className="text-3xl font-semibold order-first md:order-last pb-6 md:pb-0">450+ G2 Reviews</div>
+          <div className="text-3xl font-semibold order-first md:order-last pb-6 md:pb-0">
+            450+ G2 Reviews
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { ImageType } from "./images";
+import { SEOData } from "./seo";
 
 export interface AuthorDetails {
   name: string;
@@ -6,17 +7,6 @@ export interface AuthorDetails {
   _uid: string;
 }
 
-export interface SEOData {
-  title?: string;
-  plugin?: string;
-  og_image?: string;
-  og_title?: string;
-  description?: string;
-  twitter_image?: string;
-  twitter_title?: string;
-  og_description?: string;
-  twitter_description?: string;
-}
 export interface ArticleTemplateProps {
   content: string;
   frontmatter: {

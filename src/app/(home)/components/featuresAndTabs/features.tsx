@@ -1,11 +1,12 @@
 import Arrow from "@/components/icons/arrow";
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import React from "react";
+import Image from 'next/image';
 
 type FeaturesProps = {
   features: {
     link: string;
-    icon: ReactNode;
+    icon: string;
     title: string;
     description: string;
   }[];
@@ -16,7 +17,7 @@ const Features = ({ features }: FeaturesProps) => {
     <div className="my-10 md:mt-14 grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
       {features.map((feature, index) => (
         <div key={index} className="space-y-4">
-          {feature.icon}
+          <Image src={feature.icon} alt={feature.title} width={44} height={44} />
           <h2 className="text-[22px] ">{feature.title}</h2>
           <p className="text-gray-900/80 w-[290px]">{feature.description}</p>
 

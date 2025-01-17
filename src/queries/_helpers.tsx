@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
 import { authorData } from "@/data/authorData";
-import { SEOData } from "@/types/article";
+import { SEOData } from "@/types/seo";
 export const sortSEOFromFrontmatter = (seo: {
   [key: string]: any;
 }): SEOData => {
