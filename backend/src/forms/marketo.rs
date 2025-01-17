@@ -43,17 +43,18 @@ pub fn submit(
     let mut url = req.get_url().clone();
     url.set_query(None);
 
-    let lead_client_ip_address = if let Some(IpAddr::V4(ip)) = req.get_client_ip_addr() {
-        Some(ip.to_string())
-    } else {
-        None
-    };
-
-    let cookie = req.get_header_str(header::COOKIE).and_then(|cookie| {
-        Cookie::split_parse(cookie)
-            .filter_map(|c| c.ok())
-            .find(|c| c.name() == "_mkto_trk")
+    let lead_client_ip_address = req.get_client_ip_addr().and_then(|ip| match ip {
+        IpAddr::V4(ipv4_addr) => Some(ipv4_addr.to_string()),
+        _ => None,
     });
+
+    let cookie = req
+        .get_header_str(header::COOKIE)
+        .map(Cookie::split_parse)
+        .and_then(|iter| {
+            iter.filter_map(Result::ok)
+                .find(|c| c.name() == "_mkto_trk")
+        });
     let cookie = cookie.as_ref().map(|c| c.value());
 
     let visitor_data = marketo_form::request::VisitorData {
