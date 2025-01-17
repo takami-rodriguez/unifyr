@@ -27,7 +27,6 @@ pub fn enrich(formdata: &mut FormDataMap) -> Result<(), EdgeError> {
     let mut response = Request::post(url).send(APOLLO_BACKEND)?;
     let value: apollo_enrichment::Response = response.take_body_json()?;
 
-    // FIXME: get real field names
     formdata.insert("title".into(), value.title);
     formdata.insert("company".into(), value.organization.name);
     formdata.insert("Apollo_Primary_Industry__c".into(), value.organization.industry);

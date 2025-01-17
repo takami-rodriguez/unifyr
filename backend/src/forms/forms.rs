@@ -90,6 +90,8 @@ pub fn post_proc_formdata(req: &Request, formdata: &mut FormDataMap) {
     for (k, v) in utm_values.into_iter() {
         formdata.insert(k.to_owned(), v.to_owned());
     }
+
+    let _ = super::apollo::enrich(formdata);
 }
 
 mod validations {
