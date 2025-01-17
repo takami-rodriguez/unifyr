@@ -27,7 +27,7 @@ const FeaturesAccordionSection = () => {
   return (
     <div className="">
       <Tabs className="flex justify-center" value={selectedId}>
-        <TabsList hasIcon>
+        <TabsList>
           {tabs.map((tab) => (
             <TabsTrigger
               value={tab.id}

@@ -32,9 +32,7 @@ export default function RootLayout({
           </div>
         </ClientLayout>
         <Footer />
-        <Suspense>
           <GAHandler />
-        </Suspense>
         <CookiePopUpBox />
       </body>
     </html>
