@@ -8,7 +8,7 @@ mod rewriter;
 mod s3;
 mod utils;
 
-use common::Forms;
+use common::{DomainStore, Forms};
 use error::EdgeError;
 use fastly::{
     http::{header, CandidateResponse, HeaderName, Method, StatusCode},
@@ -22,7 +22,12 @@ use url::Url;
 
 const BACKEND: &str = "s3";
 
-const SERIALIZED_FORMS: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/forms.bin"));
+const SER_FORMS: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/forms.bin"));
+const SER_BLACKLIST: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/blacklist.bin"));
+
+pub static FORMS: LazyLock<Forms> = LazyLock::new(|| bincode::deserialize(SER_FORMS).unwrap());
+pub static BLACKLIST: LazyLock<DomainStore> =
+    LazyLock::new(|| bincode::deserialize(SER_BLACKLIST).unwrap());
 
 fn main() -> Result<(), EdgeError> {
     let mut req = fastly::Request::from_client();
@@ -43,9 +48,6 @@ fn main() -> Result<(), EdgeError> {
             resp.clone_without_body().send_to_client();
         }
         Method::POST => {
-            static FORMS: LazyLock<Forms> =
-                LazyLock::new(|| bincode::deserialize(SERIALIZED_FORMS).unwrap());
-
             let re = Regex::new(r"^/forms/(\d+)$").unwrap();
 
             let mut formdata: forms::FormDataMap = if let Ok(formdata) = req.take_body_form() {

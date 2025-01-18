@@ -1,9 +1,9 @@
-use common::{Attr, FormElement, Forms};
+use common::{Attr, DomainStore, FormElement, Forms};
 use html5ever::{tendril::TendrilSink, Attribute};
 use markup5ever_rcdom::{Handle, NodeData, RcDom};
 use regex::Regex;
 use std::{
-    borrow::Cow, collections::HashMap, env, error::Error, fs::File, io::Write, path::PathBuf, sync::LazyLock
+    collections::HashMap, env, error::Error, fs::File, io::Write, path::PathBuf, sync::LazyLock,
 };
 use walkdir::WalkDir;
 
@@ -20,6 +20,8 @@ where
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
+    let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+
     let mut forms: Forms = HashMap::new();
 
     for entry in WalkDir::new(ROOT).into_iter().filter_map(|e| e.ok()) {
@@ -37,11 +39,31 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     let out = PathBuf::from(env::var("OUT_DIR").unwrap());
-    let dest = out.join("forms.bin");
 
-    let ser = bincode::serialize(&forms).unwrap();
-    let mut file = File::create(&dest).unwrap();
-    file.write_all(&ser)?;
+    {
+        let dest = out.join("forms.bin");
+        let ser = bincode::serialize(&forms).unwrap();
+        let mut file = File::create(&dest).unwrap();
+        file.write_all(&ser)?;
+    }
+
+    // blacklist
+    let pathbuf = PathBuf::from(&manifest_dir).join("blacklist.csv");
+    let mut rdr = csv::Reader::from_path(pathbuf)?;
+
+    let mut trie = DomainStore::new();
+
+    for result in rdr.records() {
+        let record = result?;
+        trie.insert(&record[0]);
+    }
+
+    {
+        let dest = out.join("blacklist.bin");
+        let ser = bincode::serialize(&trie).unwrap();
+        let mut file = File::create(&dest).unwrap();
+        file.write_all(&ser)?;
+    }
 
     Ok(())
 }
@@ -61,8 +83,7 @@ fn collect_forms(forms: &mut Forms, mut bytes: &[u8]) {
                 let id = get_attr(&attrs, "id")
                     .and_then(get_form_id)
                     .expect("form id is required")
-                    .to_owned()
-                    .into();
+                    .to_owned();
 
                 walk(node, &mut |node| {
                     if let NodeData::Element { name, attrs, .. } = &node.data {
@@ -76,13 +97,7 @@ fn collect_forms(forms: &mut Forms, mut bytes: &[u8]) {
                                     })
                                     .expect("name is required");
 
-                                let name = attrs
-                                    .get(name_pos)
-                                    .unwrap()
-                                    .value
-                                    .as_ref()
-                                    .to_owned()
-                                    .into();
+                                let name = attrs.get(name_pos).unwrap().value.as_ref().to_owned();
 
                                 let attrs: Vec<_> = [&attrs[..name_pos], &attrs[(name_pos + 1)..]]
                                     .concat()
@@ -91,8 +106,8 @@ fn collect_forms(forms: &mut Forms, mut bytes: &[u8]) {
                                         let name = name.local.as_ref();
                                         if !["class", "style"].contains(&name) {
                                             Some(Attr {
-                                                name: name.to_owned().into(),
-                                                value: value.as_ref().to_owned().into(),
+                                                name: name.to_owned(),
+                                                value: value.as_ref().to_owned(),
                                             })
                                         } else {
                                             None
@@ -107,7 +122,7 @@ fn collect_forms(forms: &mut Forms, mut bytes: &[u8]) {
                     }
                 });
 
-                forms.insert(id, Cow::Owned(elements));
+                forms.insert(id, elements);
             }
         }
     });
@@ -122,7 +137,5 @@ fn get_attr<'a>(attrs: &'a Vec<Attribute>, name: &str) -> Option<&'a str> {
 
 fn get_form_id<'a>(id: &'a str) -> Option<&'a str> {
     static RE: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"^(\d+)$").unwrap());
-    RE.captures(id)
-        .and_then(|c| c.get(1))
-        .map(|m| m.as_str())
+    RE.captures(id).and_then(|c| c.get(1)).map(|m| m.as_str())
 }

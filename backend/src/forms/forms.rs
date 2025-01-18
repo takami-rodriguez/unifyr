@@ -33,7 +33,7 @@ impl<'a> Form<'a> {
             let mut validations: Vec<Validation> = vec![];
 
             for Attr { name, value } in attrs.iter() {
-                let attr_validation = match (name.as_ref(), value.as_ref()) {
+                let attr_validation = match (name.as_ref(), value) {
                     ("required", _) => validations::required,
                     _ => validations::no_op,
                 };
@@ -42,6 +42,7 @@ impl<'a> Form<'a> {
             }
 
             let name_based_validation = match name.as_ref() {
+                "email" => validations::blacklist,
                 _ => validations::no_op,
             };
 
@@ -96,12 +97,13 @@ pub fn post_proc_formdata(req: &Request, formdata: &mut FormDataMap) {
 
 mod validations {
     use super::{Pending, TURNSTILE_BACKEND, TURNSTILE_SITEVERIFY};
-    use crate::{error::EdgeError, forms::creds::CREDENTIALS};
+    use crate::{error::EdgeError, forms::creds::CREDENTIALS, BLACKLIST};
     use fastly::Request;
     use serde_json::{json, Value};
+    use std::future::ready;
 
     pub fn no_op<'a>(_: Option<&'a str>) -> Pending<'a> {
-        Box::pin(std::future::ready(Ok(())))
+        Box::pin(ready(Ok(())))
     }
 
     pub fn required<'a>(value: Option<&'a str>) -> Pending<'a> {
@@ -109,7 +111,7 @@ mod validations {
             .is_some_and(|s| !s.is_empty())
             .then(|| Ok(()))
             .unwrap_or(Err(EdgeError::ValidationError("This field is required")));
-        Box::pin(std::future::ready(result))
+        Box::pin(ready(result))
     }
 
     pub fn turnstile<'a>(value: Option<&'a str>) -> Pending<'a> {
@@ -132,5 +134,18 @@ mod validations {
                 _ => Err(EdgeError::TurnstileError),
             }
         })
+    }
+
+    pub fn blacklist<'a>(value: Option<&'a str>) -> Pending<'a> {
+        let value = value
+            .and_then(|v| v.split_once('@'))
+            .map(|split| split.1);
+        let result = match value {
+            Some(s) if BLACKLIST.contains(s) => Err(EdgeError::ValidationError(
+                "Please provide a company email address.",
+            )),
+            _ => Ok(()),
+        };
+        Box::pin(ready(result))
     }
 }

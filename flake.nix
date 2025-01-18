@@ -75,7 +75,14 @@
           name: env:
           let
             commonArgs = {
-              src = craneLib.cleanCargoSource ./backend;
+              src = pkgs.lib.cleanSourceWith {
+                src = ./backend;
+                filter =
+                  path: type:
+                  (pkgs.lib.cleanSourceFilter path type)
+                  || (craneLib.filterCargoSources path type)
+                  || (baseNameOf path == "blacklist.csv");
+              };
               strictDeps = true;
               cargoExtraArgs = "--target wasm32-wasip1 --features ${name}";
             };
