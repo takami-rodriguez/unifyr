@@ -51,7 +51,7 @@ pub(crate) fn rewrite(resp: &mut Response) {
         &body,
         RewriteStrSettings {
             element_content_handlers: vec![
-                element!("script:not([src])", |el| {
+                element!("script", |el| {
                     Ok(el.set_attribute("nonce", &nonce)?)
                 }),
                 element!("style", |el| {
@@ -70,7 +70,7 @@ pub(crate) fn rewrite(resp: &mut Response) {
 fn make_csp(nonce: &str) -> String {
     format!(
         "default-src 'none'; \
-        script-src 'self' 'nonce-{nonce}' https://challenges.cloudflare.com https://*.wistia.com https://*.wistia.net; \
+        script-src 'nonce-{nonce}' 'strict-dynamic'; \
         style-src 'self' 'nonce-{nonce}'; \
         style-src-attr 'unsafe-inline'; \
         connect-src 'self' www.googletagmanager.com https://*.wistia.com https://*.wistia.net; \
