@@ -207,6 +207,7 @@
               nodePackages.nodejs
               nodePackages.vscode-langservers-extracted
               typescript-language-server
+              # vtsls
               tailwindcss-language-server
             ];
           };
