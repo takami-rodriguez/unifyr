@@ -47,6 +47,7 @@ const GetInTouch = ({ id }: { id: string }) => {
         turnstile.reset();
         setErrors(errors);
       } else {
+        setErrors({});
         setSuccess(true);
       }
     }).catch(() => {
