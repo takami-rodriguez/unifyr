@@ -20,80 +20,48 @@ const GetInTouch = ({ id }: { id: string }) => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null);
-  const [errors, setErrors] = useState({
-    first_name: undefined,
-    last_name: undefined,
-    email: undefined,
-    message: undefined,
-  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const sendData = async (e: FormEvent<HTMLFormElement>) => {
-    const form = e.target as HTMLFormElement;
+  const sendData = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
 
-    const first_name = (
-      form.elements.namedItem("firstName") as HTMLInputElement
-    ).value;
-    const last_name = (form.elements.namedItem("lastName") as HTMLInputElement)
-      .value;
-    const entity_type = (
-      form.elements.namedItem("entity_type__c") as HTMLInputElement
-    ).value;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    myHeaders.append("Access-Control-Allow-Origin", "*");
+    const url = `${process.env.NEXT_PUBLIC_URL}/forms/${id}`;
 
-    const urlencoded = new URLSearchParams();
-    urlencoded.append("email", email);
-    urlencoded.append("cf-turnstile-response", String(token));
-    urlencoded.append("firstName", first_name);
-    urlencoded.append("lastName", last_name);
-    urlencoded.append("entity_type__c", entity_type);
-
-    const requestOptions: RequestInit = {
-      method: "POST",
-      headers: myHeaders,
-      body: urlencoded,
-      mode: "no-cors" as RequestMode,
-      redirect: "follow" as RequestRedirect,
+    const headers = {
+      "content-type": "application/json",
     };
 
-    return await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/forms/${id}`,
-      requestOptions
-    )
-      .then(async () => {
-        setLoading(false);
-        setSuccess(true);
-      })
-      .catch((error) => {
-        turnstile.reset();
-        setLoading(false);
+    const formdata = new FormData(event.currentTarget);
+    const urlparams = new URLSearchParams(Array.from(formdata.entries()).map(([k, v]) => {
+      return [k, v as string];
+    }));
 
-        const errorsObject = error.reduce(
-          (acc: { [x: string]: unknown }, curr: { [x: string]: undefined }) => {
-            const key = Object.keys(curr)[0];
-            acc[key] = curr[key] || undefined;
-            return acc;
-          },
-          {
-            first_name: undefined,
-            last_name: undefined,
-            email: undefined,
-            message: undefined,
-          }
-        );
-        setErrors(errorsObject);
+    return await fetch(url, {
+      method: "POST",
+      headers,
+      body: urlparams,
+    }).then(async (response) => {
+      if (!response.ok) {
+        const errors = await response.json();
+        turnstile.reset();
+        setErrors(errors);
+      } else {
+        setSuccess(true);
+      }
+    }).catch(() => {
+      turnstile.reset();
+      setErrors({
+        "message": "Network error. Please try again."
       });
+    }).finally(() => {
+      setLoading(false);
+    });
   };
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    setLoading(true);
-    e.preventDefault();
-    sendData(e);
-  };
+
   return (
     <div className="w-full">
-      <form id={id} onSubmit={handleSubmit}>
+      <form id={id} onSubmit={sendData}>
         <div
           className={cn(
             "bg-white/30 border-[1.5px] border-white rounded-2xl py-10 px-14 space-y-6"
