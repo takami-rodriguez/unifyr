@@ -1,6 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { bgGradient, gradientText } from "@/data/styleHelpers";
+import Link from "next/link";
+import { NavLink } from "@/data/navLinks";
 
 const Banner = async () => {
   return (
@@ -14,9 +16,11 @@ const Banner = async () => {
             Scalable and profitable channel partnerships start with{" "}
             <span style={gradientText}>Unifyr</span>
           </h2>
-          <Button variant="outline"  className="max-w-xl">
-            Book a call
-          </Button>
+          <Link href={NavLink.BookACall}>
+            <Button variant="outline" className="max-w-xl">
+              Book a call
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
