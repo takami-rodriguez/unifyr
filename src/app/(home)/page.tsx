@@ -13,7 +13,7 @@ import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
-  title: "Unifyr: Supplier and Partner Management Software",
+  fullTitle: "Unifyr: Supplier and Partner Management Software",
   description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
 }
 

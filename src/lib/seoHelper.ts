@@ -12,10 +12,10 @@ export const getDynamicPageSEOData = async (
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
-    title: data?.title + " — Unifyr",
+    title: data.fullTitle || data?.title + " — Unifyr",
     description: data?.description,
     openGraph: {
-      title: (data?.og_title || data?.title) + " — Unifyr",
+      title: data.fullTitle || (data?.og_title || data?.title) + " — Unifyr",
       description: data?.og_description || data?.description,
       images: [
         data?.og_image || "",
