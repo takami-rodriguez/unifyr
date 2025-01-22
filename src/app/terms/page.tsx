@@ -25,7 +25,7 @@ export async function generateMetadata(
   return getDynamicPageSEOData(metaData, parent);
 }
 
-const TermsPage = async () => {
+export default async function TermsPage() {
   const { content } = await fetchMarkdownBySlug("terms");
 
   return (
@@ -34,5 +34,3 @@ const TermsPage = async () => {
     </div>
   );
 };
-
-export default TermsPage;

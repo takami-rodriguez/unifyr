@@ -1,8 +1,10 @@
+import Markdown from "@/components/markdown";
+import { fetchMarkdownBySlug } from "@/queries/pagesMarkdown";
 import React from "react";
-import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { PageProps } from "@/types/page";
-import { SEOData } from "@/types/seo";
 import { Metadata, ResolvingMetadata } from "next";
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
   title: "",
@@ -14,17 +16,21 @@ const metaData: SEOData = {
   twitter_title: "",
   og_description: "",
   twitter_description: "",
-};
+}
 
 export async function generateMetadata(
-  { params: {} }: PageProps,
+  { params: { } }: PageProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   return getDynamicPageSEOData(metaData, parent);
 }
 
-const PrivacyPolicy = async () => {
-  return <div>Privacy</div>;
-};
+export default async function PrivacyPage() {
+  const { content } = await fetchMarkdownBySlug("privacy");
 
-export default PrivacyPolicy;
+  return (
+    <div className=" mb-1 py-12 max-w-2xl mx-auto">
+      <Markdown content={content} />
+    </div>
+  );
+};
