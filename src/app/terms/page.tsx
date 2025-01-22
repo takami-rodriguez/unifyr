@@ -1,4 +1,4 @@
-import RenderMarkdown from "@/components/renderMarkdown";
+import Markdown from "@/components/markdown";
 import { fetchMarkdownBySlug } from "@/queries/pagesMarkdown";
 import React from "react";
 import { PageProps } from "@/types/page";
@@ -19,10 +19,10 @@ const metaData: SEOData = {
 }
 
 export async function generateMetadata(
-{ params: {  } }: PageProps,
-parent: ResolvingMetadata
+  { params: { } }: PageProps,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
-return getDynamicPageSEOData(metaData,parent);
+  return getDynamicPageSEOData(metaData, parent);
 }
 
 const TermsPage = async () => {
@@ -30,7 +30,7 @@ const TermsPage = async () => {
 
   return (
     <div className=" mb-1 py-12 max-w-2xl mx-auto">
-      <RenderMarkdown content={content} />
+      <Markdown content={content} />
     </div>
   );
 };

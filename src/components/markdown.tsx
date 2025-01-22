@@ -1,18 +1,19 @@
 import { cn } from "@/lib/utils";
 import React from "react";
-import remarkGfm from "remark-gfm";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
+import markdownit from "markdown-it";
 
-type RenderMarkdownProps = {
+type MarkdownProps = {
   content: string;
 };
 
-const RenderMarkdown = async ({ content }: RenderMarkdownProps) => {
-  const transformedContent = content.replace(/<ins>/g, '<span class="underline">').replace(/<\/ins>/g, '</span>');
+const md = markdownit({
+  html: true,
+  typographer: true,
+});
 
+const Markdown: React.FC<MarkdownProps> = async ({ content }: MarkdownProps) => {
   return (
-    <ReactMarkdown
+    <div
       className={cn(
         "w-full text-grey-800 space-y-6 break-words",
         "prose-a:underline prose-a:text-pink",
@@ -22,12 +23,10 @@ const RenderMarkdown = async ({ content }: RenderMarkdownProps) => {
         "prose-h3:pt-8 prose-h3:text-[1.75rem] prose-h3:leading-[1.75rem] md:prose-h3:text-[2rem] md:prose-h3:leading-[2rem] ",
         "prose-p:font-resources prose-p:text-[1.125rem] prose-p:leading-[1.75rem] md:prose-p:text-[1.25rem] md:prose-p:leading-[2.5rem] "
       )}
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
+      dangerouslySetInnerHTML={{ __html: md.render(content) }}
     >
-      {transformedContent}
-    </ReactMarkdown>
+    </div>
   );
 };
 
-export default RenderMarkdown;
+export default Markdown;

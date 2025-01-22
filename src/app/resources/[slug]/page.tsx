@@ -9,7 +9,7 @@ import {
 } from "@/queries/resources";
 import Banner from "@/components/banner";
 import { format } from "date-fns";
-import RenderMarkdown from "@/components/renderMarkdown";
+import Markdown from "@/components/markdown";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
@@ -74,7 +74,7 @@ const ArticlePage = async ({ params }: PageProps) => {
           {format(new Date(frontmatter.publishedDate), "MMMM dd")}
         </div>
         <div className=" pt-5 ">
-          <RenderMarkdown content={content} />
+          <Markdown content={content} />
         </div>
         <div className=" flex flex-col lg:flex-row  lg:items-end  py-10 lg:py-20  text-grey-900 font-medium space-y-10 lg:space-y-0 ">
           {frontmatter.author && (
