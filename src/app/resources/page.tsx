@@ -8,22 +8,15 @@ import { SEOData } from '@/types/seo';
 import { Metadata, ResolvingMetadata } from 'next';
 
 const metaData: SEOData = {
-  title: "",
-  plugin: "",
-  og_image: "",
-  og_title: "",
-  description: "",
-  twitter_image: "",
-  twitter_title: "",
-  og_description: "",
-  twitter_description: "",
+  title: "Blog",
+  description: "The blog index for Unifyr articles. Learn more about proper partner relationship management and high-performance channel sales.",
 }
 
 export async function generateMetadata(
-{ params: {  } }: PageProps,
-parent: ResolvingMetadata
+  { params: { } }: PageProps,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
-return getDynamicPageSEOData(metaData,parent);
+  return getDynamicPageSEOData(metaData, parent);
 }
 
 const ResourcesPage = async () => {
@@ -44,7 +37,7 @@ const ResourcesPage = async () => {
                 <FeaturedArticle article={article} />
               </div>
             )
-        })}
+          })}
 
       </div>
       {/* <Suspense fallback={<div>Loading...</div>}>

@@ -14,15 +14,8 @@ const listItems = [
 ];
 
 const metaData: SEOData = {
-  title: "",
-  plugin: "",
-  og_image: "",
-  og_title: "",
-  description: "",
-  twitter_image: "",
-  twitter_title: "",
-  og_description: "",
-  twitter_description: "",
+  title: "Book a call",
+  description: "Get started with supplier or partner relationship management today. Experience the industry-leading product in PRM, ZiftONE.",
 }
 
 export async function generateMetadata(

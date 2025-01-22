@@ -14,14 +14,7 @@ import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
   title: "Unifyr: Supplier and Partner Management Software",
-  plugin: "",
-  og_image: "",
-  og_title: "Unifyr: Supplier and Partner Management Software",
   description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
-  twitter_image: "",
-  twitter_title: "",
-  og_description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
-  twitter_description: "",
 }
 
 export async function generateMetadata(

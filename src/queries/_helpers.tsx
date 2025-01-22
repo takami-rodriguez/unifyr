@@ -7,14 +7,10 @@ export const sortSEOFromFrontmatter = (seo: {
 }): SEOData => {
   return {
     title: seo.title || "",
-    plugin: seo.plugin || "",
+    description: seo.description || "",
     og_image: seo.og_image || "",
     og_title: seo.og_title || seo.title || "",
-    description: seo.description || "",
-    twitter_image: seo.twitter_image || "",
-    twitter_title: seo.twitter_title || seo.title || "",
     og_description: seo.og_description || seo.description || "",
-    twitter_description: seo.twitter_description || seo.description || "",
   };
 };
 

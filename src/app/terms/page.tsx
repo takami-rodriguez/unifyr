@@ -7,15 +7,8 @@ import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
-  title: "",
-  plugin: "",
-  og_image: "",
-  og_title: "",
-  description: "",
-  twitter_image: "",
-  twitter_title: "",
-  og_description: "",
-  twitter_description: "",
+  title: "Terms of Service",
+  description: "The Unifyr Terms of Service.",
 }
 
 export async function generateMetadata(
