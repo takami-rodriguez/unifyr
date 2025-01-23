@@ -4,26 +4,26 @@ import matter from "gray-matter";
 import { sortFrontMatter } from "./_helpers";
 import { FEATURED_ARTICLE_SLUG } from "@/data/config";
 
-export const fetchAllArticles = async (): Promise<ArticleTemplateProps[]> => {
-  const slugData = await getAllBlogSlugs();
+export function fetchAllArticles(): Promise<ArticleTemplateProps[]> {
+  const slugData = getAllBlogSlugs();
   const allArticlePromises = slugData.map((fileName) =>
     fetchArticleBySlug(fileName.slug),
   );
   return Promise.all(allArticlePromises);
-};
+}
 
-export const fetchArticleBySlug = async (
+export async function fetchArticleBySlug(
   slug: string,
-): Promise<ArticleTemplateProps> => {
+): Promise<ArticleTemplateProps> {
   const fileName = fs.readFileSync(`./src/data/blogs/${slug}.md`, "utf-8");
   const { data: fData, content } = matter(fileName);
   return {
-    frontmatter: sortFrontMatter(fData),
+    frontmatter: sortFrontMatter(fData as ArticleTemplateProps["frontmatter"]),
     content,
   };
-};
+}
 
-export const fetchResourcesPageData = async (): Promise<{
+export async function fetchResourcesPageData(): Promise<{
   featuredArticle: ArticleTemplateProps;
   banner: {
     title: "Resources";
@@ -32,7 +32,7 @@ export const fetchResourcesPageData = async (): Promise<{
       title: "Secondary action";
     };
   };
-}> => {
+}> {
   const featuredArticle = await fetchArticleBySlug(FEATURED_ARTICLE_SLUG);
   return {
     featuredArticle,
@@ -44,12 +44,12 @@ export const fetchResourcesPageData = async (): Promise<{
       },
     },
   };
-};
+}
 
-export const getAllBlogSlugs = async () => {
+export function getAllBlogSlugs() {
   const files = fs.readdirSync("./src/data/blogs");
   const paths = files.map((fileName) => ({
     slug: fileName.replace(".md", ""),
   }));
   return paths;
-};
+}
