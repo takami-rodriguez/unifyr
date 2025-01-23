@@ -44,6 +44,7 @@
           };
         };
 
+        # === backend ===
         target = "wasm32-wasip1";
 
         mkToolchain =
@@ -128,9 +129,13 @@
             }
           );
 
+        # === frontend ===
+        nodejs = pkgs.nodePackages.nodejs;
+
         mkFrontend =
           name: env:
           pkgs.buildNpmPackage {
+            inherit nodejs;
             env = env // {
               NEXT_TELEMETRY_DISABLED = 1;
               NEXT_PUBLIC_URL = env.URL;
@@ -151,11 +156,10 @@
                 ])
                 && (pkgs.lib.cleanSourceFilter path type);
             };
-            nodejs = pkgs.nodePackages.nodejs;
-            npmConfigHook = pkgs.importNpmLock.npmConfigHook;
             npmDeps = pkgs.importNpmLock {
               npmRoot = ./.;
             };
+            npmConfigHook = pkgs.importNpmLock.npmConfigHook;
             npmFlags = [
               "--legacy-peer-deps"
             ];
@@ -196,6 +200,11 @@
 
         devShells = {
           default = devCraneLib.devShell {
+            npmDeps = pkgs.importNpmLock.buildNodeModules {
+              npmRoot = ./.;
+              inherit nodejs;
+            };
+
             env = deployments.staging // {
               # rust-analyzer complains if it can't find a compile-time env var
               FRONTEND = "/dev/null";
@@ -203,12 +212,12 @@
 
             checks = self.checks.${system};
 
-            packages = with pkgs; [
-              nodePackages.nodejs
-              nodePackages.vscode-langservers-extracted
-              typescript-language-server
-              # vtsls
-              tailwindcss-language-server
+            packages = [
+              nodejs
+              pkgs.importNpmLock.hooks.linkNodeModulesHook
+              pkgs.nodePackages.vscode-langservers-extracted
+              pkgs.typescript-language-server
+              pkgs.tailwindcss-language-server
             ];
           };
         };
