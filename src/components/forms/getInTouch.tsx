@@ -26,10 +26,12 @@ const GetInTouch = ({ id }: { id: string }) => {
     event.preventDefault();
     setLoading(true);
 
-    const url = `${process.env.NEXT_PUBLIC_URL}/forms/${id}`;
+    const query = new URLSearchParams(window.location.search);
+    const url = new URL(`${process.env.NEXT_PUBLIC_URL}/forms/${id}`);
+    query.forEach((v, k) => url.searchParams.append(k, v));
 
     const headers = {
-      "content-type": "application/json",
+      "content-type": "application/x-www-form-urlencoded",
     };
 
     const formdata = new FormData(event.currentTarget);
