@@ -22,7 +22,7 @@ const InputField = ({
       <div className="relative">
 
       <Input {...inputProps} error={error} />
-      <div className="absolute -bottom-8 text-red-500">
+      <div className="absolute -bottom-5 text-sm text-red-500">
         {error}
       </div>
       </div>

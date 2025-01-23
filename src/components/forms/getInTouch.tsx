@@ -117,10 +117,15 @@ const GetInTouch = ({ id }: { id: string }) => {
             required
             error={errors.email}
           />
-          <div className="flex justify-between items-end">
+          <div className="flex justify-between items-center">
             <div className="text-sm text-green-500">
               {errors.message ||
-                (success && "Success! We'll be in touch soon.")}
+                (success && (
+                  <>
+                    <div>Success!</div>
+                    <div>{"We'll be in touch soon."}</div>
+                  </>
+                ))}
             </div>
             <Button
               variant={"primary"}
