@@ -1,5 +1,5 @@
 export interface ImageType {
-    id: string;
-    url: string;
-    alt: string;
+  id: string;
+  url: string;
+  alt: string;
 }

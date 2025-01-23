@@ -35,31 +35,36 @@ const GetInTouch = ({ id }: { id: string }) => {
     };
 
     const formdata = new FormData(event.currentTarget);
-    const urlparams = new URLSearchParams(Array.from(formdata.entries()).map(([k, v]) => {
-      return [k, v as string];
-    }));
+    const urlparams = new URLSearchParams(
+      Array.from(formdata.entries()).map(([k, v]) => {
+        return [k, v as string];
+      }),
+    );
 
     return await fetch(url, {
       method: "POST",
       headers,
       body: urlparams,
-    }).then(async (response) => {
-      if (!response.ok) {
-        const errors = await response.json();
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          const errors = await response.json();
+          turnstile.reset();
+          setErrors(errors);
+        } else {
+          setErrors({});
+          setSuccess(true);
+        }
+      })
+      .catch(() => {
         turnstile.reset();
-        setErrors(errors);
-      } else {
-        setErrors({});
-        setSuccess(true);
-      }
-    }).catch(() => {
-      turnstile.reset();
-      setErrors({
-        "message": "Network error. Please try again."
+        setErrors({
+          message: "Network error. Please try again.",
+        });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    }).finally(() => {
-      setLoading(false);
-    });
   };
 
   return (
@@ -67,7 +72,7 @@ const GetInTouch = ({ id }: { id: string }) => {
       <form id={id} onSubmit={sendData}>
         <div
           className={cn(
-            "bg-white/30 border-[1.5px] border-white rounded-2xl py-10 px-14 space-y-6"
+            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-14 py-10",
           )}
           style={boxShadow}
         >
@@ -117,7 +122,7 @@ const GetInTouch = ({ id }: { id: string }) => {
             required
             error={errors.email}
           />
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <div className="text-sm text-green-500">
               {errors.message ||
                 (success && (
@@ -131,7 +136,7 @@ const GetInTouch = ({ id }: { id: string }) => {
               variant={"primary"}
               type="submit"
               disabled={token === null || success}
-              className="w-[125px] h-[52px]"
+              className="h-[52px] w-[125px]"
             >
               {loading ? <LoadingSpinner /> : "Submit"}
             </Button>

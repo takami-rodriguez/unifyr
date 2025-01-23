@@ -15,7 +15,7 @@ const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
     <Link href={`${NavLink.Resources}${article.frontmatter.slug}/`}>
       <div
-        className="rounded-2xl space-y-6 py-4 h-full max-h-full bg-white overflow-hidden"
+        className="h-full max-h-full space-y-6 overflow-hidden rounded-2xl bg-white py-4"
         style={boxShadow}
       >
         {/* {article.frontmatter.featuredImage && (!index  || index <=2) && (

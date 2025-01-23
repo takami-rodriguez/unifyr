@@ -1,9 +1,7 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
 import { authorData } from "@/data/authorData";
 import { SEOData } from "@/types/seo";
 export const sortSEOFromFrontmatter = (seo: {
-  [key: string]: any;
+  [key: string]: string;
 }): SEOData => {
   return {
     title: seo.title || "",
@@ -14,7 +12,7 @@ export const sortSEOFromFrontmatter = (seo: {
   };
 };
 
-export const sortFrontMatter = (frontmatter: { [key: string]: any }) => {
+export const sortFrontMatter = (frontmatter: { [key: string]: string }) => {
   return {
     title: frontmatter.title || "",
     slug: frontmatter.slug || "",
@@ -28,6 +26,6 @@ export const sortFrontMatter = (frontmatter: { [key: string]: any }) => {
   };
 };
 
-export const getAuthorData = (author: "brian") => {
-  return authorData[author];
+export const getAuthorData = (author: string) => {
+  return authorData[author] ?? "";
 };

@@ -34,15 +34,21 @@ export type AccordionSectionProps = {
 
 const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
   const [selectedId, setSelectedId] = React.useState<string>(
-    blok.content[0]!._uid
+    blok.content[0]!._uid,
   );
-  const selected = blok.content.find((c) => c._uid === selectedId)
+  const selected = blok.content.find((c) => c._uid === selectedId);
   return (
-    <div className="max-w-5xl mx-auto space-y-14">
-      <div className="mt-10 space-y-4 flex flex-col items-center max-w-3xl mx-auto">
-        <h3 className="text-3xl md:text-5xl font-semibold md:text-center md:leading-[1.125]">{blok.mainTitle}</h3>
-        <div className=" max-w-xl mx-auto   md:text-center">
-          <span className={cn("text-xl md:text-center font-sans font-light text-grey-900/80")}>
+    <div className="mx-auto max-w-5xl space-y-14">
+      <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center space-y-4">
+        <h3 className="text-3xl font-semibold md:text-center md:text-5xl md:leading-[1.125]">
+          {blok.mainTitle}
+        </h3>
+        <div className="mx-auto max-w-xl md:text-center">
+          <span
+            className={cn(
+              "font-sans text-xl font-light text-grey-900/80 md:text-center",
+            )}
+          >
             {blok.para}
           </span>
         </div>
@@ -56,25 +62,25 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div
-          className={cn("hidden lg:block col-span-1  relative h-full w-full ", {
+          className={cn("relative col-span-1 hidden h-full w-full lg:block", {
             "lg:order-last": !blok.leftImage,
           })}
         >
           <AspectRatio
             ratio={540 / 475}
-            className="relative rounded-2xl overflow-hidden"
+            className="relative overflow-hidden rounded-2xl"
           >
             <Image
               src={selected!.image.url}
               alt={selected!.image.alt || ""}
               fill
-              className={cn("object-contain object-center rounded-2xl")}
+              className={cn("rounded-2xl object-contain object-center")}
             />
           </AspectRatio>
         </div>
-        <div className="col-span-1 flex flex-col justify-center h-full lg:py-30 ">
+        <div className="lg:py-30 col-span-1 flex h-full flex-col justify-center">
           <Accordion
             type="single"
             defaultValue={selectedId}
@@ -88,13 +94,13 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
                     selectedId === feature._uid && blok.colour === "blue500",
                   ["border-l-[3px] border-green-700"]:
                     selectedId === feature._uid && blok.colour === "yellow500",
-                  "border-l-[3px] border-grey": selectedId !== feature._uid,
+                  "border-grey border-l-[3px]": selectedId !== feature._uid,
                 })}
                 value={feature._uid}
               >
                 <div className="ml-4">
                   <AccordionTrigger
-                    className={cn("text-2xl font-bold leading-9 text-left", {
+                    className={cn("text-left text-2xl font-bold leading-9", {
                       "py-8 text-[#9FA2A9]": selectedId !== feature._uid,
                       "py-2 text-black": selectedId === feature._uid,
                     })}
@@ -104,15 +110,15 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
                   </AccordionTrigger>
                   <AccordionContent>
                     <div className="flex flex-col lg:flex-none">
-                      <div className="text-base sm:text-lg text-grey-900/80 font-extralight">
+                      <div className="text-base font-extralight text-grey-900/80 sm:text-lg">
                         {feature.content}
                       </div>
-                      <div className="lg:hidden relative min-h-[294px]  sm:min-h-[450px] lg:min-h-[700px] h-full w-full">
+                      <div className="relative h-full min-h-[294px] w-full sm:min-h-[450px] lg:hidden lg:min-h-[700px]">
                         <Image
                           src={feature!.image.url}
                           alt={feature!.image.alt || ""}
                           fill
-                          className="object-contain object-center "
+                          className="object-contain object-center"
                         />
                       </div>
                     </div>

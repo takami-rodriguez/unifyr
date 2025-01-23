@@ -21,7 +21,7 @@ const tabs: {
 ];
 const FeaturesAccordionSection = () => {
   const [selectedId, setSelectedId] = React.useState<"supplier" | "partner">(
-    "supplier"
+    "supplier",
   );
 
   return (
@@ -35,7 +35,7 @@ const FeaturesAccordionSection = () => {
               onClick={() => setSelectedId(tab.id)}
               hasIcon
             >
-              <span className="flex items-center md:space-x-2 ">
+              <span className="flex items-center md:space-x-2">
                 <span className="hidden md:block">
                   {tab.title === "Supplier" ? (
                     <SupplierIcon selected={selectedId === tab.id} />
@@ -49,8 +49,12 @@ const FeaturesAccordionSection = () => {
           ))}
         </TabsList>
       </Tabs>
-     {selectedId ==="supplier" && <AccordionSection blok={accordionSections["supplier"]} />}
-     {selectedId ==="partner" &&  <AccordionSection blok={accordionSections["partner"]} />}
+      {selectedId === "supplier" && (
+        <AccordionSection blok={accordionSections["supplier"]} />
+      )}
+      {selectedId === "partner" && (
+        <AccordionSection blok={accordionSections["partner"]} />
+      )}
     </div>
   );
 };

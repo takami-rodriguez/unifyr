@@ -14,7 +14,7 @@ const TitleSection = ({ article }: TitleSectionProps) => {
       {/* <h2 className="text-primary uppercase">
         {featured ? "Featured Story" : format(new Date(article.frontmatter.publishedDate), "MMMM dd")}
       </h2> */}
-      <p className="font-bold text-[24px] leading-9 text-blue-900">
+      <p className="text-[24px] font-bold leading-9 text-blue-900">
         {article.frontmatter.title}
       </p>
       <div dangerouslySetInnerHTML={{ __html: article.frontmatter.excerpt }} />

@@ -7,13 +7,13 @@ import { FEATURED_ARTICLE_SLUG } from "@/data/config";
 export const fetchAllArticles = async (): Promise<ArticleTemplateProps[]> => {
   const slugData = await getAllBlogSlugs();
   const allArticlePromises = slugData.map((fileName) =>
-    fetchArticleBySlug(fileName.slug)
+    fetchArticleBySlug(fileName.slug),
   );
   return Promise.all(allArticlePromises);
 };
 
 export const fetchArticleBySlug = async (
-  slug: string
+  slug: string,
 ): Promise<ArticleTemplateProps> => {
   const fileName = fs.readFileSync(`./src/data/blogs/${slug}.md`, "utf-8");
   const { data: fData, content } = matter(fileName);

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between py-2.5 max-w-5xl mx-auto w-full">
+    <nav className="mx-auto flex w-full max-w-5xl items-center justify-between py-2.5">
       <Link href={`${NavLink.Home}`} className="h-[32px]">
         <Logo />
       </Link>
@@ -14,12 +14,12 @@ export default function Navbar() {
           {navLinks.map((l) => (
             <li
               key={l.label + "navLink"}
-              className=" text-lg group relative leading-6 text-grey-900"
+              className="group relative text-lg leading-6 text-grey-900"
             >
-              <Link href={l.href} className="py-2 block">
+              <Link href={l.href} className="block py-2">
                 {l.label}
               </Link>
-              <div className="hidden absolute -bottom-2 w-full group-hover:block border-b-2 border-black"></div>
+              <div className="absolute -bottom-2 hidden w-full border-b-2 border-black group-hover:block"></div>
             </li>
           ))}
         </ul>

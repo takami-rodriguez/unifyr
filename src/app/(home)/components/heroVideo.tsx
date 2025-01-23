@@ -26,9 +26,9 @@ const HeroVideo = () => {
     };
   }, []);
   return (
-    <div className="max-w-[800px] my-12 mx-auto ">
+    <div className="mx-auto my-12 max-w-[800px]">
       <AspectRatio
-        className="relative bg-grey-100 border border-gray-100 rounded-2xl p-1"
+        className="relative rounded-2xl border border-gray-100 bg-grey-100 p-1"
         ratio={16 / 9}
       >
         <div id={"video-wrapper"}></div>

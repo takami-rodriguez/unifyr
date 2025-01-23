@@ -8,13 +8,11 @@ type CategoryBadgeProps = {
 const CategoryBadge = ({ tags }: CategoryBadgeProps) => {
   return (
     <div className="flex space-x-2">
-      {
-        tags.map((tag) => (
-          <Badge key={tag} variant="primary" className="uppercase">
-            {tag}
-          </Badge>
-        ))
-      }
+      {tags.map((tag) => (
+        <Badge key={tag} variant="primary" className="uppercase">
+          {tag}
+        </Badge>
+      ))}
     </div>
   );
 };

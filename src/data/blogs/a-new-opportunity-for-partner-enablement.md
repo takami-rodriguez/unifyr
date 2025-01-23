@@ -1,7 +1,7 @@
 ---
 title: "A new opportunity for partner enablement"
 excerpt: Unifyr+ is here and presents not only an opportunity for partners to streamline multi-supplier engagement workflows, but for suppliers to enable their partners.
-publishedDate: '2025-01-16T11:00:00.000Z'
+publishedDate: "2025-01-16T11:00:00.000Z"
 category: Marketing
 draft: false
 featuredImage: "/images/image.png"

@@ -4,7 +4,7 @@ import { Metadata, ResolvingMetadata } from "next";
 
 export const getDynamicPageSEOData = async (
   data: SEOData,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   // fetch data
   if (!data) return metadata;
@@ -17,10 +17,7 @@ export const getDynamicPageSEOData = async (
     openGraph: {
       title: data.fullTitle || (data?.og_title || data?.title) + " — Unifyr",
       description: data?.og_description || data?.description,
-      images: [
-        data?.og_image || "",
-        ...previousImages,
-      ],
+      images: [data?.og_image || "", ...previousImages],
     },
   };
 };

@@ -14,12 +14,13 @@ import { SEOData } from "@/types/seo";
 
 const metaData: SEOData = {
   fullTitle: "Unifyr: Supplier and Partner Management Software",
-  description: "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
-}
+  description:
+    "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
+};
 
 export async function generateMetadata(
-  { params: { } }: PageProps,
-  parent: ResolvingMetadata
+  { params: {} }: PageProps,
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   return getDynamicPageSEOData(metaData, parent);
 }
@@ -38,7 +39,7 @@ export default function Home() {
         <FeaturesAndTabs />
       </div>
       <CaseStudy />
-      <div className="py-12 ">
+      <div className="py-12">
         <Banner />
       </div>
     </main>

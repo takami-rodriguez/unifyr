@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
-import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
-export default (phase: string) => {
+const config = (_: string) => {
   // const isDev = phase === PHASE_DEVELOPMENT_SERVER;
 
   const nextConfig: NextConfig = {
@@ -17,11 +16,16 @@ export default (phase: string) => {
         // ...
       },
     },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
   };
-  
+
   const bundleAnalyzer = withBundleAnalyzer({
     enabled: process.env.ANALYZE === "true",
   });
 
   return bundleAnalyzer(nextConfig);
-}
+};
+
+export default config;

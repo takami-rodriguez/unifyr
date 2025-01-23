@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const LoadingSpinner = (): JSX.Element => {
   return (
     <div role="status py-2 h-[]">
       <svg
         aria-hidden="true"
-        className=" h-8 w-8 animate-spin fill-pink text-gray-200 dark:text-gray-600"
+        className="h-8 w-8 animate-spin fill-pink text-gray-200 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

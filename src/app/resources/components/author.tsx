@@ -10,8 +10,8 @@ const Author = ({ author }: AuthorType) => {
   return (
     <div>
       <div
-        className={clsx("flex space-x-6 sm:items-center ", {
-          " text-center mx-auto": !author?.image?.url,
+        className={clsx("flex space-x-6 sm:items-center", {
+          "mx-auto text-center": !author?.image?.url,
         })}
       >
         {author?.image?.url && (
@@ -24,11 +24,11 @@ const Author = ({ author }: AuthorType) => {
           />
         )}
         <div
-          className={clsx("lg:mx-auto lg:text-left  sm:max-w-none  ", {
+          className={clsx("sm:max-w-none lg:mx-auto lg:text-left", {
             "max-w-40": author?.image?.url,
           })}
         >
-          <h4 className="text-3.5xl font-normal ">{author?.name}</h4>
+          <h4 className="text-3.5xl font-normal">{author?.name}</h4>
         </div>
       </div>
     </div>

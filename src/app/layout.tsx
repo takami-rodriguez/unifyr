@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
-        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans `}
+        className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
         <ClientLayout>
           <div className="px-4 md:px-5">

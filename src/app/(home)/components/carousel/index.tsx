@@ -82,19 +82,19 @@ export default function HomeCarousel() {
       title: "Partner",
     },
   ];
-  const getIcon = ( tabId:string) => {
+  const getIcon = (tabId: string) => {
     switch (tabId) {
       case "supplier":
-        return <SupplierIcon selected={tabs[selectedIndex].id === tabId}/>;
+        return <SupplierIcon selected={tabs[selectedIndex].id === tabId} />;
       case "agency":
-        return <AgencyIcon selected={tabs[selectedIndex].id === tabId}/>;
+        return <AgencyIcon selected={tabs[selectedIndex].id === tabId} />;
       case "partner":
-        return <PartnersIcon selected={tabs[selectedIndex].id === tabId}/>;
+        return <PartnersIcon selected={tabs[selectedIndex].id === tabId} />;
     }
-  }
+  };
   return (
-    <div className="mt-10 mx-auto max-w-[1400px] relative z-50">
-      <div className="rounded-2xl overflow-hidden py-8" style={bgGradient}>
+    <div className="relative z-50 mx-auto mt-10 max-w-[1400px]">
+      <div className="overflow-hidden rounded-2xl py-8" style={bgGradient}>
         <Tabs value={tabs[selectedIndex].id} className="flex justify-center">
           <TabsList hasIcon>
             {tabs.map((tab, index) => (
@@ -103,10 +103,8 @@ export default function HomeCarousel() {
                 key={tab.id}
                 onClick={() => onTabsButtonClick(index)}
               >
-                <span className="flex items-center md:space-x-2 ">
-                  <span className="hidden md:block">
-                    {getIcon(tab.id)}
-                  </span>
+                <span className="flex items-center md:space-x-2">
+                  <span className="hidden md:block">{getIcon(tab.id)}</span>
                   <div>{tab.title}</div>
                 </span>
               </TabsTrigger>
@@ -117,11 +115,11 @@ export default function HomeCarousel() {
           opts={{
             loop: true,
           }}
-          className="relative mt-8 mb-12 h-full px-1 md:px-14"
+          className="relative mb-12 mt-8 h-full px-1 md:px-14"
           carouselRef={emblaRef}
           api={emblaApi}
         >
-          <CarouselContent className="flex ml-[calc(2rem * -2)] items-center">
+          <CarouselContent className="ml-[calc(2rem * -2)] flex items-center">
             {slides.map((slide, index) => (
               <CarouselItem
                 key={index}
@@ -131,45 +129,44 @@ export default function HomeCarousel() {
                 }}
               >
                 <Card
-                  className={cn("border-0 bg-transparent shadow-none bg-white")}
+                  className={cn("border-0 bg-transparent bg-white shadow-none")}
                 >
                   <CardContent
                     className={cn(
-                      "grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 p-6",
+                      "grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-2",
                       {
                         "max-h-[80%]": selectedIndex !== index,
-                      }
+                      },
                     )}
                   >
                     <div className="flex flex-col items-start justify-center gap-6">
                       <h2
-                        className="text-4xl font-bold md:text-5xl font-heading md:leading-[56px]"
+                        className="font-heading text-4xl font-bold md:text-5xl md:leading-[56px]"
                         dangerouslySetInnerHTML={{
                           __html: slide.title.replace(
                             new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),
                             (match) =>
                               renderToString(
-                                <span style={gradientText}>{match}</span>
-                              )
+                                <span style={gradientText}>{match}</span>,
+                              ),
                           ),
                         }}
                       />
-                      <p className="text-grey-900/80 leading-relaxed md:text-xl">
+                      <p className="leading-relaxed text-grey-900/80 md:text-xl">
                         {slide.description}
                       </p>
                       {/* <Button variant={"outline"} fullWidth={tablet || mobile}>
                         {slide.cta}
                       </Button> */}
                     </div>
-                    <AspectRatio
-                      ratio={5 / 4}
-                      className="relative  "
-                    >
+                    <AspectRatio ratio={5 / 4} className="relative">
                       <Image
                         src={slide.image}
                         alt={""}
                         fill
-                        className={cn("object-contain object-center lg:object-right rounded-[25px] ")}
+                        className={cn(
+                          "rounded-[25px] object-contain object-center lg:object-right",
+                        )}
                       />
                     </AspectRatio>
                   </CardContent>
@@ -178,14 +175,14 @@ export default function HomeCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="absolute -bottom-14 left-5 md:left-14 w-[90%] mx-auto flex justify-between px-16">
+          <div className="absolute -bottom-14 left-5 mx-auto flex w-[90%] justify-between px-16 md:left-14">
             <CarouselPrevious
-              className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
+              className="relative border-0 bg-transparent text-primary hover:bg-white/20"
               onClick={onPrevButtonClick}
               disabled={prevBtnDisabled}
             />
             <CarouselNext
-              className="relative  bg-transparent border-0 hover:bg-white/20 text-primary"
+              className="relative border-0 bg-transparent text-primary hover:bg-white/20"
               onClick={onNextButtonClick}
               disabled={nextBtnDisabled}
             />

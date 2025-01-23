@@ -2,24 +2,27 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 export default function CaseStudy() {
   return (
-    <div className=" mx-auto py-5 md:py-12 max-w-5xl space-y-20">
+    <div className="mx-auto max-w-5xl space-y-20 py-5 md:py-12">
       {/* Testimonial Section */}
-      <section className="text-center space-y-8">
-        <blockquote className="text-3xl md:text-5xl font-bold font-heading max-w-[970px] mx-auto">
+      <section className="space-y-8 text-center">
+        <blockquote className="mx-auto max-w-[970px] font-heading text-3xl font-bold md:text-5xl">
           {
             "“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"
           }
         </blockquote>
-        <div className="flex flex-col items-center md:gap-3 ">
-          <div className="mx-auto w-full max-w-[251px] max-h-[40px]">
-
-          <AspectRatio
-            ratio={251 / 40}
-            className="relative mx-6 sm:mx-4 md:mx-0 "
+        <div className="flex flex-col items-center md:gap-3">
+          <div className="mx-auto max-h-[40px] w-full max-w-[251px]">
+            <AspectRatio
+              ratio={251 / 40}
+              className="relative mx-6 sm:mx-4 md:mx-0"
             >
-            <Image src="/images/partners/Panasonic.svg" alt="Panasonic" fill />
-          </AspectRatio>
-            </div>
+              <Image
+                src="/images/partners/Panasonic.svg"
+                alt="Panasonic"
+                fill
+              />
+            </AspectRatio>
+          </div>
           <div className="text-lg">
             <p className="">Chief Revenue Officer, Panasonic Connect</p>
           </div>

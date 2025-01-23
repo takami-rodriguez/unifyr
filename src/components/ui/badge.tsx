@@ -8,8 +8,7 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          "bg-grey-400/50  dark:bg-grey-700  ",
+        primary: "bg-grey-400/50  dark:bg-grey-700  ",
         outline: "bg-transparent text-grey-500 dark:text-grey-300 font-bold ",
       },
       size: {
@@ -22,7 +21,7 @@ const badgeVariants = cva(
       variant: "primary",
       size: "sm",
     },
-  }
+  },
 );
 
 export interface BadgeProps
@@ -31,11 +30,7 @@ export interface BadgeProps
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div
-      className={cn(badgeVariants({ variant }), className)}
-      {...props}
-      
-    />
+    <div className={cn(badgeVariants({ variant }), className)} {...props} />
   );
 }
 

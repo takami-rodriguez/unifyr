@@ -15,7 +15,7 @@ const ContactForm = () => {
     <div>
       <form id="1859" onSubmit={handleSubmit}>
         <div
-          className="bg-white rounded-2xl py-10 px-14 space-y-6"
+          className="space-y-6 rounded-2xl bg-white px-14 py-10"
           style={boxShadow}
         >
           <div className="grid grid-cols-2 gap-6">
@@ -40,7 +40,7 @@ const ContactForm = () => {
             <Label>Message</Label>
             <Textarea placeholder="Your message" />
           </div>
-          <div className="flex justify-end w-full">
+          <div className="flex w-full justify-end">
             <Button variant={"primary"} type="submit">
               Submit message
             </Button>

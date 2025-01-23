@@ -20,15 +20,15 @@ const Categories = ({
 }: CategoriesProps) => {
   return (
     <>
-      <div className="hidden lg:flex items-center justify-center font-bold max-w-5xl mx-auto  space-x-4 py-4">
+      <div className="mx-auto hidden max-w-5xl items-center justify-center space-x-4 py-4 font-bold lg:flex">
         {categories.map((category) => (
           <button
             key={category + "categoryTab"}
             onClick={() => setSelectedCategory(category)}
-            className={clsx("px-4 py-2 text-sm font-bold rounded-lg", {
-              "bg-primary text-white border-primary border":
+            className={clsx("rounded-lg px-4 py-2 text-sm font-bold", {
+              "border border-primary bg-primary text-white":
                 selectedCategory === category,
-              "text-grey-900 border-grey-900 border":
+              "border border-grey-900 text-grey-900":
                 selectedCategory !== category,
             })}
           >
@@ -36,9 +36,9 @@ const Categories = ({
           </button>
         ))}
       </div>
-      <div className="lg:hidden mb-8">
+      <div className="mb-8 lg:hidden">
         <Select onValueChange={setSelectedCategory}>
-          <SelectTrigger className="w-auto mx-auto bg-violet-500 text-white rounded-full">
+          <SelectTrigger className="mx-auto w-auto rounded-full bg-violet-500 text-white">
             <SelectValue
               placeholder={
                 selectedCategory.charAt(0).toUpperCase() +
@@ -48,10 +48,7 @@ const Categories = ({
           </SelectTrigger>
           <SelectContent className="bg-white">
             {categories.map((category) => (
-              <SelectItem
-                key={category + "categoryTab"}
-                value={category}
-              >
+              <SelectItem key={category + "categoryTab"} value={category}>
                 {category}
               </SelectItem>
             ))}

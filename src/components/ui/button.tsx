@@ -31,7 +31,7 @@ const buttonVariants = cva(
       variant: "primary",
       size: "md",
     },
-  }
+  },
 );
 
 export interface ButtonProps
@@ -43,19 +43,38 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, noBorder,fullWidth, asChild = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      noBorder,
+      fullWidth,
+      asChild = false,
+      ...props
+    },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
-      <div className={clsx({"bg-grey-100 border border-gray-100 rounded-2xl p-1":!noBorder, "w-full":fullWidth})}>
+      <div
+        className={clsx({
+          "rounded-2xl border border-gray-100 bg-grey-100 p-1": !noBorder,
+          "w-full": fullWidth,
+        })}
+      >
         <Comp
-          className={cn(buttonVariants({ variant, size, className }), {"border-none": noBorder,"w-full":fullWidth})}
+          className={cn(buttonVariants({ variant, size, className }), {
+            "border-none": noBorder,
+            "w-full": fullWidth,
+          })}
           ref={ref}
           {...props}
           // style={{boxShadow: "0px 0px 1px 0px #000"}}
         />
       </div>
     );
-  }
+  },
 );
 Button.displayName = "Button";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React  from "react";
+import React from "react";
 import { useSearchParams } from "next/navigation";
 import Categories from "./categories";
 import RemainingArticles from "./remainingArticles";
@@ -13,7 +13,7 @@ type ListArticlesProps = {
 const ListArticles = ({ articles }: ListArticlesProps) => {
   const queryParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = React.useState<string>(
-    queryParams.get("category") || "ALL"
+    queryParams.get("category") || "ALL",
   );
 
   return (
@@ -22,7 +22,7 @@ const ListArticles = ({ articles }: ListArticlesProps) => {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <div className=" pb-16 ">
+      <div className="pb-16">
         {articles && (
           <RemainingArticles
             selectedCategory={selectedCategory}

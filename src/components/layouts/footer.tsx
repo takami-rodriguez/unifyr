@@ -6,9 +6,9 @@ import { socialLinks } from "@/data/config";
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-white px-4 md:px-5">
-      <div className="flex flex-col sm:flex-row flex-wrap justify-between max-w-5xl mx-auto border-b border-gray-200 pb-8 space-y-8 sm:space-y-0">
-        <div className="col-span-1 flex flex-col justify-between h-full min-h-32">
+    <footer className="bg-white px-4 py-16 md:px-5">
+      <div className="mx-auto flex max-w-5xl flex-col flex-wrap justify-between space-y-8 border-b border-gray-200 pb-8 sm:flex-row sm:space-y-0">
+        <div className="col-span-1 flex h-full min-h-32 flex-col justify-between">
           <Link href={NavLink.Home}>
             <div className="h-[40px] w-[121px]">
               <Logo />
@@ -27,18 +27,21 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex sm:space-x-16 flex-col sm:flex-row space-y-8 sm:space-y-0">
+        <div className="flex flex-col space-y-8 sm:flex-row sm:space-x-16 sm:space-y-0">
           <div className="col-span-1">
-            <h4 className="text-lg font-bold pb-2">Company</h4>
+            <h4 className="pb-2 text-lg font-bold">Company</h4>
             <p className="text-grey-900/80">
-              Zift Solutions dba Unifyr<br />
-              964 High House Rd #3330<br />
-              Cary, NC 27513<br />
+              Zift Solutions dba Unifyr
+              <br />
+              964 High House Rd #3330
+              <br />
+              Cary, NC 27513
+              <br />
               United States
             </p>
           </div>
           <div className="col-span-1">
-            <h4 className="text-lg font-bold pb-2">Resources</h4>
+            <h4 className="pb-2 text-lg font-bold">Resources</h4>
             <ul className="space-y-2">
               <li className="text-grey-900/80">
                 <Link href={NavLink.Resources}>Blog</Link>
@@ -47,7 +50,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-5xl mx-auto w-full justify-between flex pt-4 flex-col sm:flex-row space-y-4 sm:space-y-0">
+      <div className="mx-auto flex w-full max-w-5xl flex-col justify-between space-y-4 pt-4 sm:flex-row sm:space-y-0">
         <div className="sm:order-last">
           <ul className="flex space-x-6 text-grey-900/80">
             <li className="min-w-28 sm:text-right">
@@ -58,8 +61,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="w-full ">
-          <p className=" text-grey-900/80">
+        <div className="w-full">
+          <p className="text-grey-900/80">
             © {new Date().getFullYear()} Unifyr. All rights reserved.
           </p>
         </div>

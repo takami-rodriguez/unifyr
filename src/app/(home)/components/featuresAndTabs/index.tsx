@@ -15,7 +15,7 @@ const tabs = [
   },
   {
     title: "Unifyr Pro",
-    value:TabValue.unifyrPro,
+    value: TabValue.unifyrPro,
   },
   {
     title: "Unifyr+",
@@ -26,12 +26,12 @@ const tabs = [
 export default function FeaturesAndTabs() {
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
 
-  const selectedData = useMemo(() => tabsData[selectedTab],[selectedTab])
+  const selectedData = useMemo(() => tabsData[selectedTab], [selectedTab]);
 
   return (
-    <div className="max-w-[1400px] mx-auto">
-      <div className="rounded-[3rem] overflow-hidden" style={bgGradient}>
-        <div className=" mx-auto px-10 lg:px-24 py-6 ">
+    <div className="mx-auto max-w-[1400px]">
+      <div className="overflow-hidden rounded-[3rem]" style={bgGradient}>
+        <div className="mx-auto px-10 py-6 lg:px-24">
           <div className="flex items-center justify-center">
             <Tabs defaultValue="zift">
               <TabsList>
@@ -48,22 +48,22 @@ export default function FeaturesAndTabs() {
             </Tabs>
           </div>
         </div>
-        <div className=" mx-auto px-6 lg:px-16  md:py-12">
+        <div className="mx-auto px-6 md:py-12 lg:px-16">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 lg:gap-12">
-            <div className="space-y-6 max-w-lg pt-8">
-              <h4 className="text-4xl font-semibold sm:text-5xl md:leading-[1.125] ">
+            <div className="max-w-lg space-y-6 pt-8">
+              <h4 className="text-4xl font-semibold sm:text-5xl md:leading-[1.125]">
                 {selectedData.title}
               </h4>
-              <p className="text-gray-900/80 font-light text-xl">
-              {selectedData.description}
+              <p className="text-xl font-light text-gray-900/80">
+                {selectedData.description}
               </p>
             </div>
-            <div className="flex items-center justify-center ">
+            <div className="flex items-center justify-center">
               <AspectRatio className="relative" ratio={519 / 365}>
                 <Image
                   src={selectedData.image}
                   alt="hero"
-                  className="object-cover object-center rounded-[25px] border-2 border-white"
+                  className="rounded-[25px] border-2 border-white object-cover object-center"
                   fill
                 />
               </AspectRatio>

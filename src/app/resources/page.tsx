@@ -2,19 +2,20 @@ import { fetchAllArticles, fetchResourcesPageData } from "@/queries/resources";
 import React from "react";
 import FeaturedArticle from "./components/featuredArticle";
 import Banner from "@/components/banner";
-import { getDynamicPageSEOData } from '@/lib/seoHelper';
-import { PageProps } from '@/types/page';
-import { SEOData } from '@/types/seo';
-import { Metadata, ResolvingMetadata } from 'next';
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import { PageProps } from "@/types/page";
+import { SEOData } from "@/types/seo";
+import { Metadata, ResolvingMetadata } from "next";
 
 const metaData: SEOData = {
   title: "Blog",
-  description: "The blog index for Unifyr articles. Learn more about proper partner relationship management and high-performance channel sales.",
-}
+  description:
+    "The blog index for Unifyr articles. Learn more about proper partner relationship management and high-performance channel sales.",
+};
 
 export async function generateMetadata(
-  { params: { } }: PageProps,
-  parent: ResolvingMetadata
+  { params: {} }: PageProps,
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   return getDynamicPageSEOData(metaData, parent);
 }
@@ -28,17 +29,15 @@ const ResourcesPage = async () => {
   //     article.frontmatter.title !== pageData.featuredArticle.frontmatter.title
   // );
   return (
-    <div className="overflow-x-hidden mb-1  space-y-12 py-12">
-      <div className="grid grid-col-1 lg:grid-cols-2 max-w-5xl gap-8 mx-auto">
-        {
-          allArticles.map((article) => {
-            return (
-              <div className="col-span-1" key={article.frontmatter._uid}>
-                <FeaturedArticle article={article} />
-              </div>
-            )
-          })}
-
+    <div className="mb-1 space-y-12 overflow-x-hidden py-12">
+      <div className="grid-col-1 mx-auto grid max-w-5xl gap-8 lg:grid-cols-2">
+        {allArticles.map((article) => {
+          return (
+            <div className="col-span-1" key={article.frontmatter._uid}>
+              <FeaturedArticle article={article} />
+            </div>
+          );
+        })}
       </div>
       {/* <Suspense fallback={<div>Loading...</div>}>
         {filteredArticles.length < 0 && (

@@ -1,11 +1,11 @@
-export const authorData = {
-    brian: {
-        _uid: "1B388F26-5707-4E39-AAD4-7872D9585708",
-        name: "Brian Carbone",
-        image: {
-          url: "/images/bchs-circ.webp",
-          alt: "Author",
-          id: "1-author-image",
-        },
-      }
-}
+export const authorData: Record<string, unknown> = {
+  brian: {
+    _uid: "1B388F26-5707-4E39-AAD4-7872D9585708",
+    name: "Brian Carbone",
+    image: {
+      url: "/images/bchs-circ.webp",
+      alt: "Author",
+      id: "1-author-image",
+    },
+  },
+};

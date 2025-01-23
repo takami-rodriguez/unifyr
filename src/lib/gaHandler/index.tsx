@@ -52,7 +52,7 @@ export default function Analytics() {
         functionality_storage: string;
         personalization_storage: string;
         security_storage: string;
-      }
+      },
     ) {
       window.dataLayer?.push({ p0, p1, p2 });
     }

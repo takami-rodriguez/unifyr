@@ -15,37 +15,48 @@ const listItems = [
 
 const metaData: SEOData = {
   title: "Book a call",
-  description: "Get started with supplier or partner relationship management today. Experience the industry-leading product in PRM, ZiftONE.",
-}
+  description:
+    "Get started with supplier or partner relationship management today. Experience the industry-leading product in PRM, ZiftONE.",
+};
 
 export async function generateMetadata(
-  { params: { } }: PageProps,
-  parent: ResolvingMetadata
+  { params: {} }: PageProps,
+  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   return getDynamicPageSEOData(metaData, parent);
 }
 
-
 const GetADemo = async () => {
   return (
-    <div className="max-w-5xl mx-auto pt-12 pb-32 md:pb-20">
-      <div className="grid grid-cols-1 lg:grid-cols-7 items-center gap-16 w-full">
+    <div className="mx-auto max-w-5xl pb-32 pt-12 md:pb-20">
+      <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-7">
         <div className="space-y-10 lg:col-span-4">
-          <h3 className="font-heading text-[4.375rem] leading-[5rem] font-bold ">
-            Successful partner channel programs <span style={gradientText}>start</span> here
+          <h3 className="font-heading text-[4.375rem] font-bold leading-[5rem]">
+            Successful partner channel programs{" "}
+            <span style={gradientText}>start</span> here
           </h3>
-          <p className="text-grey-900/80 text-lg">
-            The orchestration of partner ecosystems is cornerstone to the largest and most successful businesses, but reaching channel operations maturity doesn’t happen overnight.
+          <p className="text-lg text-grey-900/80">
+            The orchestration of partner ecosystems is cornerstone to the
+            largest and most successful businesses, but reaching channel
+            operations maturity doesn’t happen overnight.
           </p>
-          <p className="text-grey-900/80 text-lg">
-            Businesses rely on <span className="font-bold text-grey-900">scalable, deeply integrated</span> partner relationship management platforms to enable their channel managers in achieving mutual growth through channel partnerships.
+          <p className="text-lg text-grey-900/80">
+            Businesses rely on{" "}
+            <span className="font-bold text-grey-900">
+              scalable, deeply integrated
+            </span>{" "}
+            partner relationship management platforms to enable their channel
+            managers in achieving mutual growth through channel partnerships.
           </p>
-          <p className="text-grey-900/80 text-lg">Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.
+          <p className="text-lg text-grey-900/80">
+            Partners require intelligent tools to manage multiple supplier
+            relationships and maximize workflow efficiency. Unifyr offers the
+            industry-leading solutions to the toughest channel problems.
           </p>
-          <ul className="text-grey-900/80 text-lg space-y-4">
+          <ul className="space-y-4 text-lg text-grey-900/80">
             {listItems.map((item, index) => (
-              <li key={item + index} className="flex space-x-3 items-center">
-                <div className="bg-gradient p-1 rounded-full text-white h-[20px] min-w-[20px]" >
+              <li key={item + index} className="flex items-center space-x-3">
+                <div className="h-[20px] min-w-[20px] rounded-full bg-gradient p-1 text-white">
                   <Check size={"md"} />
                 </div>
                 <p>{item}</p>
