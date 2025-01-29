@@ -63,7 +63,6 @@ const GetADemo = async () => {
               </li>
             ))}
           </ul>
-          {/* <G2Leaders /> */}
         </div>
         <div className="lg:col-span-3">
           <GetInTouch id="1859" />
