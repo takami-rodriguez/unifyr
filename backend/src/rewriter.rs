@@ -73,7 +73,7 @@ fn make_csp(nonce: &str) -> String {
         script-src 'nonce-{nonce}' 'strict-dynamic'; \
         style-src 'self' 'nonce-{nonce}'; \
         style-src-attr 'unsafe-inline'; \
-        connect-src 'self' www.googletagmanager.com https://*.wistia.com https://*.wistia.net; \
+        connect-src 'self' www.googletagmanager.com https://*.mktoresp.com https://*.wistia.com https://*.wistia.net; \
         img-src 'self' data: www.googletagmanager.com https://*.wistia.com https://*.wistia.net; \
         media-src blob: https://*.wistia.com https://*.wistia.net; \
         frame-src https://challenges.cloudflare.com https://fast.wistia.com https://fast.wistia.net; \
