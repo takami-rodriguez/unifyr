@@ -1,18 +1,14 @@
 "use client";
-import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
 
 export default function Google() {
-  const pathname = usePathname();
-
   useEffect(() => {
-    if (pathname) {
-      sendGTMEvent({
-        event: "pageview",
-        page: pathname,
-      });
-    }
+    sendGTMEvent({
+      event: "page_view",
+      page_location: window.location.href,
+      page_referrer: document.referrer,
+    });
 
     // Check if consent cookie exists
     const consentGiven = document.cookie
@@ -68,7 +64,7 @@ export default function Google() {
         event: "cookie_consent_given",
       });
     });
-  }, [pathname]);
+  });
 
   return (
     <>
