@@ -1,14 +1,22 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { GoogleTagManager, sendGTMEvent } from "@next/third-parties/google";
 
 export default function Google() {
+  const prev = useRef<string | undefined>(undefined);
+
   useEffect(() => {
+    if (!prev.current) {
+      prev.current = document.referrer;
+    }
+
     sendGTMEvent({
       event: "page_view",
       page_location: window.location.href,
-      page_referrer: document.referrer,
+      page_referrer: prev.current,
     });
+
+    prev.current = window.location.href;
 
     // Check if consent cookie exists
     const consentGiven = document.cookie
