@@ -54,9 +54,6 @@ pub(crate) fn rewrite(resp: &mut Response) {
                 element!("script", |el| {
                     Ok(el.set_attribute("nonce", &nonce)?)
                 }),
-                element!("style", |el| {
-                    Ok(el.set_attribute("nonce", &nonce)?)
-                }),
             ],
             ..Default::default()
         },
@@ -71,13 +68,12 @@ fn make_csp(nonce: &str) -> String {
     format!(
         "default-src 'none'; \
         script-src 'nonce-{nonce}' 'strict-dynamic'; \
-        style-src 'self' 'nonce-{nonce}'; \
-        style-src-attr 'unsafe-inline'; \
-        connect-src 'self' www.googletagmanager.com https://*.mktoresp.com https://*.wistia.com https://*.wistia.net; \
+        style-src 'self' 'unsafe-inline' ; \
+        connect-src 'self' www.googletagmanager.com https://*.mktoresp.com https://app.apollo.io https://*.wistia.com https://*.wistia.net; \
         img-src 'self' data: www.googletagmanager.com https://*.wistia.com https://*.wistia.net; \
         media-src blob: https://*.wistia.com https://*.wistia.net; \
         frame-src https://challenges.cloudflare.com https://fast.wistia.com https://fast.wistia.net; \
-        font-src 'self'; \
+        font-src 'self' https://assets.apollo.io; \
         base-uri 'none'; \
         form-action 'self'; \
         frame-ancestors 'none'; \

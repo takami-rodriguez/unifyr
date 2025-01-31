@@ -14,6 +14,7 @@ import { FormEvent, useState } from "react";
 import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
 import LoadingSpinner from "../ui/loadingSpinner";
+import Script from "next/script";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const turnstile = useTurnstile();
@@ -55,9 +56,11 @@ const GetInTouch = ({ id }: { id: string }) => {
           setErrors({});
           setSuccess(true);
 
+          console.log("Routing...");
+
           window.ApolloMeetings.submit({
             map: false,
-            lead: formdata,
+            lead: Object.fromEntries(formdata.entries()),
           });
         }
       })
@@ -74,6 +77,16 @@ const GetInTouch = ({ id }: { id: string }) => {
 
   return (
     <div className="w-full">
+      <Script
+        type="text/javascript"
+        src="https://assets.apollo.io/js/meetings/meetings-widget.js"
+        onLoad={() => {
+          window.ApolloMeetings.initWidget({
+            appId: "6776bbc84e358502ceed3dce",
+            schedulingLink: "67o-gu1-m9c",
+          });
+        }}
+      />
       <form id={id} onSubmit={sendData}>
         <div
           className={cn(
