@@ -60,7 +60,11 @@ const GetInTouch = ({ id }: { id: string }) => {
 
           window.ApolloMeetings.submit({
             map: false,
-            lead: Object.fromEntries(formdata.entries()),
+            lead: Object.fromEntries(
+              formdata.entries().filter(([k, v]) => {
+                return ["email", "firstName", "lastName"].includes(k);
+              }),
+            ),
           });
         }
       })
