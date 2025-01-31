@@ -54,6 +54,11 @@ const GetInTouch = ({ id }: { id: string }) => {
         } else {
           setErrors({});
           setSuccess(true);
+
+          window.ApolloMeetings.submit({
+            map: false,
+            lead: formdata,
+          });
         }
       })
       .catch(() => {
