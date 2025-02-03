@@ -6,7 +6,7 @@ import Fall from "./fall";
 
 const G2Leaders = () => {
   return (
-    <div className="flex space-x-5">
+    <div className="flex space-x-5 justify-center">
       <div className="w-[88px]">
         <Winter />
       </div>

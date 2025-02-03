@@ -1,46 +1,19 @@
-import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 export default function CaseStudy() {
   return (
-    <div className="mx-auto max-w-5xl space-y-20 py-5 md:py-12">
-      {/* Testimonial Section */}
-      <section className="space-y-8 text-center">
-        <blockquote className="mx-auto max-w-[970px] font-heading text-3xl font-bold md:text-5xl">
-          {
-            "“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"
-          }
-        </blockquote>
-        <div className="flex flex-col items-center md:gap-3">
-          <div className="mx-auto max-h-[40px] w-full max-w-[251px]">
-            <AspectRatio
-              ratio={251 / 40}
-              className="relative mx-6 sm:mx-4 md:mx-0"
-            >
-              <Image
-                src="/images/partners/Panasonic.svg"
-                alt="Panasonic"
-                fill
-              />
-            </AspectRatio>
-          </div>
-          <div className="text-lg">
-            <p className="">Chief Revenue Officer, Panasonic Connect</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Study Section */}
-      {/* <section className="grid md:grid-cols-5 gap-24 items-center">
-        <div className="overflow-hidden col-span-3">
-          <div className="relative aspect-[3/2] ">
+    <section className="mx-auto max-w-5xl space-y-20 py-5 md:py-12">
+      <div className="grid items-center gap-24 md:grid-cols-5">
+        <div className="col-span-3 overflow-hidden">
+          <div className="relative aspect-[3/2]">
             <Image
               src="/images/caseStudy.jpeg"
               alt="Case Study"
-             fill
-              className="object-cover rounded-xl"
+              fill
+              className="rounded-xl object-cover"
             />
             <div className="absolute inset-0 p-8 text-white">
-              <h2 className="text-4xl font-serif mb-2">
+              <h2 className="mb-2 font-serif text-4xl">
                 Lorem Ipsum
                 <br />
                 Case Study
@@ -53,19 +26,24 @@ export default function CaseStudy() {
             </div>
           </div>
         </div>
-        <div className="space-y-8 col-span-2">
+        <div className="col-span-2 space-y-8">
           <h3 className="text-2xl font-medium">Resources</h3>
           <div className="space-y-5">
             {[1, 2, 3].map((item) => (
-              <div key={item} className="flex gap-10 items-start w-full">
-                <div className="w-full  sm:w-96">
+              <div key={item} className="flex w-full items-start gap-10">
+                <div className="w-full sm:w-96">
                   <AspectRatio ratio={16 / 9} className="relative">
-                    <Image alt="placeholder" fill src="/images/image.png" className="rounded-xl"/>
+                    <Image
+                      alt="placeholder"
+                      fill
+                      src="/images/image.png"
+                      className="rounded-xl"
+                    />
                   </AspectRatio>
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1 text-medium">LOREM IPSUM</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <h4 className="text-medium mb-1 font-medium">LOREM IPSUM</h4>
+                  <p className="text-muted-foreground text-sm">
                     Nam in velit malesuada, porttitor est in, accumsan lectus.
                     Integer sollicitudin.
                   </p>
@@ -74,7 +52,7 @@ export default function CaseStudy() {
             ))}
           </div>
         </div>
-      </section> */}
-    </div>
+      </div>
+    </section>
   );
 }

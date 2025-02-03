@@ -1,7 +1,7 @@
 "use client";
+import { partnerImages } from "@/data/partners";
 import Image from "next/image";
 import React from "react";
-import { partnerImages } from "../data";
 
 const Partners = () => {
   return (

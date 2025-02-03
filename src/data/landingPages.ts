@@ -9,16 +9,15 @@ export type LandingPageProps = {
 
 export const g2Data: LandingPageProps = {
   formId: "g2_formID",
-  title: "Successful partner channel programs start here",
-  titleHighlight: "start",
-  image: "/images/home/carousel/supplier.webp",
+  title: "Lorem ipsum dolor sit amet",
+  titleHighlight: "Lorem",
+  image: "/images/image.png",
   paragraphs: [
-    "The orchestration of partner ecosystems is cornerstone to the  largest and most successful businesses, but reaching channel  operations maturity doesn’t happen overnight.",
-    " Partners require intelligent tools to manage multiple supplier relationships and maximize workflow efficiency. Unifyr offers the industry-leading solutions to the toughest channel problems.",
+    "Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam et faucibus auctor. Curabitur a nisi eu lacus tempor blandit. Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
   ],
   listItems: [
-    "ZiftONE provides suppliers with PRM, TCMA, and LMS built to scale.",
-    "Unifyr+ helps partners manage many suppliers and stay atop them all.",
-    "Unifyr Pro gives agencies a marketplace to find business in the channel.",
+    "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
+    "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
+    "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
   ],
 };

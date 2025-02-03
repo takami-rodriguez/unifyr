@@ -20,11 +20,7 @@ export default function RootLayout({
   const noIndex = process.env.NO_INDEX === "true";
   return (
     <html lang="en">
-      <head>
-        {noIndex && <meta name="robots" content="noindex" />}
-        <Google />
-        <CookiePopUpBox />
-      </head>
+      <head>{noIndex && <meta name="robots" content="noindex" />}</head>
       <body
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
@@ -33,6 +29,8 @@ export default function RootLayout({
             <Navbar />
             {children}
           </div>
+          <Google />
+          <CookiePopUpBox />
         </ClientLayout>
         <Footer />
       </body>

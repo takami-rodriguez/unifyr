@@ -12,7 +12,11 @@ interface InputFieldProps
 const InputField = ({ label, error, ...inputProps }: InputFieldProps) => {
   return (
     <div className="space-y-1">
-      <Label>{label}</Label>
+      <Label>
+        {label}
+        {" "}
+        {inputProps.required && <span className="text-pink">*</span>}
+      </Label>
       <div className="relative">
         <Input {...inputProps} error={error} />
         <div className="absolute -bottom-5 text-sm text-red-500">{error}</div>

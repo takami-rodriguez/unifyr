@@ -15,6 +15,7 @@ import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
 import LoadingSpinner from "../ui/loadingSpinner";
 import Script from "next/script";
+import { sendFormData } from "@/queries/landingPage";
 
 const GetInTouch = ({ id }: { id: string }) => {
   const turnstile = useTurnstile();
@@ -27,26 +28,8 @@ const GetInTouch = ({ id }: { id: string }) => {
     event.preventDefault();
     setLoading(true);
 
-    const query = new URLSearchParams(window.location.search);
-    const url = new URL(`${process.env.NEXT_PUBLIC_URL}/forms/${id}`);
-    query.forEach((v, k) => url.searchParams.append(k, v));
-
-    const headers = {
-      "content-type": "application/x-www-form-urlencoded",
-    };
-
     const formdata = new FormData(event.currentTarget);
-    const urlparams = new URLSearchParams(
-      Array.from(formdata.entries()).map(([k, v]) => {
-        return [k, v as string];
-      }),
-    );
-
-    return await fetch(url, {
-      method: "POST",
-      headers,
-      body: urlparams,
-    })
+    return sendFormData(formdata, id)
       .then(async (response) => {
         if (!response.ok) {
           const errors = await response.json();
@@ -55,17 +38,6 @@ const GetInTouch = ({ id }: { id: string }) => {
         } else {
           setErrors({});
           setSuccess(true);
-
-          console.log("Routing...");
-
-          window.ApolloMeetings.submit({
-            map: false,
-            lead: Object.fromEntries(
-              formdata.entries().filter(([k, v]) => {
-                return ["email", "firstName", "lastName"].includes(k);
-              }),
-            ),
-          });
         }
       })
       .catch(() => {

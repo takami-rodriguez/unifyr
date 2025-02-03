@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import InputField from "@/components/forms/components/inputField";
 import { Button } from "@/components/ui/button";
 import LoadingSpinner from "@/components/ui/loadingSpinner";
+import { sendFormData } from "@/queries/landingPage";
 
 const LandingPageForm = ({ id }: { id: string }) => {
   const turnstile = useTurnstile();
@@ -17,27 +18,9 @@ const LandingPageForm = ({ id }: { id: string }) => {
   const sendData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-
-    const query = new URLSearchParams(window.location.search);
-    const url = new URL(`${process.env.NEXT_PUBLIC_URL}/forms/${id}`);
-    query.forEach((v, k) => url.searchParams.append(k, v));
-
-    const headers = {
-      "content-type": "application/x-www-form-urlencoded",
-    };
-
+    
     const formdata = new FormData(event.currentTarget);
-    const urlparams = new URLSearchParams(
-      Array.from(formdata.entries()).map(([k, v]) => {
-        return [k, v as string];
-      }),
-    );
-
-    return await fetch(url, {
-      method: "POST",
-      headers,
-      body: urlparams,
-    })
+    return sendFormData(formdata, id)
       .then(async (response) => {
         if (!response.ok) {
           const errors = await response.json();

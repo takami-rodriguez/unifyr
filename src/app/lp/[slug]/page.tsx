@@ -1,11 +1,20 @@
 import React from "react";
-import { gradientText } from "@/data/styleHelpers";
 import { Check } from "lucide-react";
 import { PageProps } from "@/types/page";
-import { getLPData } from "@/queries/landingPage";
-import { renderToString } from "react-dom/server";
+import {
+  getAllLPPageSlugs,
+  getLPData,
+  LandingPageSlug,
+} from "@/queries/landingPage";
 import LandingPageForm from "./components/lpForm";
 import G2Leaders from "@/app/(home)/components/g2Leaders";
+import LPPageTitle from "./components/pageTitle";
+import Partners from "@/components/partners";
+import Image from "next/image";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { cn } from "@/lib/utils";
+import { boxShadow } from "@/data/styleHelpers";
+import Testimonial from "@/components/testimonial";
 
 // TODO - do we need SEO data for landing pages?
 
@@ -22,29 +31,37 @@ import G2Leaders from "@/app/(home)/components/g2Leaders";
 //   return getDynamicPageSEOData(metaData, parent);
 // }
 
-const LandingPageTemplate = async ({ params }: PageProps) => {
-  const data = await getLPData(String((await params).slug));
+export function generateStaticParams() {
+  console.log("generateStaticParams", getAllLPPageSlugs());
+  return getAllLPPageSlugs();
+}
+export const dynamicParams = false;
 
+const LandingPageTemplate = async ({ params }: PageProps) => {
+  const data = await getLPData((await params).slug as LandingPageSlug);
   const listItems = data?.listItems;
   return (
-    <div className="mx-auto max-w-5xl pb-32 pt-12 md:pb-20">
+    <main className="mx-auto max-w-5xl pb-32 pt-12 md:pb-20">
       <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-7">
-        <div className="space-y-10 lg:col-span-4">
-          <h1
-            className="font-heading text-[4.375rem] font-bold leading-[5rem]"
-            dangerouslySetInnerHTML={{
-              __html: data.title.replace(
-                new RegExp(`\\b${data.titleHighlight}\\b`, "i"),
-                (match) =>
-                  renderToString(<span style={gradientText}>{match}</span>),
-              ),
-            }}
-          />
+        <div className="space-y-6 lg:col-span-4">
+          <LPPageTitle data={data} />
           {data.paragraphs.map((paragraph, index) => (
             <p key={index} className="text-lg text-grey-900/80">
               {paragraph}
             </p>
           ))}
+          {
+            data.image && (
+              <AspectRatio ratio={16 / 9} className="relative rounded-3xl border-[8px] border-[#F5F3FB] overflow-hidden -mx-3">
+                <Image
+                  src={data.image}
+                  alt={data.title}
+                  fill
+                  className="object-cover object-center border-[8px] rounded-2xl border-white"
+                />
+              </AspectRatio>
+            )
+          }
           <ul className="space-y-4 text-lg text-grey-900/80">
             {listItems.map((item, index) => (
               <li key={item + index} className="flex items-center space-x-3">
@@ -55,15 +72,26 @@ const LandingPageTemplate = async ({ params }: PageProps) => {
               </li>
             ))}
           </ul>
-          {/* <G2Leaders /> */}
         </div>
         <div className="lg:col-span-3">
           <LandingPageForm id={data.formId} />
-          <G2Leaders />
-
+          <div className="mt-5">
+            <G2Leaders />
+          </div>
         </div>
       </div>
-    </div>
+      <div
+        className={cn(
+          "mt-20 space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-14 py-10",
+        )}
+        style={boxShadow}
+      >
+        <Partners />
+      </div>
+      <div className="mt-20">
+        <Testimonial />
+      </div>
+    </main>
   );
 };
 

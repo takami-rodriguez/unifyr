@@ -1,14 +1,14 @@
-import Logo from "./logo";
+"use client";
 import { Button } from "@/components/ui/button";
 import { NavLink, navLinks } from "@/data/navLinks";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 
-export default function Navbar() {
-  return (
-    <nav className="mx-auto flex w-full max-w-5xl items-center justify-between py-2.5">
-      <Link href={`${NavLink.Home}`} className="h-[32px]">
-        <Logo />
-      </Link>
+const Navigation = () => {
+  const pathname = usePathname();
+  if (!pathname.includes("/lp/")) {
+    return (
       <div className="flex items-center space-x-11">
         <ul className="flex items-center space-x-8">
           {navLinks.map((l) => (
@@ -29,6 +29,10 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-    </nav>
-  );
-}
+    );
+  } else {
+    return <></>;
+  }
+};
+
+export default Navigation;

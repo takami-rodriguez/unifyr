@@ -14,7 +14,7 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
     <div
       className={cn({ "bg-grey-100": !pathname.includes(NavLink.BookACall) })}
       style={
-        pathname.includes(NavLink.BookACall)
+        pathname.includes(NavLink.BookACall) || pathname.includes("/lp/")
           ? {
               background:
                 "radial-gradient(461.91% 160.49% at 17.47% -33.36%, rgba(215, 14, 134, 0.04) 0%, rgba(36, 56, 139, 0.05) 99.68%)",
