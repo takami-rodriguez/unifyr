@@ -1,0 +1,40 @@
+image: nixos/nix:latest
+
+variables:
+  NIX_CONFIG: "experimental-features = nix-command flakes"
+  CACHE_DIR: ".nix_cache"
+
+definitions:
+  caches:
+    nix-cache: $CACHE_DIR
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy Production
+          script:
+            - if [ -d "$CACHE_DIR" ]; then nix copy --all --no-check-sigs --from $CACHE_DIR; rm -r $CACHE_DIR; fi
+            - nix run .#production
+            - nix copy --no-check-sigs --to local?root=$CACHE_DIR \
+                .#production.frontend \
+                .#production.frontend.npmDeps \
+                .#production.backend \
+                .#production.backend.cargoArtifacts \
+                .#production.backend.cargoVendorDir
+          caches:
+            - nix-cache
+    staging:
+      - step:
+          name: Deploy Staging
+          script:
+            - if [ -d "$CACHE_DIR" ]; then nix copy --all --no-check-sigs --from $CACHE_DIR; rm -r $CACHE_DIR; fi
+            - nix run .#staging
+            - nix copy --no-check-sigs --to local?root=$CACHE_DIR \
+                .#staging.frontend \
+                .#staging.frontend.npmDeps \
+                .#staging.backend \
+                .#staging.backend.cargoArtifacts \
+                .#staging.backend.cargoVendorDir
+          caches:
+            - nix-cache

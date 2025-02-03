@@ -4,7 +4,7 @@ import Navbar from "@/components/layouts/navbar";
 import Footer from "@/components/layouts/footer";
 import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
-import GAHandler from "@/lib/gaHandler";
+import Google from "@/lib/gaHandler";
 import ClientLayout from "@/components/layouts/clientLayout";
 
 export const metadata: Metadata = {
@@ -20,7 +20,11 @@ export default function RootLayout({
   const noIndex = process.env.NO_INDEX === "true";
   return (
     <html lang="en">
-      <head>{noIndex && <meta name="robots" content="noindex" />}</head>
+      <head>
+        {noIndex && <meta name="robots" content="noindex" />}
+        <Google />
+        <CookiePopUpBox />
+      </head>
       <body
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
@@ -31,8 +35,6 @@ export default function RootLayout({
           </div>
         </ClientLayout>
         <Footer />
-        <GAHandler />
-        <CookiePopUpBox />
       </body>
     </html>
   );

@@ -8,7 +8,7 @@ export const tabsData = {
   [TabValue.zift]: {
     title: "Scalable PRM for the smartest companies",
     description:
-      "ZiftONE is the most advanced PRM solution with key integrations into the platforms you already use.",
+      "ZiftONE is the most advanced PRM solution with key integrations into the platforms you already use. Unifyr offers bespoke PRM implementations to ensure your partner portal and administrative experience complement the tools your business uses to succeed.",
     image: "/images/home/features/ziftone.webp",
     features: [
       {
@@ -37,7 +37,7 @@ export const tabsData = {
   [TabValue.unifyrPro]: {
     title: "The fastest way to find new business",
     description:
-      "Unifyr Pro is a marketplace for agencies to discover suppliers and partners in need of channel expertise.",
+      "Unifyr Pro is a marketplace for agencies to discover suppliers and partners in need of channel expertise. Unifyr Pro is perfect for agencies looking to scale hand-in-hand with suppliers and their partners—something traditional PRM solutions can't offer.",
     image: "/images/home/features/unifyrpro.webp",
     features: [
       {
@@ -64,9 +64,9 @@ export const tabsData = {
     ],
   },
   [TabValue.unifyrPlus]: {
-    title: "Central command center for efficient partners",
+    title: "Central command center for partners",
     description:
-      "Unifyr+ is the first unified interface for partners that work with many suppliers.",
+      "Unifyr+ is the first unified interface for partners that work with many suppliers. As a partner, committing to the Unifyr ecosystem of products ensures superior capability to scale the total count of channel partnerships compared to traditional multi-supplier management.",
     image: "/images/home/features/unifyrplus.webp",
     features: [
       {
