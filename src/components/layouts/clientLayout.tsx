@@ -18,9 +18,10 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
         className={cn({ "bg-grey-100": !formPages })}
         style={
           formPages
-            ? {
+            ?
+             {
                 background:
-                  "linear-gradient(140deg, rgba(215, 14, 134, 0.04) 2.08%, rgba(36, 56, 139, 0.05) 91.51%)",
+                  "linear-gradient(110deg, rgba(215, 14, 134, 0.02) 30%, rgb(36, 56, 139,  0.01) 90%)",
               }
             : {}
         }
