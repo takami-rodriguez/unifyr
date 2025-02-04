@@ -87,14 +87,14 @@ const LandingPageForm = ({ id }: { id: string }) => {
             required
             error={errors.email}
           />
-          <div className="space-y-1">
+          {/*<div className="space-y-1">
             <Label>Message </Label>
             <div className="relative">
-              <Textarea />
+              <Textarea name="" />
 
-              {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
+              <div className="absolute -bottom-5 text-sm text-red-500">""</div>
             </div>
-          </div>
+          </div>*/}
           <div className="flex items-center justify-between">
             <div className="text-sm text-green-500">
               {errors.message ||

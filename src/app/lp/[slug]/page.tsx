@@ -51,12 +51,12 @@ const LandingPageTemplate = async ({ params }: PageProps) => {
           ))}
           {
             data.image && (
-              <AspectRatio ratio={5.8 / 2.3} className="relative rounded-3xl border-[8px] border-[#F5F3FB] overflow-hidden -mx-3">
+              <AspectRatio ratio={592.267 / 416.017} className="relative rounded-3xl border-[8px] border-[#F5F3FB] overflow-hidden -mx-3">
                 <Image
                   src={data.image}
                   alt={data.title}
                   fill
-                  className="object-cover object-center border-[8px] rounded-2xl border-white"
+                  className="object-contain object-center border-[8px] rounded-2xl border-white"
                 />
               </AspectRatio>
             )
