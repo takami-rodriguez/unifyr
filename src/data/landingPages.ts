@@ -18,6 +18,6 @@ export const g2Data: LandingPageProps = {
   listItems: [
     "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
     "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
-    "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. ",
+    "Integer convallis vehicula nisi, vel tincidunt nunc viverra nec. nisi, vel tincidunt nunc viverra nec. ",
   ],
 };

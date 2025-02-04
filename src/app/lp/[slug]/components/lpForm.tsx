@@ -20,7 +20,7 @@ const LandingPageForm = ({ id }: { id: string }) => {
   const sendData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-    
+
     const formdata = new FormData(event.currentTarget);
     return sendFormData(formdata, id)
       .then(async (response) => {
@@ -49,7 +49,7 @@ const LandingPageForm = ({ id }: { id: string }) => {
       <form id={id} onSubmit={sendData}>
         <div
           className={cn(
-            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-14 py-10",
+            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-8 lg:px-14 pt-3 pb-5 lg:py-10",
           )}
           style={boxShadow}
         >
@@ -60,7 +60,7 @@ const LandingPageForm = ({ id }: { id: string }) => {
             theme="light"
             appearance="interaction-only"
           />
-         
+
           <div className="grid grid-cols-2 gap-6">
             <InputField
               type="text"
@@ -87,17 +87,14 @@ const LandingPageForm = ({ id }: { id: string }) => {
             required
             error={errors.email}
           />
-            <div className="space-y-1">
-      <Label>
-      Message
-        {" "}
-      </Label>
-      <div className="relative">
-      <Textarea />
-        
-        {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
-      </div>
-    </div>
+          <div className="space-y-1">
+            <Label>Message </Label>
+            <div className="relative">
+              <Textarea />
+
+              {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
+            </div>
+          </div>
           <div className="flex items-center justify-between">
             <div className="text-sm text-green-500">
               {errors.message ||

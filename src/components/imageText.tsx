@@ -31,7 +31,7 @@ const ImageText = ({
   return (
     <div className="relative z-10 mx-auto max-w-5xl py-10 md:py-24">
       <div
-        className={cn("absolute top-10 z-0 md:-top-20 md:h-[120%] lg:w-1/2", {
+        className={cn("w-full absolute top-10 z-0 md:-top-20 md:h-[120%] lg:w-1/2", {
           "left-0": !imageLeft,
           "right-0": imageLeft,
         })}
