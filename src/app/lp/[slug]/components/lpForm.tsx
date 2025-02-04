@@ -7,6 +7,8 @@ import InputField from "@/components/forms/components/inputField";
 import { Button } from "@/components/ui/button";
 import LoadingSpinner from "@/components/ui/loadingSpinner";
 import { sendFormData } from "@/queries/landingPage";
+import { Textarea } from "@/components/forms/components/textarea";
+import { Label } from "@/components/forms/components/label";
 
 const LandingPageForm = ({ id }: { id: string }) => {
   const turnstile = useTurnstile();
@@ -85,6 +87,17 @@ const LandingPageForm = ({ id }: { id: string }) => {
             required
             error={errors.email}
           />
+            <div className="space-y-1">
+      <Label>
+      Message
+        {" "}
+      </Label>
+      <div className="relative">
+      <Textarea />
+        
+        {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
+      </div>
+    </div>
           <div className="flex items-center justify-between">
             <div className="text-sm text-green-500">
               {errors.message ||

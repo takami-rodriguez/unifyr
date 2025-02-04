@@ -8,7 +8,7 @@ import { renderToString } from "react-dom/server";
 const LPPageTitle =  ({ data }: { data: LandingPageProps }) => {
   return (
     <h1
-      className="font-heading text-[4.375rem] font-bold leading-[5rem]"
+      className="font-heading text-[4.375rem] font-bold leading-[5rem] text-grey-900"
       dangerouslySetInnerHTML={{
         __html: data.title.replace(
           new RegExp(`\\b${data.titleHighlight}\\b`, "i"),
