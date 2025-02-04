@@ -21,7 +21,7 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
             ?
              {
                 background:
-                  "linear-gradient(110deg, rgba(215, 14, 134, 0.02) 30%, rgb(36, 56, 139,  0.01) 90%)",
+                  "linear-gradient(110deg, rgba(215, 14, 134, 0.05) 20%, rgb(36, 56, 139,  0.05) 100%)",
               }
             : {}
         }
