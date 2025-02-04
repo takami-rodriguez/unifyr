@@ -13,7 +13,7 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
   const formPages =
     pathname.includes(NavLink.BookACall) || pathname.includes("/lp/");
   return (
-    <div className={cn({ "bg-grey-200": formPages })}>
+    <div className={cn({ "bg-grey-200/60": formPages })}>
       <div
         className={cn({ "bg-grey-100": !formPages })}
         style={
