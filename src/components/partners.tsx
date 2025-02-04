@@ -5,7 +5,7 @@ import React from "react";
 
 const Partners = () => {
   return (
-    <div className="bg-grey lg:py-30 relative z-10 pt-14">
+    <div className="bg-grey lg:py-30 relative z-10 pt-12">
       <div className="w-full px-5 sm:px-0">
         <div className="mx-auto max-w-5xl text-center">
           <h3 className="text-[2rem] font-semibold">

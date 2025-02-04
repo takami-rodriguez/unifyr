@@ -82,7 +82,7 @@ const LandingPageTemplate = async ({ params }: PageProps) => {
       </div>
       <div
         className={cn(
-          "mt-20 space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-14 py-10",
+          "mt-20 space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-14 -mx-2",
         )}
         style={boxShadow}
       >

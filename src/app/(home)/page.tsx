@@ -31,7 +31,9 @@ export default function Home() {
     <main className="">
       <Hero />
       <HomeCarousel />
-      <Partners />
+      <div className="pt-2">
+        <Partners />
+      </div>
       {homeSections.map((section) => (
         <ImageText key={section.title} {...section} />
       ))}
