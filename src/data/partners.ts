@@ -18,8 +18,8 @@ export const partnerImages: ImageType[] = [
   },
   {
     id: "5",
-    url: "/images/partners/oracle.svg",
-    alt: "Oracle",
+    url: "/images/partners/xerox.svg",
+    alt: "Xerox",
   },
   {
     id: "4",
