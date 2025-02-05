@@ -123,7 +123,7 @@ const LandingPageForm = ({
             <div className="space-y-1">
               <Label>Message</Label>
               <div className="relative">
-                <Textarea />
+                <Textarea name="commentCapture" />
 
                 {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
               </div>
