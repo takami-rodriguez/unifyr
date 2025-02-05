@@ -18,7 +18,7 @@ const G2Page = async () => {
             "ZiftONE is the only PRM solution with bespoke implementations and deeply integrated, privacy-first AI features designed to propel your business toward channel success now and ever forward as you grow and scale."
           }
         </p>
-        <LPImage src={"/images/home/features/g2.png"} alt={""} />
+        <LPImage src={"/images/home/features/unifyr-element-ziftone.png"} alt={""} />
         <LPListItems
           items={[
             "A partner portal built for your channel partnership requirements.",
