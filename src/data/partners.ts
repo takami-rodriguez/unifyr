@@ -3,8 +3,13 @@ import { ImageType } from "@/types/images";
 export const partnerImages: ImageType[] = [
   {
     id: "1",
-    url: "/images/partners/Amazon.svg",
-    alt: "Amazon",
+    url: "/images/partners/canon.svg",
+    alt: "Canon",
+  },
+  {
+    id: "3",
+    url: "/images/partners/crowdstrike.svg",
+    alt: "Crowdstrike",
   },
   {
     id: "2",
@@ -12,18 +17,13 @@ export const partnerImages: ImageType[] = [
     alt: "Att",
   },
   {
-    id: "3",
+    id: "5",
+    url: "/images/partners/oracle.svg",
+    alt: "Oracle",
+  },
+  {
+    id: "4",
     url: "/images/partners/LG.svg",
     alt: "LG",
-  },
-  {
-    id: "5",
-    url: "/images/partners/Dell.svg",
-    alt: "Dell",
-  },
-  {
-    id: "6",
-    url: "/images/partners/Cisco.svg",
-    alt: "Cisco",
   },
 ];
