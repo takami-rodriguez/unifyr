@@ -63,7 +63,7 @@ const LandingPageForm = ({
       <form id={id} onSubmit={sendData}>
         <div
           className={cn(
-            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-8 pb-5 pt-3 lg:px-14 lg:py-10",
+            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-8 pb-5 pt-3 lg:px-10 lg:pb-7 lg:pt-5",
           )}
           style={boxShadow}
         >

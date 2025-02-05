@@ -1,13 +1,7 @@
 import React from "react";
 import { categories } from "../_helpers";
 import clsx from "clsx";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/forms/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/forms/components/select";
 
 type CategoriesProps = {
   selectedCategory: string;

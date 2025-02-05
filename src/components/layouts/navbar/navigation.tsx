@@ -32,7 +32,7 @@ const Navigation = () => {
       </div>
     );
   } else {
-    return <></>;
+    return <div className="h-[40px] lg:h-[62px]"></div>;
   }
 };
 
