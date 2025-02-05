@@ -34,7 +34,7 @@ const G2Page = async () => {
           ]}
         />
       </div>
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-3 lg:pt-36">
         <LandingPageForm name email message id={"1862"} />
         <div className="mt-10 lg:mt-5">
           <G2Leaders />
