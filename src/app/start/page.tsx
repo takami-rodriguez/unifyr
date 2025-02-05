@@ -1,11 +1,11 @@
 import React from "react";
-import GetInTouch from "@/components/forms/getInTouch";
 import { gradientText } from "@/data/styleHelpers";
 import { Check } from "lucide-react";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
+import LandingPageForm from "../../components/forms/lpForm";
 
 const listItems = [
   "ZiftONE provides suppliers with PRM, TCMA, and LMS built to scale.",
@@ -65,7 +65,7 @@ const GetADemo = async () => {
           </ul>
         </div>
         <div className="lg:col-span-3">
-          <GetInTouch id="1859" />
+          <LandingPageForm name email whoAmI id="1859" />
         </div>
       </div>
     </div>
