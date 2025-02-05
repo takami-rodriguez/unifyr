@@ -5,7 +5,7 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 const LPImage = async ({ src, alt }: { src: string; alt: string }) => {
   return (
     <AspectRatio
-      ratio={2.9 / 2}
+      ratio={5 / 2.9}
       className="relative -mx-3 overflow-hidden rounded-3xl border-[8px] border-[#F5F3FB]"
     >
       <Image

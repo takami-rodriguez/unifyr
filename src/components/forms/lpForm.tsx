@@ -123,9 +123,8 @@ const LandingPageForm = ({
             <div className="space-y-1">
               <Label>Message</Label>
               <div className="relative">
-                <Textarea name="commentCapture" />
-
-                {/* <div className="absolute -bottom-5 text-sm text-red-500">""</div> */}
+                <Textarea name="commentCapture"error={errors.commentCapture}/>
+                <div className="absolute -bottom-5 text-sm text-red-500">{errors.commentCapture}</div>
               </div>
             </div>
           )}
