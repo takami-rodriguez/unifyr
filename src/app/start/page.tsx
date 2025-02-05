@@ -6,6 +6,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 import LandingPageForm from "../../components/forms/lpForm";
+import G2Leaders from "../(home)/components/g2Leaders";
 
 const listItems = [
   "ZiftONE provides suppliers with PRM, TCMA, and LMS built to scale.",
@@ -65,7 +66,10 @@ const GetADemo = async () => {
           </ul>
         </div>
         <div className="lg:col-span-3">
-          <LandingPageForm name email whoAmI id="1859" withRouting />
+          <LandingPageForm name email whoAmI message id="1859" withRouting />
+          <div className="mt-10 lg:mt-5">
+            <G2Leaders />
+          </div>
         </div>
       </div>
     </div>
