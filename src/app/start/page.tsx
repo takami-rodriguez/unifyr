@@ -65,7 +65,7 @@ const GetADemo = async () => {
           </ul>
         </div>
         <div className="lg:col-span-3">
-          <LandingPageForm name email whoAmI id="1859" />
+          <LandingPageForm name email whoAmI id="1859" withRouting />
         </div>
       </div>
     </div>

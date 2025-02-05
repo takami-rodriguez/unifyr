@@ -9,7 +9,14 @@ import LoadingSpinner from "@/components/ui/loadingSpinner";
 import { sendFormData } from "@/queries/formHandler";
 import { Textarea } from "@/components/forms/components/textarea";
 import { Label } from "@/components/forms/components/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./components/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./components/select";
+import Script from "next/script";
 
 const LandingPageForm = ({
   id,
@@ -17,12 +24,14 @@ const LandingPageForm = ({
   email,
   message,
   whoAmI,
+  withRouting,
 }: {
   id: string;
   name?: boolean;
   email?: boolean;
   message?: boolean;
   whoAmI?: boolean;
+  withRouting?: boolean;
 }) => {
   const turnstile = useTurnstile();
   const [success, setSuccess] = useState(false);
@@ -44,6 +53,17 @@ const LandingPageForm = ({
         } else {
           setErrors({});
           setSuccess(true);
+
+          if (withRouting) {
+            window.ApolloMeetings.submit({
+              map: false,
+              lead: Object.fromEntries(
+                formdata.entries().filter(([k, _]) => {
+                  return ["email", "firstName", "lastName"].includes(k);
+                }),
+              ),
+            });
+          }
         }
       })
       .catch(() => {
@@ -59,6 +79,18 @@ const LandingPageForm = ({
 
   return (
     <div className="w-full">
+      {withRouting && (
+        <Script
+          type="text/javascript"
+          src="https://assets.apollo.io/js/meetings/meetings-widget.js"
+          onLoad={() => {
+            window.ApolloMeetings.initWidget({
+              appId: "6776bbc84e358502ceed3dce",
+              schedulingLink: "67o-gu1-m9c",
+            });
+          }}
+        />
+      )}
       {/* TODO - Fix padding  on all forms */}
       <form id={id} onSubmit={sendData}>
         <div
@@ -123,8 +155,10 @@ const LandingPageForm = ({
             <div className="space-y-1">
               <Label>Message</Label>
               <div className="relative">
-                <Textarea name="commentCapture"error={errors.commentCapture}/>
-                <div className="absolute -bottom-5 text-sm text-red-500">{errors.commentCapture}</div>
+                <Textarea name="commentCapture" error={errors.commentCapture} />
+                <div className="absolute -bottom-5 text-sm text-red-500">
+                  {errors.commentCapture}
+                </div>
               </div>
             </div>
           )}
