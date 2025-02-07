@@ -125,7 +125,7 @@ const LandingPageForm = ({
             <div className="grid grid-cols-2 gap-6">
               <InputField
                 type="text"
-                label="First Name"
+                label="First name"
                 name="firstName"
                 placeholder="Alex"
                 required
@@ -133,7 +133,7 @@ const LandingPageForm = ({
               />
               <InputField
                 type="text"
-                label="Last Name"
+                label="Last name"
                 name="lastName"
                 placeholder="Bloggs"
                 required
@@ -143,7 +143,7 @@ const LandingPageForm = ({
           )}
           {email && (
             <InputField
-              label="Email address"
+              label="Email"
               type="email"
               name="email"
               placeholder="alex.bloggs@email.com"
@@ -153,7 +153,7 @@ const LandingPageForm = ({
           )}
           {message && (
             <div className="space-y-1">
-              <Label>Message</Label>
+              <Label>How can we help?</Label>
               <div className="relative">
                 <Textarea name="commentCapture" error={errors.commentCapture} />
                 <div className="absolute -bottom-5 text-sm text-red-500">

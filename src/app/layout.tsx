@@ -25,7 +25,9 @@ export default function RootLayout({
       <body
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
-        <Notice />
+        <Notice>
+          Zift Solutions is now Unifyr. Our new website is under construction.
+        </Notice>
         <ClientLayout>
           <div className="px-4 md:px-5">
             <Navbar />
