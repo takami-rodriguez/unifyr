@@ -5,7 +5,6 @@ import FeaturesAccordionSection from "@/app/(home)/components/featuresAccordionS
 import FeaturesAndTabs from "@/app/(home)/components/featuresAndTabs";
 // import CaseStudy from "./components/caseStudies";
 import Banner from "@/components/banner";
-import Notice from "@/components/notice";
 import HomeCarousel from "./components/carousel";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
@@ -29,27 +28,24 @@ export async function generateMetadata(
 
 export default function Home() {
   return (
-    <>
-      <Notice />
-      <main className="">
-        <Hero />
-        <HomeCarousel />
-        <div className="pt-2">
-          <Partners />
-        </div>
-        {homeSections.map((section) => (
-          <ImageText key={section.title} {...section} />
-        ))}
-        <FeaturesAccordionSection />
-        <div className="py-20">
-          <FeaturesAndTabs />
-        </div>
-        <Testimonial />
-        {/* <CaseStudy /> */}
-        <div className="py-12">
-          <Banner />
-        </div>
-      </main>
-    </>
+    <main className="">
+      <Hero />
+      <HomeCarousel />
+      <div className="pt-2">
+        <Partners />
+      </div>
+      {homeSections.map((section) => (
+        <ImageText key={section.title} {...section} />
+      ))}
+      <FeaturesAccordionSection />
+      <div className="py-20">
+        <FeaturesAndTabs />
+      </div>
+      <Testimonial />
+      {/* <CaseStudy /> */}
+      <div className="py-12">
+        <Banner />
+      </div>
+    </main>
   );
 }

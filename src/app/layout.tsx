@@ -6,6 +6,7 @@ import { epicene, epiceneText, sohne } from "@/lib/fonts";
 import CookiePopUpBox from "@/lib/cookiePopup";
 import Google from "@/lib/gaHandler";
 import ClientLayout from "@/components/layouts/clientLayout";
+import Notice from "@/components/notice";
 
 export const metadata: Metadata = {
   title: "Unifyr",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
+        <Notice />
         <ClientLayout>
           <div className="px-4 md:px-5">
             <Navbar />
