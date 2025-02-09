@@ -1,10 +1,12 @@
+"use client";
+
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
 import React from "react";
 import Image from "next/image";
-import { renderTitleHtml } from "@/lib/serverhelpers";
 import DualButtons, { ButtonTypeProps } from "./buttons";
-import { bgGradient } from "@/data/styleHelpers";
+import { bgGradient, gradientText } from "@/data/styleHelpers";
+import { renderToString } from "react-dom/server";
 
 type PlatformHeroProps = {
   block: {
@@ -17,8 +19,7 @@ type PlatformHeroProps = {
   };
 };
 
-const PlatformHero = async ({ block }: PlatformHeroProps) => {
-  const __html = await renderTitleHtml(block.title, block.titleHighlight);
+const PlatformHero = ({ block }: PlatformHeroProps) => {
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">
       <div className="sm:py-19 rounded-2xl px-24 py-10" style={bgGradient}>
@@ -27,7 +28,13 @@ const PlatformHero = async ({ block }: PlatformHeroProps) => {
             <h2
               className="font-heading text-4xl font-bold md:text-5xl md:leading-[56px]"
               dangerouslySetInnerHTML={{
-                __html,
+                __html: block.title.replace(
+                  new RegExp(`\\b${block.titleHighlight}\\b`, "i"),
+                  (match) =>
+                   renderToString(
+                      <span style={gradientText}>{match}</span>,
+                    ),
+                )
               }}
             />
             <p className="leading-relaxed text-grey-900/80 md:text-xl">
