@@ -27,11 +27,11 @@ export default function PlatformAccordion({ block }: PlatformAccordionProps) {
           <AccordionList items={block.items} />
         </div>
         {/* CTA Section */}
-        <div className="space-y-5">
+        <div className="space-y-5 max-w-[225px]">
           <h4 className="text-[#151439]/40 font-semibold tracking-wide uppercase">
             {block.cta.title}
           </h4>
-          <p className="text-muted-foreground text-[1.375rem] leading-[33px]">{block.cta.content}</p>
+          <p className="text-muted-foreground text-[1.25rem] leading-[33px]">{block.cta.content}</p>
           <div>
 
           <Link href={block.cta.button.link}>
