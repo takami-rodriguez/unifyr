@@ -3,22 +3,17 @@ import { Button } from "@/components/ui/button";
 import React, { Suspense } from "react";
 import Image from "next/image";
 import { gradientText } from "@/data/styleHelpers";
-import HeroVideo from "./heroVideo";
 import useWindowSize from "@/lib/hooks/useWindowSize";
-import { cn } from "@/lib/utils";
 import BGRadialSVG from "@/components/bgRadiant";
 import { NavLink } from "@/data/navLinks";
 import Link from "next/link";
+import WistiaVideo from "@/components/wistiaVideo";
 
 const Hero = () => {
   const { tablet, mobile } = useWindowSize();
   return (
     <div className="relative">
-      <div
-        className={cn(
-          "absolute -top-24 right-10 z-0 w-full md:right-32 md:top-0 md:w-1/2",
-        )}
-      >
+      <div className="absolute -top-24 right-10 z-0 w-full md:right-32 md:top-0 md:w-1/2">
         <BGRadialSVG />
       </div>
       <div className="relative z-50">
@@ -45,10 +40,9 @@ const Hero = () => {
         </div>
         {/* TODO - add image placeholder */}
         <Suspense fallback={<div>Loading...</div>}>
-          <HeroVideo />
+          <WistiaVideo id="zhjsfv098n" />
         </Suspense>
         <div className="flex flex-col items-center justify-center md:flex-row md:items-end md:space-x-6">
-          {/* TODO - SVG please */}
           <Image src="/images/google.svg" alt="hero" width={211} height={40} />
           <div className="order-first pb-6 text-3xl font-semibold md:order-last md:pb-0">
             450+ G2 Reviews

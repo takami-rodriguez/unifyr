@@ -1,3 +1,5 @@
+import { NavLink } from "@/data/navLinks";
+
 export enum TabValue {
   zift = "zift",
   unifyrPlus = "unifyr-plus",
@@ -12,21 +14,21 @@ export const tabsData = {
     image: "/images/home/features/ziftone.webp",
     features: [
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/Partner-portal.svg",
         title: "Partner portal",
         description:
           "Build an experience for your partners that educates and encourages commitment. Connects natively to Unifyr+.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/Workflows.svg",
         title: "Workflows",
         description:
           "Build automation workflows that reflect how your business operates. Reduce manual effort from your channel managers.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/Reporting-and-Analytics.svg",
         title: "Reporting & analytics",
         description:
@@ -41,21 +43,21 @@ export const tabsData = {
     image: "/images/home/features/unifyrpro.webp",
     features: [
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/manage-offerings.svg",
         title: "Manage offerings",
         description:
           "Share your offerings with a network of suppliers and partners then transact within the platform.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/Build-your-reputation.svg",
         title: "Build your reputation",
         description:
           "Grow your customer base and earn positive reviews from helping companies create channel program success.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/Track-your-business.svg",
         title: "Track your business",
         description:
@@ -70,21 +72,21 @@ export const tabsData = {
     image: "/images/home/features/unifyrplus.webp",
     features: [
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/update-feed-2.svg",
         title: "Update feed",
         description:
           "Unifyr+ provides an always-active stream of crucial highlights from all suppliers to keep you informed.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/ai-2.svg",
         title: "AI advisor",
         description:
           "Surface key content from any supplier when you need it by consulting our privacy-centric AI advisor.",
       },
       {
-        link: "#",
+        link: NavLink.DUMMY,
         icon: "/images/icons/analytics.svg",
         title: "Analytics",
         description:

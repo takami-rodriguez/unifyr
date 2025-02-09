@@ -7,31 +7,45 @@ export enum NavLink {
   Leadership = "/leadership/",
   Careers = "/careers/",
   Platform = "/platform/",
+  PlatformZift = "/platform/ziftone",
   Solutions = "/solutions/",
   Resources = "/resources/",
   Company = "/company/",
   BookACall = "/start/",
+  DUMMY = "#",
 }
 
 export const navLinks = [
-  // {
-  //   label: "Plaform",
-  //   href: NavLink.Platform,
-  // },
+  {
+    label: "About",
+    link: NavLink.About,
+  },
+  {
+    label: "Platform",
+    link: NavLink.Platform,
+    subMenu: [
+      {
+        label: "Ziftone",
+        subTitle: "The most advanced PRM solution ",
+        link: NavLink.PlatformZift,
+      },
+      
+    ],
+  },
   // {
   //   label: "Product",
-  //   href: NavLink.Product,
+  //   link: NavLink.Product,
   // },
   // {
   //   label: "Solutions",
-  //   href: NavLink.Solutions,
+  //   link: NavLink.Solutions,
   // },
   {
     label: "Resources",
-    href: NavLink.Resources,
+    link: NavLink.Resources,
   },
   // {
   //   label: "Company",
-  //   href: NavLink.Company,
+  //   link: NavLink.Company,
   // },
 ];

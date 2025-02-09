@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/cn";
 import Image from "next/image";
 import React from "react";
@@ -7,6 +9,8 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Link from "next/link";
 import { gradientText } from "@/data/styleHelpers";
 import BGRadialSVG from "./bgRadiant";
+import { usePathname } from "next/navigation";
+import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
 
 type ImageTextProps = {
   imageLeft?: boolean;
@@ -14,10 +18,7 @@ type ImageTextProps = {
   badge: string;
   title: string;
   content: string;
-  button?: {
-    text: string;
-    href: string;
-  };
+  button?: ButtonTypeProps;
 };
 
 const ImageText = ({
@@ -28,28 +29,37 @@ const ImageText = ({
   button,
   image,
 }: ImageTextProps) => {
+  const pathname = usePathname();
   return (
     <div className="relative z-10 mx-auto max-w-5xl py-10 md:py-24">
       <div
-        className={cn("w-full absolute top-10 z-0 md:-top-20 md:h-[120%] lg:w-1/2", {
-          "left-0": !imageLeft,
-          "right-0": imageLeft,
-        })}
+        className={cn(
+          "absolute top-10 z-0 w-full md:-top-20 md:h-[120%] lg:w-1/2",
+          {
+            "left-0": !imageLeft,
+            "right-0": imageLeft,
+          },
+        )}
       >
         <BGRadialSVG />
       </div>
       <div className="relative z-20 grid grid-cols-1 items-center gap-8 lg:grid-cols-11 lg:gap-[52px]">
         <div className="col-span-1 flex flex-col items-start space-y-6 lg:col-span-6">
           <Badge variant="primary">
-            <div className="uppercase tracking-[0.7px]" style={gradientText}>
+            <div
+              className={cn("uppercase tracking-[0.7px]", {
+                "text-primary": pathname !== "/",
+              })}
+              style={pathname === "/" ? gradientText : {}}
+            >
               {badge}
             </div>
           </Badge>
           <h3 className="font-heading text-5xl font-bold">{title}</h3>
           <p className="text-xl font-light text-grey-900/80">{content}</p>
           {button && (
-            <Link href={button.href}>
-              <Button variant="primary">{button.text}</Button>
+            <Link href={button.link}>
+              <Button variant={button.variant}>{button.label}</Button>
             </Link>
           )}
         </div>
