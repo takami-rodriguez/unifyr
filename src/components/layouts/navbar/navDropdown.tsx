@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -31,17 +30,16 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
         <div className="flex items-center space-x-2">
           <div className="relative">
             <div>{label}</div>
-           
           </div>
           <FaChevronDown
-            className={clsx(" w-4 h-4 hover: ", {
-              "transform rotate-180 text-primary": open,
+            className={clsx("hover: h-4 w-4", {
+              "rotate-180 transform text-primary": open,
             })}
           />
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="bg-white rounded-2xl shadow-2xl "
+        className="rounded-2xl bg-white shadow-2xl"
         align="start"
       >
         {menu.map((subLink) => (
@@ -52,11 +50,11 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
           >
             <Link
               href={subLink.link}
-              className="w-full h-full  group-hover:underline flex space-x-6 py-5 group-hover:bg-grey-200  px-4 rounded-xl"
+              className="flex h-full w-full space-x-6 rounded-xl px-4 py-5 group-hover:bg-grey-200"
             >
               <div className="space-y-2 text-grey-900/80">
-                <p className="font-bold text-xl">{subLink.label}</p>
-               {subLink.subTitle && <p className="">{subLink.subTitle}</p>}
+                <p className="text-xl font-bold">{subLink.label}</p>
+                {subLink.subTitle && <p className="">{subLink.subTitle}</p>}
               </div>
             </Link>
           </DropdownMenuItem>

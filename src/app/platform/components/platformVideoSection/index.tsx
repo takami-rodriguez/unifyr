@@ -20,6 +20,7 @@ export type PlatformVideoSectionProps = {
 
 const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
   const { title, description, wistiaVideoId, features } = block;
+  // TODO INCREASE PADDING
   return (
     <section className="mx-auto max-w-5xl py-9">
       <h2 className="pb-6 text-center font-heading text-5xl leading-[3.5rem] font-extrabold">
@@ -37,7 +38,7 @@ const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col space-y-5">
               {feature.icon}
-              <div className="space-y-5">
+              <div className="space-y-2">
                 <h3 className="text-xl font-semibold">{feature.title}</h3>
                 <p className="">{feature.description}</p>
               </div>

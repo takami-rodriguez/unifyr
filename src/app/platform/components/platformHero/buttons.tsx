@@ -18,6 +18,7 @@ type DualButtonsProps = {
 
 const DualButtons = ({ button1, button2 }: DualButtonsProps) => {
   const { mobile, tablet } = useWindowSize();
+  // TODO - SAME WIDFTH BUTTONS
   return (
     <div className="flex">
       <Link href={button1.link} passHref>

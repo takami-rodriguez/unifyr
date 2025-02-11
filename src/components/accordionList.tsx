@@ -17,7 +17,7 @@ type AccrodionListProps = {
 
 export default function AccordionList({ items }: AccrodionListProps) {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="single" collapsible className="w-full" defaultValue={items[0].trigger}>
       {items.map((item, i) => (
         <AccordionItem
           key={item.trigger + i}

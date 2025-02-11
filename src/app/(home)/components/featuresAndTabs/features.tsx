@@ -21,12 +21,8 @@ const Features = ({ features }: FeaturesProps) => {
             width={44}
             height={44}
           />
-          <h2 className="text-[22px]">{feature.title}</h2>
+          <h2 className="text-xl font-semibold">{feature.title}</h2>
           <p className="w-[290px] text-gray-900/80">{feature.description}</p>
-
-          {/* <Link href={feature.link} className="flex font-semibold py-2">
-            Learn more <Arrow />
-          </Link> */}
         </div>
       ))}
     </div>

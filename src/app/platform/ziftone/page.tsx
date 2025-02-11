@@ -3,13 +3,10 @@ import PlatformHero from "../components/platformHero";
 import PlatformVideoSection from "../components/platformVideoSection";
 import ImageText from "@/components/imageText";
 import Banner from "@/components/banner";
-import CaseStudy from "@/app/(home)/components/caseStudies";
 import PlatformJourney from "../components/platformJourney";
 import FeatureList from "@/components/featureList";
 import PlatformAccordion from "../components/platformAccordion";
 import { ziftOnePlatform as data } from "./pageData";
-
-
 
 const ZiftOnePlatformPage = async () => {
   return (
@@ -29,7 +26,7 @@ const ZiftOnePlatformPage = async () => {
       <div className="py-12">
         <Banner />
       </div>
-      <CaseStudy />
+      {/* <CaseStudy /> */}
     </main>
   );
 };

@@ -22,14 +22,14 @@ export const ziftOnePlatform = {
         "Meet the next evolution of ZiftONE PRM & TCMA with smarter ways to grow in the channel.",
       image: "/images/image.png",
       button1: {
-        label: "Primary action",
+        label: "Book a call",
         variant: "secondary" as ButtonVariant,
-        link: NavLink.DUMMY,
+        link: NavLink.BookACall,
       },
       button2: {
-        label: "Secondary action",
+        label: "Blog",
         variant: "outline" as ButtonVariant,
-        link: NavLink.DUMMY,
+        link: NavLink.Resources,
       },
     },
     introSection: {
@@ -65,11 +65,6 @@ export const ziftOnePlatform = {
         image: "/images/image 1.png",
         content:
           "Unlike alternative PRM offerings, ZiftONE includes bespoke partner portal and integration implementations tailored to your requirements.",
-        button: {
-          label: "Primary action",
-          variant: "purple" as ButtonVariant,
-          link: NavLink.DUMMY,
-        },
       },
       {
         badge: "Scale",
@@ -78,11 +73,6 @@ export const ziftOnePlatform = {
         image: "/images/image 1.png",
         content:
           "Whether you are entering the channel for the first time or implementing a robust enterprise channel presence, ZiftONE will continue to serve you.",
-        button: {
-          label: "Primary action",
-          variant: "purple" as ButtonVariant,
-          link: NavLink.DUMMY,
-        },
       },
     ],
     journey: {
@@ -114,37 +104,37 @@ export const ziftOnePlatform = {
           title: "Firmographic notes",
           description:
             "View a complete firmographic profile of accounts in ZiftONE.",
-          icon: <Code width={30} className="-mt-1" />,
+          icon: <Code width={30} className="-mt-[.125rem]" />,
         },
         {
           title: "Deal & lead prediction",
           description:
             "Assess likelihood to buy and close deals with confidence.",
-          icon: <FlaskConical width={30} className="-mt-1" />,
+          icon: <FlaskConical width={30} className="-mt-[.125rem]" />,
         },
         {
           title: "Partner segmentation",
           description:
             "Segment your audience quickly using natural language.",
-          icon: <Settings width={30} className="-mt-1" />,
+          icon: <Settings width={30} className="-mt-[.125rem]" />,
         },
         {
           title: "Email assistance",
           description:
             "Produce on-brand, partner-ready email content quickly.",
-          icon: <FileText width={30} className="-mt-1" />,
+          icon: <FileText width={30} className="-mt-[.125rem]" />,
         },
         {
           title: "Pop-up notifications",
           description:
             "Notify partners of new campaigns and company updates.",
-          icon: <Calendar width={30} className="-mt-1" />,
+          icon: <Calendar width={30} className="-mt-[.125rem]" />,
         },
         {
           title: "Social post assistance",
           description:
             "Write effective posts optimized for any social media channel.",
-          icon: <DollarSign width={30} className="-mt-1" />,
+          icon: <DollarSign width={30} className="-mt-[.125rem]" />,
         },
       ],
     },
