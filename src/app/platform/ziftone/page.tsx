@@ -11,8 +11,6 @@ import { ziftOnePlatform as data } from "./pageData";
 
 
 
-
-
 const ZiftOnePlatformPage = async () => {
   return (
     <main>

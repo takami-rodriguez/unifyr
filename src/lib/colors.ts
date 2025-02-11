@@ -16,3 +16,4 @@ export const getBorderColor = (color: ColorStrings) => {
 export const getBGColor = (color: ColorStrings) => {
   return `border-${color}`;
 };
+
