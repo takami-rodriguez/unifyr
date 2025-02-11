@@ -79,25 +79,25 @@ export const timelineData = [
     months: [
       {
         month: "Apr",
-        colour: "bg-sky-100",
+        colour: "bg-sky-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Jun",
-        colour: "bg-pink-100",
+        colour: "bg-pink-300",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Oct",
-        colour: "bg-yellow-100",
+        colour: "bg-yellow-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Nov",
-        colour: "bg-emerald-100",
+        colour: "bg-emerald-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
@@ -108,25 +108,25 @@ export const timelineData = [
     months: [
       {
         month: "Mar",
-        colour: "bg-sky-100",
+        colour: "bg-sky-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Jun",
-        colour: "bg-violet-100",
+        colour: "bg-violet-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Jun",
-        colour: "bg-emerald-100",
+        colour: "bg-emerald-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Nov",
-        colour: "bg-sky-100",
+        colour: "bg-sky-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
@@ -137,25 +137,25 @@ export const timelineData = [
     months: [
       {
         month: "Jan",
-        colour: "bg-yellow-100",
+        colour: "bg-yellow-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Mar",
-        colour: "bg-sky-100",
+        colour: "bg-sky-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Jun",
-        colour: "bg-pink-100",
+        colour: "bg-pink-300",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus cursus mauris cursus vivamus ante vel cursus mauris cursus vivamus ante.",
       },
       {
         month: "Nov",
-        colour: "bg-violet-100",
+        colour: "bg-violet-200",
         content:
           "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus vivamus ante.",
       },

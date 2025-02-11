@@ -52,7 +52,7 @@ const Timeline = ({ block }: TimelineProps): JSX.Element => {
                         <div
                           className={clsx(
                             "rounded-md px-2 font-bold",
-                            // getBGColor(month.colour),
+                            month.colour
                           )}
                         >
                           {month.month}
