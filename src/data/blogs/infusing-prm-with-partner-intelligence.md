@@ -26,11 +26,17 @@ Without accurate and ongoing data analysis, it's much more difficult to make nua
 
 **AI Assistant Notes** provide an in-depth firmographic profile for any company in ZiftONE. The system automatically aggregates and analyzes company information from external data sources, including financial metrics, industry, employee count, a company description, and more. Couple AI Assistant Notes with Deal & Lead Prediction to gain a granular understanding of deals in progress _quickly._ AI Assistant Notes are designed to keep channel leaders in motion: spend less time doing research and more time focusing on the partners and the deals that matter.
 
+<img src="/images/ai/asst-notes.webp" alt="AI Assistant Notes in ZiftONE" class="md:mx-auto md:w-2/3">
+
 ### AI Deal & Lead Prediction: The _genius_ of partnership success
 
 There's no return after incorporating ZiftONE's Deal & Lead Prediction into your performance monitoring workflows. Learn about **identified risks**, **analysis reasoning**, **suggested actions**, **deal importance** (0-100% scale), and the **assessed confidence interval** (0-100% scale). The platform's sophisticated risk identification system analyzes all available inputs for each deal and lead, providing _clear_ insight into potential challenges and opportunities. The ability to understand deal outcomes with the level of accuracy offered by Deal & Lead Prediction will change how you allocate resources and support partners.
 
+<img src="/images/ai/deal-prediction.webp" alt="Deal Prediction in ZiftONE" class="md:mx-auto md:w-2/3">
+
 This isn't black-box AI—each prediction comes with transparent explanations and concrete suggestions for improving outcomes. And crucially, our AI models are intentionally internal to Unifyr: data is **never** exposed to third-party companies. Your AI-driven channel operations will never put your business or your data at risk.
+
+<img src="/images/ai/lead-prediction.webp" alt="Lead Prediction in ZiftONE" class="md:mx-auto md:w-2/3">
 
 ### Generative AI for faster content creation
 
@@ -44,11 +50,15 @@ ZiftONE's AI-powered communication suite puts the power and convenience of **the
 
 The ability to complete necessary tasks using natural language can't be overstated: manifest your intentions into _on-brand existence_ with AI. All partner relationship platforms should be expected to offer AI features that help channel leaders work faster and smarter. As with all ZiftONE AI features, generative AI leverages models owned by Unifyr; sensitive data is never exposed to a third party.
 
+![Email Generation in ZiftONE](/images/ai/email-gen.webp)
+
 ### Partner group segmentation
 
 Partner segmentation has the potential to consume a tremendous amount of time. With ZiftONE Partner Group Segmentation, this process is now automated through the combination of natural language and sophisticated AI analysis of partner characteristics, behavior patterns, and performance metrics. The system can instantly generate targeted partner groups based on complex criteria, enabling *highly personalized communication strategies* that dramatically improve engagement rates.
 
 With partner group segmentation, you're encouraged to rapidly compile granular segments and deliver more targeted content. **Segment, build, and publish using AI each step of the way.**
+
+![Partner Group Segmentation in ZiftONE](/images/ai/partner-group-seg.webp)
 
 ## Implementation and adoption
 
