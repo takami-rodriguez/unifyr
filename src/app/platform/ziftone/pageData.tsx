@@ -16,14 +16,14 @@ import { NavLink } from "@/data/navLinks";
 
 export const ziftOnePlatform = {
     hero: {
-      title: "Lorem ipsum dolor sit amet.",
-      titleHighlight: "ipsum",
+      title: "The intelligent partner operations platform",
+      titleHighlight: "intelligent",
       description:
-        "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+        "Meet the next evolution of ZiftONE PRM & TCMA with smarter ways to grow in the channel.",
       image: "/images/image.png",
       button1: {
         label: "Primary action",
-        variant: "primary" as ButtonVariant,
+        variant: "secondary" as ButtonVariant,
         link: NavLink.DUMMY,
       },
       button2: {
@@ -33,38 +33,38 @@ export const ziftOnePlatform = {
       },
     },
     introSection: {
-      title: "What's new in startup",
+      title: "Take a look",
       description:
-        "We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily.",
+        "See why ZiftONE has been the industry leader in PRM since 2006.",
       wistiaVideoId: "zhjsfv098n",
       features: [
         {
           icon: <Target className="h-10 w-10 text-grey-400" />,
-          title: "Feature 1",
+          title: "Bespoke portal",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Our team will help you to build a partner portal that exudes your brand look and feel.",
         },
         {
           icon: <Crop className="h-10 w-10 text-grey-400" />,
-          title: "Feature 2",
+          title: "Generative AI",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Grow your content library with built-in, privacy-first AI to save time and stay on-brand.",
         },
         {
           icon: <Diamond className="h-10 w-10 text-grey-400" />,
-          title: "Feature 3",
+          title: "TCMA & LMS",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Look no further for the other critical systems you need to nurture channel partnerships.",
         },
       ],
     },
     imagesTexts: [
       {
-        badge: "Added today",
-        title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        badge: "BUILD",
+        title: "Create an incredible partner experience—but not alone",
         image: "/images/image 1.png",
         content:
-          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+          "Unlike alternative PRM offerings, ZiftONE includes bespoke partner portal and integration implementations tailored to your requirements.",
         button: {
           label: "Primary action",
           variant: "purple" as ButtonVariant,
@@ -72,12 +72,12 @@ export const ziftOnePlatform = {
         },
       },
       {
-        badge: "Added today",
+        badge: "Scale",
         imageLeft: true,
-        title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        title: "ZiftONE accommodates channel programs of all sizes",
         image: "/images/image 1.png",
         content:
-          "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+          "Whether you are entering the channel for the first time or implementing a robust enterprise channel presence, ZiftONE will continue to serve you.",
         button: {
           label: "Primary action",
           variant: "purple" as ButtonVariant,
@@ -86,64 +86,64 @@ export const ziftOnePlatform = {
       },
     ],
     journey: {
-      title: "This little wandering journey, without settled place of abode ",
+      title: "Uncontested partner enablement",
       intro:
-        " We have created a new product that will help designers, developers and companies create websites.",
+        "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
       features: [
         {
-          title: "10 NEW FEATURE ADDED",
+          title: "Meet partners where they are",
           description:
-            "In this new page v1, we&apos;ve added additional a multiple screens types.",
+            "Hook into the Unifyr+ content feed to reduce the occurrence of low performance long-tail partners.",
         },
         {
-          title: "USEFUL SYMBOL COMPONENTS",
+          title: "Discover what works",
           description:
-            "They help you to see how your text will look from the rock set up towards the moon.",
+            "Track partner engagement and asset performance through reporting in the ZiftONE administrative panel.",
         },
         {
-          title: "THOROUGHLY HANDPICKED UI",
+          title: "Focus on the right tasks",
           description:
-            "The most light-up to see colors shine from our new plate to the dark side which then an excitement here.",
+            "Spend less time competing for partner attention and more time directing your channel program toward mutual growth.",
         },
       ],
     },
     features: {
-      title: "Lorem ipsum dolor",
+      title: "Privacy-first generative AI",
       features: [
         {
-          title: "FEATURE ONE",
+          title: "Firmographic notes",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "View a complete firmographic profile of accounts in ZiftONE.",
           icon: <Code width={30} className="-mt-1" />,
         },
         {
-          title: "FEATURE TWO",
+          title: "Deal & lead prediction",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Assess likelihood to buy and close deals with confidence.",
           icon: <FlaskConical width={30} className="-mt-1" />,
         },
         {
-          title: "FEATURE THREE",
+          title: "Partner segmentation",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Segment your audience quickly using natural language.",
           icon: <Settings width={30} className="-mt-1" />,
         },
         {
-          title: "FEATURE FOUR",
+          title: "Email assistance",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Produce on-brand, partner-ready email content quickly.",
           icon: <FileText width={30} className="-mt-1" />,
         },
         {
-          title: "FEATURE FIVE",
+          title: "Pop-up notifications",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Notify partners of new campaigns and company updates.",
           icon: <Calendar width={30} className="-mt-1" />,
         },
         {
-          title: "FEATURE SIX",
+          title: "Social post assistance",
           description:
-            "Praesent placerat ipsum nec mi maximus, vel cursus mauris cursus. Vivamus cursus ante eget orci egestas malesuada.",
+            "Write effective posts optimized for any social media channel.",
           icon: <DollarSign width={30} className="-mt-1" />,
         },
       ],
@@ -151,19 +151,19 @@ export const ziftOnePlatform = {
     platformAccordion: {
       items: [
         {
-          trigger: "Easy to use",
+          trigger: "Unify your channel tools and workflows",
           content:
-            "Startup Framework contains components and complex blocks which can easily be integrated into any design. All of the components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions.",
+            "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
         },
         {
           trigger: "Variety of designs",
           content:
-            "Startup Framework contains components and complex blocks which can easily be integrated into any design. All of the components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions.",
+            "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
         },
         {
           trigger: "Feel our design",
           content:
-            "Startup Framework contains components and complex blocks which can easily be integrated into any design. All of the components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions.",
+            "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
         },
       ],
       cta: {

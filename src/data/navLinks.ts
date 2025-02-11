@@ -16,10 +16,7 @@ export enum NavLink {
 }
 
 export const navLinks = [
-  {
-    label: "About",
-    link: NavLink.About,
-  },
+  
   {
     label: "Platform",
     link: NavLink.Platform,
@@ -43,6 +40,25 @@ export const navLinks = [
   {
     label: "Resources",
     link: NavLink.Resources,
+    subMenu: [
+      {
+        label: "Blog",
+        link: NavLink.Resources,
+      },
+      {
+        label: "ZiftONE",
+        link: NavLink.Resources,
+      },
+      {
+        label: "Blog",
+        link: NavLink.Resources,
+      },
+      
+    ],
+  },
+  {
+    label: "About",
+    link: NavLink.About,
   },
   // {
   //   label: "Company",

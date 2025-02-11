@@ -73,7 +73,7 @@ const teamMembers: TeamMemberType[] = [
     title: "Chief People Officer",
   },
 ];
-export const timelineData = [
+ const timelineData = [
   {
     year: "2022",
     months: [

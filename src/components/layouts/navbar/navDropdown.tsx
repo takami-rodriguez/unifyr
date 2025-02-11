@@ -15,7 +15,7 @@ import { NavLink } from "@/data/navLinks";
 type NavDropdownProps = {
   menu: {
     label: string;
-    subTitle: string;
+    subTitle?: string;
     link: NavLink;
   }[];
   label: string;
@@ -56,7 +56,7 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
             >
               <div className="space-y-2 text-grey-900/80">
                 <p className="font-bold text-xl">{subLink.label}</p>
-                <p className="">{subLink.subTitle}</p>
+               {subLink.subTitle && <p className="">{subLink.subTitle}</p>}
               </div>
             </Link>
           </DropdownMenuItem>

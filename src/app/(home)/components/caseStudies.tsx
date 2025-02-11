@@ -14,9 +14,7 @@ export default function CaseStudy() {
             />
             <div className="absolute inset-0 p-8 text-white">
               <h2 className="mb-2 font-serif text-4xl">
-                Lorem Ipsum
-                <br />
-                Case Study
+              Unifyr+ and Unifyr Pro: Beta <br/> program announcement
               </h2>
               <p className="text-sm opacity-80">
                 Nam in velit malesuada,
