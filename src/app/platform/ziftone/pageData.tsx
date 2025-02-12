@@ -168,13 +168,13 @@ export const ziftOnePlatform = {
       },
     ],
     cta: {
-      title: "Have more questions?",
+      title: "Ready to get started?",
       content:
-        "Startup Framework includes great form options for your startup projects.",
+        "Let's uncover how ZiftONE PRM can accelerate your channel program.",
       button: {
-        label: "Primary Action",
+        label: "Get started",
         variant: "secondary" as ButtonVariant,
-        link: NavLink.DUMMY,
+        link: NavLink.BookACall,
       },
     },
   },
