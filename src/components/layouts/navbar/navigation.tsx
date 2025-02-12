@@ -6,12 +6,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import NavDropdown from "./navDropdown";
+import { MobileNav } from "./mobileNav";
 
 const Navigation = () => {
   const pathname = usePathname();
   if (!pathname.includes("/lp/")) {
     return (
-      <div className="flex items-center space-x-11">
+      <>
+      <div className="items-center space-x-11 hidden md:flex">
         <ul className="flex items-center space-x-8">
           {navLinks.map((link, index) => (
             <li
@@ -39,6 +41,10 @@ const Navigation = () => {
           </Link>
         </div>
       </div>
+      <div className="md:hidden">
+        <MobileNav />
+      </div>
+      </>
     );
   } else {
     return <div className="h-[40px] lg:h-[62px]"></div>;

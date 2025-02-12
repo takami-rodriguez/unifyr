@@ -20,3 +20,6 @@ export const socialLinks = [
     url: "https://www.linkedin.com/company/unifyr/",
   },
 ];
+
+
+export const DURATION = 0.3;
