@@ -1,7 +1,7 @@
 import React from "react";
 import { ArticleTemplateProps } from "@/types/article";
 import CategoryBadge from "./categoryBadge";
-import Author from "@/app/resources/components/author";
+import Author from "@/app/blog/components/author";
 
 type TitleSectionProps = {
   article: ArticleTemplateProps;

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArticleTemplateProps } from "@/types/article";
 import { NavLink } from "@/data/navLinks";
-import TitleSection from "@/app/resources/components/titleSection";
+import TitleSection from "@/app/blog/components/titleSection";
 import { boxShadow } from "@/data/styleHelpers";
 
 type FeaturedArticleProps = {

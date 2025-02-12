@@ -1,10 +1,10 @@
-import LatestArticles from "@/app/resources/components/latestArticles";
+import LatestArticles from "@/app/blog/components/latestArticles";
 import React from "react";
 import {
   fetchAllArticles,
   fetchArticleBySlug,
   getAllBlogSlugs,
-} from "@/queries/resources";
+} from "@/queries/blog";
 import Banner from "@/components/banner";
 import Markdown from "@/components/markdown";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";

@@ -1,4 +1,4 @@
-import { fetchAllArticles, fetchResourcesPageData } from "@/queries/resources";
+import { fetchAllArticles, fetchResourcesPageData } from "@/queries/blog";
 import React from "react";
 import FeaturedArticle from "./components/featuredArticle";
 import Banner from "@/components/banner";
