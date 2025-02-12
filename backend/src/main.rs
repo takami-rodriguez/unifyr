@@ -121,6 +121,14 @@ fn retrieve(mut req: Request) -> Result<Response, EdgeError> {
         redirect = true;
     }
 
+    // FIXME: temporary hard-coded redirect for resources → blog
+    let path = url.path();
+    if path.starts_with("/resources/") {
+        let path = path.to_owned();
+        url.set_path(&format!("/blog/{}", &path["/resources/".len()..]));
+        redirect = true;
+    }
+
     // Production only
     // Redirect https://unifyr.com → https://www.unifyr.com
     #[cfg(feature = "production")]
