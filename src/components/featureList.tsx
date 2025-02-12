@@ -17,7 +17,7 @@ const FeatureList = async ({ block }: FeatureListProps) => {
   const { title, features, description } = block;
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">
-      <div className="space-y-6 rounded-2xl py-10 sm:py-12 px-4 lg:px-0" style={bgGradient}>
+      <div className="space-y-6 rounded-2xl py-10 sm:pt-12 sm:pb-20 px-4 lg:px-0" style={bgGradient}>
         <div className="mx-auto max-w-5xl space-y-16">
           <div className="space-y-4">
           <h2 className="text-center font-heading font-bold text-5xl">
