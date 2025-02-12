@@ -19,6 +19,7 @@ type ImageTextProps = {
   title: string;
   content: string;
   button?: ButtonTypeProps;
+  rounded?: boolean;
 };
 
 const ImageText = ({
@@ -28,10 +29,11 @@ const ImageText = ({
   content,
   button,
   image,
+  rounded
 }: ImageTextProps) => {
   const pathname = usePathname();
   return (
-    <div className="md:py-18 relative z-10 mx-auto max-w-5xl py-10">
+    <div className="md:py-18 relative z-10 mx-auto max-w-5xl py-16">
       <div
         className={cn(
           "absolute top-10 z-0 w-full md:-top-20 md:h-[120%] lg:w-1/2",
@@ -75,7 +77,10 @@ const ImageText = ({
             <Image
               src={image}
               alt="hero"
-              className="rounded-xl object-contain object-center"
+              className={cn("object-center",{
+                "rounded-xl object-cover": rounded,
+                "object-contain": !rounded,
+              })}
               fill
             />
           </AspectRatio>

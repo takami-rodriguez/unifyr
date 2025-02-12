@@ -44,7 +44,7 @@ const Navigation = ({
   isOpen: boolean;
 }) => {
   const [value, setValue] = React.useState("");
-  const toggleSolutions = () => {
+  const toggleAccordion = () => {
     toggleOpen();
     setValue("");
   };
@@ -85,7 +85,7 @@ const Navigation = ({
                     {i.subMenu.map((link) => (
                       <div key={link.label} className="group">
                         <Link
-                          onClick={() => toggleSolutions()}
+                          onClick={() => toggleAccordion()}
                           href={link.link}
                           className="flex h-full w-full space-x-6 rounded-xl px-5 py-2 group-hover:bg-violet-50"
                         >
@@ -98,18 +98,17 @@ const Navigation = ({
               </AccordionItem>
             </Accordion>
           ) : (
-            <Link onClick={() => toggleSolutions()} href={i.link}>
+            <Link onClick={() => toggleAccordion()} href={i.link}>
               {i.label}
             </Link>
           )}
         </motion.li>
       ))}
-      <motion.div variants={childVariants}>
-        <Link onClick={() => toggleSolutions()} href={NavLink.BookACall}>
+      <motion.div variants={childVariants} className="mt-4 ">
+        <Link onClick={() => toggleAccordion()} href={NavLink.BookACall}>
           <Button
             variant="primary"
-            size="lg"
-            className="mt-4 w-full text-lg lg:w-auto"
+            className="w-full text-lg lg:w-auto"
           >
             Book a Call
           </Button>
