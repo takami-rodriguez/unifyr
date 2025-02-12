@@ -21,7 +21,7 @@ const Hero = () => {
           <span style={gradientText}>Growth</span> happens in good company
         </h1>
         <p className="mx-auto mt-8 max-w-2xl font-extralight text-grey-900/80 md:text-center md:text-xl md:leading-8">
-          ZiftONE is the industry-leading solution for relationship partner
+          ZiftONE is the industry-leading solution for partner relationship
           management (PRM), through-channel marketing automation (TCMA), and
           partner learning management—deeply integrated with the tools you
           already use.
