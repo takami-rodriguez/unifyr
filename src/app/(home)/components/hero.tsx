@@ -38,7 +38,6 @@ const Hero = () => {
             </Button>
           </Link>
         </div>
-        {/* TODO - add image placeholder */}
         <Suspense fallback={<div>Loading...</div>}>
           <WistiaVideo id="zhjsfv098n" />
         </Suspense>

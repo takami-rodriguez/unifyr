@@ -20,16 +20,14 @@ export type PlatformVideoSectionProps = {
 
 const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
   const { title, description, wistiaVideoId, features } = block;
-  // TODO INCREASE PADDING
   return (
-    <section className="mx-auto max-w-5xl py-9">
+    <section className="mx-auto max-w-5xl py-12">
       <h2 className="pb-6 text-center font-heading text-5xl leading-[3.5rem] font-extrabold">
         {title}
       </h2>
       <p className="mx-auto max-w-[800px] text-center text-[1.375rem]">
         {description}
       </p>
-      {/* TODO - add image placeholder */}
       <Suspense fallback={<div>Loading...</div>}>
         <WistiaVideo id={wistiaVideoId} />
       </Suspense>

@@ -25,7 +25,6 @@ const Partners = () => {
             key={image.url}
             className={cn("relative mb-10 h-12 w-1/2 max-w-[130px] px-2 md:mb-0 md:w-32 md:px-0")}
           >
-            {/* TODO - fix LG / Dell */}
             <Image
               src={image.url}
               alt={image.alt || ""}

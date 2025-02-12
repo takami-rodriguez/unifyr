@@ -15,7 +15,7 @@ type NavDropdownProps = {
   menu: {
     label: string;
     subTitle?: string;
-    link: NavLink;
+    link: NavLink | string;
   }[];
   label: string;
   link: string;
@@ -50,6 +50,7 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
           >
             <Link
               href={subLink.link}
+              target={subLink.link.includes("http") ? "_blank" : "_self"}
               className="flex h-full w-full space-x-6 rounded-xl px-4 py-5 group-hover:bg-grey-200"
             >
               <div className="space-y-2 text-grey-900/80">

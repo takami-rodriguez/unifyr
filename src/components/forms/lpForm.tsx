@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { boxShadow } from "@/data/styleHelpers";
 import { FormEvent, useState } from "react";
@@ -91,11 +92,10 @@ const LandingPageForm = ({
           }}
         />
       )}
-      {/* TODO - Fix padding  on all forms */}
       <form id={id} onSubmit={sendData}>
         <div
           className={cn(
-            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-8 pb-5 pt-3 lg:px-10 lg:pb-7 lg:pt-5",
+            "space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-8 pb-5 pt-3 lg:px-8 lg:pb-7 lg:pt-5",
           )}
           style={boxShadow}
         >

@@ -29,14 +29,6 @@ export const navLinks = [
       
     ],
   },
-  // {
-  //   label: "Product",
-  //   link: NavLink.Product,
-  // },
-  // {
-  //   label: "Solutions",
-  //   link: NavLink.Solutions,
-  // },
   {
     label: "Resources",
     link: NavLink.Resources,
@@ -46,22 +38,13 @@ export const navLinks = [
         link: NavLink.Resources,
       },
       {
-        label: "ZiftONE",
-        link: NavLink.Resources,
+        label: "Support (Partner Portal)",
+        link: "https://ziftone.zendesk.com/hc/en-us",
       },
       {
-        label: "Blog",
-        link: NavLink.Resources,
+        label: "Support (ZiftONE Admin)",
+        link: "https://ziftoneadmin.zendesk.com/hc/en-us",
       },
-      
     ],
   },
-  {
-    label: "About",
-    link: NavLink.About,
-  },
-  // {
-  //   label: "Company",
-  //   link: NavLink.Company,
-  // },
 ];
