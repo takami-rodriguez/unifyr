@@ -45,10 +45,10 @@ const ImageText = ({
       </div>
       <div className="relative z-20 grid grid-cols-1 items-center gap-8 lg:grid-cols-11 lg:gap-[52px]">
         <div className="col-span-1 flex flex-col items-start space-y-6 lg:col-span-6">
-          <Badge variant="primary">
+          <Badge variant="secondary" className="text-sm">
             <div
               className={cn("uppercase tracking-[0.7px]", {
-                "text-primary": pathname !== "/",
+                "text-secondary": pathname !== "/",
               })}
               style={pathname === "/" ? gradientText : {}}
             >

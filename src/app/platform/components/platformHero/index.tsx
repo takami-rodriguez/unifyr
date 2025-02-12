@@ -21,11 +21,11 @@ type PlatformHeroProps = {
 const PlatformHero = ({ block }: PlatformHeroProps) => {
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">
-      <div className="sm:py-19 bg- rounded-2xl px-24 py-10">
+      <div className="sm:py-19 bg- rounded-2xl lg:px-24 py-10">
         <div className="grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-start justify-center gap-6">
             <h2
-              className="font-heading text-4xl font-bold md:text-[4.375rem] md:leading-[56px]"
+              className="font-heading text-4xl font-bold md:text-[70px] md:leading-[80px]"
               dangerouslySetInnerHTML={{
                 __html: block.title.replace(
                   new RegExp(`\\b${block.titleHighlight}\\b`, "i"),

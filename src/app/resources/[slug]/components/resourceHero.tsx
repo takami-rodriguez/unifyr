@@ -22,7 +22,7 @@ type ResourceHeroProps = {
 const ResourceHero = async ({ frontmatter }: ResourceHeroProps) => {
   return (
     <section style={bgGradient} className="space-y-6 rounded-2xl py-10">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl px-4 lg:px-0">
         <h1 className="text-[2.45rem] font-medium leading-[2.5rem] md:text-[3rem] md:leading-[3rem] text-grey-800">
           {frontmatter.title}
         </h1>
