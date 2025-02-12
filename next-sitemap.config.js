@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_URL || "https://unifyr.com";
+const siteUrl = process.env.NEXT_PUBLIC_URL;
 
 /** @type {import('next-sitemap').IRobotPolicy} */
 const policy = siteUrl.startsWith("https://www.")
