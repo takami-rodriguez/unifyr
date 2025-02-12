@@ -43,12 +43,11 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
                 <h3 className="text-sm font-bold uppercase tracking-wider text-grey-900">
                   {feature.title}
                 </h3>
-                <p className="text-base">{feature.description}</p>
+                <p className="text-base lg:max-w-xs">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
-        {/* TODO - make image bigger and apply border/outline */}
         <div className="">
           <AspectRatio
             ratio={5.6 / 4}

@@ -23,10 +23,10 @@ const FeatureList = async ({ block }: FeatureListProps) => {
       >
         <div className="mx-auto max-w-5xl space-y-16">
           <div className="space-y-4">
-            <h2 className="text-center font-heading text-5xl font-bold">
+            <h2 className="text-center font-heading text-4xl md:text-5xl font-bold">
               {title}
             </h2>
-            <p className="mx-auto max-w-2xl text-center text-[22px] leading-[32px]">
+            <p className="mx-auto max-w-2xl text-center text-lg md:text-[22px] leading-[32px]">
               {description}
             </p>
           </div>

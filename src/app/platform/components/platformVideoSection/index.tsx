@@ -22,7 +22,7 @@ const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
   const { title, description, wistiaVideoId, features } = block;
   return (
     <section className="mx-auto max-w-5xl py-12">
-      <h2 className="pb-6 text-center font-heading text-4xl font-bold md:text-[70px] md:leading-[80px]">
+      <h2 className="pb-6 text-center font-heading text-4xl  md:text-5xl md:leading-[3.5rem] font-extrabold">
         {title}
       </h2>
       <p className="mx-auto max-w-[800px] text-center md:text-[1.375rem]">

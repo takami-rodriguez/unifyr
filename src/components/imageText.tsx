@@ -57,8 +57,8 @@ const ImageText = ({
               {badge}
             </div>
           </Badge>
-          <h3 className="font-heading text-5xl font-bold">{title}</h3>
-          <p className="text-xl font-light text-grey-900/80">{content}</p>
+          <h3 className="font-heading text-4xl md:text-5xl font-bold">{title}</h3>
+          <p className="text-lg md:text-xl font-light text-grey-900/80">{content}</p>
           {button && (
             <Link href={button.link}>
               <Button variant={button.variant}>{button.label}</Button>
