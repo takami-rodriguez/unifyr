@@ -13,15 +13,11 @@ const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
   return (
     <Link
       href={`${NavLink.Resources}${article.frontmatter.slug}/`}
-      className=""
+      className="h-full block overflow-hidden rounded-2xl bg-white"
+      style={boxShadow}
     >
-      <div
-        className="relative overflow-hidden rounded-2xl bg-white p-5"
-        style={boxShadow}
-      >
-        <div className="col-span-1 flex h-full flex-col justify-between lg:p-5">
-          <TitleSection article={article} featured />
-        </div>
+      <div className=" h-full  p-5">
+        <TitleSection article={article} featured />
       </div>
     </Link>
   );

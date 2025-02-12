@@ -1,15 +1,16 @@
 ---
 title: "Infusing PRM with partner intelligence"
-excerpt: "Your channel operations should reflect the latest in technology and business process innovations. Ensure you're prepared to accelerate with AI."
+excerpt: Your channel operations should reflect the latest in technology and business process innovations. Ensure you're prepared to accelerate with AI.
 publishedDate: "2025-02-11T12:00:00.000Z"
 category: Marketing
 draft: false
 featuredImage: "/images/image.png"
 slug: infusing-prm-with-partner-intelligence
 author: brian
-og_image: "/images/blog/blog-generic.png"
-_uid: 810311ED-ABCD-47AB-A82D-E04DEECD55E9
+og_image: "/images/blog/image.png"
+_uid: 810311ED-ABCD-47AB-A82D-E04DEECD55Easd
 ---
+
 In the bustling corridors of a Fortune 500 technology company, the director of channel partnerships stares at her screen in frustration. Despite managing relationships worth millions in potential revenue, she's drowning in spreadsheets, missing crucial partner signals, and watching deals slip through the cracks. This scene plays out thousands of times daily across industries, as channel partnership professionals struggle to scale their programs: **drowning in data; desperate for insights.** The modern partnership ecosystem generates an overwhelming volume of signals, from partner portal interactions and deal registrations to training completions and marketing campaign engagement. This flood of information, rather than enabling better decision-making, creates a paralyzing effect. Let's call it '**channel paralysis.**'
 
 The problem isn't unique to partner channel management and the solution isn't novel: with the computing power of modern hardware, the explosion in available data, and algorithmic breakthroughs, machine learning is now a universally accessible—and, arguably, a required—way to extract the information **humans** need to know from a sea of opaque data. People across verticals and in roles of all levels are vested with what would have seemed like business superpowers just a few years ago. AI insights are quick to generate and they're highly accurate, however the impetus is upon technology providers to implement these insights in a way that ① **respects data privacy** and ② **makes users more effective in their roles.**

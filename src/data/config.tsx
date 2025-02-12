@@ -1,7 +1,7 @@
 import LinkenInIcon from "@/components/icons/linkedInIcon";
 
 export const FEATURED_ARTICLE_SLUG =
-  "unifyr-plus-and-unifyr-pro-beta-program-announcement";
+  "infusing-prm-with-partner-intelligence";
 
 export const socialLinks = [
   // {

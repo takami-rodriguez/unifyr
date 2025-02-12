@@ -4,12 +4,16 @@ import matter from "gray-matter";
 import { sortFrontMatter } from "./_helpers";
 import { FEATURED_ARTICLE_SLUG } from "@/data/config";
 
-export function fetchAllArticles(): Promise<ArticleTemplateProps[]> {
+export async function fetchAllArticles(): Promise<ArticleTemplateProps[]> {
   const slugData = getAllBlogSlugs();
   const allArticlePromises = slugData.map((fileName) =>
     fetchArticleBySlug(fileName.slug),
   );
-  return Promise.all(allArticlePromises);
+  return (await Promise.all(allArticlePromises)).sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  );
 }
 
 export async function fetchArticleBySlug(

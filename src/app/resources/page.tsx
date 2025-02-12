@@ -30,10 +30,10 @@ const ResourcesPage = async () => {
   // );
   return (
     <div className="mb-1 space-y-12 overflow-x-hidden py-12">
-      <div className="grid-col-1 mx-auto grid max-w-5xl gap-8 lg:grid-cols-2">
+      <div className="grid-col-1 mx-auto grid max-w-5xl gap-8 lg:grid-cols-3">
         {allArticles.map((article) => {
           return (
-            <div className="col-span-1" key={article.frontmatter._uid}>
+            <div className="col-span-1 h-full" key={article.frontmatter._uid}>
               <FeaturedArticle article={article} />
             </div>
           );

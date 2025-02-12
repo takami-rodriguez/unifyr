@@ -12,7 +12,7 @@ const LatestArticles = ({ articles }: LatestArticlesProps) => {
         Related Posts
       </h3>
       <div className="relative mx-auto max-w-5xl overflow-visible">
-        <div className="flex flex-col flex-wrap justify-center gap-6 md:flex-row">
+        <div className="flex flex-col justify-center gap-6 md:flex-row">
           {articles?.map((t) => (
             <div key={t.frontmatter._uid} className="basis-1/3">
               <ArticleCard article={t} />
