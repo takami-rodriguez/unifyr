@@ -47,7 +47,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
               src={block.image}
               alt={""}
               fill
-              className={cn("rounded-[25px] object-cover object-center")}
+              className={cn("rounded-[25px] object-contain object-center")}
             />
           </AspectRatio>
         </div>

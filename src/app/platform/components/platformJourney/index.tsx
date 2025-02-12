@@ -1,11 +1,13 @@
 import React from "react";
-import PlatformJourneyImage from "./image";
 import { cn } from "@/lib/utils";
 import BGRadialSVG from "@/components/bgRadiant";
+import Image from "next/image";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type PlatformJourneyProps = {
   block: {
     title: string;
+    image: string;
     intro: string;
     features: {
       title: string;
@@ -15,7 +17,7 @@ type PlatformJourneyProps = {
 };
 
 const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
-  const { title, intro, features } = block;
+  const { title, intro, features,image } = block;
   return (
     <section className="relative mx-auto max-w-5xl">
       <div
@@ -33,7 +35,7 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
           {intro}
         </p>
       </div>
-      <div className="grid w-full items-center gap-12 md:grid-cols-2">
+      <div className="grid grid-cols-1 w-full items-center gap-12 md:grid-cols-2 mt-6">
         <div className="space-y-12">
           <div className="space-y-4 text-grey-900/80">
             {features.map((feature, index) => (
@@ -46,11 +48,9 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto aspect-square w-full max-w-md">
-          <div className="animate-spin-slow absolute inset-0">
-            <PlatformJourneyImage />
-          </div>
-        </div>
+        <AspectRatio ratio={5.6/4} className="relative mx-auto w-full max-w-md">
+         <Image src={image} alt={title} fill className="object-contain object-center lg:object-right "/>
+        </AspectRatio>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ export const ziftOnePlatform = {
     titleHighlight: "intelligent",
     description:
       "Meet the next evolution of ZiftONE PRM & TCMA with smarter ways to grow in the channel.",
-    image: "/images/platform/ziftONE/images/ziftone-header-image.svg",
+    image: "/images/platform/ziftONE/images/ziftone-header-image.png",
     button1: {
       label: "Book a call",
       variant: "secondary" as ButtonVariant,
@@ -82,7 +82,7 @@ export const ziftOnePlatform = {
       badge: "Scale",
       imageLeft: true,
       title: "ZiftONE accommodates channel programs of all sizes",
-      image: "/images/platform/ziftONE/images/ziftone-scale.svg",
+      image: "/images/platform/ziftONE/images/ziftone-scale.png",
       content:
         "Whether you are entering the channel for the first time or implementing a robust enterprise channel presence, ZiftONE will continue to serve you.",
     },
@@ -91,6 +91,7 @@ export const ziftOnePlatform = {
     title: "Uncontested partner enablement",
     intro:
       "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
+      image: "/images/platform/ziftONE/images/ziftone-screenshot-1-blue.png",
     features: [
       {
         title: "Meet partners where they are",

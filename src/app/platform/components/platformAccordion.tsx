@@ -22,12 +22,11 @@ type PlatformAccordionProps = {
 export default function PlatformAccordion({ block }: PlatformAccordionProps) {
   return (
     <section className="mx-auto max-w-5xl">
-      <div className="flex items-center justify-between space-x-64">
+      <div className="flex flex-col md:flex-row items-center justify-between md:space-x-64">
         <div className="w-full">
           <AccordionList items={block.items} />
         </div>
-        {/* CTA Section */}
-        <div className="max-w-[225px] space-y-5">
+        <div className="md:max-w-[225px] space-y-5">
           <h4 className="font-semibold uppercase tracking-wide text-[#151439]/40">
             {block.cta.title}
           </h4>
