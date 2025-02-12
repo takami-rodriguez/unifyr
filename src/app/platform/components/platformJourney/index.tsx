@@ -31,12 +31,12 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
         <h2 className="font-heading text-3xl font-bold leading-[52px] md:text-4xl lg:text-5xl ">
           {title}
         </h2>
-        <p className="max-w-2xl text-[1.375rem] leading-8 text-grey-900/80">
+        <p className="max-w-2xl text-xl lg:text-[1.375rem] leading-8 text-grey-900/80">
           {intro}
         </p>
       </div>
-      <div className="grid grid-cols-1 w-full items-center gap-12 md:grid-cols-2 md:mt-14 lg:mt-6">
-        <div className="space-y-12">
+      <div className="grid grid-cols-1 w-full items-center gap-12 lg:grid-cols-2 md:mt-14 lg:mt-6">
+        <div className="space-y-12 mt-14 lg:mt-0">
           <div className="space-y-4 text-grey-900/80">
             {features.map((feature, index) => (
               <div key={index} className="max-w-sm space-y-3">
