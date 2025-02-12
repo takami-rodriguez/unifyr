@@ -24,7 +24,7 @@ export default function AccordionList({ items }: AccrodionListProps) {
           value={item.trigger}
           className={cn("py-8",{"border-b-[2px] border-[#EBEAED]": i !== items.length - 1})}
         >
-          <AccordionTrigger className="hover:no-underline" >
+          <AccordionTrigger className=" text-left hover:no-underline" >
             <div className="flex items-center gap-2">
               <span className="text-base uppercase font-semibold tracking-[2px]">
                 {item.trigger}

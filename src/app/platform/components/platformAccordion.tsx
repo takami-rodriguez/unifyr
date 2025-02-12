@@ -20,9 +20,10 @@ type PlatformAccordionProps = {
 };
 
 export default function PlatformAccordion({ block }: PlatformAccordionProps) {
+
   return (
     <section className="mx-auto max-w-5xl">
-      <div className="flex flex-col md:flex-row items-center justify-between md:space-x-64">
+      <div className="flex flex-col md:flex-row items-center justify-between space-y-10 md:space-y-0 md:space-x-64">
         <div className="w-full">
           <AccordionList items={block.items} />
         </div>
