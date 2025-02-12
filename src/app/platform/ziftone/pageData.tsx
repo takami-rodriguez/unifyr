@@ -157,14 +157,14 @@ export const ziftOnePlatform = {
           "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
       },
       {
-        trigger: "Variety of designs",
+        trigger: "Manage market development funds (MDF)",
         content:
-          "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
+          "Incentivize partner activities with a granularly configured MDF program. ZiftONE integrates with any system (CRM, ERP, etc.) required to ensure your program is run precisely the way you’ve designed it.",
       },
       {
-        trigger: "Feel our design",
+        trigger: "Prove value with reporting and analytics",
         content:
-          "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
+          "ZiftONE makes it easy to prove ROI and drill down into the performance of assets and partners. Maintain complete visibility of the data that matters most in making critical business decisions related to growth and channel partnerships.",
       },
     ],
     cta: {

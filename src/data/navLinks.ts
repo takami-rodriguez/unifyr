@@ -22,7 +22,7 @@ export const navLinks = [
     link: NavLink.Platform,
     subMenu: [
       {
-        label: "Ziftone",
+        label: "ZiftONE",
         subTitle: "The most advanced PRM solution ",
         link: NavLink.PlatformZift,
       },
