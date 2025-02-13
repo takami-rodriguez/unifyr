@@ -17,7 +17,7 @@ export const ziftOnePlatform = {
     button2: {
       label: "Blog",
       variant: "outline" as ButtonVariant,
-      link: NavLink.Resources,
+      link: NavLink.Blog,
     },
   },
   introSection: {

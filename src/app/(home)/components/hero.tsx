@@ -32,7 +32,7 @@ const Hero = () => {
               <div className="w-full md:w-[124px]">Book a call</div>
             </Button>
           </Link>
-          <Link href={NavLink.Resources} className="w-full md:w-auto">
+          <Link href={NavLink.Blog} className="w-full md:w-auto">
             <Button variant="outline" fullWidth={tablet || mobile}>
               <div className="w-full md:w-[124px]">Resources</div>
             </Button>

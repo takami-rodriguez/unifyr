@@ -13,7 +13,7 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article, index }: ArticleCardProps) => {
   return (
-    <Link href={`${NavLink.Resources}${article.frontmatter.slug}/`}>
+    <Link href={`${NavLink.Blog}${article.frontmatter.slug}/`}>
       <div
         className="h-full max-h-full space-y-6 overflow-hidden rounded-2xl bg-white py-4"
         style={boxShadow}

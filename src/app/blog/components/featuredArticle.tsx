@@ -12,7 +12,7 @@ type FeaturedArticleProps = {
 const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
   return (
     <Link
-      href={`${NavLink.Resources}${article.frontmatter.slug}/`}
+      href={`${NavLink.Blog}${article.frontmatter.slug}/`}
       className="h-full block overflow-hidden rounded-2xl bg-white"
       style={boxShadow}
     >

@@ -44,7 +44,7 @@ const Footer = () => {
             <h4 className="pb-2 text-lg font-bold">Resources</h4>
             <ul className="space-y-2">
               <li className="text-grey-900/80">
-                <Link href={NavLink.Resources}>Blog</Link>
+                <Link href={NavLink.Blog}>Blog</Link>
               </li>
             </ul>
           </div>

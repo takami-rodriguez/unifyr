@@ -9,7 +9,7 @@ export enum NavLink {
   Platform = "/platform/",
   PlatformZift = "/platform/ziftone",
   Solutions = "/solutions/",
-  Resources = "/blog/",
+  Blog = "/blog/",
   Company = "/company/",
   BookACall = "/start/",
   DUMMY = "#",
@@ -31,11 +31,11 @@ export const navLinks = [
   },
   {
     label: "Resources",
-    link: NavLink.Resources,
+    link: NavLink.Blog,
     subMenu: [
       {
         label: "Blog",
-        link: NavLink.Resources,
+        link: NavLink.Blog,
       },
       {
         label: "Support (Partner Portal)",
