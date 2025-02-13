@@ -49,7 +49,7 @@ ZiftONE's AI-powered communication suite puts the power and convenience of **the
 
 3. **Pop-up generation:** Notify partners of new campaigns, content, and updates using an in-portal pop-up with the information they need to stay apprised at a moment's notice. This is yet another way to operate effectively in the channel at scale.
 
-The ability to complete necessary tasks using natural language can't be overstated: manifest your intentions into _on-brand existence_ with AI. All partner relationship platforms should be expected to offer AI features that help channel leaders work faster and smarter. As with all ZiftONE AI features, generative AI leverages models owned by Unifyr; sensitive data is never exposed to a third party.
+The ability to complete necessary tasks using natural language can't be overstated: manifest your intentions into _on-brand existence_ with AI. All partner relationship platforms should be expected to offer AI features that help channel leaders work faster and smarter. As with all ZiftONE AI features, generative AI leverages models are owned by Unifyr; sensitive data is never exposed to a third party.
 
 ![Email Generation in ZiftONE](/images/ai/email-gen.webp)
 
