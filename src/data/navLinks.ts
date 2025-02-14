@@ -16,7 +16,6 @@ export enum NavLink {
 }
 
 export const navLinks = [
-  
   {
     label: "Platform",
     link: NavLink.Platform,
@@ -47,4 +46,8 @@ export const navLinks = [
       },
     ],
   },
+  {
+    label: "About",
+    link: NavLink.About,
+  }
 ];
