@@ -51,13 +51,13 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
         <div className="">
           <AspectRatio
             ratio={5.6 / 4}
-            className="relative border-2 border-gray-100 rounded-xl overflow-hidden"
+            className="relative "
           >
             <Image
               src={image}
               alt={title}
               fill
-              className="rounded-xl object-cover object-center lg:object-right border-2 overflow-hidden border-white "
+              className="object-cover object-center lg:object-right  "
             />
           </AspectRatio>
         </div>

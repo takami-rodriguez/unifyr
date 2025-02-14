@@ -91,7 +91,7 @@ export const ziftOnePlatform = {
     title: "Uncontested partner enablement",
     intro:
       "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
-      image: "/images/platform/ziftONE/images/ziftone-screenshot-1-blue.png",
+      image: "/images/platform/ziftONE/images/ziftone-screenshot-blue.png",
     features: [
       {
         title: "Meet partners where they are",
