@@ -7,6 +7,8 @@ import Image from "next/image";
 import DualButtons, { ButtonTypeProps } from "./buttons";
 import { renderToString } from "react-dom/server";
 import { bgGradient } from "@/data/styleHelpers";
+import { NavLink } from "@/data/navLinks";
+import { usePathname } from "next/navigation";
 
 type PlatformHeroProps = {
   block: {
@@ -20,6 +22,17 @@ type PlatformHeroProps = {
 };
 
 const PlatformHero = ({ block }: PlatformHeroProps) => {
+  const pathname = usePathname();
+  const getHighlightColor = () => {
+    switch (pathname) {
+      case NavLink.PlatformZift:
+        return "text-primary";
+      case NavLink.PlatformUnifryPlus:
+        return "text-green-700";
+      default:
+        return "primary";
+    }
+  };
   return (
     <section
       className="mx-auto max-w-[1400px] rounded-2xl lg:px-5"
@@ -35,7 +48,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
                   new RegExp(`\\b${block.titleHighlight}\\b`, "i"),
                   (match) =>
                     renderToString(
-                      <span className="text-secondary">{match}</span>,
+                      <span className={getHighlightColor()}>{match}</span>,
                     ),
                 ),
               }}

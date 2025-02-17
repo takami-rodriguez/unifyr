@@ -55,7 +55,7 @@ const AccordionSection = ({ blok }: { blok: AccordionSectionProps }) => {
         <div className="pt-6">
           <Link href={NavLink.BookACall}>
             <Button
-              variant={blok.colour === "yellow500" ? "yellow" : "secondary"}
+              variant={blok.colour === "yellow500" ? "unifyrPlus" : "secondary"}
             >
               {blok.button.label}
             </Button>

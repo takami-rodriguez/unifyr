@@ -11,6 +11,7 @@ import { gradientText } from "@/data/styleHelpers";
 import BGRadialSVG from "./bgRadiant";
 import { usePathname } from "next/navigation";
 import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
+import { NavLink } from "@/data/navLinks";
 
 type ImageTextProps = {
   imageLeft?: boolean;
@@ -32,6 +33,16 @@ const ImageText = ({
   rounded
 }: ImageTextProps) => {
   const pathname = usePathname();
+  const getBadgeColor = () => {
+    switch (pathname) {
+      case NavLink.PlatformZift:
+        return "secondary";
+      case NavLink.PlatformUnifryPlus:
+        return "unifyrPlus";
+      default:
+        return "primary";
+    }
+  }
   return (
     <div className="md:py-18 relative z-10 mx-auto max-w-5xl py-16">
       <div
@@ -47,11 +58,9 @@ const ImageText = ({
       </div>
       <div className="relative z-20 grid grid-cols-1 items-center gap-8 lg:grid-cols-11 lg:gap-[52px]">
         <div className="col-span-1 flex flex-col items-start space-y-6 lg:col-span-6">
-          <Badge variant="secondary" className="text-sm">
+          <Badge variant={getBadgeColor()} className="text-sm">
             <div
-              className={cn("uppercase tracking-[0.7px]", {
-                "text-secondary": pathname !== "/",
-              })}
+              className={cn("uppercase tracking-[0.7px]")}
               style={pathname === "/" ? gradientText : {}}
             >
               {badge}

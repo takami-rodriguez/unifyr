@@ -7,7 +7,8 @@ export enum NavLink {
   Leadership = "/leadership/",
   Careers = "/careers/",
   Platform = "/platform/",
-  PlatformZift = "/platform/ziftone",
+  PlatformZift = "/platform/ziftone/",
+  PlatformUnifryPlus = "/platform/unifyr-plus/",
   Solutions = "/solutions/",
   Blog = "/blog/",
   Company = "/company/",
@@ -22,8 +23,11 @@ export const navLinks = [
     subMenu: [
       {
         label: "ZiftONE",
-        subTitle: "The most advanced PRM solution ",
         link: NavLink.PlatformZift,
+      },
+      {
+        label: "Unifyr+",
+        link: NavLink.PlatformUnifryPlus,
       },
       
     ],

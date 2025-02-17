@@ -68,7 +68,7 @@ const LeadershipGrid = ({
               <DialogContent className="bg-white">
                 <DialogHeader>
                   <DialogTitle>
-                    <div className="grid h-[30vh] grid-cols-2 items-center px-2">
+                    <div className="grid lg:grid-cols-2 items-center px-2">
                       <div>
                         <h4 className="pt-4 text-3xl text-[#061C49] lg:text-[2rem]">
                           {m.name}
@@ -76,14 +76,6 @@ const LeadershipGrid = ({
                         <p className="flex font-bold leading-[30px] group-hover:underline lg:pb-5 lg:pt-3">
                           {m.title}
                         </p>
-                      </div>
-                      <div className="relative">
-                        <Image
-                          src={m.image?.src || ""}
-                          alt={m.image?.alt || ""}
-                          fill
-                          className="rounded-xl object-cover"
-                        />
                       </div>
                     </div>
                   </DialogTitle>

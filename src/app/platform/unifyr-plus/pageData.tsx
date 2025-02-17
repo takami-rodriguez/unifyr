@@ -13,7 +13,7 @@ export const ziftOnePlatform = {
     image: "/images/platform/ziftONE/images/ziftone-header-image.png",
     button1: {
       label: "Book a call",
-      variant: "secondary" as ButtonVariant,
+      variant: "unifyrPlus" as ButtonVariant,
       link: NavLink.BookACall,
     },
     button2: {
@@ -29,19 +29,21 @@ export const ziftOnePlatform = {
     wistiaVideoId: "6yip3slsj5",
     features: [
       {
-        icon: <BespokePortalIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: (
+          <BespokePortalIcon className="h-[40px] w-[40px] fill-green-600" />
+        ),
         title: "Bespoke portal",
         description:
           "Our team will help you to build a partner portal that exudes your brand look and feel.",
       },
       {
-        icon: <GenerativeAIIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: <GenerativeAIIcon className="h-[40px] w-[40px] fill-green-600" />,
         title: "Generative AI",
         description:
           "Grow your content library with built-in, privacy-first AI to save time and stay on-brand.",
       },
       {
-        icon: <TCMAIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: <TCMAIcon className="h-[40px] w-[40px] fill-green-600" />,
         title: "TCMA & LMS",
         description:
           "Look no further for the other critical systems you need to nurture channel partnerships.",
@@ -152,7 +154,7 @@ export const ziftOnePlatform = {
         "Let's uncover how ZiftONE PRM can accelerate your channel program.",
       button: {
         label: "Get started",
-        variant: "secondary" as ButtonVariant,
+        variant: "unifyrPlus" as ButtonVariant,
         link: NavLink.BookACall,
       },
     },
