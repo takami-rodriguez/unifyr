@@ -153,6 +153,7 @@
                   ".next"
                   "out"
                   "backend"
+                  "_redirects"
                 ])
                 && (pkgs.lib.cleanSourceFilter path type);
             };
@@ -165,6 +166,46 @@
             ];
             installPhase = ''
               cp -r out $out
+            '';
+          };
+
+        # === redirects ===
+        mkRedirects =
+          src:
+          pkgs.stdenv.mkDerivation {
+            inherit src;
+            name = "redirect-stubs";
+            dontConfigure = true;
+            nativeBuildInputs = [
+              pkgs.bash
+              pkgs.coreutils
+            ];
+            installPhase = ''
+              mkdir -p $out
+              cd $out
+
+              find "${src}" -type f | while read -r path; do
+                rel="''${path#"${src}"}"
+
+                while read -r to from; do
+                  [[ -z "$to" || "$to" =~ ^# ]] && continue
+
+                  if [[ "$rel" =~ $to ]]; then
+                    from_rel="''${from#/}"
+                    new=$(echo "$rel" | sed -E "s|$to|$from_rel|")
+
+                    mkdir -p "$(dirname "$new")"
+
+                    if [[ "$new" =~ /index\.html$ ]]; then
+                      echo "$(dirname "$rel")/" > "$new"
+                    else
+                      echo "$rel" > "$new"
+                    fi
+
+                    break
+                  fi
+                done < "${./_redirects}"
+              done
             '';
           };
       in
@@ -181,13 +222,24 @@
         apps = pkgs.lib.mapAttrs (
           name: env:
           let
+            aws = pkgs.lib.getExe pkgs.awscli2;
             rclone = pkgs.lib.getExe pkgs.rclone;
             fastly = pkgs.lib.getExe pkgs.fastly;
 
             frontend = self.legacyPackages.${system}.${name}.frontend;
             backend = self.legacyPackages.${system}.${name}.backend;
+            redirects = mkRedirects frontend;
             script = pkgs.writeShellScriptBin "deploy-${name}" ''
-              ${rclone} --progress sync --checksum ${frontend} :s3,provider=AWS,env_auth=true:${env.AWS_BUCKET}
+              ${rclone} --progress sync --checksum ${frontend} \
+                :s3,provider=AWS,env_auth=true:${env.AWS_BUCKET}
+
+              find ${redirects} -type f | while read -r file; do
+                loc=$(cat "$file")
+                rel="''${file#${redirects}}"
+                rel="''${rel#/}"
+                ${aws} s3 cp "$file" s3://${env.AWS_BUCKET}/$rel --website-redirect "$loc"
+              done
+
               ${fastly} compute deploy -s ${env.SERVICE_ID} -p ${backend}/package.tar.gz
               ${fastly} purge -s ${env.SERVICE_ID} --all
             '';

@@ -1,0 +1,1 @@
+^/blog/(.+)/index.html /resources/\1/index.html
