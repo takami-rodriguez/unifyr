@@ -17,7 +17,7 @@ export type TeamMemberType = {
     src: string;
     alt: string;
   };
-  bio: string;
+  bio: string[];
   name: string;
   title: string;
 };
@@ -65,24 +65,49 @@ const LeadershipGrid = ({
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="bg-white">
+              <DialogContent
+                className="bg-white"
+                style={{
+                  borderRadius: "40px",
+                  background:
+                    "linear-gradient(105deg, rgba(215, 14, 134, 0.07) 12.54%, rgba(36, 56, 139, 0.09) 97.75%), #FFF",
+                }}
+              >
                 <DialogHeader>
-                  <DialogTitle>
-                    <div className="grid items-center px-2 lg:grid-cols-2">
-                      <div>
-                        <h4 className="pt-4 text-3xl text-[#061C49] lg:text-[2rem]">
+                </DialogHeader>
+                  <DialogTitle></DialogTitle>
+                  <DialogDescription>
+                    <div className="grid items-start gap-10 pl-8 pr-10 sm:grid-cols-6">
+                      <div className="sm:col-span-4">
+                        <h4 className="pt-4 text-3xl font-normal text-grey-900 lg:text-[2.75rem]">
                           {m.name}
                         </h4>
-                        <p className="flex font-bold leading-[30px] group-hover:underline lg:pb-5 lg:pt-3">
+                        <p className="flex font-bold leading-[30px] text-grey-900/70 lg:pb-5 lg:pt-3">
                           {m.title}
                         </p>
+                        <div className="space-y-6">
+                          {m.bio.map((b, i) => (
+                            <p key={i} className="text-lg text-grey-900/70">
+                              {b}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <AspectRatio
+                          ratio={3.6 / 4}
+                          className="relative order-first lg:order-last"
+                        >
+                          <Image
+                            src={m.image?.src}
+                            alt={m.image?.alt || ""}
+                            fill
+                            className="rounded-xl object-cover"
+                          />
+                        </AspectRatio>
                       </div>
                     </div>
-                  </DialogTitle>
-                  <DialogDescription>
-                    <p>{m.bio}</p>
                   </DialogDescription>
-                </DialogHeader>
               </DialogContent>
             </Dialog>
           </div>
