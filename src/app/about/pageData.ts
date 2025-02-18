@@ -5,12 +5,12 @@ export const aboutPageData = {
     title: "About",
     image: {
       src: "/images/about/aboutHero.webp",
-      alt: "Unifyr | About us",
+      alt: "About us",
     },
   },
   intro: [
-    "Unifyr’s vision is clear: collaborate with organizations to expand their reach, revenue and profit. We empower suppliers, partners and agencies by simplyifying the complexities of the channel ecosystem.",
-    "With deep industry knowledge and a commitment to driving results, the Unifyr leadership team ensures the company remains at the forefront of innovation, delivering lasting value to its clients.",
+    "Unifyr’s vision is clear: collaborate with organizations to expand their reach, revenue, and profit. We empower suppliers, partners, and agencies by simplifying the complexities of the channel ecosystem.",
+    "With deep industry knowledge and a commitment to driving results, the Unifyr leadership team ensures the company remains at the forefront of innovation, delivering lasting value to its customers.",
   ],
   leadership: {
     title: "Leadership Team",

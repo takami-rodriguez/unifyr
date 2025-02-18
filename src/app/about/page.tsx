@@ -8,7 +8,7 @@ import HeroFullBleedImage from "./components/aboutHero";
 import { aboutPageData } from "./pageData";
 
 const metaData: SEOData = {
-  fullTitle: "About | Unifyr",
+  title: "About",
   description:
     "Unifyr provides industry-leading supplier and partner management solutions for high-performance channel programs.",
 };
