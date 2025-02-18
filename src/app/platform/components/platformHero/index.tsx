@@ -26,7 +26,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
   const getHighlightColor = () => {
     switch (pathname) {
       case NavLink.PlatformZift:
-        return "text-primary";
+        return "text-secondary";
       case NavLink.PlatformUnifryPlus:
         return "text-green-700";
       default:
