@@ -54,7 +54,7 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
               className="flex h-full w-full space-x-6 rounded-xl px-4 py-5 group-hover:bg-grey-200"
             >
               <div className="space-y-2 text-grey-900/80">
-                <p className="text-xl font-bold">{subLink.label}</p>
+                <p className="text-xl">{subLink.label}</p>
                 {subLink.subTitle && <p className="">{subLink.subTitle}</p>}
               </div>
             </Link>
