@@ -34,15 +34,9 @@ const AboutPage = async () => {
           </p>
         ))}
       </div>
-      <div className="my-20">
+      <div className="mb-20">
         <LeadershipTeam block={aboutPageData.leadership} />
       </div>
-      {/* <Timeline
-        block={{
-          badge: "The past, present and future of Unifyr",
-          years: aboutPageData.timelineData,
-        }}
-      /> */}
     </div>
   );
 };

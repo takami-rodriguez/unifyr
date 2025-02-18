@@ -42,7 +42,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
         <div className="grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-9">
           <div className="flex flex-col items-start justify-center gap-6 lg:col-span-5">
             <h1
-              className="font-heading text-5xl font-extrabold leading-[3.5rem] md:pt-20 md:text-7xl md:leading-[5rem]"
+              className="font-heading text-5xl font-extrabold leading-[3.5rem] md:text-7xl md:leading-[5rem]"
               dangerouslySetInnerHTML={{
                 __html: block.title.replace(
                   new RegExp(`\\b${block.titleHighlight}\\b`, "i"),

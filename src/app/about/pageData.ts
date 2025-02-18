@@ -9,7 +9,7 @@ export const aboutPageData = {
     },
   },
   intro: [
-    "Unifyr’s vision is clear: collaborate with organizations to expand their reach, revenue and profit. We empower suppliers, partners and agencies by simplyifyong the complexities of the channel ecosystem.",
+    "Unifyr’s vision is clear: collaborate with organizations to expand their reach, revenue and profit. We empower suppliers, partners and agencies by simplyifying the complexities of the channel ecosystem.",
     "With deep industry knowledge and a commitment to driving results, the Unifyr leadership team ensures the company remains at the forefront of innovation, delivering lasting value to its clients.",
   ],
   leadership: {
@@ -87,6 +87,17 @@ export const aboutPageData = {
         ],
         name: "Laura Crawford",
         title: "Chief People Officer",
+      },
+      {
+        image: {
+          src: "/images/about/team/laura.png",
+          alt: "Stephen Stolfi",
+        },
+        bio: [
+          "Stephen Stolfi is an accomplished international business leader with over 25 years of experience in information services, EdTech, and cybersecurity, where he has successfully led Sales, Marketing, Customer Service, Operations, and Product teams. Currently the Chief Commercial Officer at Unifyr, a leading provider of student safety, cybersecurity, and remote access solutions, Stephen has previously held leadership roles at Thomson Reuters, Swets Information Services, and Wolters Kluwer. He also served as Chief Commercial Officer and President at Corsearch, where he drove global market expansion. Stephen holds a degree in Economics and Political Science from Hartwick College and an MBA from Lake Forest Graduate School of Management.",
+        ],
+        name: "Stephen Stolfi",
+        title: "Chief Commercial Officer",
       },
     ] as TeamMemberType[],
   },

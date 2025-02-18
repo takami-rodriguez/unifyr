@@ -37,7 +37,7 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
       </div>
       <div className="grid w-full grid-cols-1 items-center gap-12  md:mt-14 lg:mt-16 lg:grid-cols-7">
         <div className="mt-14 space-y-12  lg:mt-0 lg:col-span-3">
-          <div className="space-y-4 text-grey-900/80">
+          <div className="space-y-8 text-grey-900/80">
             {features.map((feature, index) => (
               <div key={index} className="max-w-sm space-y-3">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-grey-900">

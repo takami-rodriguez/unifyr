@@ -68,7 +68,7 @@ const LeadershipGrid = ({
               <DialogContent
                 className="bg-white"
                 style={{
-                  borderRadius: "40px",
+                  borderRadius: "8px",
                   background:
                     "linear-gradient(105deg, rgba(215, 14, 134, 0.07) 12.54%, rgba(36, 56, 139, 0.09) 97.75%), #FFF",
                 }}
@@ -77,7 +77,7 @@ const LeadershipGrid = ({
                 </DialogHeader>
                   <DialogTitle></DialogTitle>
                   <DialogDescription>
-                    <div className="grid items-start gap-10 pl-8 pr-10 sm:grid-cols-6">
+                    <div className="grid items-start gap-10 pl-8 pr-10 sm:grid-cols-6 pb-8">
                       <div className="sm:col-span-4">
                         <h4 className="pt-4 text-3xl font-normal text-grey-900 lg:text-[2.75rem]">
                           {m.name}
