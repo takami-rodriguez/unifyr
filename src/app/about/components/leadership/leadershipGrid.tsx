@@ -12,12 +12,12 @@ import {
 } from "@/components/ui/dialog";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-
 export type TeamMemberType = {
   image: {
     src: string;
     alt: string;
   };
+  bio: string;
   name: string;
   title: string;
 };
@@ -68,7 +68,7 @@ const LeadershipGrid = ({
               <DialogContent className="bg-white">
                 <DialogHeader>
                   <DialogTitle>
-                    <div className="grid lg:grid-cols-2 items-center px-2">
+                    <div className="grid items-center px-2 lg:grid-cols-2">
                       <div>
                         <h4 className="pt-4 text-3xl text-[#061C49] lg:text-[2rem]">
                           {m.name}
@@ -80,18 +80,7 @@ const LeadershipGrid = ({
                     </div>
                   </DialogTitle>
                   <DialogDescription>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Corporis blanditiis non consequatur excepturi beatae ut,
-                      iste perspiciatis sapiente sint, et soluta. Repudiandae
-                      maiores libero dolor. Illum nam repellendus fuga nobis?
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Corporis blanditiis non consequatur excepturi beatae ut,
-                      iste perspiciatis sapiente sint, et soluta. Repudiandae
-                      maiores libero dolor. Illum nam repellendus fuga nobis?
-                    </p>
+                    <p>{m.bio}</p>
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>

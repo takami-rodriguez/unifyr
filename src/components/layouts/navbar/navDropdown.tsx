@@ -33,7 +33,7 @@ const NavDropdown = ({ menu, label }: NavDropdownProps): JSX.Element => {
           </div>
           <FaChevronDown
             className={clsx("hover: h-4 w-4", {
-              "rotate-180 transform text-primary": open,
+              "rotate-180 transform": open,
             })}
           />
         </div>

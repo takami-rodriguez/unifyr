@@ -4,8 +4,6 @@ import { PageProps } from "@/types/page";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { SEOData } from "@/types/seo";
 import LeadershipTeam from "./components/leadership";
-import { fetchAllArticles } from "@/queries/blog";
-import LatestArticles from "../blog/components/latestArticles";
 import HeroFullBleedImage from "./components/aboutHero";
 import { aboutPageData } from "./pageData";
 
@@ -23,7 +21,6 @@ export async function generateMetadata(
 }
 
 const AboutPage = async () => {
-  const articles = await fetchAllArticles();
   return (
     <div className="mb-1 overflow-x-hidden">
       <HeroFullBleedImage block={aboutPageData.hero} />
@@ -46,7 +43,6 @@ const AboutPage = async () => {
           years: aboutPageData.timelineData,
         }}
       /> */}
-      {articles && <LatestArticles articles={articles} />}
     </div>
   );
 };

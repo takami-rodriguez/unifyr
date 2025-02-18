@@ -19,11 +19,11 @@ const ZiftOnePlatformPage = async () => {
         ))}
       </div>
       <PlatformJourney block={data.journey} />
-      <div className="py-32">
+      <div className="py-20">
         <FeatureList block={data.features} />
       </div>
       <PlatformAccordion block={data.platformAccordion} />
-      <div className="py-12">
+      <div className="py-20">
         <Banner />
       </div>
       {/* <CaseStudy /> */}

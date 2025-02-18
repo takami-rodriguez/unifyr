@@ -35,8 +35,8 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
           {intro}
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 items-center gap-12  md:mt-14 lg:mt-16 lg:grid-cols-2">
-        <div className="mt-14 space-y-12  lg:mt-0">
+      <div className="grid w-full grid-cols-1 items-center gap-12  md:mt-14 lg:mt-16 lg:grid-cols-7">
+        <div className="mt-14 space-y-12  lg:mt-0 lg:col-span-3">
           <div className="space-y-4 text-grey-900/80">
             {features.map((feature, index) => (
               <div key={index} className="max-w-sm space-y-3">
@@ -48,7 +48,7 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
             ))}
           </div>
         </div>
-        <div className="">
+        <div className="lg:col-span-4">
           <AspectRatio
             ratio={5.6 / 4}
             className="relative "
