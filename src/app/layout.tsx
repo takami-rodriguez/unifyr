@@ -27,11 +27,12 @@ export default function RootLayout({
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
         <Notice>
-          <Link href="/lp/promo/" className="underline underline-offset-4">
-            Switch to ZiftONE from your current PRM and enjoy{" "}
-            <span className="font-bold">50% off MSRP</span> your first year with
-            us.
-          </Link>
+          Zift Solutions is now Unifyr.
+          // <Link href="/lp/promo/" className="underline underline-offset-4">
+          //   Switch to ZiftONE from your current PRM and enjoy{" "}
+          //   <span className="font-bold">50% off MSRP</span> your first year with
+          //   us.
+          // </Link>
         </Notice>
         <ClientLayout>
           <div className="px-4 md:px-5">
