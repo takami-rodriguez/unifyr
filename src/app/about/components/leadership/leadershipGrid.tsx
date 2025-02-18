@@ -27,20 +27,20 @@ const LeadershipGrid = ({
 }: {
   members: TeamMemberType[];
 }): JSX.Element => {
+
   return (
-    <div className="grid grid-cols-1 gap-8 px-5 sm:px-11 lg:px-12 lg:grid-cols-4">
+    <div className=" px-5 sm:px-11 lg:px-12 flex flex-wrap gap-6 justify-center">
       {members.map((m, index) => (
         <div
           key={m.name + "leadershipKey"}
           className={clsx(
-            "z-100 group relative block overflow-hidden rounded-2xl w-full",
-            index >= 4 && "lg:col-span-1 lg:justify-self-center"
+            "z-100 group relative block overflow-hidden rounded-2xl min-w-[238px] w-[238px]",
           )}
         >
-          <div className="z-100 relative h-full">
+          <div className="z-100 relative h-full w-full">
             <Dialog>
               <DialogTrigger className="w-full">
-                <div className="flex h-full flex-col rounded-2xl bg-white p-2">
+                <div className="flex h-full flex-col rounded-2xl bg-white p-[0.3rem]">
                   <AspectRatio ratio={3.6 / 4} className="relative">
                     <Image
                       src={m.image?.src}
@@ -49,8 +49,8 @@ const LeadershipGrid = ({
                       className="rounded-xl object-cover"
                     />
                   </AspectRatio>
-                  <div className="flex flex-grow flex-col justify-between px-4 lg:mx-0 lg:items-start lg:space-y-2">
-                    <h4 className="pt-4 text-3xl text-[#061C49] lg:text-[1.5rem]">
+                  <div className="flex flex-grow flex-col justify-between px-2 lg:mx-0 lg:items-start lg:space-y-2">
+                    <h4 className="pt-4  text-[#061C49] text-[1.5rem]">
                       {m.name}
                     </h4>
                     <div className="flex w-full items-center justify-end space-x-2 pb-2 pt-5 lg:pb-0 text-sm">
