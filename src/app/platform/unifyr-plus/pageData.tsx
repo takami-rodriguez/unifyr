@@ -6,10 +6,10 @@ import { NavLink } from "@/data/navLinks";
 
 export const ziftOnePlatform = {
   hero: {
-    title: "The intelligent partner operations platform",
-    titleHighlight: "intelligent",
+    title: "The premier Supplier Relationship Management platform",
+    titleHighlight: "premier",
     description:
-      "Meet the next evolution of ZiftONE PRM & TCMA with smarter ways to grow in the channel.",
+      "Now, partners can stay atop their deals and supplier relationships in one place.",
     image: "/images/platform/ziftONE/images/ziftone-header-image.png",
     button1: {
       label: "Book a call",
@@ -17,115 +17,118 @@ export const ziftOnePlatform = {
       link: NavLink.BookACall,
     },
     button2: {
-      label: "Blog",
+      label: "Discover ZiftONE",
       variant: "outline" as ButtonVariant,
-      link: NavLink.Blog,
+      link: NavLink.PlatformZift,
     },
   },
   introSection: {
-    title: "Take a look",
+    title: "A better way to manage suppliers",
     description:
-      "See why ZiftONE has been the industry leader in PRM since 2006.",
+      "Make scaling easy with a platform designed for partner efficency.",
     wistiaVideoId: "6yip3slsj5",
     features: [
       {
         icon: (
           <BespokePortalIcon className="h-[40px] w-[40px] fill-green-600" />
         ),
-        title: "Bespoke portal",
+        title: "One interface",
         description:
-          "Our team will help you to build a partner portal that exudes your brand look and feel.",
+          "Stay informed of news and deals across all suppliers, then access their portals with a single click.",
       },
       {
         icon: <GenerativeAIIcon className="h-[40px] w-[40px] fill-green-600" />,
-        title: "Generative AI",
+        title: "AI Insights",
         description:
-          "Grow your content library with built-in, privacy-first AI to save time and stay on-brand.",
+          "Consult the AI advisor to surface new and important content for any supplier right when you need it.",
       },
       {
         icon: <TCMAIcon className="h-[40px] w-[40px] fill-green-600" />,
-        title: "TCMA & LMS",
+        title: "Supplier discovery",
         description:
-          "Look no further for the other critical systems you need to nurture channel partnerships.",
+          "Unlock new revenue streams through supplier discovery that knows your preferred industries.",
       },
     ],
   },
   imagesTexts: [
     {
-      badge: "BUILD",
-      title: "Create an incredible partner experience—but not alone",
+      badge: "Grow",
+      title: "Stay atop all your supplier relationships",
       image: "/images/platform/ziftONE/images/ziftone-partner-portal.png",
       content:
-        "Unlike alternative PRM offerings, ZiftONE includes bespoke partner portal and integration implementations tailored to your requirements.",
+        "Unifyr+ SRM erases the challenge of juggling partner portals and achieving a holistic view of activities across multiple suppliers.",
     },
     {
       badge: "Scale",
       imageLeft: true,
-      title: "ZiftONE accommodates channel programs of all sizes",
+      title: "Accommodate more suppliers than ever before",
       image: "/images/platform/ziftONE/images/ziftone-scale.png",
       content:
-        "Whether you are entering the channel for the first time or implementing a robust enterprise channel presence, ZiftONE will continue to serve you.",
+        "Bring new supplier relationships into Unifyr+ SRM without fear of losing track of leads, deals, or campaigns. Discover new suppliers right in the platform.",
     },
   ],
   journey: {
-    title: "Uncontested partner enablement",
+    title: "Integrated natively with ZiftONE",
     intro:
-      "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
+      "Unifyr+ allows you to access all of your partner portals from within the platform quickly.",
     image: "/images/platform/ziftONE/images/ziftone-screenshot-blue.png",
     features: [
       {
-        title: "Meet partners where they are",
+        title: "Keep track of leads and deals",
         description:
-          "Hook into the Unifyr+ content feed to reduce the occurrence of low performance long-tail partners.",
+          "It's difficult to track leads and deals across ZftONE portals; view them all from within Unifyr+.",
       },
       {
-        title: "Discover what works",
+        title: "Access new supplier content",
         description:
-          "Track partner engagement and asset performance through reporting in the ZiftONE administrative panel.",
+          "Without leaving Unifyr+, access the latest news and campaign information to keep training time investment low.",
       },
       {
-        title: "Focus on the right tasks",
+        title: "Skip the login screens",
         description:
-          "Spend less time competing for partner attention and more time directing your channel program toward mutual growth.",
+          "Partners spend far too much time juggling partner portals; streamline your workflow and focus on what matters.",
       },
     ],
   },
   features: {
-    title: "Privacy-first generative AI",
+    title: "Be more productive every day",
     description:
-      "ZiftONE’s extensive AI features use Unifyr-owned models—your data is never shared with any third parties.",
+      "Unifyr+ is the first step toward getting a handle on all partner operations.",
     features: [
       {
-        title: "Firmographic notes",
+        title: "Generative AI",
         description:
-          "View a complete firmographic profile of accounts in ZiftONE.",
+          "Use AI to find the content you need to nurture leads and close deals.",
         icon: "/images/platform/ziftONE/icons/Firmographic-notes.svg",
       },
       {
-        title: "Deal & lead prediction",
+        title: "Supplier discovery",
         description:
-          "Assess likelihood to buy and close deals with confidence.",
+          "Connect with suppliers that work in the industries you're familiar with.",
         icon: "/images/platform/ziftONE/icons/Deal-lead-prediction.svg",
       },
       {
-        title: "Partner segmentation",
-        description: "Segment your audience quickly using natural language.",
+        title: "Deal tracking",
+        description:
+          "Your registered leads and deals are tracked across suppliers.",
         icon: "/images/platform/ziftONE/icons/Partner-segmentation.svg",
       },
       {
-        title: "Email assistance",
-        description: "Produce on-brand, partner-ready email content quickly.",
+        title: "Supplier feeds",
+        description:
+          "Supplier campaigns and content are aggregated into a unified feed.",
         icon: "/images/platform/ziftONE/icons/Email-assistance.svg",
       },
       {
-        title: "Pop-up notifications",
-        description: "Notify partners of new campaigns and company updates.",
+        title: "Instant portal access",
+        description:
+          "Enter your supplier portals quickly and with a single click.",
         icon: "/images/platform/ziftONE/icons/Pop-up-notifications.svg",
       },
       {
-        title: "Social post assistance",
+        title: "Continued support",
         description:
-          "Write effective posts optimized for any social media channel.",
+          "Our team is prepared to help you succeed in growing with Unifyr+.",
         icon: "/images/platform/ziftONE/icons/Social-post-assistance.svg",
       },
     ],
@@ -133,25 +136,25 @@ export const ziftOnePlatform = {
   platformAccordion: {
     items: [
       {
+        trigger: "Spend less time catching up",
+        content:
+          "Partners spend a disproportionate amount of time catching up on content they've missed. Unifyr+'s supplier updates feed ensures you spend less time catching up and more time selling in the channel.",
+      },
+      {
         trigger: "Unify your channel tools and workflows",
         content:
-          "ZiftONE offers partner relationship management (PRM), through-channel marketing automation (TCMA), and a learning management system (LMS) in one product. The native and seamlessly integrated experience will make your work much easier.",
+          "Unifyr+ creates the most cohesive day-to-day experience for partners of any available partner enablement tools. The platform allows you to work at maximum efficiency without obstacles.",
       },
       {
-        trigger: "Manage market development funds (MDF)",
+        trigger: "Understand your revenue impact",
         content:
-          "Incentivize partner activities with a granularly configured MDF program. ZiftONE integrates with any system (CRM, ERP, etc.) required to ensure your program is run precisely the way you’ve designed it.",
-      },
-      {
-        trigger: "Prove value with reporting and analytics",
-        content:
-          "ZiftONE makes it easy to prove ROI and drill down into the performance of assets and partners. Maintain complete visibility of the data that matters most in making critical business decisions related to growth and channel partnerships.",
+          "Gaining visibility into the results of your efforts can be difficult when the data is spread across platforms that don't integrate. Unifyr+ aggregates that data from all your ZiftONE suppliers.",
       },
     ],
     cta: {
       title: "Ready to get started?",
       content:
-        "Let's uncover how ZiftONE PRM can accelerate your channel program.",
+        "Let's uncover how Unifyr+ SRM can accelerate your channel program.",
       button: {
         label: "Get started",
         variant: "unifyrPlus" as ButtonVariant,
