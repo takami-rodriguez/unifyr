@@ -52,14 +52,6 @@
           p.rust-bin.selectLatestNightlyWith (
             t:
             t.default.override {
-              targets = [ target ];
-            }
-          );
-        mkDevToolchain =
-          p:
-          p.rust-bin.selectLatestNightlyWith (
-            t:
-            t.default.override {
               extensions = [
                 "rust-src"
                 "rust-analyzer"
@@ -68,7 +60,6 @@
             }
           );
         craneLib = (crane.mkLib pkgs).overrideToolchain mkToolchain;
-        devCraneLib = (crane.mkLib pkgs).overrideToolchain mkDevToolchain;
 
         stdenv = with pkgs; (overrideCC pkgs.stdenv (wrapClangMulti llvmPackages_19.clang));
 
@@ -85,7 +76,6 @@
                   || (baseNameOf path == "blacklist.csv");
               };
               strictDeps = true;
-              cargoExtraArgs = "--target wasm32-wasip1 --features ${name}";
             };
           in
           craneLib.buildPackage (
@@ -100,8 +90,7 @@
 
               doCheck = false;
 
-              cargoToml = ./backend/Cargo.toml;
-              cargoLock = ./backend/Cargo.lock;
+              cargoExtraArgs = "--target ${target} --features ${name}";
 
               hardeningDisable = [
                 "zerocallusedregs"
@@ -153,7 +142,6 @@
                   ".next"
                   "out"
                   "backend"
-                  "_redirects"
                 ])
                 && (pkgs.lib.cleanSourceFilter path type);
             };
@@ -251,7 +239,7 @@
         ) deployments;
 
         devShells = {
-          default = devCraneLib.devShell {
+          default = craneLib.devShell {
             npmDeps = pkgs.importNpmLock.buildNodeModules {
               npmRoot = ./.;
               inherit nodejs;
