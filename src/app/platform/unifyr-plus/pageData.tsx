@@ -6,7 +6,7 @@ import { NavLink } from "@/data/navLinks";
 
 export const unifyrPlusPlatform = {
   hero: {
-    title: "The premier Supplier Relationship Management platform",
+    title: "Supplier Relationship Management for Partners",
     titleHighlight: "premier",
     description:
       "Now, partners can stay atop their deals and supplier relationships in one place.",
