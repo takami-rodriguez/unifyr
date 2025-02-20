@@ -7,6 +7,7 @@ import LPListItems from "../components/lpListItems";
 
 const G2Page = async () => {
   return (
+    <div className="mx-auto max-w-5xl">
     <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-7">
       <div className="space-y-6 lg:col-span-4">
         <LPPageTitle
@@ -38,6 +39,7 @@ const G2Page = async () => {
           <G2Leaders />
         </div>
       </div>
+    </div>
     </div>
   );
 };
