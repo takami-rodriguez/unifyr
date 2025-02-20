@@ -29,7 +29,6 @@ export const navLinks = [
         label: "Unifyr+",
         link: NavLink.PlatformUnifryPlus,
       },
-      
     ],
   },
   {

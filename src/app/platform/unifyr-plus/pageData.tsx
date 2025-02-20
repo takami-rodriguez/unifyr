@@ -7,7 +7,7 @@ import { NavLink } from "@/data/navLinks";
 export const unifyrPlusPlatform = {
   hero: {
     title: "Supplier Relationship Management for Partners",
-    titleHighlight: "premier",
+    titleHighlight: "Partners",
     description:
       "Now, partners can stay atop their deals and supplier relationships in one place.",
     image: "/images/platform/ziftONE/images/ziftone-header-image.png",
