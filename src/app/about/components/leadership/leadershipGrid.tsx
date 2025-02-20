@@ -30,7 +30,7 @@ const LeadershipGrid = ({
 
   return (
     <div className=" px-5 sm:px-11 lg:px-12 flex flex-wrap gap-6 justify-center">
-      {members.map((m, index) => (
+      {members.map((m) => (
         <div
           key={m.name + "leadershipKey"}
           className={clsx(
@@ -41,7 +41,7 @@ const LeadershipGrid = ({
             <Dialog>
               <DialogTrigger className="w-full">
                 <div className="flex h-full flex-col rounded-2xl bg-white p-[0.3rem]">
-                  <AspectRatio ratio={3.6 / 4} className="relative">
+                  <AspectRatio ratio={3.6 / 4} className="relative ">
                     <Image
                       src={m.image?.src}
                       alt={m.image?.alt || ""}
@@ -73,7 +73,7 @@ const LeadershipGrid = ({
                 <DialogHeader></DialogHeader>
                 <DialogTitle></DialogTitle>
                 <DialogDescription>
-                  <div className="grid items-start gap-10 pl-8 pr-10 sm:grid-cols-6 pb-8">
+                  <div className="grid items-start gap-10 pl-4 sm:pl-8 pr-4 sm:pr-10 sm:grid-cols-6 pb-8">
                     <div className="sm:col-span-4">
                       <h4 className="pt-4 text-3xl font-normal text-grey-900 lg:text-[2.75rem]">
                         {m.name}
@@ -83,13 +83,13 @@ const LeadershipGrid = ({
                       </p>
                       <div className="space-y-6">
                         {m.bio.map((b, i) => (
-                          <p key={i} className="text-lg text-grey-900/70">
+                          <p key={i} className="sm:text-lg text-grey-900/70">
                             {b}
                           </p>
                         ))}
                       </div>
                     </div>
-                    <div className="sm:col-span-2">
+                    <div className="sm:col-span-2 hidden lg:block">
                       <AspectRatio
                         ratio={3.6 / 4}
                         className="relative order-first lg:order-last"
@@ -98,7 +98,7 @@ const LeadershipGrid = ({
                           src={m.image?.src}
                           alt={m.image?.alt || ""}
                           fill
-                          className="rounded-xl object-cover"
+                          className="rounded-xl object-cover "
                         />
                       </AspectRatio>
                     </div>

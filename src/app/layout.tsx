@@ -7,7 +7,6 @@ import CookiePopUpBox from "@/lib/cookiePopup";
 import Google from "@/lib/gaHandler";
 import ClientLayout from "@/components/layouts/clientLayout";
 import Notice from "@/components/notice";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Unifyr",
