@@ -25,10 +25,10 @@ export const navLinks = [
         label: "ZiftONE",
         link: NavLink.PlatformZift,
       },
-      // {
-      //   label: "Unifyr+",
-      //   link: NavLink.PlatformUnifryPlus,
-      // },
+      {
+        label: "Unifyr+",
+        link: NavLink.PlatformUnifryPlus,
+      },
       
     ],
   },

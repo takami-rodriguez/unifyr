@@ -1,18 +1,18 @@
 import React from "react";
 import PlatformHero from "../components/platformHero";
-import PlatformVideoSection from "../components/platformVideoSection";
 import ImageText from "@/components/imageText";
 import Banner from "@/components/banner";
 import PlatformJourney from "../components/platformJourney";
 import FeatureList from "@/components/featureList";
 import PlatformAccordion from "../components/platformAccordion";
-import { ziftOnePlatform as data } from "./pageData";
+import { unifyrPlusPlatform as data } from "./pageData";
+import PlatformImageSection from "../components/platformImageSection";
 
-const ZiftOnePlatformPage = async () => {
+const UnifyrPlusPage = async () => {
   return (
     <main>
       <PlatformHero block={data.hero} />
-      <PlatformVideoSection block={data.introSection} />
+      <PlatformImageSection block={data.introSection} />
       <div className="my-10">
         {data.imagesTexts.map((section, i) => (
           <ImageText key={section.title} {...section} rounded={i === 0} />
@@ -31,4 +31,4 @@ const ZiftOnePlatformPage = async () => {
   );
 };
 
-export default ZiftOnePlatformPage;
+export default UnifyrPlusPage;
