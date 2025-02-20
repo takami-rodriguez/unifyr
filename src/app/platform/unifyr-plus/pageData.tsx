@@ -4,7 +4,7 @@ import TCMAIcon from "@/components/icons/platform/tcma";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
 
-export const ziftOnePlatform = {
+export const unifyrPlusPlatform = {
   hero: {
     title: "The premier Supplier Relationship Management platform",
     titleHighlight: "premier",
@@ -26,7 +26,7 @@ export const ziftOnePlatform = {
     title: "A better way to manage suppliers",
     description:
       "Make scaling easy with a platform designed for partner efficency.",
-    wistiaVideoId: "6yip3slsj5",
+    imageUrl: "/images/caseStudy.jpeg",
     features: [
       {
         icon: (
