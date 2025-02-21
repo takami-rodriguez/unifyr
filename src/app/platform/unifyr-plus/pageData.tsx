@@ -11,7 +11,7 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
     titleHighlight: "management",
     description:
       "Now, partners can stay atop their deals and supplier relationships in one place.",
-    image: "/images/platform/unifyr+/unifyrplus-header.webp",
+    image: "/images/platform/unifyr-plus/unifyrplus-header.webp",
     button1: {
       label: "Book a call",
       variant: "unifyrPlus" as ButtonVariant,
@@ -27,7 +27,7 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
     title: "A better way to manage suppliers",
     description:
       "Make scaling easy with a platform designed for partner efficency.",
-    imageUrl: "/images/platform/unifyr+/unifyrplus-intro.webp",
+    imageUrl: "/images/platform/unifyr-plus/unifyrplus-intro.webp",
     wistiaId: "",
     features: [
       {
@@ -56,7 +56,7 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
     {
       badge: "Grow",
       title: "Stay atop all your supplier relationships",
-      image: "/images/platform/unifyr+/unifyrplus-screenshot-2.webp",
+      image: "/images/platform/unifyr-plus/unifyrplus-screenshot-2.webp",
       content:
         "Unifyr+ SRM erases the challenge of juggling partner portals and achieving a holistic view of activities across multiple suppliers.",
     },
@@ -64,7 +64,7 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
       badge: "Scale",
       imageLeft: true,
       title: "Accommodate more suppliers than ever before",
-      image: "/images/platform/unifyr+/unifyrplus-screenshot.webp",
+      image: "/images/platform/unifyr-plus/unifyrplus-screenshot.webp",
       content:
         "Bring new supplier relationships into Unifyr+ SRM without fear of losing track of leads, deals, or campaigns. Discover new suppliers right in the platform.",
     },
@@ -73,7 +73,7 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
     title: "Integrated natively with ZiftONE",
     intro:
       "Unifyr+ allows you to access all of your partner portals from within the platform quickly.",
-    image: "/images/platform/unifyr+/unifyrplus-screenshot-tamco-nobg.webp",
+    image: "/images/platform/unifyr-plus/unifyrplus-screenshot-tamco-nobg.webp",
     features: [
       {
         title: "Keep track of leads and deals",
@@ -101,37 +101,37 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
         title: "Generative AI",
         description:
           "Use AI to find the content you need to nurture leads and close deals.",
-        icon: "/images/platform/unifyr+/icons/generative-ai.svg",
+        icon: "/images/platform/unifyr-plus/icons/generative-ai.svg",
       },
       {
         title: "Supplier discovery",
         description:
           "Connect with suppliers that work in the industries you're familiar with.",
-        icon: "/images/platform/unifyr+/icons/supplier-discovery-black.svg",
+        icon: "/images/platform/unifyr-plus/icons/supplier-discovery-black.svg",
       },
       {
         title: "Deal tracking",
         description:
           "Your registered leads and deals are tracked across suppliers.",
-        icon: "/images/platform/unifyr+/icons/deal-tracking.svg",
+        icon: "/images/platform/unifyr-plus/icons/deal-tracking.svg",
       },
       {
         title: "Supplier feeds",
         description:
           "Supplier campaigns and content are aggregated into a unified feed.",
-        icon: "/images/platform/unifyr+/icons/supplier-feeds.svg",
+        icon: "/images/platform/unifyr-plus/icons/supplier-feeds.svg",
       },
       {
         title: "Instant portal access",
         description:
           "Enter your supplier portals quickly and with a single click.",
-        icon: "/images/platform/unifyr+/icons/instant-portal-access.svg",
+        icon: "/images/platform/unifyr-plus/icons/instant-portal-access.svg",
       },
       {
         title: "Continued support",
         description:
           "Our team is prepared to help you succeed in growing with Unifyr+.",
-        icon: "/images/platform/unifyr+/icons/continued-support.svg",
+        icon: "/images/platform/unifyr-plus/icons/continued-support.svg",
       },
     ],
   },
