@@ -24,10 +24,12 @@ export const navLinks = [
       {
         label: "ZiftONE",
         link: NavLink.PlatformZift,
+        subTitle: "The intelligent partner operations platform",
       },
       {
         label: "Unifyr+",
         link: NavLink.PlatformUnifryPlus,
+        subTitle: "Supplier relationship management for partners"
       },
     ],
   },

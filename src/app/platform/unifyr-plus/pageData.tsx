@@ -1,37 +1,37 @@
-import BespokePortalIcon from "@/components/icons/platform/bespokePortal";
 import GenerativeAIIcon from "@/components/icons/platform/generativeAI";
-import TCMAIcon from "@/components/icons/platform/tcma";
+import OneInterfaceIcon from "@/components/icons/platform/oneInterface";
+import SupplyDiscoveryIcon from "@/components/icons/platform/supplyDiscovery";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
+import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const unifyrPlusPlatform = {
+export const unifyrPlusPlatform: PlatformTemplateProps = {
   hero: {
-    title: "Supplier Relationship Management for Partners",
-    titleHighlight: "Partners",
+    title: "Supplier relationship management for partners",
+    titleHighlight: "management",
     description:
       "Now, partners can stay atop their deals and supplier relationships in one place.",
-    image: "/images/platform/ziftONE/images/ziftone-header-image.png",
+    image: "/images/platform/unifyr+/unifyrplus-header.webp",
     button1: {
       label: "Book a call",
       variant: "unifyrPlus" as ButtonVariant,
       link: NavLink.BookACall,
     },
     button2: {
-      label: "Discover ZiftONE",
+      label: "Blog",
       variant: "outline" as ButtonVariant,
-      link: NavLink.PlatformZift,
+      link: NavLink.Blog,
     },
   },
   introSection: {
     title: "A better way to manage suppliers",
     description:
       "Make scaling easy with a platform designed for partner efficency.",
-    imageUrl: "/images/caseStudy.jpeg",
+    imageUrl: "/images/platform/unifyr+/unifyrplus-intro.webp",
+    wistiaId: "",
     features: [
       {
-        icon: (
-          <BespokePortalIcon className="h-[40px] w-[40px] fill-green-600" />
-        ),
+        icon: <OneInterfaceIcon className="h-[40px] w-[40px] fill-green-600" />,
         title: "One interface",
         description:
           "Stay informed of news and deals across all suppliers, then access their portals with a single click.",
@@ -43,7 +43,9 @@ export const unifyrPlusPlatform = {
           "Consult the AI advisor to surface new and important content for any supplier right when you need it.",
       },
       {
-        icon: <TCMAIcon className="h-[40px] w-[40px] fill-green-600" />,
+        icon: (
+          <SupplyDiscoveryIcon className="h-[40px] w-[40px] fill-green-600" />
+        ),
         title: "Supplier discovery",
         description:
           "Unlock new revenue streams through supplier discovery that knows your preferred industries.",
@@ -54,7 +56,7 @@ export const unifyrPlusPlatform = {
     {
       badge: "Grow",
       title: "Stay atop all your supplier relationships",
-      image: "/images/platform/ziftONE/images/ziftone-partner-portal.png",
+      image: "/images/platform/unifyr+/unifyrplus-screenshot-2.webp",
       content:
         "Unifyr+ SRM erases the challenge of juggling partner portals and achieving a holistic view of activities across multiple suppliers.",
     },
@@ -62,7 +64,7 @@ export const unifyrPlusPlatform = {
       badge: "Scale",
       imageLeft: true,
       title: "Accommodate more suppliers than ever before",
-      image: "/images/platform/ziftONE/images/ziftone-scale.png",
+      image: "/images/platform/unifyr+/unifyrplus-screenshot.webp",
       content:
         "Bring new supplier relationships into Unifyr+ SRM without fear of losing track of leads, deals, or campaigns. Discover new suppliers right in the platform.",
     },
@@ -71,7 +73,7 @@ export const unifyrPlusPlatform = {
     title: "Integrated natively with ZiftONE",
     intro:
       "Unifyr+ allows you to access all of your partner portals from within the platform quickly.",
-    image: "/images/platform/ziftONE/images/ziftone-screenshot-blue.png",
+    image: "/images/platform/unifyr+/unifyrplus-screenshot-tamco-nobg.webp",
     features: [
       {
         title: "Keep track of leads and deals",
@@ -99,37 +101,37 @@ export const unifyrPlusPlatform = {
         title: "Generative AI",
         description:
           "Use AI to find the content you need to nurture leads and close deals.",
-        icon: "/images/platform/ziftONE/icons/Firmographic-notes.svg",
+        icon: "/images/platform/unifyr+/icons/generative-ai.svg",
       },
       {
         title: "Supplier discovery",
         description:
           "Connect with suppliers that work in the industries you're familiar with.",
-        icon: "/images/platform/ziftONE/icons/Deal-lead-prediction.svg",
+        icon: "/images/platform/unifyr+/icons/supplier-discovery-black.svg",
       },
       {
         title: "Deal tracking",
         description:
           "Your registered leads and deals are tracked across suppliers.",
-        icon: "/images/platform/ziftONE/icons/Partner-segmentation.svg",
+        icon: "/images/platform/unifyr+/icons/deal-tracking.svg",
       },
       {
         title: "Supplier feeds",
         description:
           "Supplier campaigns and content are aggregated into a unified feed.",
-        icon: "/images/platform/ziftONE/icons/Email-assistance.svg",
+        icon: "/images/platform/unifyr+/icons/supplier-feeds.svg",
       },
       {
         title: "Instant portal access",
         description:
           "Enter your supplier portals quickly and with a single click.",
-        icon: "/images/platform/ziftONE/icons/Pop-up-notifications.svg",
+        icon: "/images/platform/unifyr+/icons/instant-portal-access.svg",
       },
       {
         title: "Continued support",
         description:
           "Our team is prepared to help you succeed in growing with Unifyr+.",
-        icon: "/images/platform/ziftONE/icons/Social-post-assistance.svg",
+        icon: "/images/platform/unifyr+/icons/continued-support.svg",
       },
     ],
   },

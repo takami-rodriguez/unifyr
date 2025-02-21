@@ -4,7 +4,7 @@ import { bgGradient, gradientText } from "@/data/styleHelpers";
 import Link from "next/link";
 import { NavLink } from "@/data/navLinks";
 
-const Banner = async () => {
+const Banner = () => {
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">
       <div

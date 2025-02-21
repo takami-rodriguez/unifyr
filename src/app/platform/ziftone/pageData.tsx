@@ -3,14 +3,15 @@ import GenerativeAIIcon from "@/components/icons/platform/generativeAI";
 import TCMAIcon from "@/components/icons/platform/tcma";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
+import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const ziftOnePlatform = {
+export const ziftOnePlatform: PlatformTemplateProps = {
   hero: {
     title: "The intelligent partner operations platform",
     titleHighlight: "intelligent",
     description:
       "Meet the next evolution of ZiftONE PRM & TCMA with smarter ways to grow in the channel.",
-    image: "/images/platform/ziftONE/images/ziftone-header-image.png",
+    image: "/images/platform/ziftONE/images/ziftone-header-image.webp",
     button1: {
       label: "Book a call",
       variant: "secondary" as ButtonVariant,
@@ -52,7 +53,7 @@ export const ziftOnePlatform = {
     {
       badge: "BUILD",
       title: "Create an incredible partner experience—but not alone",
-      image: "/images/platform/ziftONE/images/ziftone-partner-portal.png",
+      image: "/images/platform/ziftONE/images/ziftone-partner-portal.webp",
       content:
         "Unlike alternative PRM offerings, ZiftONE includes bespoke partner portal and integration implementations tailored to your requirements.",
     },
@@ -60,7 +61,7 @@ export const ziftOnePlatform = {
       badge: "Scale",
       imageLeft: true,
       title: "ZiftONE accommodates channel programs of all sizes",
-      image: "/images/platform/ziftONE/images/ziftone-scale.png",
+      image: "/images/platform/ziftONE/images/ziftone-scale.webp",
       content:
         "Whether you are entering the channel for the first time or implementing a robust enterprise channel presence, ZiftONE will continue to serve you.",
     },
@@ -69,7 +70,7 @@ export const ziftOnePlatform = {
     title: "Uncontested partner enablement",
     intro:
       "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
-    image: "/images/platform/ziftONE/images/ziftone-screenshot-blue.png",
+    image: "/images/platform/ziftONE/images/unifyrplus-screenshot-nobg-blue.webp",
     features: [
       {
         title: "Meet partners where they are",
