@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
 import { NavLink } from "@/data/navLinks";
 
-type ImageTextProps = {
+export type ImageTextProps = {
   imageLeft?: boolean;
   image: string;
   badge: string;
@@ -44,7 +44,7 @@ const ImageText = ({
     }
   }
   return (
-    <div className="md:py-18 relative z-10 mx-auto max-w-5xl py-16">
+    <div className="relative z-10 mx-auto max-w-5xl py-16">
       <div
         className={cn(
           "absolute top-10 z-0 w-full md:-top-20 md:h-[120%] lg:w-1/2",
@@ -82,7 +82,7 @@ const ImageText = ({
             },
           )}
         >
-          <AspectRatio ratio={4.5 / 3.5} className="relative">
+          <AspectRatio ratio={5.4 / 3.8} className="relative">
             <Image
               src={image}
               alt="hero"
@@ -91,6 +91,7 @@ const ImageText = ({
                 "object-contain": !rounded,
               })}
               fill
+              style={rounded ? {outline: "8px solid rgba(255,255,255,0.4)",outlineOffset: "-4px"} : {}}
             />
           </AspectRatio>
         </div>

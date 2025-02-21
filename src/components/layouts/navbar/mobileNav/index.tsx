@@ -96,7 +96,7 @@ export const MobileNav = () => {
           <div className="">
             <IoClose
               onClick={() => toggleOpen()}
-              className="text-blue-900 w-9 h-9"
+              className="w-9 h-9"
             />
           </div>
         </div>

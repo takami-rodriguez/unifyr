@@ -1,21 +1,11 @@
 "use client";
 
 import WistiaVideo from "@/components/wistiaVideo";
-import React, { ReactNode, Suspense } from "react";
-
-type FeatureItem = {
-  icon: ReactNode;
-  title: string;
-  description: string;
-};
+import { PlatformWithWistiaId } from "@/types/platformTemplate";
+import React, { Suspense } from "react";
 
 export type PlatformVideoSectionProps = {
-  block: {
-    title: string;
-    description: string;
-    wistiaVideoId: string;
-    features: FeatureItem[];
-  };
+  block: PlatformWithWistiaId
 };
 
 const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {

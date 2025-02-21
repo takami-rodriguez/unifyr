@@ -12,7 +12,7 @@ const buttonVariants = cva(
         primary: "bg-gradient text-white border-grey-secondary/30 ",
         purple: "bg-primary text-white border-grey-secondary/30 ",
         secondary: "bg-secondary text-white border-grey-secondary/30",
-        unifyrPlus: "bg-green-700 text-white border-accent/30 border-2",
+        unifyrPlus: "bg-green-700 text-white border-grey-secondary/30  border-2",
         outline:
           " border-grey-900 bg-white hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
         ghost:

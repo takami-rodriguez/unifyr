@@ -1,19 +1,9 @@
 import React from "react";
 import { bgGradient } from "@/data/styleHelpers";
 import Image from "next/image";
-type FeatureListProps = {
-  block: {
-    title: string;
-    description: string;
-    features: {
-      title: string;
-      description: string;
-      icon: string;
-    }[];
-  };
-};
+import { PlatformFeaturesBlock } from "@/types/platformTemplate";
 
-const FeatureList = async ({ block }: FeatureListProps) => {
+const FeatureList =  ({ block }: {block: PlatformFeaturesBlock}) => {
   const { title, features, description } = block;
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">

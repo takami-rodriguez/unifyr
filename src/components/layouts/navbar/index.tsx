@@ -9,7 +9,7 @@ export default function Navbar() {
       <Link href={`${NavLink.Home}`} className="h-[32px]">
         <Logo />
       </Link>
-     <Navigation />
+      <Navigation />
     </nav>
   );
 }
