@@ -29,7 +29,7 @@ const ZiftOnePlatformPage = async () => {
     <main>
       <PlatformHero block={data.hero} />
       <PlatformVideoSection block={data.introSection} />
-      <div className="my-10">
+      <div className="mb-10">
         {data.imagesTexts.map((section, i) => (
           <ImageText key={section.title} {...section}  rounded={i===0}/>
         ))}
