@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
 import { NavLink } from "@/data/navLinks";
 
-type ImageTextProps = {
+export type ImageTextProps = {
   imageLeft?: boolean;
   image: string;
   badge: string;

@@ -3,8 +3,9 @@ import GenerativeAIIcon from "@/components/icons/platform/generativeAI";
 import TCMAIcon from "@/components/icons/platform/tcma";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
+import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const ziftOnePlatform = {
+export const ziftOnePlatform: PlatformTemplateProps = {
   hero: {
     title: "The intelligent partner operations platform",
     titleHighlight: "intelligent",

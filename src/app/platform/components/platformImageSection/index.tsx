@@ -3,22 +3,12 @@
 "use client";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { PlatformImageSectionBlock } from "@/types/platformTemplate";
 import Image from "next/image";
-import React, { ReactNode } from "react";
-
-type FeatureItem = {
-  icon: ReactNode;
-  title: string;
-  description: string;
-};
+import React from "react";
 
 export type PlatformImageSectionProps = {
-  block: {
-    title: string;
-    description: string;
-    imageUrl: string;
-    features: FeatureItem[];
-  };
+  block: PlatformImageSectionBlock;
 };
 
 const PlatformImageSection = ({ block }: PlatformImageSectionProps) => {

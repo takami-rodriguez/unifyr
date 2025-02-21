@@ -9,6 +9,7 @@ import ImageText from "@/components/imageText";
 import PlatformJourney from "@/app/platform/components/platformJourney";
 import FeatureList from "@/components/featureList";
 import { ziftOnePlatform as data } from "../../platform/ziftone/pageData";
+import { PlatformWithWistiaId } from "@/types/platformTemplate";
 
 const G2Page = async () => {
   return (
@@ -44,7 +45,7 @@ const G2Page = async () => {
         </div>
       </div>
 
-      <PlatformVideoSection block={data.introSection} />
+      <PlatformVideoSection block={data.introSection as PlatformWithWistiaId} />
       <div className="my-10">
         {data.imagesTexts.map((section, i) => (
           <ImageText key={section.title} {...section} rounded={i === 0} />

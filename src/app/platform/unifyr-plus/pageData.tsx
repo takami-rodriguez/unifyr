@@ -3,8 +3,9 @@ import OneInterfaceIcon from "@/components/icons/platform/oneInterface";
 import SupplyDiscoveryIcon from "@/components/icons/platform/supplyDiscovery";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
+import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const unifyrPlusPlatform = {
+export const unifyrPlusPlatform: PlatformTemplateProps = {
   hero: {
     title: "Supplier relationship management for partners",
     titleHighlight: "management",
@@ -27,6 +28,7 @@ export const unifyrPlusPlatform = {
     description:
       "Make scaling easy with a platform designed for partner efficency.",
     imageUrl: "/images/platform/unifyr+/unifyrplus-intro.webp",
+    wistiaId: "",
     features: [
       {
         icon: <OneInterfaceIcon className="h-[40px] w-[40px] fill-green-600" />,
