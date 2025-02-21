@@ -7,6 +7,22 @@ import PlatformJourney from "../components/platformJourney";
 import FeatureList from "@/components/featureList";
 import PlatformAccordion from "../components/platformAccordion";
 import { ziftOnePlatform as data } from "./pageData";
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import { PageProps } from "@/types/page";
+import { ResolvingMetadata, Metadata } from "next";
+
+const meta = {
+  title: "ZiftONE Platform",
+  description:
+    "ZiftONE is the only platform that combines the power of channel marketing and sales automation to deliver a single, integrated solution for channel organizations.",
+}
+
+export async function generateMetadata(
+  { }: PageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  return getDynamicPageSEOData(meta, parent);
+}
 
 const ZiftOnePlatformPage = async () => {
   return (
