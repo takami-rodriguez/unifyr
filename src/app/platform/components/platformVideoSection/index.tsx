@@ -22,7 +22,7 @@ const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
         <WistiaVideo id={wistiaVideoId} />
       </Suspense>
       <div className="mt-14">
-        <div className="flex flex-col md:flex-row items-center justify-between space-y -14 lg:space-y-0 lg:space-x-28">
+        <div className="flex flex-col md:flex-row items-center justify-between space-y-14 lg:space-y-0 lg:space-x-28">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col space-y-5">
               {feature.icon}
