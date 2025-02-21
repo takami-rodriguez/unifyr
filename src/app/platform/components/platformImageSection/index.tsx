@@ -36,7 +36,7 @@ const PlatformImageSection = ({ block }: PlatformImageSectionProps) => {
         className="relative rounded-2xl border border-gray-100 bg-grey-100 p-1"
         ratio={16 / 9}
       >
-        <Image src={imageUrl} alt={title} fill className="object-cover object-center rounded-2xl" />
+        <Image src={imageUrl} alt={title} fill className="object-cover object-center rounded-2xl" style={{outline: "8px solid rgba(255,255,255,0.4)",outlineOffset: "-4px"}}/>
       </AspectRatio>
     </div>
       <div className="mt-14">

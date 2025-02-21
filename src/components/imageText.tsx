@@ -82,7 +82,7 @@ const ImageText = ({
             },
           )}
         >
-          <AspectRatio ratio={4.5 / 3.5} className="relative">
+          <AspectRatio ratio={5.4 / 3.8} className="relative">
             <Image
               src={image}
               alt="hero"
@@ -91,6 +91,7 @@ const ImageText = ({
                 "object-contain": !rounded,
               })}
               fill
+              style={rounded ? {outline: "8px solid rgba(255,255,255,0.4)",outlineOffset: "-4px"} : {}}
             />
           </AspectRatio>
         </div>

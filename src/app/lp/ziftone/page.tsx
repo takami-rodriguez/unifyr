@@ -8,7 +8,6 @@ import PlatformVideoSection from "@/app/platform/components/platformVideoSection
 import ImageText from "@/components/imageText";
 import PlatformJourney from "@/app/platform/components/platformJourney";
 import FeatureList from "@/components/featureList";
-
 import { ziftOnePlatform as data } from "../../platform/ziftone/pageData";
 
 const G2Page = async () => {

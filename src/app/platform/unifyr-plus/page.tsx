@@ -14,8 +14,8 @@ const UnifyrPlusPage = async () => {
       <PlatformHero block={data.hero} />
       <PlatformImageSection block={data.introSection} />
       <div className="my-10">
-        {data.imagesTexts.map((section, i) => (
-          <ImageText key={section.title} {...section} rounded={i === 0} />
+        {data.imagesTexts.map((section) => (
+          <ImageText key={section.title} {...section} rounded />
         ))}
       </div>
       <PlatformJourney block={data.journey} />

@@ -40,7 +40,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
     >
       <div className="sm:py-19 bg- rounded-2xl py-10 lg:px-24">
         <div className="grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-9">
-          <div className="flex flex-col items-start justify-center gap-6 lg:col-span-5">
+          <div className="flex flex-col items-start justify-center gap-6 lg:col-span-6">
             <h1
               className="font-heading text-5xl font-extrabold leading-[3.5rem] md:text-7xl md:leading-[5rem]"
               dangerouslySetInnerHTML={{
@@ -53,12 +53,14 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
                 ),
               }}
             />
-            <p className="leading-relaxed text-grey-900/80 md:text-[1.375rem]">
-              {block.description}
-            </p>
-            <DualButtons button1={block.button1} button2={block.button2} />
+            <div className="lg:pr-28">
+              <p className="leading-relaxed text-grey-900/80 md:text-[1.375rem]">
+                {block.description}
+              </p>
+              <DualButtons button1={block.button1} button2={block.button2} />
+            </div>
           </div>
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <AspectRatio ratio={4 / 4} className="relative">
               <Image
                 src={block.image}
