@@ -3,7 +3,7 @@ import { bgGradient } from "@/data/styleHelpers";
 import Image from "next/image";
 import { PlatformFeaturesBlock } from "@/types/platformTemplate";
 
-const FeatureList = async ({ block }: {block: PlatformFeaturesBlock}) => {
+const FeatureList =  ({ block }: {block: PlatformFeaturesBlock}) => {
   const { title, features, description } = block;
   return (
     <section className="mx-auto max-w-[1400px] lg:px-5">

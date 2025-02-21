@@ -15,7 +15,7 @@ type PlatformJourneyProps = {
   };
 };
 
-const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
+const PlatformJourney =  ({ block }: PlatformJourneyProps) => {
   const { title, intro, features, image } = block;
   return (
     <section className="relative z-20 mx-auto max-w-5xl">

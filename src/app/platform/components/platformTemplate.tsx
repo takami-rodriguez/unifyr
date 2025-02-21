@@ -1,3 +1,4 @@
+"use client";
 import Banner from "@/components/banner";
 import FeatureList from "@/components/featureList";
 import ImageText from "@/components/imageText";
@@ -12,8 +13,11 @@ import {
   PlatformWithWistiaId,
 } from "@/types/platformTemplate";
 import PlatformVideoSection from "./platformVideoSection";
+import { usePathname } from "next/navigation";
+import { NavLink } from "@/data/navLinks";
 
 const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
+  const pathName = usePathname();
   return (
     <main>
       <PlatformHero block={data.hero} />
@@ -28,8 +32,12 @@ const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
       )}
 
       <div className="mb-10">
-        {data.imagesTexts.map((section) => (
-          <ImageText key={section.title} {...section} rounded />
+        {data.imagesTexts.map((section, index) => (
+          <ImageText
+            key={section.title}
+            {...section}
+            rounded={!(index === 1 && pathName === NavLink.PlatformZift)}
+          />
         ))}
       </div>
       <PlatformJourney block={data.journey} />
