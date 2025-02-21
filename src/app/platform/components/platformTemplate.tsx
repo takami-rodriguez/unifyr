@@ -9,15 +9,24 @@ import PlatformJourney from "./platformJourney";
 import {
   PlatformImageSectionBlock,
   PlatformTemplateProps,
+  PlatformWithWistiaId,
 } from "@/types/platformTemplate";
+import PlatformVideoSection from "./platformVideoSection";
 
 const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
   return (
     <main>
       <PlatformHero block={data.hero} />
-      <PlatformImageSection
-        block={data.introSection as PlatformImageSectionBlock}
-      />
+      {"wistiaVideoId" in data.introSection ? (
+        <PlatformVideoSection
+          block={data.introSection as PlatformWithWistiaId}
+        />
+      ) : (
+        <PlatformImageSection
+          block={data.introSection as PlatformImageSectionBlock}
+        />
+      )}
+
       <div className="mb-10">
         {data.imagesTexts.map((section) => (
           <ImageText key={section.title} {...section} rounded />

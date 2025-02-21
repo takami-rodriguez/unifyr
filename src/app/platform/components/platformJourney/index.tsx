@@ -2,7 +2,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import BGRadialSVG from "@/components/bgRadiant";
 import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type PlatformJourneyProps = {
   block: {
@@ -35,8 +34,8 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
           {intro}
         </p>
       </div>
-      <div className="grid w-full grid-cols-1 items-center gap-12  md:mt-14 lg:mt-16 lg:grid-cols-7">
-        <div className="mt-14 space-y-12  lg:mt-0 lg:col-span-3">
+      <div className="grid w-full grid-cols-1 items-center gap-12 md:mt-14 lg:mt-16 lg:grid-cols-7">
+        <div className="mt-14 space-y-12 lg:col-span-3 lg:mt-0">
           <div className="space-y-8 text-grey-900/80">
             {features.map((feature, index) => (
               <div key={index} className="max-w-sm space-y-3">
@@ -48,18 +47,14 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
             ))}
           </div>
         </div>
-        <div className="lg:col-span-4">
-          <AspectRatio
-            ratio={5.6 / 4}
-            className="relative "
-          >
+        <div className="relative lg:col-span-4">
             <Image
               src={image}
               alt={title}
-              fill
-              className="object-cover object-center lg:object-right  "
+              width={800}
+              height={450}
+              className=""
             />
-          </AspectRatio>
         </div>
       </div>
     </section>
