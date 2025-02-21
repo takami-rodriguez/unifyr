@@ -28,7 +28,7 @@ const PlatformJourney = async ({ block }: PlatformJourneyProps) => {
         <BGRadialSVG />
       </div>
       <div className="relative z-20 max-w-3xl space-y-[22px]">
-        <h2 className="font-heading text-3xl font-bold leading-[52px] md:text-4xl lg:text-5xl">
+        <h2 className="font-heading text-4xl font-bold leading-[52px] md:text-5xl lg:text-5xl">
           {title}
         </h2>
         <p className="max-w-2xl text-xl leading-8 text-grey-900/80 lg:text-[1.375rem]">

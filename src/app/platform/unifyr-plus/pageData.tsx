@@ -17,9 +17,9 @@ export const unifyrPlusPlatform = {
       link: NavLink.BookACall,
     },
     button2: {
-      label: "Discover ZiftONE",
+      label: "Blog",
       variant: "outline" as ButtonVariant,
-      link: NavLink.PlatformZift,
+      link: NavLink.Blog,
     },
   },
   introSection: {
