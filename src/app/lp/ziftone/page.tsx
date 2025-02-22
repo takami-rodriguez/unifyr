@@ -14,7 +14,7 @@ import { PlatformWithWistiaId } from "@/types/platformTemplate";
 const G2Page = async () => {
   return (
     <>
-      <div className="grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-7 mx-auto max-w-5xl">
+      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-16 lg:grid-cols-7">
         <div className="space-y-6 lg:col-span-4">
           <LPPageTitle
             title="ZiftONE leads PRM innovation since 2006"
