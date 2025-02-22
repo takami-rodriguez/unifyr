@@ -1,1 +1,2 @@
 ^/blog/(.+)/index.html /resources/\1/index.html
+^/lp/ziftone/index.html /lp/g2/index.html
