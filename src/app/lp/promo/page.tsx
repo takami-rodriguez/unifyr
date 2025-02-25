@@ -10,6 +10,8 @@ import PlatformJourney from "@/app/platform/components/platformJourney";
 import FeatureList from "@/components/featureList";
 import { ziftOnePlatform as data } from "../../platform/ziftone/pageData";
 import { PlatformWithWistiaId } from "@/types/platformTemplate";
+import Partners from "@/components/partners";
+import { boxShadow } from "@/data/styleHelpers";
 
 const G2Page = async () => {
   return (
@@ -23,9 +25,7 @@ const G2Page = async () => {
           <p className="text-lg text-grey-900/80">
             ZiftONE customers often transition from an existing PRM solution
             that fails to offer the partner portal customizability and native
-            integrations with existing tools they need to scale. Join us to grow
-            your channel program and enjoy{" "}
-            <span className="font-bold">50% off MSRP</span> your first year.
+            integrations with existing tools they need to scale.
           </p>
           <LPImage
             src={"/images/home/features/unifyr-element-ziftone.png"}
@@ -40,13 +40,26 @@ const G2Page = async () => {
           />
         </div>
         <div className="lg:col-span-3 lg:pt-36">
-          <LandingPageForm name email message id={"1862"} />
+          <div className="border-1 mb-4 rounded-lg border-2 border-white bg-green-50 p-4">
+            <span className="font-bold">Time-limited discount offer:</span> 50%
+            off MSRP year one, 30% off MSRP year two, 20% off MSRP year three
+            for a three-year contract.
+          </div>
+          <LandingPageForm name email message id="1862" />
           <div className="mt-10 lg:mt-5">
             <G2Leaders />
           </div>
         </div>
       </div>
 
+      <div
+        className="mx-auto mt-10 max-w-5xl space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-4 lg:mt-20 lg:px-14"
+        style={boxShadow}
+      >
+        <div className="lg:-mx-2">
+          <Partners />
+        </div>
+      </div>
       <PlatformVideoSection block={data.introSection as PlatformWithWistiaId} />
       <div className="my-10">
         {data.imagesTexts.map((section, i) => (
