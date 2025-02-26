@@ -19,8 +19,8 @@ const G2Page = async () => {
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-16 lg:grid-cols-7">
         <div className="space-y-6 lg:col-span-4">
           <LPPageTitle
-            title="Upgrade your existing PRM and save"
-            highlightWord=""
+            title="Upgrade from your existing PRM and save 20%"
+            highlightWord="Upgrade"
           />
           <p className="text-lg text-grey-900/80">
             ZiftONE customers often transition from an existing PRM solution

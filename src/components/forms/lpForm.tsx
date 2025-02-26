@@ -127,7 +127,7 @@ const LandingPageForm = ({
                 type="text"
                 label="First name"
                 name="firstName"
-                placeholder="Alex"
+                placeholder="First"
                 required
                 error={errors.first_name}
               />
@@ -135,7 +135,7 @@ const LandingPageForm = ({
                 type="text"
                 label="Last name"
                 name="lastName"
-                placeholder="Bloggs"
+                placeholder="Last"
                 required
                 error={errors.last_name}
               />
@@ -143,10 +143,10 @@ const LandingPageForm = ({
           )}
           {email && (
             <InputField
-              label="Email"
+              label="Company email"
               type="email"
               name="email"
-              placeholder="alex.bloggs@email.com"
+              placeholder="name@company.com"
               required
               error={errors.email}
             />
