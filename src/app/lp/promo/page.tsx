@@ -19,8 +19,8 @@ const G2Page = async () => {
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-16 lg:grid-cols-7">
         <div className="space-y-6 lg:col-span-4">
           <LPPageTitle
-            title="ZiftONE leads PRM innovation since 2006"
-            highlightWord="innovation"
+            title="Upgrade your existing PRM and save"
+            highlightWord=""
           />
           <p className="text-lg text-grey-900/80">
             ZiftONE customers often transition from an existing PRM solution
@@ -41,9 +41,9 @@ const G2Page = async () => {
         </div>
         <div className="lg:col-span-3 lg:pt-36">
           <div className="border-1 mb-4 rounded-lg border-2 border-white bg-green-50 p-4">
-            <span className="font-bold">Time-limited discount offer:</span> 50%
-            off MSRP year one, 30% off MSRP year two, 20% off MSRP year three
-            for a three-year contract.
+            <span className="font-bold">Time-limited discount offer:</span>{" "}
+            Receive at least 20% off your current PRM contract and receive
+            plenty of help making the switch.
           </div>
           <LandingPageForm name email message id="1862" />
           <div className="mt-10 lg:mt-5">
