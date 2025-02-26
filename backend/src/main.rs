@@ -90,7 +90,17 @@ fn main() -> Result<(), EdgeError> {
                             });
                             Response::from_status(StatusCode::BAD_REQUEST).with_body_json(&body)?
                         }
-                        Ok(_) => Response::from_status(StatusCode::OK),
+                        Ok(_) => {
+                            // Register with Unifyr+ if applicable.
+                            if formdata
+                                .get("entity_type__c")
+                                .is_some_and(|val| val.eq_ignore_ascii_case("partner"))
+                            {
+                                let _ = forms::unifyr::register(&formdata);
+                            }
+
+                            Response::from_status(StatusCode::OK)
+                        }
                     }
                 }
             } else {

@@ -93,14 +93,6 @@ pub fn post_proc_formdata(req: &Request, formdata: &mut FormDataMap) {
     }
 
     let _ = super::apollo::enrich(formdata);
-
-    // Register with Unifyr+ if applicable.
-    if formdata
-        .get("entity_type__c")
-        .is_some_and(|val| val.eq_ignore_ascii_case("partner"))
-    {
-        let _ = super::unifyr::register(formdata);
-    }
 }
 
 mod validations {
