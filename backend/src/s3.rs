@@ -57,8 +57,8 @@ pub(super) fn authorize(req: &mut Request, cfg: &S3Config) {
         .add(b'=');
 
     // req.remove_query();
-    let canonical_querystring = "";
-    let service = "s3";
+    const CANONICAL_QUERYSTRING: &str = "";
+    const SERVICE: &str = "s3";
     let x_amz_content_256 = EMPTY_HASH;
     let amz_date = time::OffsetDateTime::now_utc().format(FORMAT).unwrap();
 
@@ -71,22 +71,22 @@ pub(super) fn authorize(req: &mut Request, cfg: &S3Config) {
         AWS_HOST, x_amz_content_256, amz_date
     );
 
-    let signed_headers = "host;x-amz-content-sha256;x-amz-date";
+    const SIGNED_HEADERS: &str = "host;x-amz-content-sha256;x-amz-date";
 
     let canonical_request = format!(
         "{}\n{}\n{}\n{}\n{}\n{}",
         "GET",
         canonical_url,
-        canonical_querystring,
+        CANONICAL_QUERYSTRING,
         canonical_headers,
-        signed_headers,
+        SIGNED_HEADERS,
         x_amz_content_256
     );
 
     let credential_date = &amz_date[..8];
     let credential_scope = format!(
         "{}/{}/{}/aws4_request",
-        credential_date, AWS_REGION, service
+        credential_date, AWS_REGION, SERVICE
     );
 
     let canonical_request_hash = hex::encode(digest(&digest::SHA256, canonical_request.as_bytes()));
@@ -98,14 +98,14 @@ pub(super) fn authorize(req: &mut Request, cfg: &S3Config) {
     let aws4_secret = format!("AWS4{}", &cfg.secret_access_key);
     let date_key = sign(aws4_secret, credential_date);
     let region_key = sign(date_key, AWS_REGION);
-    let service_key = sign(region_key, service);
+    let service_key = sign(region_key, SERVICE);
     let signing_key = sign(service_key, "aws4_request");
 
     let signature = hex::encode(sign(signing_key, string_to_sign));
 
     let authorization_value = format!(
         "AWS4-HMAC-SHA256 Credential={}/{},SignedHeaders={},Signature={}",
-        cfg.access_key_id, credential_scope, signed_headers, signature
+        cfg.access_key_id, credential_scope, SIGNED_HEADERS, signature
     );
 
     req.set_method(Method::GET);
