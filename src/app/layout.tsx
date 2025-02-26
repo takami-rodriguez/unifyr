@@ -7,6 +7,7 @@ import CookiePopUpBox from "@/lib/cookiePopup";
 import Google from "@/lib/gaHandler";
 import ClientLayout from "@/components/layouts/clientLayout";
 import Notice from "@/components/notice";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Unifyr",
@@ -26,7 +27,10 @@ export default function RootLayout({
         className={`${epicene.variable} ${epiceneText.variable} ${sohne.variable} font-sans`}
       >
         <Notice>
-          Zift Solutions is now Unifyr.
+          <Link href="/lp/promo/" className="underline underline-offset-2">
+            <span className="font-bold">Time-limited offer: </span>Upgrade from
+            your existing PRM and save 20% off your current contract.
+          </Link>
         </Notice>
         <ClientLayout>
           <div className="px-4 md:px-5">
