@@ -93,6 +93,14 @@ pub fn post_proc_formdata(req: &Request, formdata: &mut FormDataMap) {
     }
 
     let _ = super::apollo::enrich(formdata);
+
+    // Register with Unifyr+ if applicable.
+    if formdata
+        .get("entity_type__c")
+        .is_some_and(|val| val.eq_ignore_ascii_case("partner"))
+    {
+        let _ = super::unifyr::register(formdata);
+    }
 }
 
 mod validations {
@@ -137,9 +145,7 @@ mod validations {
     }
 
     pub fn blacklist<'a>(value: Option<&'a str>) -> Pending<'a> {
-        let value = value
-            .and_then(|v| v.split_once('@'))
-            .map(|split| split.1);
+        let value = value.and_then(|v| v.split_once('@')).map(|split| split.1);
         let result = match value {
             Some(s) if BLACKLIST.contains(s) => Err(EdgeError::ValidationError(
                 "Please provide a company email address.",
