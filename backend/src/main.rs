@@ -1,6 +1,5 @@
 #![feature(maybe_uninit_slice)]
 #![feature(map_try_insert)]
-#![feature(maybe_uninit_uninit_array)]
 
 mod error;
 mod forms;

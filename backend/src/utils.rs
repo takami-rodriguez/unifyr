@@ -20,8 +20,8 @@ impl<R: SecureRandom> NonceGenerator<R> {
     pub fn new(rng: R) -> Self {
         Self {
             rng,
-            byte_buf: MaybeUninit::uninit_array(),
-            b64_buf: MaybeUninit::uninit_array(),
+            byte_buf: [const { MaybeUninit::<u8>::uninit() }; 16],
+            b64_buf: [const { MaybeUninit::<u8>::uninit() }; 24],
         }
     }
 
