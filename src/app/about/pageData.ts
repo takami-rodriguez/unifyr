@@ -9,8 +9,9 @@ export const aboutPageData = {
     },
   },
   intro: [
-    "Unifyr’s vision is clear: collaborate with organizations to expand their reach, revenue, and profit. We empower suppliers, partners, and agencies by simplifying the complexities of the channel ecosystem.",
-    "With deep industry knowledge and a commitment to driving results, the Unifyr leadership team ensures the company remains at the forefront of innovation, delivering lasting value to its customers.",
+    "Unifyr (formerly Zift Solutions) is a pioneer in Partner Relationship Management (PRM) empowering businesses to achieve explosive growth through more channel sales. In 2024, we rebranded to Unifyr to expand our product offerings and better reflect our vision of bringing the channel together profitably.",
+    "Built on the foundation of ZiftONE, our industry-leading PRM solution, Unifyr offers a unified, partner-first experience. Our platform includes Unifyr+, a centralized partner engagement platform that streamlines collaboration between partners and multiple suppliers who use ZiftONE, and Unifyr Pro, a channel marketplace that brings partners, suppliers, and vendors together. This comprehensive suite makes Unifyr the only platform built for all members of the channel ecosystem.",
+    "Establishing and expanding a successful channel program doesn't have to be difficult. Unifyr is designed to ensure your channel strategy evolves and grows alongside you. We streamline channel operations and maximize profits, allowing you to focus on growth. Because growth happens in good company.",
   ],
   leadership: {
     title: "Leadership Team",
@@ -101,7 +102,6 @@ export const aboutPageData = {
         name: "Laura Crawford",
         title: "Chief People Officer",
       },
-      
     ] as TeamMemberType[],
   },
   timelineData: [
