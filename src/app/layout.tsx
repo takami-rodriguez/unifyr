@@ -29,7 +29,7 @@ export default function RootLayout({
         <Notice>
           <Link href="/lp/promo/" className="underline underline-offset-2">
             <span className="font-bold">Time-limited offer: </span>Upgrade from
-            your existing PRM and save 20% off your current contract.
+            your existing PRM and save at least 20% off your current contract.
           </Link>
         </Notice>
         <ClientLayout>
