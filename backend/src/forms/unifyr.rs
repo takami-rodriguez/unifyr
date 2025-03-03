@@ -4,7 +4,7 @@ use fastly::Request;
 use std::collections::HashMap;
 
 const UNIFYR_BACKEND: &str = "unifyr";
-const UNIFYR_ENDPOINT: &str = "https://app.unifyr.com/rest/unifyr/registration";
+const UNIFYR_ENDPOINT: &str = "https://plus.unifyr.com/rest/unifyr/registration";
 
 pub fn register(formdata: &FormDataMap) -> Result<(), EdgeError> {
     let mut json = HashMap::with_capacity(3);
