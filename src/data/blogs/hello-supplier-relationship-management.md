@@ -12,14 +12,12 @@ _uid: 810311ED-ABCD-47AB-A82D-E04DEECD55Eafd
 ---
 [This article announces the availability of Unifyr+ open beta. MSPs and other partner organizations can register for Unifyr+ immediately using this link.](/start/?e=partner)
 
-# Hello, Supplier Relationship Management
-
 At Unifyr, we are attuned to the daily workflows and challenges facing suppliers _and_ partners in the channel. For many suppliers, partners aren't just a nice-to-have; they're a necessity representing more than 50% of annual revenue. There are many types of partners, but one fact holds true: managing multiple supplier relationships has been made unnecessarily difficult by the lack of proper tools offering operational cohesion. In fact, partners:
 
-1. Need to stay atop news and content in several partner portals,
-2. Are unable to see lead and deal registration across suppliers,
-3. Are unable to see holistic performance indicators, such as total pipeline and revenue,
-4. Find it difficult to take on new supplier relationships.
+(1) Need to stay atop news and content in several partner portals,
+(2) Are unable to see lead and deal registration across suppliers,
+(3) Are unable to see holistic performance indicators, such as total pipeline and revenue,
+(4) Find it difficult to take on new supplier relationships.
 
 In particular, one class of partners struggles the most: managed service providers (MSPs). Often, MSPs weave multi-supplier solutions for their customers—it's a critically important function for suppliers and customers, and it can't be easily replaced. In reality, the issues outlined above are multiplied ten-fold for MSPs and there hasn't been a sign of relief—until now. Today, we're announcing the availability of Unifyr+ open beta, the partner-first Supplier Relationship Management platform built to centralize partner operations and accelerate growth in the channel.
 

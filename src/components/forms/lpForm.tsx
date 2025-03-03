@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { boxShadow } from "@/data/styleHelpers";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Turnstile, { useTurnstile } from "react-turnstile";
 import { cn } from "@/lib/utils";
 import InputField from "@/components/forms/components/inputField";
@@ -39,6 +39,12 @@ const LandingPageForm = ({
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [entity, setEntity] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setEntity(params.get("e") ?? undefined);
+  });
 
   const sendData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -109,7 +115,7 @@ const LandingPageForm = ({
           {whoAmI && (
             <div className="space-y-1">
               <Label>I am a...</Label>
-              <Select name="entity_type__c">
+              <Select name="entity_type__c" value={entity}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Please select" />
                 </SelectTrigger>
