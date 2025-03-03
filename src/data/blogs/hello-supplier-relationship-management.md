@@ -4,10 +4,10 @@ excerpt: MSPs and other partner organizations have long suffered from operationa
 publishedDate: "2025-03-03T12:00:00.000Z"
 category: Marketing
 draft: false
-featuredImage: "/images/image.png"
+#featuredImage: "/images/image.png"
 slug: hello-supplier-relationship-management
 author: brian
-og_image: "/images/blog/image.png"
+#og_image: "/images/blog/image.png"
 _uid: 810311ED-ABCD-47AB-A82D-E04DEECD55Eafd
 ---
 [This article announces the availability of Unifyr+ open beta. MSPs and other partner organizations can register for Unifyr+ immediately using this link.](/start/?e=partner)
