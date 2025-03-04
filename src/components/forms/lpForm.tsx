@@ -91,10 +91,12 @@ const LandingPageForm = ({
           type="text/javascript"
           src="https://assets.apollo.io/js/meetings/meetings-widget.js"
           onLoad={() => {
-            window.ApolloMeetings.initWidget({
-              appId: "6776bbc84e358502ceed3dce",
-              schedulingLink: "67o-gu1-m9c",
-            });
+            if (entity == "supplier") {
+              window.ApolloMeetings.initWidget({
+                appId: "6776bbc84e358502ceed3dce",
+                schedulingLink: "67o-gu1-m9c",
+              });
+            }
           }}
         />
       )}
