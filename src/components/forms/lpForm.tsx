@@ -23,6 +23,7 @@ const LandingPageForm = ({
   id,
   name,
   email,
+  company,
   message,
   whoAmI,
   withRouting,
@@ -30,6 +31,7 @@ const LandingPageForm = ({
   id: string;
   name?: boolean;
   email?: boolean;
+  company?: boolean;
   message?: boolean;
   whoAmI?: boolean;
   withRouting?: boolean;
@@ -157,6 +159,16 @@ const LandingPageForm = ({
               placeholder="name@company.com"
               required
               error={errors.email}
+            />
+          )}
+          {company && (
+            <InputField
+              label="Company name"
+              type="text"
+              name="company"
+              placeholder="Company name"
+              required
+              error={errors.company}
             />
           )}
           {message && (
