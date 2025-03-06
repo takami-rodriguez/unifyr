@@ -47,6 +47,13 @@ fn main() -> Result<(), EdgeError> {
             resp.clone_without_body().send_to_client();
         }
         Method::POST => {
+            // This is a proxy for the Netop sister company; they don't have a server to run this
+            // securely.
+            if req.get_path().eq_ignore_ascii_case("/api/netop/trial") {
+                let _ = forms::netop::start_netop_trial(req);
+                return Ok(());
+            }
+
             let re = Regex::new(r"^/forms/(\d+)$").unwrap();
 
             let mut formdata: forms::FormDataMap = if let Ok(formdata) = req.take_body_form() {
