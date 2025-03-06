@@ -63,7 +63,7 @@ const LandingPageForm = ({
           setErrors({});
           setSuccess(true);
 
-          if (withRouting) {
+          if (withRouting && entity == "supplier") {
             window.ApolloMeetings.submit({
               map: false,
               lead: Object.fromEntries(
@@ -93,12 +93,10 @@ const LandingPageForm = ({
           type="text/javascript"
           src="https://assets.apollo.io/js/meetings/meetings-widget.js"
           onLoad={() => {
-            if (entity == "supplier") {
               window.ApolloMeetings.initWidget({
                 appId: "6776bbc84e358502ceed3dce",
                 schedulingLink: "67o-gu1-m9c",
               });
-            }
           }}
         />
       )}
@@ -119,7 +117,11 @@ const LandingPageForm = ({
           {whoAmI && (
             <div className="space-y-1">
               <Label>I am a...</Label>
-              <Select name="entity_type__c" value={entity}>
+              <Select
+                name="entity_type__c"
+                value={entity}
+                onValueChange={(value) => setEntity(value)}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Please select" />
                 </SelectTrigger>
