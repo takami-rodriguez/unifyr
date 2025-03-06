@@ -12,7 +12,7 @@ export default function TableOfContents({ content }: {content: string}) {
         const level = match[1].length;
         const text = match[2].trim();
         // Only include h1, h2, and h3 headings
-        if (level <= 3) {
+        if (level <= 2) {
           const slug = text
             .toLowerCase()
             .replace(/[^\w\s-]/g, "")
@@ -31,7 +31,7 @@ export default function TableOfContents({ content }: {content: string}) {
  
     const headings = extractHeadings(content);
     return (
-    <div className="border-2 border-white bg-white/30 rounded-2xl p-6">
+    <div className="border-2 border-white bg-white/30 rounded-2xl px-10 py-8">
       <h2 className="text-lg font-semibold mb-4">Contents</h2>
       <nav>
         <ul className="space-y-3">
@@ -42,7 +42,7 @@ export default function TableOfContents({ content }: {content: string}) {
             >
               <Link
                 href={heading.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-grey-900/70 hover:text-primary  underline"
               >
                 {heading.text}
               </Link>
