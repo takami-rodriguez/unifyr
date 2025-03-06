@@ -10,8 +10,10 @@ pub enum EdgeError {
     #[error("E102")]
     SerdeJsonError(#[from] serde_json::Error),
     #[error("E103")]
-    MarketoError(Vec<String>),
+    SerdeUrlEncodedError(#[from] serde_urlencoded::ser::Error),
     #[error("E104")]
+    MarketoError(Vec<String>),
+    #[error("E105")]
     RingError,
 
     #[error("E900")]
