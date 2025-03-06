@@ -1,9 +1,9 @@
 import TableOfContents from "./components/table-of-contents";
-import Markdown from "@/components/markdown";
 import { fetchAtlasBySlug, getAllAtlasSlugs } from "@/queries/atlas";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
+import AtlasMarkdown from "./components/atlasMarkdown";
 
 export async function generateMetadata(
   { params }: PageProps,
@@ -34,8 +34,8 @@ export default async function AtlasPage({ params }: PageProps) {
             </div>
           </aside>
           <main className="flex-1">
-            <div className="rounded-2xl border-2 border-white bg-white/30 px-10 py-8">
-              <Markdown content={content} />
+            <div className="rounded-2xl border-2 border-white bg-white/30 px-10">
+              <AtlasMarkdown content={content} />
             </div>
           </main>
         </div>

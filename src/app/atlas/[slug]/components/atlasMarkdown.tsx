@@ -25,7 +25,7 @@ const md = markdownit({
   level: [1, 2, 3], // Only add anchors to h1, h2, and h3
 });
 
-const Markdown: React.FC<MarkdownProps> = ({ content }: MarkdownProps) => {
+const AtlasMarkdown: React.FC<MarkdownProps> = ({ content }: MarkdownProps) => {
   return (
     <div
       className={markDownClasses}
@@ -34,4 +34,4 @@ const Markdown: React.FC<MarkdownProps> = ({ content }: MarkdownProps) => {
   );
 };
 
-export default Markdown;
+export default AtlasMarkdown;
