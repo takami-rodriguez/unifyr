@@ -31,7 +31,7 @@ export default function TableOfContents({ content }: {content: string}) {
  
     const headings = extractHeadings(content);
     return (
-    <div className="rounded-lg border bg-card p-6">
+    <div className="border-2 border-white bg-white/30 rounded-2xl p-6">
       <h2 className="text-lg font-semibold mb-4">Contents</h2>
       <nav>
         <ul className="space-y-3">

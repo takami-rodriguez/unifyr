@@ -29,12 +29,14 @@ export default async function AtlasPage({ params }: PageProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col py-16 lg:flex-row lg:space-x-12">
           <aside className="hidden w-64 shrink-0 lg:block">
-            <div className="sticky top-16 overflow-y-auto py-6">
+            <div className="sticky top-12 overflow-y-auto py-6">
               <TableOfContents content={content} />
             </div>
           </aside>
           <main className="flex-1">
-            <Markdown content={content} />
+            <div className="rounded-2xl border-2 border-white bg-white/30">
+              <Markdown content={content} />
+            </div>
           </main>
         </div>
       </div>
