@@ -31,7 +31,7 @@ export default function RootLayout({
             <span className="font-bold">Time-limited offer: </span>Upgrade from
             your existing PRM and save{" "}
             <span className="italic">at least 20%</span> off your current
-            contract.
+            contract
           </Link>
         </Notice>
         <ClientLayout>
