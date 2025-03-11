@@ -31,7 +31,7 @@ export default function TableOfContents({ content }: { content: string }) {
   const headings = extractHeadings(content);
   return (
     <div
-      className="rounded-2xl border-2 border-white bg-white/30 px-10 py-8"
+      className="rounded-2xl border-2 border-white bg-white/70 px-10 py-8"
       style={{
         boxShadow:
           "0px 2px 4px 0px rgba(9, 8, 66, 0.08), 0px 4px 24px 0px rgba(9, 8, 66, 0.04)",

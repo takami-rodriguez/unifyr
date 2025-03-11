@@ -34,7 +34,7 @@ export default async function AtlasPage({ params }: PageProps) {
             </div>
           </aside>
           <main className="flex-1">
-            <div className="rounded-2xl border-2 border-white bg-white/30 px-10">
+            <div className="rounded-2xl border-2 border-white px-10">
               <AtlasMarkdown content={content} />
             </div>
           </main>

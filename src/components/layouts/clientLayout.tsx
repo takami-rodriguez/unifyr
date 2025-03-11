@@ -23,7 +23,7 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
     if (pathname.includes("/atlas")) {
       return {
         background:
-          "background: radial-gradient(346.77% 164.16% at -14.13% 0.67%, rgba(215, 14, 134, 0.04) 1.65%, rgba(36, 56, 139, 0.05) 99.68%), #FFF",
+          "background: linear-gradient(142deg, rgba(215, 14, 134, 0.06) 3.19%, rgba(36, 56, 139, 0.06) 91.11%), #FFF",
       };
     } else {
       return {};
