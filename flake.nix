@@ -104,7 +104,7 @@
                 mkdir -p $out package/bin
 
                 echo "Optimizing backend with wasm-opt..."
-                cp target/wasm32-wasip1/release/main.wasm package/bin/
+                cp target/${target}/release/main.wasm package/bin/
                 stat -c %s package/bin/main.wasm
                 wasm-opt --strip-debug -O3 --converge -o package/bin/main.wasm package/bin/main.wasm
                 stat -c %s package/bin/main.wasm

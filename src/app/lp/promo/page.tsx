@@ -45,7 +45,7 @@ const G2Page = async () => {
             Receive at least 20% off your current PRM contract and receive help
             making the switch & migrating your content. Respond by June 30<sup>th</sup>.
           </div>
-          <LandingPageForm name email message id="1862" />
+          <LandingPageForm name email message id="1866" />
           <div className="mt-10 lg:mt-5">
             <G2Leaders />
           </div>

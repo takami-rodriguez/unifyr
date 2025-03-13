@@ -32,6 +32,8 @@ lol_html = "2.0"
 cookie = "0.18"
 thiserror = "2.0"
 
+async-recursion = "1"
+
 url = "2.5"
 
 [build-dependencies]

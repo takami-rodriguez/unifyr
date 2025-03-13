@@ -18,7 +18,6 @@ import {
   SelectValue,
 } from "./components/select";
 import Script from "next/script";
-import { useSearchParams } from "next/navigation";
 
 const LandingPageForm = ({
   id,
@@ -44,8 +43,10 @@ const LandingPageForm = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [entity, setEntity] = useState<string | undefined>(undefined);
 
-  const params = useSearchParams();
-  setEntity(params.get("e") ?? undefined);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setEntity(params.get("e") ?? undefined);
+  }, []);
 
   const sendData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

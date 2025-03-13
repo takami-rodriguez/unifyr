@@ -1,6 +1,4 @@
 import React from "react";
-import { AspectRatio } from "./ui/aspect-ratio";
-import Image from "next/image";
 
 const Testimonial = async () => {
   return (
@@ -11,22 +9,14 @@ const Testimonial = async () => {
             "“ZiftONE streamlined our partner program, boosting engagement across 22+ countries.”"
           }
         </blockquote>
-        <div className="flex flex-col items-center md:gap-3">
-          <div className="mx-auto max-h-[40px] w-full max-w-[251px]">
-            <AspectRatio
-              ratio={251 / 40}
-              className="relative mx-6 sm:mx-4 md:mx-0"
-            >
-              <Image
-                src="/images/partners/Panasonic.svg"
-                alt="Panasonic"
-                fill
-              />
-            </AspectRatio>
+        <div className="flex flex-col items-center md:gap-4">
+          <div className="mx-auto w-32">
+            <img
+              src="/images/partners/Panasonic.svg"
+              alt="Panasonic Connect Europe"
+            />
           </div>
-          <div className="text-lg">
-            <p className="">Chief Revenue Officer, Panasonic Connect</p>
-          </div>
+          <div className="text-lg">Panasonic Connect Europe</div>
         </div>
       </div>
     </section>
