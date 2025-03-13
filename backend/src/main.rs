@@ -1,6 +1,7 @@
 #![feature(maybe_uninit_slice)]
 #![feature(map_try_insert)]
 
+mod crt;
 mod error;
 mod forms;
 mod rewriter;
@@ -8,6 +9,7 @@ mod s3;
 mod utils;
 
 use common::{DomainStore, Forms};
+use crt::search;
 use error::EdgeError;
 use fastly::{
     http::{header, CandidateResponse, HeaderName, Method, StatusCode},
@@ -33,6 +35,25 @@ fn main() -> Result<(), EdgeError> {
 
     match *req.get_method() {
         Method::GET => {
+            #[cfg(not(feature = "production"))]
+            if req.get_path() == "/analyze" {
+                if let Some(domain) = req.get_query_parameter("domain") {
+                    let result = futures::executor::block_on(search(domain));
+                    if let Err(_) = result {
+                        let response = Response::from_body(
+                            "I'm painfully slow and still investigating... try again.",
+                        );
+                        response.send_to_client();
+                        return Ok(());
+                    }
+
+                    let body = serde_json::to_string(&result.unwrap())?;
+                    let response = Response::from_body(body);
+                    response.send_to_client();
+                    return Ok(());
+                }
+            }
+
             let mut resp = retrieve(req)?;
             if utils::is_html(&resp) {
                 rewriter::rewrite(&mut resp);

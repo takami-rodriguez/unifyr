@@ -7,7 +7,8 @@ import CookiePopUpBox from "@/lib/cookiePopup";
 import Google from "@/lib/gaHandler";
 import ClientLayout from "@/components/layouts/clientLayout";
 import Notice from "@/components/notice";
-// import Link from "next/link";
+import Link from "next/link";
+import BottomRightPopup from "@/components/popup";
 
 export const metadata: Metadata = {
   title: "Unifyr",
@@ -39,6 +40,13 @@ export default function RootLayout({
             <Navbar />
             {children}
           </div>
+          <BottomRightPopup
+            title="20%+ Discount"
+            description="Transition from your current PRM: Receive help migrating content and 20% off your current contract."
+            linkText="Start"
+            imageUrl="/images/promo.jpg"
+            linkUrl="/lp/promo/"
+          />
           <Google />
           <CookiePopUpBox />
         </ClientLayout>
