@@ -6,9 +6,9 @@ import { ResolvingMetadata, Metadata } from "next";
 import PlatformTemplate from "../components/platformTemplate";
 
 const meta = {
-  title: "Unifyr Plus Platform",
+  title: "Unifyr+",
   description:
-    "Unifyr Plus is the only platform that combines the power of channel marketing and sales automation to deliver a single, integrated solution for channel organizations.",
+    "Unifyr+ is the only platform designed for partners managing multiple supplier relationships. Keep atop supplier updates and register leads and deals in one place.",
 };
 
 export async function generateMetadata(
@@ -16,10 +16,10 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   return getDynamicPageSEOData(meta, parent);
-};
+}
 
 const UnifyrPlusPage = async () => {
-  return (<PlatformTemplate data={data} /> );
+  return <PlatformTemplate data={data} />;
 };
 
 export default UnifyrPlusPage;

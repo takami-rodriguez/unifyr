@@ -8,7 +8,7 @@ import { PlatformTemplateProps } from "@/types/platformTemplate";
 export const unifyrPlusPlatform: PlatformTemplateProps = {
   hero: {
     title: "Supplier relationship management for partners",
-    titleHighlight: "management",
+    titleHighlight: "partners",
     description:
       "Now, partners can stay atop their deals and supplier relationships in one place.",
     image: "/images/platform/unifyr-plus/unifyrplus-header.webp",
