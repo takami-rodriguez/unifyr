@@ -8,6 +8,7 @@ export enum NavLink {
   Careers = "/careers/",
   Platform = "/platform/",
   PlatformZift = "/platform/ziftone/",
+  PlatformUnifyrOne = "/platform/unifyrone/",
   PlatformUnifryPlus = "/platform/unifyr-plus/",
   Solutions = "/solutions/",
   Blog = "/blog/",
@@ -23,23 +24,28 @@ export const navLinks = [
     subMenu: [
       {
         label: "ZiftONE",
-        link: NavLink.PlatformZift,
+        link: "/platform/ziftone/",
         subTitle: "The intelligent partner operations platform",
       },
       {
+        label: "UnifyrONE",
+        link: "/platform/unifyrone/",
+        subTitle: "Partner relationship management for small businesses",
+      },
+      {
         label: "Unifyr+",
-        link: NavLink.PlatformUnifryPlus,
-        subTitle: "Supplier relationship management for partners"
+        link: "/platform/unifyr-plus/",
+        subTitle: "Supplier relationship management for partners",
       },
     ],
   },
   {
     label: "Resources",
-    link: NavLink.Blog,
+    link: "/blog/",
     subMenu: [
       {
         label: "Blog",
-        link: NavLink.Blog,
+        link: "/blog/",
       },
       {
         label: "Support (Partner Portal)",
@@ -53,6 +59,6 @@ export const navLinks = [
   },
   {
     label: "About",
-    link: NavLink.About,
-  }
+    link: "/about/",
+  },
 ];
