@@ -93,7 +93,7 @@ export default {
   features: {
     title: "Privacy-first generative AI",
     description:
-      "ZiftONE’s extensive AI features use Unifyr-owned models—your data is never shared with any third parties.",
+      "UnifyrONE’s extensive AI features use Unifyr-owned models—your data is never shared with any third parties.",
     features: [
       {
         title: "Firmographic notes",
