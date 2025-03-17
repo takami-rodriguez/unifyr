@@ -51,19 +51,19 @@ export default {
   },
   imagesTexts: [
     {
-      badge: "Start",
-      title: "A platform built for all stages of your partner program",
-      image: "/images/platform/ziftONE/images/ziftone-partner-portal.webp",
-      content:
-        "UnifyrONE provides a clear path from early partner program beginnings through to program maturity complete with the tools you need to scale.",
-    },
-    {
       badge: "Grow",
-      imageLeft: true,
-      title: "Discover relevant new partners familiar with UnifyrONE",
+      title: "Expand your program with relevant new partners",
       image: "/images/platform/ziftONE/images/ziftone-scale.webp",
       content:
         "Selectively make partner enablement content public to help new partners discover your brand and learn about how your business helps customers.",
+    },
+    {
+      badge: "Start",
+      imageLeft: true,
+      title: "Features optimized for all stages of growth",
+      image: "/images/platform/ziftONE/images/ziftone-partner-portal.webp",
+      content:
+        "UnifyrONE provides a clear path from early partner program beginnings through to program maturity complete with the tools you need to scale.",
     },
   ],
   journey: {

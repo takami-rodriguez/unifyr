@@ -9,7 +9,7 @@ export enum NavLink {
   Platform = "/platform/",
   PlatformZift = "/platform/ziftone/",
   PlatformUnifyrOne = "/platform/unifyrone/",
-  PlatformUnifryPlus = "/platform/unifyr-plus/",
+  PlatformUnifyrPlus = "/platform/unifyr-plus/",
   Solutions = "/solutions/",
   Blog = "/blog/",
   Company = "/company/",
