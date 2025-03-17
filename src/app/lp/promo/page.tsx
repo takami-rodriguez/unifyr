@@ -8,7 +8,7 @@ import PlatformVideoSection from "@/app/platform/components/platformVideoSection
 import ImageText from "@/components/imageText";
 import PlatformJourney from "@/app/platform/components/platformJourney";
 import FeatureList from "@/components/featureList";
-import { ziftOnePlatform as data } from "../../platform/ziftone/pageData";
+import data from "../../platform/ziftone/pageData";
 import { PlatformWithWistiaId } from "@/types/platformTemplate";
 import Partners from "@/components/partners";
 import { boxShadow } from "@/data/styleHelpers";
@@ -43,7 +43,8 @@ const G2Page = async () => {
           <div className="border-1 mb-4 rounded-lg border-2 border-white bg-green-50 p-4">
             <span className="font-bold">Time-limited discount offer:</span>{" "}
             Receive at least 20% off your current PRM contract and receive help
-            making the switch & migrating your content. Respond by June 30<sup>th</sup>.
+            making the switch & migrating your content. Respond by June 30
+            <sup>th</sup>.
           </div>
           <LandingPageForm name email message id="1866" />
           <div className="mt-10 lg:mt-5">
