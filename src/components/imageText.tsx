@@ -37,7 +37,7 @@ const ImageText = ({
     switch (pathname) {
       case NavLink.PlatformZift:
         return "secondary";
-      case NavLink.PlatformUnifryPlus:
+      case NavLink.PlatformUnifyrPlus:
         return "unifyrPlus";
       default:
         return "primary";

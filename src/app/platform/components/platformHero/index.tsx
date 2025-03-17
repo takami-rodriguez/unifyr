@@ -21,8 +21,10 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
     switch (pathname) {
       case NavLink.PlatformZift:
         return "text-secondary";
-      case NavLink.PlatformUnifryPlus:
+      case NavLink.PlatformUnifyrPlus:
         return "text-green-700";
+      case NavLink.PlatformUnifyrOne:
+        return "text-pink";
       default:
         return "primary";
     }
