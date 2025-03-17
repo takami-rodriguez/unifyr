@@ -5,7 +5,7 @@ import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
 import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const ziftOnePlatform: PlatformTemplateProps = {
+export default {
   hero: {
     title: "The intelligent partner operations platform",
     titleHighlight: "intelligent",
@@ -70,7 +70,8 @@ export const ziftOnePlatform: PlatformTemplateProps = {
     title: "Uncontested partner enablement",
     intro:
       "ZiftONE is more than just PRM; it integrates with Unifyr+, the partner-first multi-supplier management portal.",
-    image: "/images/platform/ziftONE/images/unifyrplus-screenshot-nobg-blue.webp",
+    image:
+      "/images/platform/ziftONE/images/unifyrplus-screenshot-nobg-blue.webp",
     features: [
       {
         title: "Meet partners where they are",
@@ -158,4 +159,4 @@ export const ziftOnePlatform: PlatformTemplateProps = {
       },
     },
   },
-};
+} satisfies PlatformTemplateProps;

@@ -1,5 +1,5 @@
 import React from "react";
-import { unifyrPlusPlatform as data } from "./pageData";
+import data from "./pageData";
 import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { PageProps } from "@/types/page";
 import { ResolvingMetadata, Metadata } from "next";

@@ -5,7 +5,7 @@ import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
 import { PlatformTemplateProps } from "@/types/platformTemplate";
 
-export const unifyrPlusPlatform: PlatformTemplateProps = {
+export default {
   hero: {
     title: "Supplier relationship management for partners",
     titleHighlight: "partners",
@@ -164,4 +164,4 @@ export const unifyrPlusPlatform: PlatformTemplateProps = {
       },
     },
   },
-};
+} satisfies PlatformTemplateProps;
