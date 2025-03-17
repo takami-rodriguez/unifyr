@@ -6,9 +6,9 @@ import { ResolvingMetadata, Metadata } from "next";
 import PlatformTemplate from "../components/platformTemplate";
 
 const meta = {
-  title: "ZiftONE PRM",
+  title: "UnifyrONE PRM",
   description:
-    "ZiftONE is the only platform that combines the power of channel marketing and sales automation to deliver a single, integrated solution for channel organizations.",
+    "UnifyrONE is an enterprise PRM product designed for businesses with youthful channel programs. Reach program maturity and channel ROI fastest with UnifyrONE.",
 };
 
 export async function generateMetadata(
