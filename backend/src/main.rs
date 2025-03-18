@@ -4,6 +4,7 @@
 mod crt;
 mod error;
 mod forms;
+mod logos;
 mod rewriter;
 mod s3;
 mod utils;

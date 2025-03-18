@@ -1,4 +1,4 @@
-use crate::utils::NonceGenerator;
+use crate::utils::gen_nonce;
 use fastly::{
     http::{body::StreamingBody, header},
     Response,
@@ -41,8 +41,9 @@ impl Drop for DelegatedStreamingBody {
 }
 
 pub(crate) fn rewrite(resp: &mut Response) {
-    let mut gen = NonceGenerator::new(SystemRandom::new());
-    let nonce = gen.generate().unwrap();
+    let rng = SystemRandom::new();
+    let buf = &gen_nonce(rng).unwrap();
+    let nonce = str::from_utf8(buf).unwrap();
 
     resp.set_header(header::CONTENT_SECURITY_POLICY, make_csp(nonce));
     let body = resp.take_body_str();
@@ -50,11 +51,9 @@ pub(crate) fn rewrite(resp: &mut Response) {
     let modified = lol_html::rewrite_str(
         &body,
         RewriteStrSettings {
-            element_content_handlers: vec![
-                element!("script", |el| {
-                    Ok(el.set_attribute("nonce", &nonce)?)
-                }),
-            ],
+            element_content_handlers: vec![element!("script", |el| {
+                Ok(el.set_attribute("nonce", &nonce)?)
+            })],
             ..Default::default()
         },
     )
