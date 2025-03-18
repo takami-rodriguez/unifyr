@@ -5,34 +5,23 @@ use fastly::{
     Response,
 };
 use ring::rand::SecureRandom;
-use std::mem::MaybeUninit;
 
-pub const NONCE_BYTES: usize = 16;
-pub const BASE64_LEN: usize = ((4 * NONCE_BYTES / 3) + 3) & !0b11;
-
-pub(crate) struct NonceGenerator<R: SecureRandom> {
-    rng: R,
-    byte_buf: [MaybeUninit<u8>; NONCE_BYTES],
-    b64_buf: [MaybeUninit<u8>; BASE64_LEN],
+pub const fn base64_len_for(orig: usize) -> usize {
+    ((4 * orig) / 3) + 3 & !0b11
 }
 
-impl<R: SecureRandom> NonceGenerator<R> {
-    pub fn new(rng: R) -> Self {
-        Self {
-            rng,
-            byte_buf: [const { MaybeUninit::<u8>::uninit() }; 16],
-            b64_buf: [const { MaybeUninit::<u8>::uninit() }; 24],
-        }
-    }
+pub(crate) fn gen_nonce<R: SecureRandom>(rng: R) -> Result<Box<[u8]>, EdgeError> {
+    const NONCE_BYTES: usize = 16;
+    let mut nonce = [0u8; NONCE_BYTES];
+    rng.fill(&mut nonce)?;
+    Ok(base64_encode(&nonce))
+}
 
-    pub fn generate(&mut self) -> Result<&str, EdgeError> {
-        let bytes: &mut [u8] = unsafe { self.byte_buf.assume_init_mut() };
-        self.rng.fill(bytes)?;
-
-        let out = Out::from_uninit_slice(&mut self.b64_buf);
-
-        Ok(STANDARD.encode_as_str(bytes, out))
-    }
+pub(crate) fn base64_encode(bytes: &[u8]) -> Box<[u8]> {
+    let cap = base64_len_for(bytes.len());
+    let mut vec = vec![0u8; cap];
+    let out = Out::from_slice(&mut vec);
+    STANDARD.encode(bytes, out).into()
 }
 
 pub fn is_html(resp: &Response) -> bool {

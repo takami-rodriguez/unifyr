@@ -15,11 +15,15 @@ pub enum EdgeError {
     MarketoError(Vec<String>),
     #[error("E105")]
     RingError,
+    #[error("E106")]
+    KVStoreError(#[from] fastly::kv_store::KVStoreError),
 
     #[error("E900")]
     TurnstileError,
     #[error("{0}")]
     ValidationError(&'static str),
+    #[error("E1000")]
+    GenericError,
 }
 
 impl From<ring::error::Unspecified> for EdgeError {
