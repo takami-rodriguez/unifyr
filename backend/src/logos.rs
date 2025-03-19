@@ -7,15 +7,16 @@ const LOGOS_BACKEND: &str = "logos";
 
 pub fn retrieve_logo(domain: &str) -> Result<String, EdgeError> {
     let kv = fastly::kv_store::KVStore::open("logos")?.unwrap();
-    if let Some(body) = kv.lookup(domain)?.try_take_body() {
+    if let Ok(Some(body)) = kv.lookup(domain).map(|mut lu| lu.try_take_body()) {
+        println!("Cached logo found for {}.", domain);
         return Ok(body.into_string());
     }
 
     let url = Url::parse_with_params(
-        "https://img.logo.dev",
+        &format!("https://img.logo.dev/{}", domain),
         &[
             ("token", CREDENTIALS.logos_dev_public_key.as_str()),
-            ("size", "256"),
+            ("size", "128"),
             ("retina", "true"),
             ("format", "webp"),
             ("fallback", "404"),

@@ -1,4 +1,3 @@
-#![feature(maybe_uninit_slice)]
 #![feature(map_try_insert)]
 
 mod crt;
@@ -10,7 +9,6 @@ mod s3;
 mod utils;
 
 use common::{DomainStore, Forms};
-use crt::search;
 use error::EdgeError;
 use fastly::{
     http::{header, CandidateResponse, HeaderName, Method, StatusCode},
@@ -39,7 +37,7 @@ fn main() -> Result<(), EdgeError> {
             #[cfg(not(feature = "production"))]
             if req.get_path() == "/analyze" {
                 if let Some(domain) = req.get_query_parameter("domain") {
-                    let result = futures::executor::block_on(search(domain));
+                    let result = futures::executor::block_on(crt::search(domain));
                     if let Err(_) = result {
                         let response = Response::from_body(
                             "I'm painfully slow and still investigating... try again.",
@@ -76,6 +74,17 @@ fn main() -> Result<(), EdgeError> {
                 return Ok(());
             }
 
+            // Provide a way for the client to request a company logo for page personalization
+            // purposes.
+            if req.get_path().eq_ignore_ascii_case("/retrieve-logo") {
+                if let Some(domain) = req.get_query_parameter("domain") {
+                    let logo = logos::retrieve_logo(domain)?;
+                    Response::from_body(logo).send_to_client();
+                    return Ok(());
+                }
+            }
+
+            // Otherwise, expect the POST request is a form.
             let re = Regex::new(r"^/forms/(\d+)$").unwrap();
 
             let mut formdata: forms::FormDataMap = if let Ok(formdata) = req.take_body_form() {
@@ -298,7 +307,7 @@ fn finalize_headers(resp: &mut CandidateResponse, is_hashed: bool) {
 
     // alt-svc + security (non-csp)
     resp.set_header(header::ALT_SVC, r#"h3=":443"; ma=2592000; persist=1"#);
-    resp.set_header(header::CONTENT_SECURITY_POLICY, "default-src 'none'"); // default
+    resp.set_header(header::CONTENT_SECURITY_POLICY, "default-src 'self'"); // default
     resp.set_header(header::REFERRER_POLICY, "strict-origin");
     resp.set_header(header::X_CONTENT_TYPE_OPTIONS, "nosniff");
     resp.set_header(header::X_FRAME_OPTIONS, "DENY");
