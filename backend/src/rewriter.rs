@@ -65,7 +65,7 @@ pub(crate) fn rewrite(resp: &mut Response) {
 // frame-src rather than child-src
 fn make_csp(nonce: &str) -> String {
     format!(
-        "default-src 'none'; \
+        "default-src 'self'; \
         script-src 'nonce-{nonce}' 'strict-dynamic'; \
         style-src 'self' 'unsafe-inline'; \
         connect-src 'self' www.googletagmanager.com https://*.mktoresp.com https://app.apollo.io https://*.wistia.com https://*.wistia.net; \
