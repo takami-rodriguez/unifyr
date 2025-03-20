@@ -12,89 +12,71 @@ import FeatureList from "@/components/featureList";
 import data from "../../platform/ziftone/pageData";
 import { PlatformWithWistiaId } from "@/types/platformTemplate";
 import Partners from "@/components/partners";
-import { boxShadow } from "@/data/styleHelpers";
+import { boxShadow, gradientText } from "@/data/styleHelpers";
 import { useSearchParams } from "next/navigation";
 
 async function getLogoBase64(domain: string): Promise<string> {
-  const response = await fetch(`/retrieve-logo?domain=${domain}`);
+  const response = await fetch(`/retrieve-logo?domain=${domain}`, {
+    method: "POST",
+  });
   const base64 = await response.text();
   return `data:image/webp;base64,${base64}`;
 }
 
-const G2Page = () => {
+const CompanyLogo = () => {
   const params = useSearchParams();
-  const [b64, setB64] = useState("");
+  const [encImg, setEncImg] = useState("");
 
   useEffect(() => {
     const domain = params.get("domain");
     if (domain) {
-      getLogoBase64(domain).then((url) => setB64(url));
+      getLogoBase64(domain).then((url) => setEncImg(url));
     }
   }, [params]);
 
+  return encImg ? (
+    <div className="before:absolute before:mx-4 before:h-[64px] before:w-px before:bg-gray-500 before:content-['']">
+      <img
+        src={encImg}
+        className="ml-[32px] h-[64px] w-[64px] rounded-sm bg-cover bg-center bg-no-repeat"
+      />
+    </div>
+  ) : null;
+};
+
+const Company = () => {
+  const params = useSearchParams();
+  const [name, setName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const value = params.get("name");
+    setName(value);
+  }, [params]);
+
+  return name;
+};
+
+const G2Page = () => {
   return (
     <>
       <section className="flex w-full items-center justify-center px-2 py-8">
-        <img src="/favicon.ico" width="64" />
+        <div className="flex h-[64px] w-[64px] items-center justify-center rounded-sm bg-white">
+          <img src="/favicon.ico" width="44" />
+        </div>
         <Suspense>
-          <img style={{ backgroundImage: `url(${b64})` }} />
+          <CompanyLogo />
         </Suspense>
       </section>
-      <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-16 lg:grid-cols-7">
-        <div className="space-y-6 lg:col-span-4">
-          <LPPageTitle
-            title="Upgrade from your existing PRM and save at least 20%"
-            highlightWord="Upgrade"
-          />
-          <p className="text-lg text-grey-900/80">
-            Many new ZiftONE customers switched from alternative PRM platforms
-            because they faced major challenges with ease of use, scaling,
-            enablement, partner engagement, and support.
-          </p>
-          <LPImage
-            src={"/images/home/features/unifyr-element-ziftone.png"}
-            alt={""}
-          />
-          <LPListItems
-            items={[
-              "A partner portal built for your channel partnership requirements.",
-              "Bespoke integrations with the tools you already use or plan to use.",
-              "Support to succeed in the channel independent of size.",
-            ]}
-          />
+      <Suspense>
+        <div className="mx-auto px-2 text-center md:max-w-3xl">
+          <h1 className="font-heading text-5xl font-bold leading-[3.5rem] text-grey-900 md:pt-20 md:text-7xl md:leading-[5rem]">
+            <span style={gradientText}>
+              Hey, <Company />!
+            </span>{" "}
+            It is 8:00: Do you know where your PRM is?
+          </h1>
         </div>
-        <div className="lg:col-span-3 lg:pt-36">
-          <div className="border-1 mb-4 rounded-lg border-2 border-white bg-green-50 p-4">
-            <span className="font-bold">Time-limited discount offer:</span>{" "}
-            Receive at least 20% off your current PRM contract and receive help
-            making the switch & migrating your content. Respond by June 30
-            <sup>th</sup>.
-          </div>
-          <LandingPageForm name email message id="1866" />
-          <div className="mt-10 lg:mt-5">
-            <G2Leaders />
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="mx-auto mt-10 max-w-5xl space-y-6 rounded-2xl border-[1.5px] border-white bg-white/30 px-4 lg:mt-20 lg:px-14"
-        style={boxShadow}
-      >
-        <div className="lg:-mx-2">
-          <Partners />
-        </div>
-      </div>
-      <PlatformVideoSection block={data.introSection as PlatformWithWistiaId} />
-      <div className="my-10">
-        {data.imagesTexts.map((section, i) => (
-          <ImageText key={section.title} {...section} rounded={i === 0} />
-        ))}
-      </div>
-      <PlatformJourney block={data.journey} />
-      <div className="py-20">
-        <FeatureList block={data.features} />
-      </div>
+      </Suspense>
     </>
   );
 };
