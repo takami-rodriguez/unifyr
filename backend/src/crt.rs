@@ -58,7 +58,15 @@ pub async fn search(domain: &str) -> Result<Vec<String>, EdgeError> {
     let url = Url::parse_with_params("https://crt.sh", &[("q", domain), ("output", "json")])?;
 
     let run = async || {
-        let mut resp = Request::get(&url).with_ttl(86_400).send(CRT)?;
+        let mut resp = Request::get(&url)
+            .with_after_send(|candidate_response| {
+                if candidate_response.get_status().is_success() {
+                    candidate_response.set_ttl(Duration::from_secs(86400));
+                }
+
+                Ok(())
+            })
+            .send(CRT)?;
         let records: Vec<CrtRecord> = resp.take_body_json()?;
         let name_values: HashSet<String> = records
             .iter()
