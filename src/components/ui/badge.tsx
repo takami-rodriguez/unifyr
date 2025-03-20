@@ -9,9 +9,10 @@ const badgeVariants = cva(
     variants: {
       variant: {
         primary: "bg-grey-400/50",
-        secondary: "bg-blue-300/50 text-secondary  ",
-        unifyrPlus: "bg-green-300/50 text-green-700  ",
-        outline: "bg-transparent text-grey-500  font-bold ",
+        secondary: "bg-blue-300/50 text-secondary",
+        unifyrPlus: "bg-green-300/50 text-green-700",
+        unifyrOne: "bg-pink/10 text-pink",
+        outline: "bg-transparent text-grey-500 font-bold",
       },
       size: {
         sm: "px-4 py-2.5",

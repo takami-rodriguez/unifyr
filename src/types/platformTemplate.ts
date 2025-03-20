@@ -44,9 +44,8 @@ export type PlatformJourneyBlock = {
   }[];
 };
 
-
 export type FeatureItem = {
-  icon:  string;
+  icon: string;
   title: string;
   description: string;
 };
@@ -72,6 +71,7 @@ export type PlatformAccordionBlock = {
     };
   };
 };
+
 export interface PlatformTemplateProps {
   hero: PlatformHeroBlock;
   introSection: PlatformImageSectionBlock | PlatformWithWistiaId;

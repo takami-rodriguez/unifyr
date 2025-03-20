@@ -39,6 +39,8 @@ const ImageText = ({
         return "secondary";
       case NavLink.PlatformUnifyrPlus:
         return "unifyrPlus";
+      case NavLink.PlatformUnifyrOne:
+        return "unifyrOne";
       default:
         return "primary";
     }

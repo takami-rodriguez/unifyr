@@ -31,7 +31,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
   };
   return (
     <section className="mx-auto max-w-[1400px] rounded-2xl" style={bgGradient}>
-      <div className="sm:py-19 rounded-2xl py-10 lg:px-24">
+      <div className="sm:py-6 rounded-2xl lg:py-6 lg:px-16">
         <div className="grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-12">
           <div className="flex flex-col items-start justify-center gap-6 lg:col-span-7">
             <h1
@@ -53,15 +53,12 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
               <DualButtons button1={block.button1} button2={block.button2} />
             </div>
           </div>
-          <div className="lg:col-span-5">
-            <AspectRatio ratio={4 / 4} className="relative">
-              <Image
-                src={block.image}
-                alt={""}
-                fill
-                className={cn("rounded-[25px] object-contain object-center")}
-              />
-            </AspectRatio>
+          <div className="lg:col-span-5 flex justify-center">
+            <img
+              src={block.image}
+              alt={""}
+              className="rounded-[25px] object-contain object-center"
+            />
           </div>
         </div>
       </div>

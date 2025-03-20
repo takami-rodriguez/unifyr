@@ -1,4 +1,4 @@
-import BespokePortalIcon from "@/components/icons/platform/bespokePortal";
+import BizOrgIcon from "@/components/icons/platform/bizorg";
 import GenerativeAIIcon from "@/components/icons/platform/generativeAI";
 import TCMAIcon from "@/components/icons/platform/tcma";
 import { ButtonVariant } from "@/components/ui/button";
@@ -10,11 +10,11 @@ export default {
     title: "The only enterprise-class PRM for small businesses",
     titleHighlight: "small",
     description:
-      "For businesses with a youthful partner program, UnifyrONE is the only enterprise-class PRM built to reach ROI quickly and scale.",
-    image: "/images/platform/ziftONE/images/ziftone-header-image.webp",
+      "For businesses with a youthful partner program, UnifyrONE is the only PRM built to reach ROI quickly and scale.",
+    image: "/images/platform/unifyrone/hero.webp",
     button1: {
       label: "Book a call",
-      variant: "secondary" as ButtonVariant,
+      variant: "unifyrOne" as ButtonVariant,
       link: NavLink.BookACall,
     },
     button2: {
@@ -26,23 +26,23 @@ export default {
   introSection: {
     title: "Streamline partner enablement",
     description: "UnifyrONE makes it easy to launch a new partner program",
-    imageUrl: "",
+    imageUrl: "/images/platform/unifyrone/streamline.webp",
     wistiaVideoId: "",
     features: [
       {
-        icon: <BespokePortalIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: <BizOrgIcon className="h-[40px] w-[40px] fill-pink/40" />,
         title: "Partner enablement",
         description:
           "UnifyrONE keeps your partners engaged and up-to-date by integrating natively with Unifyr+.",
       },
       {
-        icon: <TCMAIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: <TCMAIcon className="h-[40px] w-[40px] fill-pink/40" />,
         title: "TCMA & LMS",
         description:
           "Take advantage of enterprise-class built-in tooling for enabling and educating partners.",
       },
       {
-        icon: <GenerativeAIIcon className="h-[40px] w-[40px] fill-blue-300" />,
+        icon: <GenerativeAIIcon className="h-[40px] w-[40px] fill-pink/40" />,
         title: "Generative AI",
         description:
           "Build your content library quickly with built-in, privacy-first AI while staying on-brand.",
@@ -53,7 +53,7 @@ export default {
     {
       badge: "Grow",
       title: "Expand your program with relevant new partners",
-      image: "/images/platform/ziftONE/images/ziftone-scale.webp",
+      image: "/images/platform/unifyrone/expand.svg",
       content:
         "Selectively make partner enablement content public to help new partners discover your brand and learn about how your business helps customers.",
     },
@@ -61,17 +61,16 @@ export default {
       badge: "Start",
       imageLeft: true,
       title: "Features optimized for all stages of growth",
-      image: "/images/platform/ziftONE/images/ziftone-partner-portal.webp",
+      image: "/images/platform/unifyrone/features.svg",
       content:
         "UnifyrONE provides a clear path from early partner program beginnings through to program maturity complete with the tools you need to scale.",
     },
   ],
   journey: {
-    title: "Uncontested partner enablement",
+    title: "Create partner delight",
     intro:
       "UnifyrONE provides an incredible partner experience out of the box through Unifyr+, the platform for partners.",
-    image:
-      "/images/platform/ziftONE/images/unifyrplus-screenshot-nobg-blue.webp",
+    image: "/images/platform/unifyrone/enablement.webp",
     features: [
       {
         title: "Keep partners engaged",
@@ -154,7 +153,7 @@ export default {
         "Let's uncover how UnifyrONE PRM can accelerate your channel program.",
       button: {
         label: "Get started",
-        variant: "secondary" as ButtonVariant,
+        variant: "unifyrOne" as ButtonVariant,
         link: NavLink.BookACall,
       },
     },

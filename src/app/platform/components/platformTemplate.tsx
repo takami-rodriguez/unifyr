@@ -21,7 +21,7 @@ const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
   return (
     <main>
       <PlatformHero block={data.hero} />
-      {"wistiaVideoId" in data.introSection ? (
+      {"wistiaVideoId" in data.introSection && !!data.introSection.wistiaVideoId ? (
         <PlatformVideoSection
           block={data.introSection as PlatformWithWistiaId}
         />
