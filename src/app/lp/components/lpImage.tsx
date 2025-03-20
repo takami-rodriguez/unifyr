@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
-const LPImage = async ({ src, alt }: { src: string; alt: string }) => {
+const LPImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <AspectRatio
       ratio={5 / 2.8}
