@@ -60,7 +60,7 @@ export default {
     {
       badge: "Start",
       imageLeft: true,
-      title: "Features optimized for all stages of growth",
+      title: "Use features optimized for all stages of growth",
       image: "/images/platform/unifyrone/features.svg",
       content:
         "UnifyrONE provides a clear path from early partner program beginnings through to program maturity complete with the tools you need to scale.",
