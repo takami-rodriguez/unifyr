@@ -1,6 +1,6 @@
 import React from "react";
 
-const Winter = async () => {
+const Winter = () => {
   return (
     <svg
       width="100%"

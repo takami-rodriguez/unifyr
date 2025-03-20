@@ -5,7 +5,7 @@ type LPListItemsProps = {
   items: string[];
 };
 
-const LPListItems = async ({ items }: LPListItemsProps) => {
+const LPListItems = ({ items }: LPListItemsProps) => {
   return (
     <ul className="space-y-4 text-lg text-grey-900/80">
       {items.map((item, index) => (

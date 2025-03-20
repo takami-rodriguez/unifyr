@@ -1,6 +1,6 @@
 import React from "react";
 
-const Spring = async () => {
+const Spring = () => {
   return (
     <svg
       width="100%"
