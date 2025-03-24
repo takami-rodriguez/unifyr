@@ -58,7 +58,7 @@ export default {
       title: "Stay atop all your supplier relationships",
       image: "/images/platform/unifyr-plus/unifyrplus-screenshot-2.webp",
       content:
-        "Unifyr+ SRM erases the challenge of juggling partner portals and achieving a holistic view of activities across multiple suppliers.",
+        "Unifyr+ erases the challenge of juggling partner portals and achieving a holistic view of activities across multiple suppliers.",
     },
     {
       badge: "Scale",
@@ -66,7 +66,7 @@ export default {
       title: "Accommodate more suppliers than ever before",
       image: "/images/platform/unifyr-plus/unifyrplus-screenshot.webp",
       content:
-        "Bring new supplier relationships into Unifyr+ SRM without fear of losing track of leads, deals, or campaigns. Discover new suppliers right in the platform.",
+        "Bring new supplier relationships into Unifyr+ without fear of losing track of leads, deals, or campaigns. Discover new suppliers right in the platform.",
     },
   ],
   journey: {
@@ -156,7 +156,7 @@ export default {
     cta: {
       title: "Ready to get started?",
       content:
-        "Let's uncover how Unifyr+ SRM can accelerate your channel program.",
+        "Let's uncover how Unifyr+ can optimize your channel operations.",
       button: {
         label: "Get started",
         variant: "unifyrPlus" as ButtonVariant,
