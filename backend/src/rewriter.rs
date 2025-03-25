@@ -70,7 +70,7 @@ fn make_csp(nonce: &str) -> String {
         style-src 'self' 'unsafe-inline'; \
         connect-src 'self' www.googletagmanager.com https://*.mktoresp.com https://app.apollo.io https://*.wistia.com https://*.wistia.net; \
         img-src 'self' data: www.googletagmanager.com https://*.wistia.com https://*.wistia.net; \
-        media-src blob: https://*.wistia.com https://*.wistia.net; \
+        media-src 'self' blob: https://*.wistia.com https://*.wistia.net; \
         frame-src https://challenges.cloudflare.com https://fast.wistia.com https://fast.wistia.net; \
         font-src 'self' https://assets.apollo.io; \
         base-uri 'none'; \
