@@ -1,60 +1,64 @@
-import { ArticleTemplateProps } from "@/types/article";
-import fs from "fs";
-import matter from "gray-matter";
-import { sortFrontMatter } from "./_helpers";
-import { FEATURED_ARTICLE_SLUG } from "@/data/config";
+import { getFrontMatter } from "@/lib/markdown";
+import { slugify } from "@/lib/utils";
+import { AtlasPageData, AtlasFrontMatter } from "@/types/atlas";
+import fs from "fs/promises";
+import path from "path";
 
-export async function fetchAllAtlas(): Promise<ArticleTemplateProps[]> {
-  const slugData = getAllAtlasSlugs();
-  const allArticlePromises = slugData.map((fileName) =>
-    fetchAtlasBySlug(fileName.slug),
-  );
-  return (await Promise.all(allArticlePromises)).sort(
-    (a, b) =>
-      new Date(b.frontmatter.publishedDate).getTime() -
-      new Date(a.frontmatter.publishedDate).getTime(),
+function getAtlasPageSlug(fileName: string, frontMatter?: AtlasFrontMatter) {
+  if (frontMatter?.slug) {
+    return frontMatter.slug;
+  }
+  if (frontMatter?.title) {
+    return slugify(frontMatter.title);
+  }
+  return path.basename(fileName, ".md");
+}
+
+/** @returns file names for atlas pages. Data for pages is read from these files. */
+export async function getAllAtlasFilenames(): Promise<string[]> {
+  return (await fs.readdir("./src/data/atlas")).filter((fn) =>
+    fn.endsWith(".md"),
   );
 }
 
-export async function fetchAtlasBySlug(
+/** @returns page data for single page */
+export async function getAtlasPageData(
+  fileName: string,
+): Promise<AtlasPageData> {
+  const fullPath = path.resolve(`./src/data/atlas/${fileName}`);
+
+  const markdownSource = await fs.readFile(fullPath, "utf-8");
+  const frontMatter = await getFrontMatter<AtlasFrontMatter>(markdownSource);
+  const slug = getAtlasPageSlug(fileName, frontMatter);
+  const title = frontMatter?.title || slug;
+  return {
+    markdownSource,
+    frontMatter,
+    slug,
+    title,
+    atlasTerm: frontMatter?.atlasTerm || title,
+  };
+}
+
+/** @returns page datas of all atlas pages */
+export async function fetchAllAtlasPages(): Promise<AtlasPageData[]> {
+  const fileNames = await getAllAtlasFilenames();
+  const pageDataList: AtlasPageData[] = [];
+  for (const fileName of fileNames) {
+    pageDataList.push(await getAtlasPageData(fileName));
+  }
+
+  // return pageDataList;
+  return [...pageDataList];
+}
+
+/** @returns page data based on slug */
+export async function fetchAtlasPageBySlug(
   slug: string,
-): Promise<ArticleTemplateProps> {
-  const fileName = fs.readFileSync(`./src/data/atlas/${slug}.md`, "utf-8");
-  const { data: fData, content } = matter(fileName);
-  return {
-    frontmatter: sortFrontMatter(fData as ArticleTemplateProps["frontmatter"]),
-    content,
-  };
+): Promise<AtlasPageData | undefined> {
+  const allPages = await fetchAllAtlasPages();
+  return allPages.find((page) => page.slug === slug);
 }
 
-export async function fetchResourcesPageData(): Promise<{
-  featuredArticle: ArticleTemplateProps;
-  banner: {
-    title: "Resources";
-    button: {
-      link: "/#";
-      title: "Secondary action";
-    };
-  };
-}> {
-  const featuredArticle = await fetchAtlasBySlug(FEATURED_ARTICLE_SLUG);
-  return {
-    featuredArticle,
-    banner: {
-      title: "Resources",
-      button: {
-        link: "/#",
-        title: "Secondary action",
-      },
-    },
-  };
-}
 
-export function getAllAtlasSlugs() {
-  const files = fs.readdirSync("./src/data/atlas");
-  const paths = files.map((fileName) => ({
-    slug: fileName.replace(".md", ""),
-  }));
-  console.log({paths})
-  return paths;
-}
+

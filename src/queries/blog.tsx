@@ -1,8 +1,8 @@
 import { ArticleTemplateProps } from "@/types/article";
 import fs from "fs";
-import matter from "gray-matter";
 import { sortFrontMatter } from "./_helpers";
 import { FEATURED_ARTICLE_SLUG } from "@/data/config";
+import { getFrontMatter } from "@/lib/markdown";
 
 export async function fetchAllArticles(): Promise<ArticleTemplateProps[]> {
   const slugData = getAllBlogSlugs();
@@ -19,10 +19,14 @@ export async function fetchAllArticles(): Promise<ArticleTemplateProps[]> {
 export async function fetchArticleBySlug(
   slug: string,
 ): Promise<ArticleTemplateProps> {
-  const fileName = fs.readFileSync(`./src/data/blogs/${slug}.md`, "utf-8");
-  const { data: fData, content } = matter(fileName);
+  const content = fs.readFileSync(`./src/data/blogs/${slug}.md`, "utf-8");
+  const frontMatterData =
+    await getFrontMatter<ArticleTemplateProps["frontmatter"]>(content);
+  // TODO: Add checks here for whether markdown is present. Just throw in case it's not?
   return {
-    frontmatter: sortFrontMatter(fData as ArticleTemplateProps["frontmatter"]),
+    frontmatter: sortFrontMatter(
+      frontMatterData as ArticleTemplateProps["frontmatter"],
+    ),
     content,
   };
 }

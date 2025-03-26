@@ -1,45 +1,46 @@
-import TableOfContents from "./components/table-of-contents";
-import { fetchAtlasBySlug, getAllAtlasSlugs } from "@/queries/atlas";
+import React from "react";
+import { getDynamicPageSEOData } from "@/lib/seoHelper";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
-import { getDynamicPageSEOData } from "@/lib/seoHelper";
-import AtlasMarkdown from "./components/atlasMarkdown";
+import { fetchAllAtlasPages, fetchAtlasPageBySlug } from "@/queries/atlas";
+import Markdown from "@/components/markdown/markdown";
+import { buildMarkdownTOC } from "@/lib/markdown";
+import TOCSidebar from "./components/TOCSidebar";
 
 export async function generateMetadata(
   { params }: PageProps,
   parent: ResolvingMetadata,
-): Promise<Metadata> {
+): Promise<Metadata | null> {
   const { slug } = await params;
-  const { frontmatter } = await fetchAtlasBySlug(slug as string);
-  return getDynamicPageSEOData(frontmatter.seo!, parent);
+  const page = await fetchAtlasPageBySlug(slug as string);
+  if (!page?.frontMatter?.seo) {
+    return null;
+  }
+  return getDynamicPageSEOData(page.frontMatter.seo, parent);
 }
 
-export function generateStaticParams() {
-  return getAllAtlasSlugs();
+export async function generateStaticParams(): Promise<{ slug: string }[]> {
+  return (await fetchAllAtlasPages()).map((page) => ({ slug: page.slug }));
 }
 
-export const dynamicParams = false;
-
-export default async function AtlasPage({ params }: PageProps) {
+const AtlasPage = async ({ params }: PageProps) => {
   const { slug } = await params;
-  const { content } = await fetchAtlasBySlug(slug as string);
+  const page = await fetchAtlasPageBySlug(slug as string);
+  if (!page) return null;
+
+  const TOCitems = await buildMarkdownTOC(page.markdownSource);
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col py-16 lg:flex-row lg:space-x-12">
-          <aside className="hidden w-64 shrink-0 lg:block">
-            <div className="sticky top-12 overflow-y-auto">
-              <TableOfContents content={content} />
-            </div>
-          </aside>
-          <main className="flex-1">
-            <div className="rounded-2xl border-2 border-white px-10">
-              <AtlasMarkdown content={content} />
-            </div>
-          </main>
+    <div className="relative mx-auto mb-1 max-w-5xl py-12">
+      <div className="flex gap-8">
+        <TOCSidebar items={TOCitems} />
+        <div className="flex-1 pl-6 md:pl-0">
+          <h1 className="font-heading text-5xl font-bold md:text-4xl mb-4">{page.title}</h1>
+          <Markdown content={page.markdownSource} />
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default AtlasPage;

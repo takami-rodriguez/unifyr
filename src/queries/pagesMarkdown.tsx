@@ -1,14 +1,18 @@
-import fs from "fs";
-import matter from "gray-matter";
+import fs from "fs/promises";
 import { sortFrontMatter } from "./_helpers";
 import { TermsProps } from "./terms";
 import { ArticleTemplateProps } from "@/types/article";
+import { getFrontMatter } from "@/lib/markdown";
 
 export async function fetchMarkdownBySlug(slug: string): Promise<TermsProps> {
-  const fileName = fs.readFileSync(`./src/data/pages/${slug}.md`, "utf-8");
-  const { data: fData, content } = matter(fileName);
+  const content = await fs.readFile(`./src/data/pages/${slug}.md`, "utf-8");
+  const frontMatterData =
+    await getFrontMatter<ArticleTemplateProps["frontmatter"]>(content);
+  // TODO: Add checks here for whether markdown is present. Just throw in case it's not?
   return {
-    frontmatter: sortFrontMatter(fData as ArticleTemplateProps["frontmatter"]),
+    frontmatter: sortFrontMatter(
+      frontMatterData as ArticleTemplateProps["frontmatter"],
+    ),
     content,
   };
 }
