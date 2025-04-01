@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.comparison {
+  ul {
+    @apply pl-2 space-y-2;
+    li{
+      @apply pl-2;
+    }
+  }
+  .comparison__right li {
+    list-style-type: disc;
+  }
+  .comparison__left li {
+    list-style-type: circle;
+  }
+}

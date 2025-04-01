@@ -8,6 +8,7 @@ export type PlatformVideoSectionProps = {
   block: PlatformWithWistiaId
 };
 
+// TODO: Remove in favor of `landing` component
 const PlatformVideoSection = ({ block }: PlatformVideoSectionProps) => {
   const { title, description, wistiaVideoId, features } = block;
   return (

@@ -1,10 +1,11 @@
 "use client";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { cn } from "@/lib/cn";
 import React, { useEffect } from "react";
 
+type WistiaVideoProps = { id: string; className?: string };
 
-const WistiaVideo = ({id}: {id:string}) => {
-
+const WistiaVideo = ({ id, className }: WistiaVideoProps) => {
   useEffect(() => {
     // Wistia embed code
     const script1 = document.createElement("script");
@@ -29,7 +30,7 @@ const WistiaVideo = ({id}: {id:string}) => {
     };
   }, [id]);
   return (
-    <div className="mx-auto my-12 max-w-[800px]">
+    <div className={cn("mx-auto my-12 max-w-[800px]", className)}>
       <AspectRatio
         className="relative rounded-2xl border border-gray-100 bg-grey-100 p-1"
         ratio={16 / 9}

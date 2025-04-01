@@ -3,12 +3,12 @@
 import { cn } from "@/lib/cn";
 import Image from "next/image";
 import React from "react";
-import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
+import { Badge } from "../../ui/badge";
+import { Button } from "../../ui/button";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Link from "next/link";
 import { gradientText } from "@/data/styleHelpers";
-import BGRadialSVG from "./bgRadiant";
+import BGRadialSVG from "../../bgRadiant";
 import { usePathname } from "next/navigation";
 import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
 import { NavLink } from "@/data/navLinks";
