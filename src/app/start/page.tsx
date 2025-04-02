@@ -66,7 +66,15 @@ const GetADemo = async () => {
           </ul>
         </div>
         <div className="lg:col-span-3">
-          <LandingPageForm name email company whoAmI message id="1859" withRouting />
+          <LandingPageForm
+            name
+            email
+            title
+            whoAmI
+            message
+            id="1859"
+            withRouting
+          />
           <div className="mt-10 lg:mt-5">
             <G2Leaders />
           </div>

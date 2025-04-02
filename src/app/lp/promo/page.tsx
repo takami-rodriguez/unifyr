@@ -46,7 +46,7 @@ const G2Page = async () => {
             making the switch & migrating your content. Respond by June 30
             <sup>th</sup>.
           </div>
-          <LandingPageForm name email message id="1866" />
+          <LandingPageForm name email title id="1866" />
           <div className="mt-10 lg:mt-5">
             <G2Leaders />
           </div>

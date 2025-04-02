@@ -36,12 +36,8 @@ pub fn enrich(formdata: &mut FormDataMap) -> Result<(), EdgeError> {
         .take_body_json::<apollo_enrichment::Response>()?
         .person;
 
-    formdata.insert("title".into(), value.title);
     formdata.insert("company".into(), value.organization.name);
-    formdata.insert(
-        "Apollo_Primary_Industry__c".into(),
-        value.organization.industry,
-    );
+    formdata.insert("Apollo_Industry__c".into(), value.organization.industry);
 
     Ok(())
 }
