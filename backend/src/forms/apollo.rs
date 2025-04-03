@@ -36,8 +36,17 @@ pub fn enrich(formdata: &mut FormDataMap) -> Result<(), EdgeError> {
         .take_body_json::<apollo_enrichment::Response>()?
         .person;
 
-    formdata.insert("company".into(), value.organization.name);
+    formdata.insert("Company".into(), value.organization.name);
+    formdata.insert(
+        "AnnualRevenue".into(),
+        value.organization.annual_revenue.to_string(),
+    );
+    formdata.insert(
+        "NumberOfEmployees".into(),
+        value.organization.estimated_num_employees.to_string(),
+    );
     formdata.insert("Apollo_Industry__c".into(), value.organization.industry);
+    formdata.insert("Apollo_Country__c".into(), value.organization.country);
 
     Ok(())
 }
@@ -62,5 +71,7 @@ mod apollo_enrichment {
         pub name: String,
         pub industry: String,
         pub country: String,
+        pub annual_revenue: usize,
+        pub estimated_num_employees: usize,
     }
 }
