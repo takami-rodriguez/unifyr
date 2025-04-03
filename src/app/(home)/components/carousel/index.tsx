@@ -13,7 +13,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PartnersIcon from "@/components/icons/partners";
 import SupplierIcon from "@/components/icons/supplier";
 import AgencyIcon from "@/components/icons/agency";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
@@ -157,7 +156,7 @@ export default function HomeCarousel() {
                         {slide.cta}
                       </Button> */}
                     </div>
-                    <img
+                    <Image
                       src={slide.image}
                       alt={slide.cta}
                       className="rounded-2xl object-contain object-center lg:object-right"

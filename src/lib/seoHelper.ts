@@ -13,12 +13,15 @@ export const getDynamicPageSEOData = async (
   const baseUrl = process.env.NEXT_PUBLIC_URL || "https://www.unifyr.com";
 
   return {
-    title: data.fullTitle || data?.title + " — Unifyr",
+    title: data.fullTitle || data.title + " — Unifyr",
     description: data?.description,
     openGraph: {
-      title: data.fullTitle || (data?.og_title || data?.title) + " — Unifyr",
-      description: data?.og_description || data?.description,
-      images: [data?.og_image ? new URL(data.og_image, baseUrl).toString() : "", ...previousImages],
+      title: data.fullTitle || (data.og_title || data.title) + " — Unifyr",
+      description: data.og_description || data?.description,
+      images: [
+        data.og_image ? new URL(data.og_image, baseUrl).toString() : "",
+        ...previousImages,
+      ],
     },
   };
 };

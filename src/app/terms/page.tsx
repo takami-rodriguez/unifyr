@@ -1,4 +1,4 @@
-import Markdown from "@/components/markdown";
+import Markdown from "@/components/markdown/markdown";
 import { fetchMarkdownBySlug } from "@/queries/pagesMarkdown";
 import React from "react";
 import { PageProps } from "@/types/page";

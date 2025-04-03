@@ -1,5 +1,5 @@
-import Markdown from "@/components/markdown";
-import { fetchMarkdownBySlug } from "@/queries/pagesMarkdown";
+import Markdown from "@/components/markdown/markdown";
+import { fetchPageMarkdownBySlug } from "@/queries/pagesMarkdown";
 import React from "react";
 import { PageProps } from "@/types/page";
 import { Metadata, ResolvingMetadata } from "next";
@@ -19,7 +19,7 @@ export async function generateMetadata(
 }
 
 export default async function PrivacyPage() {
-  const { content } = await fetchMarkdownBySlug("privacy");
+  const content = await fetchPageMarkdownBySlug("privacy");
 
   return (
     <div className="mx-auto mb-1 max-w-2xl py-12">

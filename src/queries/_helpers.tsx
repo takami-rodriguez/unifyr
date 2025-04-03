@@ -24,7 +24,7 @@ export function sortFrontMatter(
     featuredImage: frontmatter.featuredImage || "/images/image.png",
     tags: frontmatter.tags || [],
     publishedDate: frontmatter.publishedDate || "",
-    author: getAuthorData(frontmatter.author) || {
+    author: getAuthorData(frontmatter?.author) || {
       name: "",
       bio: "",
       _uid: "-1",

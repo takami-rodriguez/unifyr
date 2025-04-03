@@ -35,7 +35,7 @@ const ImageText = ({
   const pathname = usePathname();
   const getBadgeColor = () => {
     switch (pathname) {
-      case NavLink.PlatformZift:
+      case NavLink.PlatformZiftOne:
         return "secondary";
       case NavLink.PlatformUnifyrPlus:
         return "unifyrPlus";

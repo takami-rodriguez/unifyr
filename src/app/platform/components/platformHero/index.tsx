@@ -1,7 +1,5 @@
 "use client";
 
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { cn } from "@/lib/utils";
 import React from "react";
 import Image from "next/image";
 import DualButtons from "./buttons";
@@ -19,7 +17,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
   const pathname = usePathname();
   const getHighlightColor = () => {
     switch (pathname) {
-      case NavLink.PlatformZift:
+      case NavLink.PlatformZiftOne:
         return "text-secondary";
       case NavLink.PlatformUnifyrPlus:
         return "text-green-700";
@@ -54,7 +52,7 @@ const PlatformHero = ({ block }: PlatformHeroProps) => {
             </div>
           </div>
           <div className="lg:col-span-5 flex justify-center">
-            <img
+            <Image
               src={block.image}
               alt={""}
               className="rounded-[25px] object-contain object-center"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Testimonial = async () => {
@@ -11,7 +12,7 @@ const Testimonial = async () => {
         </blockquote>
         <div className="flex flex-col items-center md:gap-4">
           <div className="mx-auto w-32">
-            <img
+            <Image
               src="/images/partners/Panasonic.svg"
               alt="Panasonic Connect Europe"
             />

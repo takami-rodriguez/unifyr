@@ -36,7 +36,7 @@ const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
           <ImageText
             key={section.title}
             {...section}
-            rounded={!(index === 1 && pathName === NavLink.PlatformZift)}
+            rounded={!(index === 1 && pathName === NavLink.PlatformZiftOne)}
           />
         ))}
       </div>

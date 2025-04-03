@@ -27,7 +27,7 @@ const WistiaVideo = ({id}: {id:string}) => {
         container.innerHTML = "";
       }
     };
-  }, []);
+  }, [id]);
   return (
     <div className="mx-auto my-12 max-w-[800px]">
       <AspectRatio
