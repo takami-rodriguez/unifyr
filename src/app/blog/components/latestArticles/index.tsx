@@ -8,8 +8,8 @@ type LatestArticlesProps = {
 const LatestArticles = ({ articles }: LatestArticlesProps) => {
   return (
     <div className="py-12">
-      <h3 className="pb-5 text-center text-[2rem] font-medium leading-[2.5rem]">
-        Related Posts
+      <h3 className="pb-8 text-center text-[2rem] font-medium leading-[2.5rem]">
+        Recent Articles
       </h3>
       <div className="relative mx-auto max-w-5xl overflow-visible">
         <div className="flex flex-col justify-center gap-6 md:flex-row">
