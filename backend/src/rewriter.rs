@@ -43,7 +43,7 @@ impl Drop for DelegatedStreamingBody {
 pub(crate) fn rewrite(resp: &mut Response) {
     let rng = SystemRandom::new();
     let buf = &gen_nonce(rng).unwrap();
-    let nonce = str::from_utf8(buf).unwrap();
+    let nonce = unsafe { std::str::from_utf8_unchecked(buf) };
 
     resp.set_header(header::CONTENT_SECURITY_POLICY, make_csp(nonce));
     let body = resp.take_body_str();

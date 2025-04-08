@@ -28,7 +28,7 @@ pub fn retrieve_logo(domain: &str) -> Result<String, EdgeError> {
     if response.get_status().is_success() {
         let bytes = response.into_body_bytes();
         let base64_buf = base64_encode(&bytes);
-        let base64_str = str::from_utf8(&base64_buf).unwrap();
+        let base64_str = unsafe { std::str::from_utf8_unchecked(&base64_buf) };
 
         let _ = kv
             .build_insert()
