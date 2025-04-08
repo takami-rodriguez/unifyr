@@ -72,7 +72,9 @@ impl<'a> Form<'a> {
             .zip(results)
             .filter(|(_, result)| result.is_err())
             .rfold(HashMap::new(), |mut map, (name, result)| {
-                let _ = map.try_insert(name, result.err().unwrap());
+                if !map.contains_key(name) {
+                    map.insert(name, result.err().unwrap());
+                }
                 map
             });
 

@@ -49,16 +49,13 @@
 
         mkToolchain =
           p:
-          p.rust-bin.selectLatestNightlyWith (
-            t:
-            t.default.override {
-              extensions = [
-                "rust-src"
-                "rust-analyzer"
-              ];
-              targets = [ target ];
-            }
-          );
+          p.rust-bin.stable.latest.default.override {
+            extensions = [
+              "rust-src"
+              "rust-analyzer"
+            ];
+            targets = [ target ];
+          };
         craneLib = (crane.mkLib pkgs).overrideToolchain mkToolchain;
 
         stdenv = with pkgs; (overrideCC pkgs.stdenv (wrapClangMulti llvmPackages_19.clang));
