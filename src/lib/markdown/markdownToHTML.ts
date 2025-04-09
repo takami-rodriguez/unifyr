@@ -4,6 +4,7 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkFrontmatter from "remark-frontmatter";
 import { rehypeMutateAST } from "./rehypeMutateAST";
+import remarkSmartypants from "remark-smartypants";
 
 /**
  * Converts markdown source to HTML string to be rendered via dangerouslySetInnerHTML
@@ -15,7 +16,10 @@ export const markdownToHTML = async (
   markdown: string,
   mutateHTML: boolean,
 ): Promise<string> => {
-  const processor = unified().use(remarkParse).use(remarkRehype);
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(remarkSmartypants);
 
   if (mutateHTML) {
     processor.use(rehypeMutateAST);
