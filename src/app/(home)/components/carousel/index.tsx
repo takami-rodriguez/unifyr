@@ -158,6 +158,8 @@ export default function HomeCarousel() {
                     </div>
                     <Image
                       src={slide.image}
+                      width={100}
+                      height={100}
                       alt={slide.cta}
                       className="rounded-2xl object-contain object-center lg:object-right"
                     />

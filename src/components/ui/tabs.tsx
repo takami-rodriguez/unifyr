@@ -16,9 +16,10 @@ export interface TabsListProps
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   TabsListProps
->(({ className, ...props }, ref) => (
+>(({ className, hasIcon, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
+    data-has-icon={hasIcon}
     className={cn(
       "inline-flex items-center justify-center rounded-full border-[6px] border-[#F5F3FB] bg-white p-1",
       className,
@@ -36,7 +37,7 @@ export interface TriggerProps
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   TriggerProps
->(({ className, ...props }, ref) => (
+>(({ className, hasIcon, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
@@ -48,8 +49,8 @@ const TabsTrigger = React.forwardRef<
           props.value === "agency" || props.value === TabValue.unifyrPro,
         "data-[state=active]:bg-green-300/70":
           props.value === "partner" || props.value === TabValue.unifyrPlus,
-        "py-1.5": props.hasIcon,
-        "py-2": !props.hasIcon,
+        "py-1.5": hasIcon,
+        "py-2": !hasIcon,
       },
       className,
     )}
