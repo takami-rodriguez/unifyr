@@ -95,7 +95,7 @@ Modern channel programs need to shift toward measuring engagement quality rather
 
 Relationship depth measurements provide another vital dimension. How many individuals within each partner organization engage with your program? Across how many functional roles? What percentage of their relevant customer base are they bringing to your solutions? **Programs with deep, multi-threaded relationships prove far more resilient to competitive threats and market shifts**.
 
-> "A thousand registered partners who never engage provide less value than ten deeply integrated partners who consistently influence revenue."
+> A thousand registered partners who never engage provide less value than ten deeply integrated partners who consistently influence revenue.
 
 Partner satisfaction benchmarks round out the modern measurement framework. Net Promoter Scores, satisfaction surveys, and direct feedback mechanisms help quantify the partner experience. These qualitative measures often provide early warning signals of program issues that traditional activity metrics might miss entirely.
 
