@@ -1,11 +1,11 @@
 ---
-title: "The SBM to enterprise channel pathway"
-excerpt: "Maturing a channel program requires uncomfortable migrations at points where they don't make sense. Let's uncover the solution."
+title: "PRM from SMB to Enterprise"
+excerpt: "Maturing a channel program requires uncomfortable migrations at points where they're difficult to make. Let's uncover the solution."
 publishedDate: "2025-04-15T11:00:00.000Z"
 category: Marketing
 draft: false
 featuredImage: ""
-slug: the-smb-to-enterprise-channel-pathway
+slug: prm-from-smb-to-enterprise
 author: brian
 og_image: "/images/blog/blog-generic.png"
 _uid: 810311ED-42B0-47AB-A93D-E04DEECD55E9
