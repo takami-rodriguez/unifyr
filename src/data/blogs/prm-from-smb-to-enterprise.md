@@ -4,10 +4,10 @@ excerpt: "Maturing a channel program requires uncomfortable migrations at points
 publishedDate: "2025-04-15T11:00:00.000Z"
 category: Marketing
 draft: false
-featuredImage: ""
+featuredImage: "/images/blog/prm-smb-ent.png"
 slug: prm-from-smb-to-enterprise
 author: brian
-og_image: "/images/blog/blog-generic.png"
+og_image: "/images/blog/prm-smb-ent.png"
 _uid: 810311ED-42B0-47AB-A93D-E04DEECD55E9
 ---
 Channel partnership programs, like living organisms, follow natural evolutionary paths. What begins as a scrappy initiative with a handful of partners inevitably transforms—often messily—into a sophisticated ecosystem with distinct needs, processes, and governance structures. This evolution isn't simply about adding more partners or generating increased revenue; it's a metamorphosis that demands different approaches, tools, and mindsets at each stage.
