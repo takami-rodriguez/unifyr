@@ -18,7 +18,8 @@ const Hero = () => {
       </div>
       <div className="relative z-50">
         <h1 className="mx-auto max-w-2xl pt-6 font-heading text-5xl font-extrabold leading-[3.5rem] md:pt-20 md:text-center md:text-7xl md:leading-[5rem]">
-          <span style={gradientText}>Growth</span> happens in good company
+          Bringing the Channel together, {" "}
+          <span style={gradientText}>profitably.</span>
         </h1>
         <p className="mx-auto mt-8 max-w-2xl font-extralight text-grey-900/80 md:text-center md:text-xl md:leading-8">
           ZiftONE is the industry-leading solution for partner relationship
