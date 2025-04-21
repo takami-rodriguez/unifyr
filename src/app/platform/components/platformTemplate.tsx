@@ -1,7 +1,7 @@
 "use client";
 import Banner from "@/components/banner";
 import FeatureList from "@/components/featureList";
-import ImageText from "@/components/imageText";
+import ImageText from "@/components/landing/sections/imageText";
 import React from "react";
 import PlatformAccordion from "./platformAccordion";
 import PlatformHero from "./platformHero";
@@ -21,7 +21,8 @@ const PlatformTemplate = ({ data }: { data: PlatformTemplateProps }) => {
   return (
     <main>
       <PlatformHero block={data.hero} />
-      {"wistiaVideoId" in data.introSection && !!data.introSection.wistiaVideoId ? (
+      {"wistiaVideoId" in data.introSection &&
+      !!data.introSection.wistiaVideoId ? (
         <PlatformVideoSection
           block={data.introSection as PlatformWithWistiaId}
         />

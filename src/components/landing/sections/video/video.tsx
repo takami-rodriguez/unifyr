@@ -8,14 +8,13 @@ export type VideoSectionProps = {
   wistiaVideoId: string;
 } & Partial<BlockData>;
 
-// TODO: Remove in favor of `landing` component
 const VideoSection = ({
   title,
   description,
   wistiaVideoId,
 }: PropsWithChildren<VideoSectionProps>) => {
   return (
-    <section className="mx-auto py-12 max-w-screen-md">
+    <section className="mx-auto w-full max-w-screen-md">
       {title && (
         <h2 className="pb-6 text-center font-heading text-4xl font-extrabold md:text-5xl md:leading-[3.5rem]">
           {title}

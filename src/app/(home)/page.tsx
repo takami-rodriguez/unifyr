@@ -1,4 +1,4 @@
-import ImageText from "@/components/imageText";
+import ImageText from "@/components/landing/sections/imageText";
 import Hero from "./components/hero";
 import { homeSections } from "./data";
 import FeaturesAccordionSection from "@/app/(home)/components/featuresAccordionSection";

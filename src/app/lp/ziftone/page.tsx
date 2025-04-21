@@ -5,7 +5,7 @@ import LPPageTitle from "../components/pageTitle";
 import LPImage from "../components/lpImage";
 import LPListItems from "../components/lpListItems";
 import PlatformVideoSection from "@/app/platform/components/platformVideoSection";
-import ImageText from "@/components/imageText";
+import ImageText from "@/components/landing/sections/imageText";
 import PlatformJourney from "@/app/platform/components/platformJourney";
 import FeatureList from "@/components/featureList";
 import data from "../../platform/ziftone/pageData";

@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
-import './table.css';
-import Card from "@/components/ui/card";
+import "./table.css";
+import { useTableBaseContext } from "./table";
 
 type ComparisonTableRowProps = {
   feature: string;
@@ -10,11 +10,18 @@ const ComparisonTableRow: FC<ComparisonTableRowProps> = ({
   feature,
   children,
 }) => {
+  const { left, right } = useTableBaseContext();
   return (
-    <div className="contents">
-      <Card className="bg-indigo-400 text-white text-2xl font-semibold rounded-xl">{feature}</Card>
-      <Card className="bg-slate-100 rounded-xl prose">{children[0]}</Card>
-      <Card className="bg-indigo-200 rounded-xl prose">{children[1]}</Card>
+    <div className="row">
+      <div className="heading">{feature}</div>
+      <div className="left">
+        <div className="header">{left}</div>
+        {children[0]}
+      </div>
+      <div className="right">
+        <div className="header">{right}</div>
+        {children[1]}
+      </div>
     </div>
   );
 };

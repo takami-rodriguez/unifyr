@@ -2,14 +2,14 @@ import { cn } from "@/lib/cn";
 import { FC, ReactNode } from "react";
 
 type HeadingTextProps = {
-  centered?: boolean;
+  centerHeader?: boolean;
   header?: ReactNode;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, "title">;
 
 const HeadingText: FC<HeadingTextProps> = ({
   header,
   children,
-  centered,
+  centerHeader,
   className,
   ...props
 }) => {
@@ -18,7 +18,7 @@ const HeadingText: FC<HeadingTextProps> = ({
       {header && (
         <h3
           className={cn("font-heading text-5xl font-semibold", {
-            "text-center": centered,
+            "text-center": centerHeader,
           })}
         >
           {header}

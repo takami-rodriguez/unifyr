@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import Card from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -118,7 +118,7 @@ export default function HomeCarousel() {
           carouselRef={emblaRef}
           api={emblaApi}
         >
-          <CarouselContent className="ml-[calc(2rem * -2)] flex items-center">
+          <CarouselContent className="ml-[calc(2rem * -2)] flex items-stretch">
             {slides.map((slide, index) => (
               <CarouselItem
                 key={index}
@@ -127,41 +127,34 @@ export default function HomeCarousel() {
                   flex: "0 0 90%",
                 }}
               >
-                <Card className="border-0 bg-transparent bg-white shadow-none">
-                  <CardContent
-                    className={cn(
-                      "grid grid-cols-1 gap-4 p-6 md:gap-8 lg:grid-cols-2",
-                      {
-                        "max-h-[80%]": selectedIndex !== index,
-                      },
-                    )}
-                  >
-                    <div className="flex flex-col items-start justify-center gap-6">
-                      <h2
-                        className="font-heading text-4xl font-bold md:text-5xl md:leading-[56px]"
-                        dangerouslySetInnerHTML={{
-                          __html: slide.title.replace(
-                            new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),
-                            (match) =>
-                              renderToString(
-                                <span style={gradientText}>{match}</span>,
-                              ),
-                          ),
-                        }}
-                      />
-                      <p className="leading-relaxed text-grey-900/80 md:text-xl">
-                        {slide.description}
-                      </p>
-                      {/* <Button variant={"outline"} fullWidth={tablet || mobile}>
+                <Card className="grid h-full grid-cols-1 gap-4 bg-slate-50 p-6 shadow-none md:gap-8 lg:grid-cols-2">
+                  <div className="flex flex-col items-start justify-center gap-6">
+                    <h2
+                      className="font-heading text-4xl font-bold md:text-5xl md:leading-[56px]"
+                      dangerouslySetInnerHTML={{
+                        __html: slide.title.replace(
+                          new RegExp(`\\b${slide.titleHighlight}\\b`, "i"),
+                          (match) =>
+                            renderToString(
+                              <span style={gradientText}>{match}</span>,
+                            ),
+                        ),
+                      }}
+                    />
+                    <p className="leading-relaxed text-grey-900/80 md:text-xl">
+                      {slide.description}
+                    </p>
+                    {/* <Button variant={"outline"} fullWidth={tablet || mobile}>
                         {slide.cta}
                       </Button> */}
-                    </div>
+                  </div>
+                  <div className="flex flex-col items-start justify-center">
                     <img
                       src={slide.image}
                       alt={slide.cta}
                       className="rounded-2xl object-contain object-center lg:object-right"
                     />
-                  </CardContent>
+                  </div>
                 </Card>
               </CarouselItem>
             ))}

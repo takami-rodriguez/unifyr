@@ -8,3 +8,12 @@ h1,h2,h3,h4,h5,h6 {
 p {
   @apply text-grey-900/80;
 }
+
+@layer utilities {
+  .u-gradient-text{
+    background: radial-gradient(330.41% 146% at 12.59% -31.25%, #D70E86 0%, #703B96 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

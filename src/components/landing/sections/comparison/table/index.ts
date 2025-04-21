@@ -1,4 +1,4 @@
-import { default as ComparisonTableBase } from './base';
+import { default as ComparisonTableBase } from './table';
 import { default as Row } from './row';
 
 const ComparisonTable = ComparisonTableBase as typeof ComparisonTableBase & {

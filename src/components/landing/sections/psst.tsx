@@ -2,6 +2,7 @@
 import React from "react";
 import { gradientText } from "@/data/styleHelpers";
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 async function getLogoBase64(domain: string): Promise<string> {
   const response = await fetch(`/retrieve-logo?domain=${domain}`, {
@@ -47,9 +48,9 @@ const Company = () => {
 export default function Psst() {
   return (
     <>
-      <section className="flex w-full items-center justify-center px-2 py-8">
+      <section className="flex w-full items-center justify-center px-2">
         <div className="flex h-[64px] w-[64px] items-center justify-center rounded-sm bg-white">
-          <img src="/favicon.ico" width="44" />
+          <Image src="/favicon.ico" alt="Unifyr Logo" width="44" height="44" />
         </div>
         <React.Suspense>
           <CompanyLogo />
@@ -57,11 +58,11 @@ export default function Psst() {
       </section>
       <React.Suspense>
         <div className="mx-auto px-2 text-center md:max-w-3xl">
-          <h1 className="font-heading text-5xl font-bold leading-[3.5rem] text-grey-900 md:pt-20]">
+          <h1 className="md:pt-20 font-heading text-5xl font-bold leading-[3.5rem] text-grey-900">
             Hey <Company />,
             <br />
-            Maximize your channel potential with{" "}
-            <span style={gradientText}>customizable solutions</span>
+            Maximize your channel potential with
+            <span className="u-gradient-text"> customizable solutions</span>
           </h1>
         </div>
       </React.Suspense>

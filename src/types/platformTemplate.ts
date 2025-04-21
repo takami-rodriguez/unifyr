@@ -1,5 +1,5 @@
 import { ButtonTypeProps } from "@/app/platform/components/platformHero/buttons";
-import { ImageTextProps } from "@/components/imageText";
+import { ImageTextProps } from "@/components/landing/sections/imageText";
 import { ButtonVariant } from "@/components/ui/button";
 import { NavLink } from "@/data/navLinks";
 import { ReactNode } from "react";

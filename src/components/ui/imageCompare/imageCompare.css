@@ -1,0 +1,6 @@
+.imageCompare__handle .__rcs-handle-arrow {
+  /** Overriding vendor styles of react-compare-slider */
+  border-bottom-width: 5px !important;
+  border-top-width: 5px !important;
+  border-right-width: 6px !important;
+}
