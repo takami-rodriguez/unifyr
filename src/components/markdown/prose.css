@@ -7,18 +7,23 @@
     a {
       @apply text-pink underline;
     }
+
     li {
-      @apply text-wrap font-serif text-xl;
+      @apply text-wrap font-resources text-xl;
     }
+
     code {
       @apply text-wrap;
     }
+
     h2 {
       @apply pt-8 text-[2.5rem] leading-[2.2rem] md:text-[2.5rem] md:leading-[2.5rem];
     }
+
     h3 {
       @apply pt-8 text-[1.75rem] leading-[1.75rem] md:text-[2rem] md:leading-[2rem];
     }
+
     p:not(li p) {
       @apply font-resources text-[1.125rem] leading-[1.75rem] md:text-[1.25rem] md:leading-[2rem];
     }
