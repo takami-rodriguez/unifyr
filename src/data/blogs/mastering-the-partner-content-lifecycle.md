@@ -4,10 +4,10 @@ excerpt: It's important to understand how your content serves you in the channel
 publishedDate: "2025-04-21T12:00:00.000Z"
 category: Marketing
 draft: false
-featuredImage: "/images/blog/x.png"
+featuredImage: "/images/blog/mastering-content.png"
 slug: infusing-prm-with-partner-intelligence
 author: brian
-og_image: "/images/blog/x.png"
+og_image: "/images/blog/mastering-content.png"
 _uid: 8ABCD1ED-ABCD-47AB-A82D-E04DEECD55Easd
 ---
 
