@@ -35,7 +35,7 @@ const AtlasPage = async ({ params }: PageProps) => {
       <div className="flex gap-8">
         <TOCSidebar items={TOCitems} />
         <div className="flex-1 pl-6 md:pl-0">
-          <h1 className="font-heading text-5xl font-bold md:text-4xl mb-4">{page.title}</h1>
+          <h1 className="mb-8 font-heading text-5xl font-bold">{page.title}</h1>
           <Markdown content={page.markdownSource} />
         </div>
       </div>
