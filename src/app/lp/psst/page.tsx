@@ -12,7 +12,7 @@ import Accordion from "@/components/landing/sections/accordion";
 
 const G2Page = () => {
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-12">
+    <div className="mx-auto flex max-w-7xl flex-col gap-12 pt-8">
       <Psst />
       <Video wistiaVideoId="zhjsfv098n" />
       <Partners title="Trusted by the world's brightest companies" />
@@ -101,7 +101,9 @@ const G2Page = () => {
       </Comparison.Table>
       <Comparison.TwoSide>
         <>
-          <h3 className="text-2xl font-semibold">What our competitors do?</h3>
+          <h3 className="text-2xl font-semibold">
+            What do our competitors do?
+          </h3>
           <p>
             Their PRM platform helps organizations streamline their channel
             management processes, ensuring efficient deal registration and lead
@@ -115,7 +117,7 @@ const G2Page = () => {
           </p>
         </>
         <>
-          <h3 className="text-2xl font-semibold">What ZiftONE does?</h3>
+          <h3 className="text-2xl font-semibold">What does ZiftONE do?</h3>
           <p>
             ZiftONE’s comprehensive platform helps businesses maximize their
             channel potential by providing a full suite of integrated tools for
@@ -133,10 +135,10 @@ const G2Page = () => {
       </Comparison.TwoSide>
       <Callout>
         <h2>
-          Need a<span className="u-gradient-text"> cost-effective </span>
+          Need a <span className="u-gradient-text">cost-effective</span>{" "}
           solution without compromising quality?
         </h2>
-        <button className="rounded-lg border border-black bg-white px-8 py-4 font-sans text-lg font-normal">
+        <button className="rounded-lg border border-black bg-white px-8 py-4 font-sans text-lg font-bold">
           Let&apos;s chat
         </button>
       </Callout>
@@ -188,7 +190,7 @@ const G2Page = () => {
           </Accordion.Section>
         </Accordion>
 
-        <div className="space-y-8 text-xl w-full">
+        <div className="w-full space-y-8 text-xl">
           <h3 className="font-semibold uppercase tracking-wider text-slate-500">
             Have questions?
           </h3>

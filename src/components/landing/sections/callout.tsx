@@ -6,7 +6,7 @@ export default function Callout({ className, ...props }: CalloutProps) {
   return (
     <div
       className={cn(
-        "px-20 py-14 text-center rounded-lg md:rounded-3xl flex-col items-center flex gap-12 bg-slate-300 font-heading text-5xl font-bold leading-[3.5rem] text-grey-900",
+        "flex flex-col items-center gap-12 rounded-lg bg-slate-300 px-20 py-14 text-center font-heading text-5xl font-bold leading-[3.5rem] text-grey-900 md:rounded-3xl",
         className,
       )}
       {...props}

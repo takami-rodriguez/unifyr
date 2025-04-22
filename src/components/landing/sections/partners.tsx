@@ -35,16 +35,16 @@ export default function Partners({
         <Image
           width={48}
           height={48}
-          className="h-13 w-auto"
-          src="/images/partners/LG.svg"
-          alt="LG"
+          className="h-7 w-auto"
+          src="/images/partners/crowdstrike.svg"
+          alt="Crowdstrike"
         />
         <Image
           width={48}
           height={48}
-          className="h-8 w-auto"
-          src="/images/partners/DELL.svg"
-          alt="DELL"
+          className="h-13 w-auto"
+          src="/images/partners/LG.svg"
+          alt="LG"
         />
         <Image
           width={48}

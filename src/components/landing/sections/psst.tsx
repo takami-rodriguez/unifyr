@@ -58,11 +58,13 @@ export default function Psst() {
       </section>
       <React.Suspense>
         <div className="mx-auto px-2 text-center md:max-w-3xl">
-          <h1 className="md:pt-20 font-heading text-5xl font-bold leading-[3.5rem] text-grey-900">
+          <h1 className="font-heading text-5xl font-bold leading-[3.5rem] text-grey-900 md:pt-10">
             Hey <Company />,
             <br />
-            Maximize your channel potential with
-            <span className="u-gradient-text"> customizable solutions</span>
+            Let's explore what a <span className="u-gradient-text">
+              better
+            </span>{" "}
+            channel partnership program looks like.
           </h1>
         </div>
       </React.Suspense>
