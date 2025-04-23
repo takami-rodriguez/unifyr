@@ -7,9 +7,10 @@ import { rehypeMutateAST } from "./rehypeMutateAST";
 import remarkSmartypants from "remark-smartypants";
 import remarkDirective from "remark-directive";
 import remarkDirectiveRehype from "remark-directive-rehype";
-import rehypeComponents from "rehype-components";
+import rehypeComponents, { ComponentFunction } from "rehype-components";
 import { h } from "hastscript";
-import type { Element } from "hast";
+import type { Element, Properties } from "hast";
+import { HPrimitiveChild } from "hastscript/lib/core";
 
 /**
  * Converts markdown source to HTML string to be rendered via dangerouslySetInnerHTML
@@ -46,55 +47,74 @@ export const markdownToHTML = async (
   return file.toString();
 };
 
-function ProductAd(properties: Record<string, any>): Element {
-  const {
-    src,
-    alt,
-    title,
-    description,
-    buttonText = "Learn More",
-    buttonUrl,
-  } = properties;
+type ProductAdProperties =
+  | Properties
+  | {
+      src: string;
+      alt: string;
+      title: string;
+      description: string;
+      buttonUrl: string;
+      buttonText: string;
+    };
 
+const ProductAd: ComponentFunction = ({
+  src,
+  alt,
+  title,
+  description,
+  buttonUrl,
+  buttonText = "Learn more",
+}: ProductAdProperties): Element => {
   // Create the product ad HTML structure using hastscript
   return h(
-    "div",
+    "section",
     {
       className:
-        "flex flex-col md:flex-row border border-gray-200 rounded-lg overflow-hidden my-6 shadow-sm hover:shadow-md transition-shadow duration-300",
+        "gradient-shadow flex flex-col flex-col-reverse md:flex-row border border-gray-200 my-6 lg:-mx-[1rem] rounded-lg",
     },
     [
       // Left side - Image container
-      h("div", { className: "w-full md:w-2/5 bg-gray-50" }, [
+      h("div", { className: "w-full md:w-2/5" }, [
         h("img", {
           src,
           alt: alt || title,
-          className: "w-full h-full object-cover",
+          className:
+            "my-0 w-full h-full object-cover",
         }),
       ]),
 
       // Right side - Content container
       h(
         "div",
-        { className: "w-full md:w-3/5 p-6 flex flex-col justify-center" },
+        {
+          className:
+            "w-full md:w-3/5 p-6 flex flex-col justify-center bg-white",
+        },
         [
           h(
             "h3",
-            { className: "text-xl font-semibold text-gray-900 mb-3" },
-            title,
+            {
+              className: "mt-0 pt-0 text-2xl font-semibold text-gray-900 mb-3",
+            },
+            title as HPrimitiveChild,
           ),
-          h("p", { className: "text-gray-600 mb-5" }, description),
+          h(
+            "p",
+            { className: "text-gray-600 mb-5 font-sans leading-6" },
+            description as HPrimitiveChild,
+          ),
           h(
             "a",
             {
               href: buttonUrl,
               className:
-                "inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200 text-center self-start",
+                "inline-block bg-secondary text-white py-2 px-4 rounded transition-colors duration-200 text-center self-start no-underline font-bold hover:bg-secondary/90",
             },
-            buttonText,
+            buttonText as HPrimitiveChild,
           ),
         ],
       ),
     ],
   ) as Element;
-}
+};

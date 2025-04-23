@@ -4,7 +4,7 @@
 
 @layer base {
   .prose {
-    a {
+    a:not(section a) {
       @apply text-pink underline;
     }
 
@@ -16,16 +16,34 @@
       @apply text-wrap;
     }
 
-    h2 {
+    h2:not(section h2) {
       @apply pt-8 text-[2.5rem] leading-[2.2rem] md:text-[2.5rem] md:leading-[2.5rem];
     }
 
-    h3 {
+    h3:not(section h3) {
       @apply pt-8 text-[1.75rem] leading-[1.75rem] md:text-[2rem] md:leading-[2rem];
     }
 
-    p:not(li p) {
+    p:not(section p):not(li p) {
       @apply font-resources text-[1.125rem] leading-[1.75rem] md:text-[1.25rem] md:leading-[2rem];
     }
+  }
+}
+
+@layer components {
+  section.gradient-shadow {
+    @apply relative z-10;
+
+    div:first-child>img {
+      @apply rounded-bl-lg rounded-br-lg md:rounded-none md:rounded-tl-lg md:rounded-bl-lg;
+    }
+
+    div:nth-of-type(2) {
+      @apply rounded-tl-lg rounded-tr-lg md:rounded-none md:rounded-tr-lg md:rounded-br-lg;
+    }
+  }
+
+  section.gradient-shadow::after {
+    @apply -z-10 content-[''] absolute -inset-2 rounded-lg bg-gradient-to-r from-secondary via-pink to-primary opacity-50 blur-lg;
   }
 }
