@@ -13,20 +13,21 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PartnersIcon from "@/components/icons/partners";
 import SupplierIcon from "@/components/icons/supplier";
 import AgencyIcon from "@/components/icons/agency";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import { useTabButton } from "./useTabButton";
 import { usePrevNextButtons } from "./usePrevNextButtons";
 import { bgGradient, gradientText } from "@/data/styleHelpers";
 import { renderToString } from "react-dom/server";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface SlideContent {
   title: string;
   titleHighlight: string;
   description: string;
-  cta: string;
   image: string;
+  cta: string;
+  url?: string;
 }
 
 const slides: SlideContent[] = [
@@ -37,6 +38,7 @@ const slides: SlideContent[] = [
     description:
       "ZiftONE's PRM, TCMA, and LMS platform reveals the full story behind channel activity, turning partner engagement into business intelligence. ZiftONE integrates natively with Unifyr+ to provide partners with the latest content and updates.",
     cta: "Discover ZiftONE",
+    url: "/platform/ziftone/",
   },
   {
     title: "Where channel expertise meets new opportunity",
@@ -53,6 +55,7 @@ const slides: SlideContent[] = [
     description:
       "We've redesigned how partners engage with their suppliers. Through one interface, partners orchestrate all of their supplier relationships with the assistance of a personalized AI advisor that understands each supplier on a deeper level.",
     cta: "Discover Unifyr+",
+    url: "/platform/unifyr-plus/",
   },
 ];
 
@@ -144,9 +147,13 @@ export default function HomeCarousel() {
                     <p className="leading-relaxed text-grey-900/80 md:text-xl">
                       {slide.description}
                     </p>
-                    {/* <Button variant={"outline"} fullWidth={tablet || mobile}>
-                        {slide.cta}
-                      </Button> */}
+                    {slide.url ? (
+                      <Link href={slide.url}>
+                        <Button variant={"outline"}>{slide.cta}</Button>
+                      </Link>
+                    ) : (
+                      <p className="pointer-events-none text-gray-400">Coming soon</p>
+                    )}
                   </div>
                   <div className="flex flex-col items-start justify-center">
                     <img
