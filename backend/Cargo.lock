@@ -320,9 +320,9 @@ checksum = "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"
 
 [[package]]
 name = "fastly"
-version = "0.11.2"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "52427cf825d145acbb8c30198df4df0d9ac34b3b727d006a42c648393bb5f73b"
+checksum = "263eea7ceb6bc4d28a98006586004eb3a6694d3a7b8a9030d4f37601fe3b9a85"
 dependencies = [
  "anyhow",
  "bytes",
@@ -337,6 +337,7 @@ dependencies = [
  "mime",
  "serde",
  "serde_json",
+ "serde_repr",
  "serde_urlencoded",
  "sha2",
  "smallvec",
@@ -347,9 +348,9 @@ dependencies = [
 
 [[package]]
 name = "fastly-macros"
-version = "0.11.2"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62dbd089072fd0c81a60cc280fa791d47f1d638bef920f4249c90bc8f1c17ea9"
+checksum = "59c481088d79c3c386ef0766ed9761acb426526a75278158ecf29c8f466dc27d"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -358,9 +359,9 @@ dependencies = [
 
 [[package]]
 name = "fastly-shared"
-version = "0.11.2"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7472f43d72061834542e2f5dc11d3d2918fe7d06248c31decd893a614408d7c"
+checksum = "076e38ea5ef68f5c73772bc9da8969a81574355dc455a10bbb4b8ad3865aefee"
 dependencies = [
  "bitflags 1.3.2",
  "http",
@@ -368,9 +369,9 @@ dependencies = [
 
 [[package]]
 name = "fastly-sys"
-version = "0.11.2"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9b602c2dbe901ddf49e2c1a2fda9e335a15cda8d3bf442183f048bc4de25810e"
+checksum = "6b986842c5e71e9fa50ff78157b834f21f68e37b333041713f11f0d8df43d9d4"
 dependencies = [
  "bitflags 1.3.2",
  "fastly-shared",
@@ -528,9 +529,9 @@ dependencies = [
 
 [[package]]
 name = "getrandom"
-version = "0.2.15"
+version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4567c8db10ae91089c99af84c68c38da3ec2f087c3f82960bcdbf3656b6f4d7"
+checksum = "335ff9f135e4384c8150d6f27c6daed433577f86b4750418338c01a1a2528592"
 dependencies = [
  "cfg-if",
  "libc",
@@ -1169,7 +1170,7 @@ version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
 dependencies = [
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
 ]
 
 [[package]]
@@ -1236,7 +1237,7 @@ checksum = "a4689e6c2294d81e88dc6261c768b63bc4fcdb852be6d1352498b114f61383b7"
 dependencies = [
  "cc",
  "cfg-if",
- "getrandom 0.2.15",
+ "getrandom 0.2.16",
  "libc",
  "untrusted",
  "windows-sys 0.52.0",
@@ -1326,6 +1327,17 @@ dependencies = [
  "memchr",
  "ryu",
  "serde",
+]
+
+[[package]]
+name = "serde_repr"
+version = "0.1.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "175ee3e80ae9982737ca543e96133087cbd9a485eecc3bc4de9c1a37b47ea59c"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.100",
 ]
 
 [[package]]
