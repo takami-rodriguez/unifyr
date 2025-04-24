@@ -1,5 +1,5 @@
 ---
-title: What is channel marketing?
+title: What is Channel Marketing?
 atlasTerm: Channel Marketing
 slug: channel-marketing
 ---
@@ -10,7 +10,7 @@ At its core, channel marketing acknowledges the complex reality of B2B marketing
 
 **The effectiveness of channel marketing hinges on creating mutual value** rather than simply pushing products through distribution chains. This requires developing sophisticated frameworks for partner selection, enablement, motivation, and performance management—all while maintaining enough flexibility to adapt to changing market conditions. The modern channel marketer must skillfully balance providing sufficient structure to guide partners while allowing enough autonomy for them to leverage their unique strengths and market positions.
 
-::product-ad{src="/images/home/carousel/supplier.svg" title="Implement our channel partnership strategies" description="ZiftONE is PRM for enterprise. Our implementation experts are prepared to help you build your channel partnership program each step of the way. Join us today." buttonUrl="/platform/ziftone/"}
+::product-ad{src="/images/home/carousel/supplier.svg" title="Implement our channel marketing strategies" description="ZiftONE is PRM for enterprise. Our implementation experts are prepared to help you build your channel partnership program each step of the way. Join us today." buttonUrl="/platform/ziftone/"}
 
 ### Distinguishing Channel Marketing from Direct Marketing
 

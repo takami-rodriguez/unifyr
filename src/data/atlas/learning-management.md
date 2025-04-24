@@ -1,5 +1,5 @@
 ---
-title: What is learning management?
+title: What is Learning Management?
 atlasTerm: Learning Management
 slug: learning-management
 ---

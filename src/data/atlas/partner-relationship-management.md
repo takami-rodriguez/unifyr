@@ -1,5 +1,5 @@
 ---
-title: What is partner relationship management?
+title: What is Partner Relationship Management?
 atlasTerm: Partner Relationship Management
 slug: partner-relationship-management
 ---

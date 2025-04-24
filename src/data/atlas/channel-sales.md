@@ -1,5 +1,5 @@
 ---
-title: What is channel sales?
+title: What is Channel Sales?
 atlasTerm: Channel Sales
 slug: channel-sales
 ---

@@ -1,5 +1,5 @@
 ---
-title: What is partner enablement?
+title: What is Partner Enablement?
 atlasTerm: Partner Enablement
 slug: partner-enablement
 ---
