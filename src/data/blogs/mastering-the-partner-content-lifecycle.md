@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: "/images/blog/mastering-content.webp"
 slug: mastering-the-partner-content-lifecycle
-author: brian
+author: unifyr
 og_image: "/images/blog/mastering-content.webp"
 _uid: 8ABCD1ED-ABCD-47AB-A82D-E04DEECD55Easd
 ---

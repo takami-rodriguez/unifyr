@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: ""
 slug: introducing-unifyrone-prm
-author: brian
+author: unifyr
 og_image: ""
 _uid: 810311ED-42B0-47AB-A82C-E04DEECD55E9
 ---

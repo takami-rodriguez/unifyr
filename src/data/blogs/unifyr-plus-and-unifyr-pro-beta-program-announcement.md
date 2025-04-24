@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: "/images/image.png"
 slug: unifyr-plus-and-unifyr-pro-beta-program-announcement
-author: brian
+author: unifyr
 plugin: "Unifyr+ & Unifyr Pro: Beta program announcement"
 og_image: "/images/caseStudy.jpeg"
 og_title: "Unifyr+ & Unifyr Pro: Beta program announcement"

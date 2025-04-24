@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: "/images/blog/prm-smb-ent.png"
 slug: prm-from-smb-to-enterprise
-author: brian
+author: unifyr
 og_image: "/images/blog/prm-smb-ent.png"
 _uid: 810311ED-42B0-47AB-A93D-E04DEECD55E9
 ---

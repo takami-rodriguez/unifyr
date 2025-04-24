@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: "/images/image.png"
 slug: a-new-opportunity-for-partner-enablement
-author: brian
+author: unifyr
 og_image: "/images/blog/blog-generic.png"
 _uid: 810311ED-42B0-47AB-A82D-E04DEECD55E9
 ---

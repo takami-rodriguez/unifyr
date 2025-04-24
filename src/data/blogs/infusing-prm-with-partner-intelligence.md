@@ -6,7 +6,7 @@ category: Marketing
 draft: false
 featuredImage: "/images/image.png"
 slug: infusing-prm-with-partner-intelligence
-author: brian
+author: unifyr
 og_image: "/images/blog/image.png"
 _uid: 810311ED-ABCD-47AB-A82D-E04DEECD55Easd
 ---
