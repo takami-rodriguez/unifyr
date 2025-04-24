@@ -1,16 +1,15 @@
+import type { Element, Properties } from "hast";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkFrontmatter from "remark-frontmatter";
-import { rehypeMutateAST } from "./rehypeMutateAST";
 import remarkSmartypants from "remark-smartypants";
 import remarkDirective from "remark-directive";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import rehypeComponents, { ComponentFunction } from "rehype-components";
-import { h } from "hastscript";
-import type { Element, Properties } from "hast";
-import { HPrimitiveChild } from "hastscript/lib/core";
+import { rehypeMutateAST } from "./rehypeMutateAST";
+import { Child, h } from "hastscript";
 import rehypeRaw from "rehype-raw";
 
 /**
@@ -98,12 +97,12 @@ const ProductAd: ComponentFunction = ({
             {
               className: "mt-0 pt-0 text-2xl font-semibold text-gray-900 mb-3",
             },
-            title as HPrimitiveChild,
+            title as Child,
           ),
           h(
             "p",
             { className: "text-gray-600 mb-5 font-sans leading-6" },
-            description as HPrimitiveChild,
+            description as Child,
           ),
           h(
             "a",
@@ -112,7 +111,7 @@ const ProductAd: ComponentFunction = ({
               className:
                 "inline-block bg-secondary text-white py-2 px-4 rounded transition-colors duration-200 text-center self-start no-underline font-bold hover:bg-secondary/90",
             },
-            buttonText as HPrimitiveChild,
+            buttonText as Child,
           ),
         ],
       ),

@@ -29,6 +29,7 @@
     "date-fns": "^4",
     "embla-carousel-react": "^8",
     "framer-motion": "^12",
+    "hastscript": "^9.0.1",
     "lucide-react": "^0.482",
     "next": "15",
     "next-sitemap": "^4",
