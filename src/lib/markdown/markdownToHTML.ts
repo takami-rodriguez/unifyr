@@ -11,6 +11,7 @@ import rehypeComponents, { ComponentFunction } from "rehype-components";
 import { h } from "hastscript";
 import type { Element, Properties } from "hast";
 import { HPrimitiveChild } from "hastscript/lib/core";
+import rehypeRaw from "rehype-raw";
 
 /**
  * Converts markdown source to HTML string to be rendered via dangerouslySetInnerHTML
@@ -31,6 +32,7 @@ export const markdownToHTML = async (
     .use(remarkRehype, {
       allowDangerousHtml: true,
     })
+    .use(rehypeRaw)
     .use(rehypeComponents, {
       components: {
         "product-ad": ProductAd,
@@ -79,8 +81,7 @@ const ProductAd: ComponentFunction = ({
         h("img", {
           src,
           alt: alt || title,
-          className:
-            "my-0 w-full h-full object-cover",
+          className: "my-0 w-full h-full object-cover",
         }),
       ]),
 
