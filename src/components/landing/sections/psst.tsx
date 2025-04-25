@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { gradientText } from "@/data/styleHelpers";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
@@ -35,11 +34,11 @@ const CompanyLogo = () => {
 
 const Company = () => {
   const params = useSearchParams();
-  const [name, setName] = React.useState<string | null>(null);
+  const [name, setName] = React.useState<string>("there");
 
   React.useEffect(() => {
     const value = params.get("name");
-    setName(value);
+    if (value) setName(value);
   }, [params]);
 
   return name;
